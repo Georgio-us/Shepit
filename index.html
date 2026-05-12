@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shepit House — Таунхауси та дуплекси під Києвом</title>
+    <meta name="description" content="Преміальні таунхауси та дуплекси під Києвом. 15 хвилин до метро Героїв Дніпра. Закрита територія, власні двори, поруч ліс та вода.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav id="navbar" class="site-nav">
+        <div class="shell site-nav__inner">
+            <a href="/" class="site-nav__brand">
+                <span class="site-nav__logo">SH</span>
+                <span class="site-nav__brand-text">Shepit<br>House</span>
+            </a>
+
+            <ul class="site-nav__menu">
+                <li><a href="#about">Про містечко</a></li>
+                <li><a href="#planning">Проєкти</a></li>
+                <li><a href="#progress">Хід будівництва</a></li>
+                <li><a href="#location">Локація</a></li>
+                <li><a href="#blog">Блог</a></li>
+            </ul>
+
+            <div class="site-nav__actions">
+                <a href="tel:+380671234567" class="site-nav__phone">+38 (067) 123 45 67</a>
+                <button type="button" onclick="openModal('lead-modal')" class="btn-nav-cta">Отримати ціну</button>
+                <button type="button" class="site-nav__burger" aria-label="Меню"><i class="ph ph-list"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="shell hero__grid">
+            <div class="hero__content reveal-left">
+                <div class="hero__kicker">
+                    <span class="hero__kicker-line" aria-hidden="true"></span>
+                    <span class="hero__kicker-text">Преміальна нерухомість</span>
+                </div>
+
+                <h1 class="hero__title">
+                    Там, де <br>
+                    <span class="hero__title-accent">закінчується місто —</span><br>
+                    починається життя
+                </h1>
+
+                <p class="hero__lead">
+                    Сучасні таунхауси та дуплекси 100–120 м² з власним двором. Лише 15 хвилин від Києва до вашого спокою.
+                </p>
+
+                <div class="hero__facts">
+                    <div class="hero__fact">
+                        <div class="hero__fact-icon"><i class="ph ph-subway"></i></div>
+                        <p class="hero__fact-text">15 хв до метро<br><span>Героїв Дніпра</span></p>
+                    </div>
+                    <div class="hero__fact">
+                        <div class="hero__fact-icon"><i class="ph ph-tree"></i></div>
+                        <p class="hero__fact-text">15 хв пішки<br><span>до лісу та води</span></p>
+                    </div>
+                </div>
+
+                <button type="button" onclick="openModal('lead-modal')" class="btn-hero">
+                    <span>Отримати планування</span>
+                    <i class="ph ph-arrow-right btn-hero__icon" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="hero__media">
+            <div class="hero__grad-r" aria-hidden="true"></div>
+            <div class="hero__grad-b" aria-hidden="true"></div>
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1600&q=80" alt="Таунхауси Shepit House">
+        </div>
+    </header>
+
+    <section id="about" class="section section--bg">
+        <div class="shell">
+            <div class="two-col">
+                <div onclick="openModal('video-modal')" class="video-thumb img-hover-zoom reveal" role="button" tabindex="0">
+                    <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1200&q=80" alt="Емоція життя за містом">
+                    <div class="video-thumb__overlay">
+                        <div class="video-thumb__play">
+                            <span class="video-thumb__ping" aria-hidden="true"></span>
+                            <i class="ph-fill ph-play" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal delay-100">
+                    <h2 class="heading-xl">
+                        Уявіть свій <br><span class="accent">ранок</span> тут
+                    </h2>
+                    <p class="lead">
+                        Тиша, свіже повітря та простір, де все створено для вашого комфорту. Почніть день із кави на власній терасі, насолоджуючись спокоєм.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits" class="section section--bg-alt section--border-y">
+        <div class="shell">
+            <div class="benefits-layout">
+                <div class="benefits-layout__title reveal">
+                    <h2 class="heading-lg">
+                        Shepit House — <br>саме для вас, якщо...
+                    </h2>
+                </div>
+
+                <div class="benefits-layout__grid">
+                    <div class="benefit-item reveal delay-100">
+                        <i class="ph ph-house-line" aria-hidden="true"></i>
+                        <p>Вам хочеться прокидатись у тиші, а не під шум міста</p>
+                    </div>
+                    <div class="benefit-item reveal delay-200">
+                        <i class="ph ph-coffee" aria-hidden="true"></i>
+                        <p>Пити каву не "на балконі", а на власній терасі</p>
+                    </div>
+                    <div class="benefit-item reveal delay-100">
+                        <i class="ph ph-users" aria-hidden="true"></i>
+                        <p>Мати безпечне місце, де діти можуть рости вільно</p>
+                    </div>
+                    <div class="benefit-item reveal delay-200">
+                        <i class="ph ph-flower-lotus" aria-hidden="true"></i>
+                        <p>Мати простір не тільки в будинку, а й у житті</p>
+                    </div>
+                    <div class="benefit-item benefit-item--wide reveal delay-300">
+                        <i class="ph ph-heart" aria-hidden="true"></i>
+                        <p>Повертатись додому і відчувати абсолютний спокій</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="planning" class="section section--bg">
+        <div class="shell">
+            <div class="plan-intro">
+                <div class="plan-intro__title reveal">
+                    <h2 class="heading-md">Проєкти таунхаусів та дуплексів під Києвом</h2>
+                </div>
+                <div class="plan-intro__text reveal delay-100">
+                    <p class="lead">
+                        У Shepit House всього 4 таунхауси та 4 дуплекси. Ми свідомо створили невеликий простір без щільної забудови — щоб тут залишалось головне: тиша, приватність і відчуття дому.
+                    </p>
+                </div>
+            </div>
+
+            <div class="plan-cards">
+                <a href="#" onclick="openDynamicModal('Проєкт 100–120 м²', 'Продуманий простір для життя: велика кухня-вітальня на першому поверсі, 3 спальні на другому, панорамні вікна та вихід на власну терасу. Ідеально для сім\'ї.', 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80', 'Отримати детальне планування'); return false;" class="plan-card transition-all-custom reveal">
+                    <div class="plan-card__img-wrap img-hover-zoom">
+                        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=600&q=80" alt="Проєкт таунхауса">
+                    </div>
+                    <div class="plan-card__body">
+                        <div>
+                            <h3 class="plan-card__title">100–120 м²</h3>
+                            <p class="plan-card__subtitle">Продуманого простору для життя</p>
+                        </div>
+                        <span class="plan-card__link">Детальніше <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+                    </div>
+                </a>
+                <a href="#" onclick="openDynamicModal('Власний двір до 2 соток', 'Власна закрита територія позаду будинку. Тут можна облаштувати зону барбекю, поставити басейн для дітей або створити власний сад для ранкової кави.', 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80', 'Записатись на перегляд'); return false;" class="plan-card transition-all-custom reveal delay-100">
+                    <div class="plan-card__img-wrap img-hover-zoom">
+                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" alt="Власний двір">
+                    </div>
+                    <div class="plan-card__body">
+                        <div>
+                            <h3 class="plan-card__title">До 2 соток</h3>
+                            <p class="plan-card__subtitle">Власного закритого двору</p>
+                        </div>
+                        <span class="plan-card__link">Детальніше <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+                    </div>
+                </a>
+                <a href="#" onclick="openDynamicModal('2 паркомісця', 'Вам більше не доведеться шукати місце для авто. Перед кожним будинком передбачено 2 власних паркомісця з можливістю встановлення зарядної станції для електромобіля.', 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80', 'Дізнатись умови'); return false;" class="plan-card transition-all-custom reveal delay-200">
+                    <div class="plan-card__img-wrap img-hover-zoom">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" alt="Парковка">
+                    </div>
+                    <div class="plan-card__body">
+                        <div>
+                            <h3 class="plan-card__title">2 паркомісця</h3>
+                            <p class="plan-card__subtitle">Біля кожного будинку</p>
+                        </div>
+                        <span class="plan-card__link">Детальніше <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+                    </div>
+                </a>
+                <a href="#" onclick="openDynamicModal('Каталог планувань', 'Ми розробили кілька варіантів планувальних рішень для таунхаусів та дуплексів. Завантажте повний каталог, щоб обрати той, що підходить саме вашій родині.', 'https://images.unsplash.com/photo-1600566753086-00f18efc2295?auto=format&fit=crop&w=1200&q=80', 'Завантажити PDF-каталог'); return false;" class="plan-card transition-all-custom reveal delay-300">
+                    <div class="plan-card__img-wrap img-hover-zoom">
+                        <img src="https://images.unsplash.com/photo-1600566753086-00f18efc2295?auto=format&fit=crop&w=600&q=80" alt="Планування">
+                    </div>
+                    <div class="plan-card__body">
+                        <div>
+                            <h3 class="plan-card__title">Всі планування</h3>
+                            <p class="plan-card__subtitle">Каталог таунхаусів та дуплексів</p>
+                        </div>
+                        <span class="plan-card__link">Дивитись каталог <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="pricing-banner reveal">
+                <div class="pricing-banner__text">
+                    <p class="pricing-banner__label">Вартість резиденцій</p>
+                    <p class="pricing-banner__price">від 89 100$ до 114 000$</p>
+                    <p class="pricing-banner__note">Можливе зручне розтермінування від забудовника</p>
+                </div>
+                <button type="button" onclick="openModal('lead-modal')" class="btn-dark">Отримати прайс</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="specs" class="section section--bg-alt section--border-t">
+        <div class="shell">
+            <div class="specs-layout">
+                <div class="specs-layout__intro reveal">
+                    <h2 class="heading-lg" style="margin-bottom: 2rem;">Продумано не лише для краси, а й для комфорту на роки</h2>
+                    <p class="lead text-muted">
+                        У Shepit House ми приділили увагу не лише атмосфері простору, а й якості будівництва — щоб будинок залишався надійним і енергоефективним у будь-яку пору року.
+                    </p>
+                </div>
+
+                <div class="specs-layout__grid-wrap reveal delay-100">
+                    <div class="specs-grid">
+                        <div class="spec-cell">
+                            <i class="ph ph-columns" aria-hidden="true"></i>
+                            <h3>Фундамент</h3>
+                            <p>Монолітно-каркасний</p>
+                        </div>
+                        <div class="spec-cell">
+                            <i class="ph ph-wall" aria-hidden="true"></i>
+                            <h3>Стіни</h3>
+                            <p>Газоблок</p>
+                        </div>
+                        <div class="spec-cell">
+                            <i class="ph ph-stack" aria-hidden="true"></i>
+                            <h3>Поверховість</h3>
+                            <p>2 повноцінні поверхи</p>
+                        </div>
+                        <div class="spec-cell">
+                            <i class="ph ph-house-line" aria-hidden="true"></i>
+                            <h3>Покрівля</h3>
+                            <p>Утеплення мінватою</p>
+                        </div>
+                        <div class="spec-cell">
+                            <i class="ph ph-shield-check" aria-hidden="true"></i>
+                            <h3>Утеплення стін</h3>
+                            <p>Мінвата + пінопласт</p>
+                        </div>
+                        <div class="spec-cell">
+                            <i class="ph ph-squares-four" aria-hidden="true"></i>
+                            <h3>Перекриття</h3>
+                            <p>Збірні залізобетонні плити</p>
+                        </div>
+                        <div class="spec-cell">
+                            <i class="ph ph-steps" aria-hidden="true"></i>
+                            <h3>Сходи</h3>
+                            <p>Залізобетонні монолітні</p>
+                        </div>
+                        <div class="spec-cell">
+                            <i class="ph ph-windows-logo" aria-hidden="true"></i>
+                            <h3>Вікна</h3>
+                            <p>Двокамерні, профіль шестикамерний</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="progress" class="section section--bg section--border-t section--overflow-hidden">
+        <div class="shell">
+            <div class="section-head reveal">
+                <div>
+                    <h2 class="section-head__title">Хід будівництва</h2>
+                    <p class="lead">Ми регулярно оновлюємо інформацію з будівельного майданчика, щоб ви могли спостерігати за тим, як створюється ваш дім.</p>
+                </div>
+                <a href="#" onclick="openDynamicModal('Вся галерея об\'єкту', 'Тут буде розташована повноцінна сторінка з усіма фотографіями та відеозвітами з будівельного майданчика за кожен місяць.', 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80', 'Записатись на перегляд'); return false;" class="link-arrow">Вся галерея <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+            </div>
+
+            <div class="gallery-grid">
+                <a href="#" onclick="openDynamicModal('Зведення стін (Жовтень 2025)', 'Завершено зведення несучих стін першого поверху у першій черзі таунхаусів. Використано якісний газоблок.', 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80'); return false;" class="gallery-tile reveal delay-100">
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80" alt="Етап будівництва фундаменту">
+                    <div class="gallery-tile__cap">
+                        <p class="gallery-tile__date">Жовтень 2025</p>
+                        <p class="gallery-tile__title">Зведення стін першого поверху</p>
+                    </div>
+                </a>
+                <a href="#" onclick="openDynamicModal('Заливка фундаменту (Вересень 2025)', 'Надійна основа майбутнього дому. Виконали заливку монолітно-каркасного фундаменту з дотриманням усіх технологічних норм.', 'https://images.unsplash.com/photo-1621416894569-0f39ed31d247?auto=format&fit=crop&w=1200&q=80'); return false;" class="gallery-tile reveal delay-200">
+                    <img src="https://images.unsplash.com/photo-1621416894569-0f39ed31d247?auto=format&fit=crop&w=800&q=80" alt="Будівництво стін таунхауса">
+                    <div class="gallery-tile__cap">
+                        <p class="gallery-tile__date">Вересень 2025</p>
+                        <p class="gallery-tile__title">Заливка фундаменту</p>
+                    </div>
+                </a>
+                <a href="#" onclick="openDynamicModal('Підготовчі роботи (Серпень 2025)', 'Розчищення ділянки, підготовка до земляних робіт та підведення тимчасових комунікацій для старту будівництва.', 'https://images.unsplash.com/photo-1541888086425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80'); return false;" class="gallery-tile reveal delay-300">
+                    <img src="https://images.unsplash.com/photo-1541888086425-d81bb19240f5?auto=format&fit=crop&w=800&q=80" alt="Підготовчі роботи на ділянці">
+                    <div class="gallery-tile__cap">
+                        <p class="gallery-tile__date">Серпень 2025</p>
+                        <p class="gallery-tile__title">Підготовчі роботи на ділянці</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="location" class="section section--white section--border-t">
+        <div class="shell">
+            <div class="two-col">
+                <div class="location-map reveal">
+                    <img src="https://images.unsplash.com/photo-1504681869696-d977211a5f4c?auto=format&fit=crop&w=1200&q=80" alt="Інфраструктура Вишгорода та Київське море з повітря">
+                    <div class="location-map__badge">
+                        <span class="location-map__dot" aria-hidden="true"></span>
+                        <span>Shepit House</span>
+                    </div>
+                </div>
+
+                <div class="location-text reveal delay-100">
+                    <h2 class="heading-xl" style="margin-bottom: 2rem;">Місце, де місто <br>стає тихішим</h2>
+
+                    <p class="lead text-muted" style="margin-bottom: 3rem;">
+                        Достатньо близько до Києва, щоб залишатись у звичному ритмі. І достатньо далеко — щоб нарешті відчути тишу.
+                    </p>
+
+                    <div class="location-cards">
+                        <div class="location-card">
+                            <div class="location-card__icon"><i class="ph ph-car" aria-hidden="true"></i></div>
+                            <div>
+                                <h3>До метро Героїв Дніпра</h3>
+                                <p>15 хв на авто зручною трасою</p>
+                            </div>
+                        </div>
+                        <div class="location-card">
+                            <div class="location-card__icon"><i class="ph ph-person-simple-walk" aria-hidden="true"></i></div>
+                            <div>
+                                <h3>До лісу та Київського моря</h3>
+                                <p>15 хв пішки для ваших прогулянок</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog" class="section section--bg section--border-t">
+        <div class="shell">
+            <div class="section-head reveal">
+                <div>
+                    <h2 class="section-head__title">Життя за містом</h2>
+                    <p class="lead">Корисні статті про вибір нерухомості, переваги таунхаусів та інфраструктуру району.</p>
+                </div>
+                <a href="#" onclick="openDynamicModal('Блог Shepit House', 'Секція блогу наразі наповнюється. Незабаром тут з\'являться корисні матеріали про життя за містом, дизайн інтер\'єру та юридичні тонкощі купівлі нерухомості.', 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80', 'Повернутись'); return false;" class="link-arrow">Всі статті <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+            </div>
+
+            <div class="blog-grid">
+                <a href="#" onclick="openDynamicModal('Чому таунхаус — це ідеальний компроміс між квартирою та будинком?', 'Життя у таунхаусі поєднує комфорт власного будинку з безпекою та економічністю квартири. Ви отримуєте власний двір, парковку та відсутність сусідів зверху/знизу, але при цьому не витрачаєте шалені гроші на утримання величезної ділянки.', 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80', 'Отримати планування'); return false;" class="blog-card transition-all-custom reveal delay-100">
+                    <div class="blog-card__img img-hover-zoom">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Сучасний таунхаус інтер'єр">
+                    </div>
+                    <div class="blog-card__body">
+                        <p class="blog-card__tag">Вибір нерухомості</p>
+                        <h3 class="blog-card__title">Чому таунхаус — це ідеальний компроміс між квартирою та будинком?</h3>
+                        <p class="blog-card__excerpt">Розбираємо головні переваги життя у власному таунхаусі з невеликою ділянкою замість гамірного житлового комплексу.</p>
+                        <span class="blog-card__foot">Читати <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+                    </div>
+                </a>
+
+                <a href="#" onclick="openDynamicModal('Огляд інфраструктури: садочки, школи та магазини поруч', 'Локація Shepit House дозволяє насолоджуватись природою, маючи всю міську інфраструктуру поруч. У 5-7 хвилинах їзди знаходяться супермаркети, приватні та державні дитячі садки, школи, а також сучасні медичні центри.', 'https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&w=1200&q=80'); return false;" class="blog-card transition-all-custom reveal delay-200">
+                    <div class="blog-card__img img-hover-zoom">
+                        <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&w=600&q=80" alt="Природа Вишгорода">
+                    </div>
+                    <div class="blog-card__body">
+                        <p class="blog-card__tag">Локація</p>
+                        <h3 class="blog-card__title">Огляд інфраструктури: садочки, школи та магазини поруч</h3>
+                        <p class="blog-card__excerpt">Детальний гід по локації Shepit House. Розповідаємо, де купувати продукти та куди віддати дітей на навчання.</p>
+                        <span class="blog-card__foot">Читати <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+                    </div>
+                </a>
+
+                <a href="#" onclick="openDynamicModal('Як працює розтермінування від забудовника у 2026 році?', 'Ми пропонуємо лояльні умови розтермінування з першим внеском від 30%. Залишок суми виплачується рівними частинами до завершення будівництва без прихованих відсотків та участі банків.', 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80', 'Отримати розрахунок'); return false;" class="blog-card transition-all-custom reveal delay-300">
+                    <div class="blog-card__img img-hover-zoom">
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&q=80" alt="Оформлення документів">
+                    </div>
+                    <div class="blog-card__body">
+                        <p class="blog-card__tag">Фінанси</p>
+                        <h3 class="blog-card__title">Як працює розтермінування від забудовника у 2026 році?</h3>
+                        <p class="blog-card__excerpt">Покрокова інструкція про те, як оформити вигідне розтермінування без участі банку та прихованих комісій.</p>
+                        <span class="blog-card__foot">Читати <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="form" class="section section--bg-alt section--border-t">
+        <div class="shell">
+            <div class="form-section-grid">
+                <div class="form-section-grid__copy reveal">
+                    <h2 class="heading-md">Ми створюємо простір, у якому важливо кожне відчуття</h2>
+                    <p class="lead text-muted" style="margin-bottom: 1.5rem;">
+                        Shepit House — це невеликий камерний проєкт, де важлива не лише архітектура, а й відчуття життя всередині.
+                    </p>
+                    <div class="manager">
+                        <div class="manager__photo">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80" alt="Менеджер з продажу">
+                        </div>
+                        <div>
+                            <p class="manager__name">Олександр</p>
+                            <p class="manager__role">Керівник відділу продажу</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section-grid__panel form-panel reveal delay-200">
+                    <p class="form-panel__title">Отримати презентацію</p>
+                    <p class="form-panel__lead">
+                        Залиште свої контакти, і ми надішлемо актуальні планування, вартість та умови розтермінування.
+                    </p>
+
+                    <form class="form-stack" onsubmit="submitForm(event)">
+                        <div>
+                            <input type="text" placeholder="Ваше ім'я" required class="input-premium">
+                        </div>
+                        <div>
+                            <input type="tel" placeholder="Ваш телефон" required class="input-premium">
+                        </div>
+                        <button type="submit" class="btn-submit">Отримати планування</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacts" class="site-footer">
+        <div class="shell">
+            <div class="footer-grid">
+                <div class="footer-block">
+                    <div class="footer-block__icon" aria-hidden="true"><i class="ph ph-house-line"></i></div>
+                    <p>У комплексі всього 8 будинків — ми свідомо залишили простір камерним, тихим і приватним.</p>
+                </div>
+
+                <div class="footer-cta">
+                    <p>Ми будемо раді показати вам Shepit House особисто.</p>
+                    <button type="button" onclick="openModal('lead-modal')" class="btn-footer">Записатись на перегляд</button>
+                </div>
+
+                <div class="footer-contact">
+                    <p class="footer-contact__label">Відділ продажу</p>
+                    <a href="tel:+380671234567">+38 (067) 123 45 67</a>
+                    <p class="footer-contact__addr">м. Київ, Оболонський район</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="modal-overlay" class="modal-overlay" onclick="closeAllModals()"></div>
+
+    <div id="lead-modal" class="modal-content">
+        <div class="modal-panel">
+            <button type="button" onclick="closeModal('lead-modal')" class="modal-close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
+
+            <p class="form-panel__title" style="margin-bottom: 0.5rem;">Залишити заявку</p>
+            <p class="form-panel__lead" style="margin-bottom: 2rem;">Залиште контакти, і ми зв'яжемось з вами для консультації та підбору резиденції.</p>
+
+            <form class="form-stack" onsubmit="submitForm(event)">
+                <div>
+                    <input type="text" placeholder="Ваше ім'я" required class="input-premium input-premium--sm">
+                </div>
+                <div>
+                    <input type="tel" placeholder="Ваш телефон" required class="input-premium input-premium--sm">
+                </div>
+                <button type="submit" class="btn-submit">Відправити</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="info-modal" class="modal-content">
+        <div class="modal-info">
+            <button type="button" onclick="closeModal('info-modal')" class="modal-info__close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
+
+            <div class="modal-info__media">
+                <img id="info-modal-img" src="" alt="Деталі">
+            </div>
+
+            <div class="modal-info__body">
+                <span class="modal-info__label">Детальна інформація</span>
+                <h3 id="info-modal-title" class="modal-info__title">Заголовок</h3>
+                <p id="info-modal-desc" class="modal-info__desc">Тут буде детальний текст, який підтягується автоматично з картки, по якій ви клікнули.</p>
+
+                <button type="button" onclick="closeModal('info-modal'); setTimeout(() => openModal('lead-modal'), 400);" id="info-modal-btn" class="modal-info__btn">Отримати консультацію</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="video-modal" class="modal-content modal-content--video">
+        <div class="modal-video-box">
+            <button type="button" onclick="closeModal('video-modal')" class="modal-video-close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
+            <div class="modal-video-placeholder">
+                <p><i class="ph ph-play-circle" aria-hidden="true"></i>Тут буде YouTube Video Player</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="success-modal" class="modal-content">
+        <div class="modal-success">
+            <button type="button" onclick="closeModal('success-modal')" class="modal-close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
+            <div class="modal-success__icon"><i class="ph ph-check" aria-hidden="true"></i></div>
+            <h2>Дякуємо!</h2>
+            <p>Ваша заявка успішно відправлена. Наш менеджер зв'яжеться з вами найближчим часом.</p>
+            <button type="button" onclick="closeModal('success-modal')" class="modal-success__back">Повернутись на сайт</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
