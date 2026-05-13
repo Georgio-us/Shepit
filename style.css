@@ -359,9 +359,16 @@ body.modal-open {
     color: var(--color-dark-80);
 }
 
-.site-nav__mobile-menu a {
+.site-nav__mobile-menu a,
+.site-nav__mobile-menu button {
     display: block;
     padding: 0.25rem 0;
+    font-size: inherit;
+    font-weight: inherit;
+    text-transform: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    text-align: left;
 }
 
 @media (max-width: 1023px) {
@@ -645,6 +652,9 @@ body.modal-open {
     background: var(--color-bg-alt);
     cursor: pointer;
     overflow: hidden;
+    display: block;
+    padding: 0;
+    text-align: left;
 }
 
 @media (min-width: 1024px) {
@@ -1815,7 +1825,7 @@ body.modal-open {
     }
 }
 
-.footer-socials a {
+.footer-socials button {
     width: 2.25rem;
     height: 2.25rem;
     border: 1px solid var(--color-border);
@@ -1827,7 +1837,7 @@ body.modal-open {
     transition: color 0.2s ease, border-color 0.2s ease;
 }
 
-.footer-socials a:hover {
+.footer-socials button:hover {
     color: var(--color-brand-green);
     border-color: var(--color-brand-green);
 }

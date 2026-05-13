@@ -26,7 +26,7 @@
                 <li><a href="#planning">Проєкти</a></li>
                 <li><a href="#progress">Хід будівництва</a></li>
                 <li><a href="#location">Локація</a></li>
-                <li><a href="#blog">Блог</a></li>
+                <li><button type="button" data-scroll-target="blog">Блог</button></li>
                 <li><a href="#contacts">Контакти</a></li>
             </ul>
 
@@ -42,7 +42,7 @@
                 <li><a href="#planning">Проєкти</a></li>
                 <li><a href="#progress">Хід будівництва</a></li>
                 <li><a href="#location">Локація</a></li>
-                <li><a href="#blog">Блог</a></li>
+                <li><button type="button" data-scroll-target="blog">Блог</button></li>
                 <li><a href="#contacts">Контакти</a></li>
             </ul>
         </div>
@@ -98,7 +98,7 @@
     <section id="about" class="section section--bg">
         <div class="shell">
             <div class="two-col">
-                <div onclick="openModal('video-modal')" class="video-thumb img-hover-zoom reveal" role="button" tabindex="0">
+                <button type="button" data-modal-open="video-modal" class="video-thumb img-hover-zoom reveal" aria-label="Відкрити відео">
                     <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1200&q=80" alt="Емоція життя за містом">
                     <div class="video-thumb__overlay">
                         <div class="video-thumb__play">
@@ -106,7 +106,7 @@
                             <i class="ph-fill ph-play" aria-hidden="true"></i>
                         </div>
                     </div>
-                </div>
+                </button>
 
                 <div class="reveal delay-100">
                     <h2 class="heading-xl">
@@ -475,10 +475,10 @@
                     <a href="tel:+380671234567">+38 (067) 123 45 67</a>
                     <p class="footer-contact__addr">м. Київ, Оболонський район, вул. Героїв Дніпра, 32</p>
                     <div class="footer-socials">
-                        <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo" aria-hidden="true"></i></a>
-                        <a href="#" aria-label="Facebook"><i class="ph ph-facebook-logo" aria-hidden="true"></i></a>
-                        <a href="#" aria-label="YouTube"><i class="ph ph-youtube-logo" aria-hidden="true"></i></a>
-                        <a href="#" aria-label="Telegram"><i class="ph ph-telegram-logo" aria-hidden="true"></i></a>
+                        <button type="button" aria-label="Instagram"><i class="ph ph-instagram-logo" aria-hidden="true"></i></button>
+                        <button type="button" aria-label="Facebook"><i class="ph ph-facebook-logo" aria-hidden="true"></i></button>
+                        <button type="button" aria-label="YouTube"><i class="ph ph-youtube-logo" aria-hidden="true"></i></button>
+                        <button type="button" aria-label="Telegram"><i class="ph ph-telegram-logo" aria-hidden="true"></i></button>
                     </div>
                 </div>
             </div>
@@ -526,7 +526,7 @@
                 <p id="info-modal-title" class="modal-info__title">Заголовок</p>
                 <p id="info-modal-desc" class="modal-info__desc">Тут буде детальний текст, який підтягується автоматично з картки, по якій ви клікнули.</p>
 
-                <button type="button" onclick="closeModal('info-modal'); setTimeout(() => openModal('lead-modal'), 400);" id="info-modal-btn" class="modal-info__btn">Отримати консультацію</button>
+                <button type="button" onclick="closeModal('info-modal', { restore: false }); setTimeout(() => openModal('lead-modal'), 400);" id="info-modal-btn" class="modal-info__btn">Отримати консультацію</button>
             </div>
         </div>
     </div>
@@ -583,16 +583,16 @@
     <div id="blog-index-modal" class="modal-content modal-content--article">
         <div class="modal-article modal-article--index">
             <button type="button" onclick="closeModal('blog-index-modal')" class="modal-close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
-            <p class="modal-article__back" onclick="closeModal('blog-index-modal')"><i class="ph ph-arrow-left"></i> Назад на головну</p>
+            <button type="button" class="modal-article__back" onclick="closeModal('blog-index-modal')"><i class="ph ph-arrow-left" aria-hidden="true"></i> Назад на головну</button>
             <p class="modal-doc__title">Блог Shepit House</p>
             <p class="modal-article__lead">Практичні матеріали про вибір нерухомості, інфраструктуру та фінансові рішення при купівлі таунхаусу.</p>
             <div class="modal-article__chips">
                 <span>Нерухомість</span><span>Локація</span><span>Фінанси</span>
             </div>
             <div class="modal-article__list">
-                <button type="button" onclick="closeModal('blog-index-modal'); setTimeout(() => openModal('blog-article-1-modal'), 180)">Чому таунхаус — компроміс між квартирою та будинком</button>
-                <button type="button" onclick="closeModal('blog-index-modal'); setTimeout(() => openModal('blog-article-2-modal'), 180)">Огляд інфраструктури: садочки, школи та магазини поруч</button>
-                <button type="button" onclick="closeModal('blog-index-modal'); setTimeout(() => openModal('blog-article-3-modal'), 180)">Як працює розтермінування від забудовника у 2026 році</button>
+                <button type="button" onclick="closeModal('blog-index-modal', { restore: false }); setTimeout(() => openModal('blog-article-1-modal'), 180)">Чому таунхаус — компроміс між квартирою та будинком</button>
+                <button type="button" onclick="closeModal('blog-index-modal', { restore: false }); setTimeout(() => openModal('blog-article-2-modal'), 180)">Огляд інфраструктури: садочки, школи та магазини поруч</button>
+                <button type="button" onclick="closeModal('blog-index-modal', { restore: false }); setTimeout(() => openModal('blog-article-3-modal'), 180)">Як працює розтермінування від забудовника у 2026 році</button>
             </div>
         </div>
     </div>
@@ -600,7 +600,7 @@
     <div id="blog-article-1-modal" class="modal-content modal-content--article">
         <div class="modal-article">
             <button type="button" onclick="closeModal('blog-article-1-modal')" class="modal-close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
-            <p class="modal-article__back" onclick="closeModal('blog-article-1-modal'); setTimeout(() => openModal('blog-index-modal'), 180)"><i class="ph ph-arrow-left"></i> До списку статей</p>
+            <button type="button" class="modal-article__back" onclick="closeModal('blog-article-1-modal', { restore: false }); setTimeout(() => openModal('blog-index-modal'), 180)"><i class="ph ph-arrow-left" aria-hidden="true"></i> До списку статей</button>
             <div class="modal-article__hero">
                 <img src="assets/img1.jpg" alt="Порівняння таунхауса і квартири">
                 <div class="modal-article__hero-overlay">
@@ -624,7 +624,7 @@
     <div id="blog-article-2-modal" class="modal-content modal-content--article">
         <div class="modal-article">
             <button type="button" onclick="closeModal('blog-article-2-modal')" class="modal-close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
-            <p class="modal-article__back" onclick="closeModal('blog-article-2-modal'); setTimeout(() => openModal('blog-index-modal'), 180)"><i class="ph ph-arrow-left"></i> До списку статей</p>
+            <button type="button" class="modal-article__back" onclick="closeModal('blog-article-2-modal', { restore: false }); setTimeout(() => openModal('blog-index-modal'), 180)"><i class="ph ph-arrow-left" aria-hidden="true"></i> До списку статей</button>
             <div class="modal-article__hero">
                 <img src="assets/img2.jpg" alt="Інфраструктура та щоденні маршрути">
                 <div class="modal-article__hero-overlay">
@@ -649,7 +649,7 @@
     <div id="blog-article-3-modal" class="modal-content modal-content--article">
         <div class="modal-article">
             <button type="button" onclick="closeModal('blog-article-3-modal')" class="modal-close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
-            <p class="modal-article__back" onclick="closeModal('blog-article-3-modal'); setTimeout(() => openModal('blog-index-modal'), 180)"><i class="ph ph-arrow-left"></i> До списку статей</p>
+            <button type="button" class="modal-article__back" onclick="closeModal('blog-article-3-modal', { restore: false }); setTimeout(() => openModal('blog-index-modal'), 180)"><i class="ph ph-arrow-left" aria-hidden="true"></i> До списку статей</button>
             <div class="modal-article__hero">
                 <img src="assets/img3.jpg" alt="Фінансовий план купівлі нерухомості">
                 <div class="modal-article__hero-overlay">
