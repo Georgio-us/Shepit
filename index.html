@@ -370,11 +370,11 @@
                     <h2 class="section-head__title">Життя за містом</h2>
                     <p class="lead">Корисні статті про вибір нерухомості, переваги таунхаусів та інфраструктуру району.</p>
                 </div>
-                <a href="/blog.html" class="link-arrow">Всі статті <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+                <a href="#" onclick="openModal('blog-index-modal'); return false;" class="link-arrow">Всі статті <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
             </div>
 
             <div class="blog-grid">
-                <a href="/blog-townhouse-vs-apartment.html" class="blog-card transition-all-custom reveal delay-100">
+                <a href="#" onclick="openModal('blog-article-1-modal'); return false;" class="blog-card transition-all-custom reveal delay-100">
                     <div class="blog-card__img img-hover-zoom">
                         <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Сучасний таунхаус інтер'єр">
                     </div>
@@ -386,7 +386,7 @@
                     </div>
                 </a>
 
-                <a href="/blog-location-guide.html" class="blog-card transition-all-custom reveal delay-200">
+                <a href="#" onclick="openModal('blog-article-2-modal'); return false;" class="blog-card transition-all-custom reveal delay-200">
                     <div class="blog-card__img img-hover-zoom">
                         <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&w=600&q=80" alt="Природа Вишгорода">
                     </div>
@@ -398,7 +398,7 @@
                     </div>
                 </a>
 
-                <a href="/blog-installment-2026.html" class="blog-card transition-all-custom reveal delay-300">
+                <a href="#" onclick="openModal('blog-article-3-modal'); return false;" class="blog-card transition-all-custom reveal delay-300">
                     <div class="blog-card__img img-hover-zoom">
                         <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&q=80" alt="Оформлення документів">
                     </div>
@@ -483,8 +483,8 @@
             <div class="footer-bottom">
                 <p>© 2026 Shepit House. Всі права захищені.</p>
                 <div class="footer-bottom__links">
-                    <a href="/privacy-policy.html">Політика конфіденційності</a>
-                    <a href="/sitemap.html">Сайтмеп</a>
+                    <a href="#" onclick="openModal('privacy-modal'); return false;">Політика конфіденційності</a>
+                    <a href="#" onclick="openModal('sitemap-modal'); return false;">Сайтмеп</a>
                 </div>
             </div>
         </div>
@@ -545,6 +545,80 @@
             <p class="modal-success__title">Дякуємо!</p>
             <p>Ваша заявка успішно відправлена. Наш менеджер зв'яжеться з вами найближчим часом.</p>
             <button type="button" onclick="closeModal('success-modal')" class="modal-success__back">Повернутись на сайт</button>
+        </div>
+    </div>
+
+    <div id="privacy-modal" class="modal-content">
+        <div class="modal-doc">
+            <button type="button" onclick="closeModal('privacy-modal')" class="modal-close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
+            <p class="modal-doc__title">Політика конфіденційності</p>
+            <p>Ця Політика конфіденційності пояснює, як Shepit House збирає, використовує та захищає персональні дані користувачів сайту.</p>
+            <p><strong>Які дані збираємо:</strong> ім'я, номер телефону, технічні дані відвідування сайту (IP, браузер, cookie).</p>
+            <p><strong>Мета обробки:</strong> консультація клієнта, підбір нерухомості, обробка заявок, покращення роботи сайту.</p>
+            <p><strong>Передача третім сторонам:</strong> тільки у межах чинного законодавства або для технічного надання сервісу.</p>
+            <p><strong>Права користувача:</strong> доступ, оновлення, виправлення, видалення та відкликання згоди на обробку.</p>
+            <p><strong>Контакти:</strong> +38 (067) 123 45 67, м. Київ, Оболонський район, вул. Героїв Дніпра, 32.</p>
+        </div>
+    </div>
+
+    <div id="sitemap-modal" class="modal-content">
+        <div class="modal-doc">
+            <button type="button" onclick="closeModal('sitemap-modal')" class="modal-close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
+            <p class="modal-doc__title">Сайтмеп</p>
+            <p>Головні розділи поточної версії сайту:</p>
+            <ul>
+                <li>Про містечко</li>
+                <li>Проєкти</li>
+                <li>Хід будівництва</li>
+                <li>Локація</li>
+                <li>Блог</li>
+                <li>Контакти</li>
+            </ul>
+            <p>Після запуску прод-домена буде додано окремий URL для XML sitemap і окрему HTML-сторінку мапи сайту.</p>
+        </div>
+    </div>
+
+    <div id="blog-index-modal" class="modal-content">
+        <div class="modal-doc">
+            <button type="button" onclick="closeModal('blog-index-modal')" class="modal-close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
+            <p class="modal-doc__title">Блог Shepit House</p>
+            <p>У блозі публікуються матеріали про вибір таунхаусу, інфраструктуру, юридичні нюанси та умови купівлі нерухомості.</p>
+            <ul>
+                <li>Чому таунхаус — компроміс між квартирою та будинком</li>
+                <li>Огляд інфраструктури поруч</li>
+                <li>Як працює розтермінування від забудовника</li>
+            </ul>
+            <p>Після підключення прод-домена ці матеріали будуть винесені на окремі URL-сторінки.</p>
+        </div>
+    </div>
+
+    <div id="blog-article-1-modal" class="modal-content">
+        <div class="modal-doc">
+            <button type="button" onclick="closeModal('blog-article-1-modal')" class="modal-close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
+            <p class="modal-doc__title">Чому таунхаус — це ідеальний компроміс між квартирою та будинком?</p>
+            <p>Таунхаус поєднує переваги квартири та приватного будинку: більше житлової площі, власний двір і вищий рівень приватності без повної ізоляції.</p>
+            <p>Для сім'ї це практичний формат: простіше зонувати простір, організувати робоче місце вдома і створити комфортне середовище для дітей.</p>
+            <p>Окремим плюсом є баланс витрат: утримання, як правило, доступніше, ніж у великого приватного будинку, але якість життя помітно вища, ніж у квартирі.</p>
+        </div>
+    </div>
+
+    <div id="blog-article-2-modal" class="modal-content">
+        <div class="modal-doc">
+            <button type="button" onclick="closeModal('blog-article-2-modal')" class="modal-close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
+            <p class="modal-doc__title">Огляд інфраструктури: садочки, школи та магазини поруч</p>
+            <p>Комфорт локації визначається щоденними сценаріями: скільки часу займає дорога до школи, чи є поруч супермаркет, аптека та базові сервіси.</p>
+            <p>Для родин важливо враховувати не тільки відстань до Києва, а і реальний час у дорозі в години пік, безпеку маршруту та доступність медичних послуг.</p>
+            <p>Правильно обрана локація знімає побутове навантаження і формує стабільний ритм життя на роки.</p>
+        </div>
+    </div>
+
+    <div id="blog-article-3-modal" class="modal-content">
+        <div class="modal-doc">
+            <button type="button" onclick="closeModal('blog-article-3-modal')" class="modal-close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
+            <p class="modal-doc__title">Як працює розтермінування від забудовника у 2026 році?</p>
+            <p>Розтермінування дозволяє розподілити оплату в часі: перший внесок, графік платежів і фінальне закриття суми до визначеної дати.</p>
+            <p>Перед підписанням договору варто перевіряти формулу платежів, строки, відповідальність сторін та умови змін у графіку.</p>
+            <p>Рекомендується мати фінансовий резерв і зберігати всі платіжні документи для повного контролю угоди.</p>
         </div>
     </div>
 
