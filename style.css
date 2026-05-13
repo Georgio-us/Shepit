@@ -256,11 +256,22 @@ body.modal-open {
     }
 }
 
-.site-nav__menu a {
+.site-nav__menu a,
+.site-nav__menu button {
     transition: color 0.2s ease;
 }
 
-.site-nav__menu a:hover {
+.site-nav__menu button {
+    padding: 0;
+    font-size: inherit;
+    font-weight: inherit;
+    text-transform: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+}
+
+.site-nav__menu a:hover,
+.site-nav__menu button:hover {
     color: var(--color-brand-green);
 }
 
