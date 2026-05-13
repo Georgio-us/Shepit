@@ -1684,14 +1684,15 @@ body.modal-open {
 }
 
 .footer-logo {
-    width: 3.5rem;
+    width: 2.35rem;
     height: auto;
     display: block;
+    max-width: 100%;
 }
 
 @media (min-width: 1024px) {
     .footer-logo {
-        width: 4.25rem;
+        width: 2.85rem;
     }
 }
 
