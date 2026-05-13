@@ -1916,6 +1916,12 @@ body.modal-open {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.modal-content--article {
+    align-items: flex-start;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
 @media (min-width: 640px) {
     .modal-content {
         padding: 1.5rem;
@@ -2321,11 +2327,12 @@ body.modal-open {
     position: relative;
     background: #fff;
     width: min(1200px, 96vw);
-    max-height: 90vh;
-    overflow-y: auto;
+    max-height: none;
+    overflow: visible;
     border: 1px solid var(--color-border);
     box-shadow: var(--shadow-2xl);
     padding: 1.1rem;
+    margin: 0.75rem auto;
 }
 
 @media (min-width: 768px) {
