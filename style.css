@@ -217,8 +217,8 @@ body.modal-open {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    width: 2.4rem;
-    height: 3.15rem;
+    width: 2.7rem;
+    height: 3.1rem;
 }
 
 .site-nav__logo-img {
@@ -230,8 +230,8 @@ body.modal-open {
 
 @media (min-width: 640px) {
     .site-nav__brand {
-        width: 2.8rem;
-        height: 3.65rem;
+        width: 3.1rem;
+        height: 3.55rem;
     }
 }
 
@@ -1695,8 +1695,8 @@ body.modal-open {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 2.4rem;
-    height: 3.15rem;
+    width: 2.7rem;
+    height: 3.1rem;
 }
 
 .footer-logo {
@@ -1708,8 +1708,8 @@ body.modal-open {
 
 @media (min-width: 1024px) {
     .footer-logo-link {
-        width: 2.8rem;
-        height: 3.65rem;
+        width: 3.1rem;
+        height: 3.55rem;
     }
 }
 
