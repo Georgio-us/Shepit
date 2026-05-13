@@ -217,9 +217,8 @@ body.modal-open {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    width: 2.75rem;
-    height: 2.75rem;
-    overflow: hidden;
+    width: 2.4rem;
+    height: 3.15rem;
 }
 
 .site-nav__logo-img {
@@ -231,13 +230,8 @@ body.modal-open {
 
 @media (min-width: 640px) {
     .site-nav__brand {
-        width: 3.25rem;
-        height: 3.25rem;
-    }
-
-    .site-nav__logo-img {
-        width: 100%;
-        height: 100%;
+        width: 2.8rem;
+        height: 3.65rem;
     }
 }
 
@@ -1691,9 +1685,8 @@ body.modal-open {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 2.75rem;
-    height: 2.75rem;
-    overflow: hidden;
+    width: 2.4rem;
+    height: 3.15rem;
 }
 
 .footer-logo {
@@ -1705,13 +1698,8 @@ body.modal-open {
 
 @media (min-width: 1024px) {
     .footer-logo-link {
-        width: 3.25rem;
-        height: 3.25rem;
-    }
-
-    .footer-logo {
-        width: 100%;
-        height: 100%;
+        width: 2.8rem;
+        height: 3.65rem;
     }
 }
 
