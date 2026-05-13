@@ -219,14 +219,14 @@ body.modal-open {
 }
 
 .site-nav__logo-img {
-    height: 2.75rem;
+    height: 3.75rem;
     width: auto;
     display: block;
 }
 
 @media (min-width: 640px) {
     .site-nav__logo-img {
-        height: 3.25rem;
+        height: 4.5rem;
     }
 }
 
@@ -1671,11 +1671,22 @@ body.modal-open {
     }
 }
 
-.footer-block__icon {
-    font-size: 3rem;
-    line-height: 1;
-    font-family: var(--font-serif);
-    color: var(--color-brand-green);
+.footer-logo-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-logo {
+    width: 3.5rem;
+    height: auto;
+    display: block;
+}
+
+@media (min-width: 1024px) {
+    .footer-logo {
+        width: 4.25rem;
+    }
 }
 
 .footer-block p {
