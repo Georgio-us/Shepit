@@ -830,6 +830,22 @@ body.modal-open {
     margin: 0 0 1.5rem;
 }
 
+.specs-layout__title {
+    margin-bottom: 2rem;
+}
+
+.location-text__title {
+    margin-bottom: 2rem;
+}
+
+.location-text__lead {
+    margin-bottom: 3rem;
+}
+
+.form-copy__lead {
+    margin-bottom: 1.5rem;
+}
+
 /* =============================================================================
    Планування + картки
    ============================================================================= */
@@ -1513,6 +1529,14 @@ body.modal-open {
     font-weight: 500;
 }
 
+.modal-lead__title {
+    margin-bottom: 0.5rem;
+}
+
+.modal-lead__lead {
+    margin-bottom: 2rem;
+}
+
 .form-stack > * + * {
     margin-top: 1.5rem;
 }
@@ -2079,7 +2103,7 @@ body.modal-open {
     margin: 0 auto 1.5rem;
 }
 
-.modal-success h2 {
+.modal-success__title {
     font-family: var(--font-serif);
     font-size: 1.5rem;
     color: var(--color-dark);

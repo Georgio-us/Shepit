@@ -237,7 +237,7 @@
         <div class="shell">
             <div class="specs-layout">
                 <div class="specs-layout__intro reveal">
-                    <h2 class="heading-lg" style="margin-bottom: 2rem;">Продумано не лише для краси, а й для комфорту на роки</h2>
+                    <h2 class="heading-lg specs-layout__title">Продумано не лише для краси, а й для комфорту на роки</h2>
                     <p class="lead text-muted">
                         У Shepit House ми приділили увагу не лише атмосфері простору, а й якості будівництва — щоб будинок залишався надійним і енергоефективним у будь-яку пору року.
                     </p>
@@ -339,9 +339,9 @@
                 </div>
 
                 <div class="location-text reveal delay-100">
-                    <h2 class="heading-xl" style="margin-bottom: 2rem;">Місце, де місто <br>стає тихішим</h2>
+                    <h2 class="heading-xl location-text__title">Місце, де місто <br>стає тихішим</h2>
 
-                    <p class="lead text-muted" style="margin-bottom: 3rem;">
+                    <p class="lead text-muted location-text__lead">
                         Достатньо близько до Києва, щоб залишатись у звичному ритмі. І достатньо далеко — щоб нарешті відчути тишу.
                     </p>
 
@@ -421,7 +421,7 @@
             <div class="form-section-grid">
                 <div class="form-section-grid__copy reveal">
                     <h2 class="heading-md">Ми створюємо простір, у якому важливо кожне відчуття</h2>
-                    <p class="lead text-muted" style="margin-bottom: 1.5rem;">
+                    <p class="lead text-muted form-copy__lead">
                         Shepit House — це невеликий камерний проєкт, де важлива не лише архітектура, а й відчуття життя всередині.
                     </p>
                     <div class="manager">
@@ -499,8 +499,8 @@
         <div class="modal-panel">
             <button type="button" onclick="closeModal('lead-modal')" class="modal-close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
 
-            <p class="form-panel__title" style="margin-bottom: 0.5rem;">Залишити заявку</p>
-            <p class="form-panel__lead" style="margin-bottom: 2rem;">Залиште контакти, і ми зв'яжемось з вами для консультації та підбору резиденції.</p>
+            <p class="form-panel__title modal-lead__title">Залишити заявку</p>
+            <p class="form-panel__lead modal-lead__lead">Залиште контакти, і ми зв'яжемось з вами для консультації та підбору резиденції.</p>
 
             <form class="form-stack" onsubmit="submitForm(event)">
                 <div>
@@ -524,7 +524,7 @@
 
             <div class="modal-info__body">
                 <span class="modal-info__label">Детальна інформація</span>
-                <h3 id="info-modal-title" class="modal-info__title">Заголовок</h3>
+                <p id="info-modal-title" class="modal-info__title">Заголовок</p>
                 <p id="info-modal-desc" class="modal-info__desc">Тут буде детальний текст, який підтягується автоматично з картки, по якій ви клікнули.</p>
 
                 <button type="button" onclick="closeModal('info-modal'); setTimeout(() => openModal('lead-modal'), 400);" id="info-modal-btn" class="modal-info__btn">Отримати консультацію</button>
@@ -545,7 +545,7 @@
         <div class="modal-success">
             <button type="button" onclick="closeModal('success-modal')" class="modal-close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
             <div class="modal-success__icon"><i class="ph ph-check" aria-hidden="true"></i></div>
-            <h2>Дякуємо!</h2>
+            <p class="modal-success__title">Дякуємо!</p>
             <p>Ваша заявка успішно відправлена. Наш менеджер зв'яжеться з вами найближчим часом.</p>
             <button type="button" onclick="closeModal('success-modal')" class="modal-success__back">Повернутись на сайт</button>
         </div>
