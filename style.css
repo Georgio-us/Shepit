@@ -213,21 +213,31 @@ body.modal-open {
 }
 
 .site-nav__brand {
-    display: flex;
+    display: inline-flex;
     align-items: center;
+    justify-content: center;
     flex-shrink: 0;
+    width: 2.75rem;
+    height: 2.75rem;
+    overflow: hidden;
 }
 
 .site-nav__logo-img {
-    height: 2.35rem;
-    width: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
     display: block;
-    max-width: 100%;
 }
 
 @media (min-width: 640px) {
+    .site-nav__brand {
+        width: 3.25rem;
+        height: 3.25rem;
+    }
+
     .site-nav__logo-img {
-        height: 2.85rem;
+        width: 100%;
+        height: 100%;
     }
 }
 
@@ -1681,18 +1691,27 @@ body.modal-open {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    overflow: hidden;
 }
 
 .footer-logo {
-    width: 2.35rem;
-    height: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
     display: block;
-    max-width: 100%;
 }
 
 @media (min-width: 1024px) {
+    .footer-logo-link {
+        width: 3.25rem;
+        height: 3.25rem;
+    }
+
     .footer-logo {
-        width: 2.85rem;
+        width: 100%;
+        height: 100%;
     }
 }
 
