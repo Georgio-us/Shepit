@@ -754,6 +754,13 @@ body.modal-open {
     gap: 1.35rem;
 }
 
+@media (max-width: 639px) {
+    .benefits-layout__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem 0.9rem;
+    }
+}
+
 @media (min-width: 900px) {
     .benefits-layout__grid {
         grid-column: span 7;
@@ -766,6 +773,13 @@ body.modal-open {
     grid-template-columns: 2.25rem minmax(0, 1fr);
     gap: 0.9rem;
     align-items: start;
+}
+
+@media (max-width: 639px) {
+    .benefit-item {
+        grid-template-columns: 1.35rem minmax(0, 1fr);
+        gap: 0.55rem;
+    }
 }
 
 @media (min-width: 900px) {
@@ -793,6 +807,13 @@ body.modal-open {
     flex-shrink: 0;
 }
 
+@media (max-width: 639px) {
+    .benefit-item .ph {
+        font-size: 1.15rem;
+        margin-top: 0.1rem;
+    }
+}
+
 @media (min-width: 900px) {
     .benefit-item .ph {
         font-size: 36px;
@@ -806,6 +827,17 @@ body.modal-open {
     font-weight: 500;
     line-height: 1.45;
     max-width: none;
+}
+
+@media (max-width: 639px) {
+    .benefit-item p {
+        font-size: 0.82rem;
+        line-height: 1.3;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
 }
 
 @media (min-width: 900px) {
