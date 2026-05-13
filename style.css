@@ -219,14 +219,15 @@ body.modal-open {
 }
 
 .site-nav__logo-img {
-    height: 3.75rem;
+    height: 2.35rem;
     width: auto;
     display: block;
+    max-width: 100%;
 }
 
 @media (min-width: 640px) {
     .site-nav__logo-img {
-        height: 4.5rem;
+        height: 2.85rem;
     }
 }
 
