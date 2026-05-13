@@ -1,5 +1,13 @@
 const navbar = document.getElementById('navbar');
 
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
+window.addEventListener('load', () => {
+    window.scrollTo(0, 0);
+});
+
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
         navbar.classList.add('site-nav--scrolled');
