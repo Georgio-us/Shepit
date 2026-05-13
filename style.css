@@ -745,10 +745,6 @@ body.modal-open {
     }
 }
 
-.benefits-layout__title {
-    grid-column: span 5;
-}
-
 .benefits-layout__grid {
     display: grid;
     gap: 1.35rem;
@@ -763,8 +759,17 @@ body.modal-open {
 
 @media (min-width: 900px) {
     .benefits-layout__grid {
-        grid-column: span 7;
         grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1024px) {
+    .benefits-layout__title {
+        grid-column: span 5;
+    }
+
+    .benefits-layout__grid {
+        grid-column: span 7;
     }
 }
 
