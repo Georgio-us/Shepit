@@ -36,8 +36,18 @@
             <div class="site-nav__actions">
                 <a href="tel:+380671234567" class="site-nav__phone">+38 (067) 123 45 67</a>
                 <button type="button" onclick="openModal('lead-modal')" class="btn-nav-cta">Отримати ціну</button>
-                <button type="button" class="site-nav__burger" aria-label="Меню"><i class="ph ph-list"></i></button>
+                <button type="button" class="site-nav__burger" aria-label="Меню" aria-expanded="false" aria-controls="site-nav-menu"><i class="ph ph-list"></i></button>
             </div>
+        </div>
+        <div id="site-nav-menu" class="site-nav__mobile-panel">
+            <ul class="site-nav__mobile-menu">
+                <li><a href="#about">Про містечко</a></li>
+                <li><a href="#planning">Проєкти</a></li>
+                <li><a href="#progress">Хід будівництва</a></li>
+                <li><a href="#location">Локація</a></li>
+                <li><a href="#blog">Блог</a></li>
+                <li><a href="#contacts">Контакти</a></li>
+            </ul>
         </div>
     </nav>
 
@@ -450,7 +460,10 @@
             <div class="footer-grid">
                 <div class="footer-block">
                     <div class="footer-block__icon" aria-hidden="true"><i class="ph ph-house-line"></i></div>
-                    <p>У комплексі всього 8 будинків — ми свідомо залишили простір камерним, тихим і приватним.</p>
+                    <div>
+                        <p>У комплексі всього 8 будинків — ми свідомо залишили простір камерним, тихим і приватним.</p>
+                        <p class="footer-meta">Графік відділу продажу: щодня 09:00–19:00</p>
+                    </div>
                 </div>
 
                 <div class="footer-cta">
@@ -461,7 +474,20 @@
                 <div class="footer-contact">
                     <p class="footer-contact__label">Відділ продажу</p>
                     <a href="tel:+380671234567">+38 (067) 123 45 67</a>
-                    <p class="footer-contact__addr">м. Київ, Оболонський район</p>
+                    <p class="footer-contact__addr">м. Київ, Оболонський район, вул. Героїв Дніпра, 32</p>
+                    <div class="footer-socials">
+                        <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="ph ph-facebook-logo" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="ph ph-youtube-logo" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Telegram"><i class="ph ph-telegram-logo" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Shepit House. Всі права захищені.</p>
+                <div class="footer-bottom__links">
+                    <a href="#">Політика конфіденційності</a>
+                    <a href="#">Умови користування</a>
                 </div>
             </div>
         </div>
