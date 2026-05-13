@@ -381,13 +381,16 @@ body.modal-open {
     z-index: var(--z-hero-content);
     padding-top: 2.5rem;
     padding-bottom: 2.5rem;
+    max-width: 38rem;
 }
 
 @media (min-width: 1024px) {
     .hero__content {
-        grid-column: span 5 / span 5;
+        grid-column: 1 / span 6;
         padding-top: 0;
         padding-bottom: 0;
+        padding-left: 0.75rem;
+        max-width: 43rem;
     }
 }
 
@@ -414,11 +417,12 @@ body.modal-open {
 
 .hero__title {
     font-family: var(--font-serif);
-    font-size: clamp(2.25rem, 4vw + 1.5rem, 4.5rem);
+    font-size: clamp(2.35rem, 4.2vw + 1.4rem, 5rem);
     line-height: 1.05;
     letter-spacing: -0.02em;
     color: var(--color-dark);
-    margin: 0 0 2rem;
+    margin: 0 0 1.75rem;
+    max-width: 13ch;
 }
 
 .hero__title-accent {
@@ -430,23 +434,24 @@ body.modal-open {
 .hero__lead {
     font-size: 1.125rem;
     font-weight: 500;
-    line-height: 1.625;
+    line-height: 1.45;
     color: var(--color-dark-70);
-    margin: 0 0 3rem;
-    max-width: 28rem;
+    margin: 0 0 2.5rem;
+    max-width: 33rem;
 }
 
 .hero__facts {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 1.75rem;
     margin-bottom: 3rem;
 }
 
 @media (min-width: 640px) {
     .hero__facts {
         flex-direction: row;
+        gap: 2rem;
     }
 }
 
@@ -470,7 +475,7 @@ body.modal-open {
 }
 
 .hero__fact-text {
-    font-size: 0.875rem;
+    font-size: 0.95rem;
     font-weight: 600;
     line-height: 1.375;
     color: var(--color-dark);
@@ -488,8 +493,8 @@ body.modal-open {
     justify-content: center;
     gap: 1rem;
     width: 100%;
-    min-height: 3.5rem;
-    padding: 0 2rem;
+    min-height: 3.75rem;
+    padding: 0 2.2rem;
     background: var(--color-brand-green);
     color: #fff;
     font-size: 0.875rem;
@@ -505,6 +510,7 @@ body.modal-open {
 @media (min-width: 640px) {
     .btn-hero {
         width: auto;
+        min-width: 22rem;
     }
 }
 
@@ -534,7 +540,7 @@ body.modal-open {
 
 @media (min-width: 1024px) {
     .hero__media {
-        width: 65%;
+        width: 66%;
         height: 100%;
         margin-top: 0;
     }
@@ -561,7 +567,7 @@ body.modal-open {
 
 @media (min-width: 1024px) {
     .hero__grad-r {
-        width: 40%;
+        width: 52%;
     }
 }
 
