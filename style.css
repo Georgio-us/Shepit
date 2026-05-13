@@ -1051,6 +1051,20 @@ body.modal-open {
     margin: 0 0 0.5rem;
 }
 
+.pricing-banner__price span {
+    display: block;
+}
+
+@media (min-width: 640px) {
+    .pricing-banner__price span {
+        display: inline;
+    }
+
+    .pricing-banner__price span + span {
+        margin-left: 0.45ch;
+    }
+}
+
 .pricing-banner__note {
     font-size: 0.875rem;
     color: var(--color-dark-60);
