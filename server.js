@@ -11,24 +11,29 @@ app.use(express.static(__dirname));
 
 // API Endpoint for Leads
 app.post('/api/lead', async (req, res) => {
-    const { name, phone, source } = req.body;
+    const { name, phone, source, device, timestamp } = req.body;
     
     const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
     const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
     if (!BOT_TOKEN || !CHAT_ID) {
-        console.error('Missing Telegram credentials in environment variables');
-        return res.status(500).json({ success: false, message: 'Server configuration error' });
+        console.error('Missing Telegram credentials');
+        return res.status(500).json({ success: false });
     }
 
     const text = `
-🚀 **Новая заявка: Shepit House**
------------------------------
-👤 **Имя:** ${name || 'Не указано'}
-📞 **Телефон:** ${phone || 'Не указано'}
-📍 **Источник:** ${source || 'Главная форма'}
------------------------------
-#lead #shepithouse
+✨ **НОВА ЗАЯВКА: Shepit House** ✨
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+👤 **Клієнт:** ${name || 'Не вказано'}
+📞 **Телефон:** \`${phone || 'Не вказано'}\`
+
+📍 **Звідки:** ${source || 'Головна сторінка'}
+📱 **Пристрій:** ${device || 'Невідомо'}
+⏰ **Час:** ${timestamp || new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kyiv' })}
+
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+#lead #shepit_house #crm
     `.trim();
 
     try {

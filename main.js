@@ -198,7 +198,10 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
+let lastInteractionContext = 'Головна сторінка';
+
 function openDynamicModal(title, desc, imgSrc, btnText = 'Отримати консультацію') {
+    lastInteractionContext = `Проєкт: ${title}`;
     document.getElementById('info-modal-title').innerText = title;
     document.getElementById('info-modal-desc').innerText = desc;
     document.getElementById('info-modal-img').src = imgSrc;
@@ -207,18 +210,32 @@ function openDynamicModal(title, desc, imgSrc, btnText = 'Отримати ко�
     openModal('info-modal');
 }
 
+// Track blog opens for context
+document.querySelectorAll('[onclick*="blog-article"]').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const title = btn.querySelector('.blog-card__title')?.innerText || 'Стаття в блозі';
+        lastInteractionContext = `Блог: ${title}`;
+    });
+});
+
 async function submitForm(event) {
     event.preventDefault();
     const form = event.target;
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalBtnText = submitBtn.innerText;
 
+    // Detect device
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const device = isMobile ? '📱 Мобільний' : '💻 Десктоп';
+
     // Get data from form
     const formData = new FormData(form);
     const data = {
         name: formData.get('name'),
         phone: formData.get('phone'),
-        source: form.closest('.modal-content') ? 'Модальне вікно' : 'Головна сторінка'
+        source: form.closest('#lead-modal') ? lastInteractionContext : 'Форма в футері',
+        device: device,
+        timestamp: new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kyiv' })
     };
 
     try {
@@ -240,6 +257,7 @@ async function submitForm(event) {
                 openModal('success-modal');
             }, 300);
             form.reset();
+            lastInteractionContext = 'Головна сторінка'; // reset
         } else {
             alert('Помилка при відправці. Спробуйте ще раз або зателефонуйте нам.');
         }
