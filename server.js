@@ -11,22 +11,27 @@ app.use(express.static(__dirname));
 app.get('/health', (req, res) => res.status(200).send('OK'));
 
 app.post('/api/lead', (req, res) => {
+    console.log('--- НОВИЙ ЛІД ---');
     const { name, phone, source, device, timestamp } = req.body;
     const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
     const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
-    if (!BOT_TOKEN || !CHAT_ID) return res.status(500).json({ success: false });
+    if (!BOT_TOKEN || !CHAT_ID) {
+        console.error('Missing ENV variables');
+        return res.status(500).json({ success: false });
+    }
 
+    // Use HTML for better stability with special characters
     const text = `
-✨ **НОВА ЗАЯВКА: Shepit House** ✨
+<b>✨ НОВА ЗАЯВКА: Shepit House ✨</b>
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 
-👤 **Клієнт:** ${name || 'Не вказано'}
-📞 **Телефон:** \`${phone || 'Не вказано'}\`
+👤 <b>Клієнт:</b> ${name || 'Не вказано'}
+📞 <b>Телефон:</b> <code>${phone || 'Не вказано'}</code>
 
-📍 **Звідки:** ${source || 'Головна сторінка'}
-📱 **Пристрій:** ${device || 'Невідомо'}
-⏰ **Час:** ${timestamp || new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kyiv' })}
+📍 <b>Звідки:</b> ${source || 'Головна сторінка'}
+📱 <b>Пристрій:</b> ${device || 'Невідомо'}
+⏰ <b>Час:</b> ${timestamp || 'Щойно'}
 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 #lead #shepit_house
@@ -35,7 +40,7 @@ app.post('/api/lead', (req, res) => {
     const data = JSON.stringify({
         chat_id: CHAT_ID,
         text: text,
-        parse_mode: 'Markdown'
+        parse_mode: 'HTML'
     });
 
     const options = {
@@ -50,13 +55,26 @@ app.post('/api/lead', (req, res) => {
     };
 
     const telegramReq = https.request(options, (telegramRes) => {
-        res.json({ success: telegramRes.statusCode === 200 });
+        let resData = '';
+        telegramRes.on('data', (d) => resData += d);
+        telegramRes.on('end', () => {
+            const result = JSON.parse(resData);
+            if (!result.ok) {
+                console.error('TELEGRAM ERROR:', result);
+            }
+            res.json({ success: result.ok });
+        });
     });
-    telegramReq.on('error', () => res.status(500).json({ success: false }));
+
+    telegramReq.on('error', (e) => {
+        console.error('REQUEST ERROR:', e);
+        res.status(500).json({ success: false });
+    });
+
     telegramReq.write(data);
     telegramReq.end();
 });
 
 app.listen(PORT, () => {
-    console.log(`SERVER_READY_ON_PORT_${PORT}`);
+    console.log(`SERVER_RUNNING_ON_${PORT}`);
 });
