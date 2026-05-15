@@ -198,6 +198,12 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
+// Global debug error handler
+window.onerror = function(msg, url, line) {
+    alert("JS Error: " + msg + "\nLine: " + line);
+    return false;
+};
+
 let lastInteractionContext = 'Головна сторінка';
 
 function openDynamicModal(title, desc, imgSrc, btnText = 'Отримати консультацію') {
@@ -213,15 +219,24 @@ function openDynamicModal(title, desc, imgSrc, btnText = 'Отримати ко�
 // Track blog opens for context
 document.querySelectorAll('[onclick*="blog-article"]').forEach(btn => {
     btn.addEventListener('click', () => {
-        const title = btn.querySelector('.blog-card__title')?.innerText || 'Стаття в блозі';
+        const titleEl = btn.querySelector('.blog-card__title');
+        const title = titleEl ? titleEl.innerText : 'Стаття в блозі';
         lastInteractionContext = `Блог: ${title}`;
     });
 });
 
 async function submitForm(event) {
     event.preventDefault();
+    console.log('Form submission started');
+    
     const form = event.target;
-    const submitBtn = form.querySelector('button[type="submit"]');
+    const submitBtn = form.querySelector('button[type="submit"]') || form.querySelector('.btn-submit');
+    
+    if (!submitBtn) {
+        alert('Помилка: Кнопка відправки не знайдена');
+        return;
+    }
+
     const originalBtnText = submitBtn.innerText;
 
     // Detect device
@@ -238,8 +253,9 @@ async function submitForm(event) {
         timestamp: new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kyiv' })
     };
 
+    console.log('Sending data:', data);
+
     try {
-        // Show loading state
         submitBtn.disabled = true;
         submitBtn.innerText = 'Відправка...';
 
@@ -249,6 +265,10 @@ async function submitForm(event) {
             body: JSON.stringify(data)
         });
 
+        if (!response.ok) {
+            throw new Error('Server returned ' + response.status);
+        }
+
         const result = await response.json();
 
         if (result.success) {
@@ -257,13 +277,13 @@ async function submitForm(event) {
                 openModal('success-modal');
             }, 300);
             form.reset();
-            lastInteractionContext = 'Головна сторінка'; // reset
+            lastInteractionContext = 'Головна сторінка';
         } else {
-            alert('Помилка при відправці. Спробуйте ще раз або зателефонуйте нам.');
+            alert('Сервер повернув помилку при відправці.');
         }
     } catch (error) {
         console.error('Submission error:', error);
-        alert('Сталася помилка. Перевірте з\'єднання з інтернетом.');
+        alert('Помилка мережі або сервера: ' + error.message);
     } finally {
         submitBtn.disabled = false;
         submitBtn.innerText = originalBtnText;
