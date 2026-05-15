@@ -207,11 +207,47 @@ function openDynamicModal(title, desc, imgSrc, btnText = 'Отримати ко�
     openModal('info-modal');
 }
 
-function submitForm(event) {
+async function submitForm(event) {
     event.preventDefault();
-    closeAllModals({ restore: false });
+    const form = event.target;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn.innerText;
 
-    setTimeout(() => {
-        openModal('success-modal');
-    }, 300);
+    // Get data from form
+    const formData = new FormData(form);
+    const data = {
+        name: formData.get('name'),
+        phone: formData.get('phone'),
+        source: form.closest('.modal-content') ? 'Модальне вікно' : 'Головна сторінка'
+    };
+
+    try {
+        // Show loading state
+        submitBtn.disabled = true;
+        submitBtn.innerText = 'Відправка...';
+
+        const response = await fetch('/api/lead', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            closeAllModals({ restore: false });
+            setTimeout(() => {
+                openModal('success-modal');
+            }, 300);
+            form.reset();
+        } else {
+            alert('Помилка при відправці. Спробуйте ще раз або зателефонуйте нам.');
+        }
+    } catch (error) {
+        console.error('Submission error:', error);
+        alert('Сталася помилка. Перевірте з\'єднання з інтернетом.');
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerText = originalBtnText;
+    }
 }

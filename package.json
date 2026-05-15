@@ -1,0 +1,14 @@
+{
+  "name": "shepit-landing",
+  "version": "1.0.0",
+  "description": "Shepit House Landing Page with Telegram Integration",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "node-fetch": "^2.7.0"
+  }
+}
