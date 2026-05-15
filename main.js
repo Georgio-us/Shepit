@@ -18,6 +18,11 @@ if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
 }
 
+// Prevent "Confirm Reload" dialogs
+window.addEventListener('beforeunload', () => {
+    // Just in case any forms are dirty, we don't want the browser to stop the reload
+});
+
 window.addEventListener('load', () => {
     if (window.location.hash) {
         history.replaceState(null, '', window.location.pathname + window.location.search);
