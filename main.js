@@ -209,12 +209,7 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-// Global debug error handler
-window.onerror = function(msg, url, line) {
-    alert("JS Error: " + msg + "\nLine: " + line);
-    return false;
-};
-
+// Global interaction tracking
 let lastInteractionContext = 'Головна сторінка';
 
 function openDynamicModal(title, desc, imgSrc, btnText = 'Отримати консультацію') {
@@ -238,15 +233,11 @@ document.querySelectorAll('[onclick*="blog-article"]').forEach(btn => {
 
 async function submitForm(event) {
     event.preventDefault();
-    console.log('Form submission started');
     
     const form = event.target;
     const submitBtn = form.querySelector('button[type="submit"]') || form.querySelector('.btn-submit');
     
-    if (!submitBtn) {
-        alert('Помилка: Кнопка відправки не знайдена');
-        return;
-    }
+    if (!submitBtn) return;
 
     const originalBtnText = submitBtn.innerText;
 
@@ -264,8 +255,6 @@ async function submitForm(event) {
         timestamp: new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kyiv' })
     };
 
-    console.log('Sending data:', data);
-
     try {
         submitBtn.disabled = true;
         submitBtn.innerText = 'Відправка...';
@@ -275,10 +264,6 @@ async function submitForm(event) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
         });
-
-        if (!response.ok) {
-            throw new Error('Server returned ' + response.status);
-        }
 
         const result = await response.json();
 
@@ -290,11 +275,10 @@ async function submitForm(event) {
             form.reset();
             lastInteractionContext = 'Головна сторінка';
         } else {
-            alert('Сервер повернув помилку при відправці.');
+            alert('Помилка при відправці. Спробуйте пізніше.');
         }
     } catch (error) {
         console.error('Submission error:', error);
-        alert('Помилка мережі або сервера: ' + error.message);
     } finally {
         submitBtn.disabled = false;
         submitBtn.innerText = originalBtnText;
