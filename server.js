@@ -11,6 +11,9 @@ app.use(express.static(__dirname));
 
 // API Endpoint for Leads
 app.post('/api/lead', async (req, res) => {
+    console.log('--- Новий запит на лід ---');
+    console.log('Дані:', req.body);
+    
     const { name, phone, source, device, timestamp } = req.body;
     
     const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
