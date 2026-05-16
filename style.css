@@ -2875,24 +2875,26 @@ body.modal-open {
 
 .faq-item {
     background: #fff;
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
+    border: 1px solid var(--color-border-50);
+    border-radius: 12px;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
 }
 
 .faq-item:hover {
     border-color: var(--color-brand-green-muted);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
 
 .faq-item.active {
-    border-color: var(--color-brand-green);
-    box-shadow: var(--shadow-sm);
+    border-color: var(--color-brand-green-muted);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
 }
 
 .faq-item__trigger {
     width: 100%;
-    padding: 1.5rem 2rem;
+    padding: 1.75rem 2.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -2901,17 +2903,25 @@ body.modal-open {
     font-size: 1.15rem;
     font-weight: 600;
     color: var(--color-dark);
-    transition: color 0.2s ease;
+    transition: all 0.3s ease;
     cursor: pointer;
+    border: none;
 }
 
 .faq-item.active .faq-item__trigger {
     color: var(--color-brand-green);
+    padding-bottom: 1.25rem;
+}
+
+.faq-item__trigger span {
+    padding-right: 2rem;
 }
 
 .faq-item__trigger i {
     font-size: 1.25rem;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--color-brand-green);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
 }
 
 .faq-item.active .faq-item__trigger i {
@@ -2921,22 +2931,22 @@ body.modal-open {
 .faq-item__content {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .faq-item.active .faq-item__content {
-    max-height: 500px; /* Adjust as needed */
+    max-height: 1000px; /* Достаточно для любого текста */
 }
 
 .faq-item__inner {
-    padding: 0 2rem 2rem;
+    padding: 0 2.5rem 2rem;
 }
 
 .faq-item__inner p {
     margin: 0;
     color: var(--color-dark-70);
-    line-height: 1.6;
-    font-size: 1rem;
+    line-height: 1.7;
+    font-size: 1.05rem;
 }
 
 /* PLANS MODAL - CONDITIONS */
