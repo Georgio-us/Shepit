@@ -3,6 +3,7 @@ const burger = document.querySelector('.site-nav__burger');
 const mobileMenuLinks = document.querySelectorAll('.site-nav__mobile-menu a, .site-nav__mobile-menu button');
 const overlay = document.getElementById('modal-overlay');
 const modals = document.querySelectorAll('.modal-content');
+const scrollTopButton = document.querySelector('.scroll-top');
 const focusableSelector = [
     'a[href]',
     'button:not([disabled])',
@@ -57,6 +58,12 @@ document.querySelectorAll('[data-scroll-target]').forEach((control) => {
     });
 });
 
+document.querySelectorAll('[data-modal-open]').forEach((control) => {
+    control.addEventListener('click', () => {
+        openModal(control.dataset.modalOpen);
+    });
+});
+
 window.addEventListener('scroll', () => {
     if (!navbar) return;
     if (window.scrollY > 50) {
@@ -64,7 +71,17 @@ window.addEventListener('scroll', () => {
     } else {
         navbar.classList.remove('site-nav--scrolled');
     }
+
+    if (scrollTopButton) {
+        scrollTopButton.classList.toggle('scroll-top--visible', window.scrollY > 650);
+    }
 });
+
+if (scrollTopButton) {
+    scrollTopButton.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
 
 const revealObserver = new IntersectionObserver(
     (entries, obs) => {
@@ -142,24 +159,24 @@ function openDynamicModal(title, desc, imgSrc, btnText = 'Записатись �
     let specsHtml = '';
     if (title.includes('100–120')) {
         specsHtml = `
-            <div class="spec-item"><i class="ph ph-arrows-out"></i><div><p>Площа</p><p>100–120 м²</p></div></div>
-            <div class="spec-item"><i class="ph ph-bed"></i><div><p>Кімнат</p><p>3 спальні</p></div></div>
-            <div class="spec-item"><i class="ph ph-bathtub"></i><div><p>Санвузлів</p><p>2</p></div></div>
-            <div class="spec-item"><i class="ph ph-park"></i><div><p>Ділянка</p><p>до 2 соток</p></div></div>
+            <div class="spec-item"><i class="ph ph-arrows-out"></i><p>Площа до 120 м²</p></div>
+            <div class="spec-item"><i class="ph ph-bed"></i><p>3 окремі спальні</p></div>
+            <div class="spec-item"><i class="ph ph-bathtub"></i><p>2 санвузли</p></div>
+            <div class="spec-item"><i class="ph ph-park"></i><p>Ділянка до 2 соток</p></div>
         `;
     } else if (title.includes('двір')) {
         specsHtml = `
-            <div class="spec-item"><i class="ph ph-park"></i><div><p>Територія</p><p>Приватна</p></div></div>
-            <div class="spec-item"><i class="ph ph-fence"></i><div><p>Паркан</p><p>По периметру</p></div></div>
-            <div class="spec-item"><i class="ph ph-sun"></i><div><p>Зона</p><p>Відпочинку</p></div></div>
-            <div class="spec-item"><i class="ph ph-tree-evergreen"></i><div><p>Сад</p><p>Власний</p></div></div>
+            <div class="spec-item"><i class="ph ph-lock-key"></i><p>Приватна територія</p></div>
+            <div class="spec-item"><i class="ph ph-shield-check"></i><p>Паркан по периметру</p></div>
+            <div class="spec-item"><i class="ph ph-sun"></i><p>Зона відпочинку</p></div>
+            <div class="spec-item"><i class="ph ph-tree-evergreen"></i><p>Власний сад</p></div>
         `;
     } else if (title.includes('паркомісця')) {
         specsHtml = `
-            <div class="spec-item"><i class="ph ph-car"></i><div><p>Місць</p><p>2 авто</p></div></div>
-            <div class="spec-item"><i class="ph ph-lightning"></i><div><p>EV-Ready</p><p>Так</p></div></div>
-            <div class="spec-item"><i class="ph ph-shield-check"></i><div><p>Безпека</p><p>Закрита</p></div></div>
-            <div class="spec-item"><i class="ph ph-path"></i><div><p>Доступ</p><p>24/7</p></div></div>
+            <div class="spec-item"><i class="ph ph-car"></i><p>2 паркомісця біля дому</p></div>
+            <div class="spec-item"><i class="ph ph-lightning"></i><p>Можливість зарядки електроавто</p></div>
+            <div class="spec-item"><i class="ph ph-shield-check"></i><p>Закрита територія</p></div>
+            <div class="spec-item"><i class="ph ph-clock"></i><p>Доступ 24/7</p></div>
         `;
     }
 

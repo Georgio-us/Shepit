@@ -155,7 +155,7 @@
                 <div class="benefits-layout__grid">
                     <div class="benefit-item reveal delay-100">
                         <i class="ph ph-house-line" aria-hidden="true"></i>
-                        <p>Вам хочеться прокидатись у тиші, а не под шум міста</p>
+                        <p>Вам хочеться прокидатись у тиші, а не під шум міста</p>
                     </div>
                     <div class="benefit-item reveal delay-200">
                         <i class="ph ph-coffee" aria-hidden="true"></i>
@@ -163,11 +163,11 @@
                     </div>
                     <div class="benefit-item reveal delay-100">
                         <i class="ph ph-users" aria-hidden="true"></i>
-                        <p>Мати безпечне место, де діти можуть рости вільно</p>
+                        <p>Мати безпечне місце, де діти можуть рости вільно</p>
                     </div>
                     <div class="benefit-item reveal delay-200">
                         <i class="ph ph-flower-lotus" aria-hidden="true"></i>
-                        <p>Мати простір не только в будинку, а й у житті</p>
+                        <p>Мати простір не тільки в будинку, а й у житті</p>
                     </div>
                     <div class="benefit-item benefit-item--wide reveal delay-300">
                         <i class="ph ph-heart" aria-hidden="true"></i>
@@ -322,25 +322,25 @@
                     <h2 class="section-head__title">Хід будівництва</h2>
                     <p class="lead">Ми регулярно оновлюємо інформацію з будівельного майданчика, щоб ви могли спостерігати за тим, як створюється ваш дім.</p>
                 </div>
-                <a href="#" onclick="openDynamicModal('Вся галерея об\'єкту', 'Тут буде розташована повноцінна сторінка з усіма фотографіями та відеозвітами з будівельного майданчика за кожен місяць.', 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80', 'Записатись на перегляд'); return false;" class="link-arrow">Вся галерея <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+                <button type="button" onclick="openModal('gallery-modal')" class="link-arrow">Вся галерея <i class="ph ph-arrow-right" aria-hidden="true"></i></button>
             </div>
 
             <div class="gallery-grid">
-                <a href="#" onclick="openDynamicModal('Зведення стін (Жовтень 2025)', 'Завершено зведення несучих стін першого поверху у першій черзі таунхаусів. Використано якісний газоблок.', 'assets/img1.jpg'); return false;" class="gallery-tile reveal delay-100">
+                <a href="#" onclick="openModal('gallery-modal'); return false;" class="gallery-tile reveal delay-100">
                     <img src="assets/img1.jpg" loading="lazy" decoding="async" alt="Будівництво стін таунхаусів у Вишгороді — хід робіт">
                     <div class="gallery-tile__cap">
                         <p class="gallery-tile__date">Жовтень 2025</p>
                         <p class="gallery-tile__title">Зведення стін першого поверху</p>
                     </div>
                 </a>
-                <a href="#" onclick="openDynamicModal('Заливка фундаменту (Вересень 2025)', 'Надійна основа майбутнього дому. Виконали заливку монолітно-каркасного фундаменту з дотриманням усіх технологічних норм.', 'assets/img2.jpg'); return false;" class="gallery-tile reveal delay-200">
+                <a href="#" onclick="openModal('gallery-modal'); return false;" class="gallery-tile reveal delay-200">
                     <img src="assets/img2.jpg" loading="lazy" decoding="async" alt="Заливка фундаменту таунхауса Shepit House — етап будівництва">
                     <div class="gallery-tile__cap">
                         <p class="gallery-tile__date">Вересень 2025</p>
                         <p class="gallery-tile__title">Заливка фундаменту</p>
                     </div>
                 </a>
-                <a href="#" onclick="openDynamicModal('Підготовчі роботи (Серпень 2025)', 'Розчищення ділянки, підготовка до земляних робіт та підведення тимчасових комунікацій для старту будівництва.', 'assets/img4.jpg'); return false;" class="gallery-tile reveal delay-300">
+                <a href="#" onclick="openModal('gallery-modal'); return false;" class="gallery-tile reveal delay-300">
                     <img src="assets/img4.jpg" loading="lazy" decoding="async" alt="Підготовчі роботи на будівельному майданчику у Вишгороді">
                     <div class="gallery-tile__cap">
                         <p class="gallery-tile__date">Серпень 2025</p>
@@ -690,7 +690,7 @@
 
                     <div class="plans-form-panel">
                         <h3>Бажаєте отримати техпаспорт та повний каталог?</h3>
-                        <p>Залиште контакти, и ми надішлемо вам всі деталі у Telegram.</p>
+                        <p>Залиште контакти, і ми надішлемо вам всі деталі у Telegram.</p>
                         <form class="form-stack form-stack--inline" id="form-plans">
                             <input type="text" name="name" placeholder="Ваше ім'я" required class="input-premium">
                             <input type="tel" name="phone" placeholder="Ваш телефон" required class="input-premium">
@@ -698,6 +698,66 @@
                         </form>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="gallery-modal" class="modal-content modal-content--article">
+        <div class="modal-gallery">
+            <button type="button" onclick="closeModal('gallery-modal')" class="modal-close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
+            <button type="button" class="modal-article__back" onclick="closeModal('gallery-modal')"><i class="ph ph-arrow-left" aria-hidden="true"></i> Назад на сайт</button>
+
+            <div class="modal-gallery__head">
+                <span class="modal-project__label">Фотоальбом будівництва</span>
+                <h2 class="modal-doc__title">Галерея ходу будівництва Shepit House</h2>
+                <p class="modal-article__lead">Фото згруповані за місяцями та етапами робіт. Коли з'являтимуться нові матеріали, ми додаватимемо їх у відповідні альбоми.</p>
+            </div>
+
+            <div class="gallery-albums">
+                <article class="gallery-album">
+                    <div class="gallery-album__cover">
+                        <img src="assets/img1.jpg" loading="lazy" decoding="async" alt="Жовтень 2025 — зведення стін Shepit House">
+                    </div>
+                    <div class="gallery-album__body">
+                        <p class="gallery-album__date">Жовтень 2025</p>
+                        <h3>Зведення стін першого поверху</h3>
+                        <p>Фото етапу зведення несучих стін і формування майбутнього об'єму будинків.</p>
+                        <div class="gallery-album__thumbs">
+                            <img src="assets/img1.jpg" loading="lazy" decoding="async" alt="Зведення стін — фото 1">
+                            <img src="assets/img3.jpg" loading="lazy" decoding="async" alt="Зведення стін — фото 2">
+                        </div>
+                    </div>
+                </article>
+
+                <article class="gallery-album">
+                    <div class="gallery-album__cover">
+                        <img src="assets/img2.jpg" loading="lazy" decoding="async" alt="Вересень 2025 — фундамент Shepit House">
+                    </div>
+                    <div class="gallery-album__body">
+                        <p class="gallery-album__date">Вересень 2025</p>
+                        <h3>Заливка фундаменту</h3>
+                        <p>Роботи з підготовки основи та заливки монолітно-каркасного фундаменту.</p>
+                        <div class="gallery-album__thumbs">
+                            <img src="assets/img2.jpg" loading="lazy" decoding="async" alt="Фундамент — фото 1">
+                            <img src="assets/img4.jpg" loading="lazy" decoding="async" alt="Фундамент — фото 2">
+                        </div>
+                    </div>
+                </article>
+
+                <article class="gallery-album">
+                    <div class="gallery-album__cover">
+                        <img src="assets/img4.jpg" loading="lazy" decoding="async" alt="Серпень 2025 — підготовчі роботи Shepit House">
+                    </div>
+                    <div class="gallery-album__body">
+                        <p class="gallery-album__date">Серпень 2025</p>
+                        <h3>Підготовчі роботи на ділянці</h3>
+                        <p>Розчищення території, підготовка до земляних робіт і старт організації майданчика.</p>
+                        <div class="gallery-album__thumbs">
+                            <img src="assets/img4.jpg" loading="lazy" decoding="async" alt="Підготовка ділянки — фото 1">
+                            <img src="assets/img_5.jpg" loading="lazy" decoding="async" alt="Підготовка ділянки — фото 2">
+                        </div>
+                    </div>
+                </article>
             </div>
         </div>
     </div>
@@ -897,6 +957,10 @@
             </div>
         </div>
     </div>
+
+    <button type="button" class="scroll-top" aria-label="Повернутись нагору">
+        <i class="ph ph-arrow-up" aria-hidden="true"></i>
+    </button>
 
     <script src="main.js?v=3"></script>
 </body>

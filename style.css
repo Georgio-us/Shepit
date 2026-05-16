@@ -537,6 +537,16 @@ body.modal-open {
         box-shadow 0.35s ease;
 }
 
+@media (max-width: 420px) {
+    .btn-hero {
+        gap: 0.75rem;
+        min-height: 3.35rem;
+        padding: 0 1rem;
+        font-size: 0.94rem;
+        white-space: nowrap;
+    }
+}
+
 @media (min-width: 640px) {
     .btn-hero {
         width: auto;
@@ -1212,6 +1222,8 @@ body.modal-open {
     letter-spacing: 0.1em;
     color: var(--color-brand-green);
     transition: color 0.2s ease;
+    padding: 0;
+    text-align: left;
 }
 
 .link-arrow:hover {
@@ -2595,6 +2607,13 @@ body.modal-open {
     gap: 2rem;
 }
 
+@media (max-width: 767px) {
+    .modal-project__body {
+        padding: 2rem 1.25rem;
+        gap: 1.5rem;
+    }
+}
+
 .modal-project__label {
     font-size: 0.75rem;
     text-transform: uppercase;
@@ -2607,7 +2626,8 @@ body.modal-open {
 
 .modal-project__title {
     font-family: var(--font-serif);
-    font-size: 2.25rem;
+    font-size: clamp(1.65rem, 7vw, 2.25rem);
+    line-height: 1.12;
     margin: 0;
     color: var(--color-dark);
 }
@@ -2632,17 +2652,11 @@ body.modal-open {
     color: var(--color-brand-green);
 }
 
-.spec-item div p:first-child {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    color: var(--color-dark-50);
-    margin: 0;
-}
-
-.spec-item div p:last-child {
+.spec-item > p {
     font-size: 1rem;
     font-weight: 600;
     margin: 0;
+    line-height: 1.35;
 }
 
 .modal-project__desc {
@@ -2659,6 +2673,109 @@ body.modal-open {
     border-radius: 6px;
     font-weight: 600;
     transition: background 0.2s ease;
+}
+
+@media (max-width: 767px) {
+    .modal-project__btn {
+        align-self: stretch;
+        padding: 1rem 1.25rem;
+        text-align: center;
+        font-size: 0.95rem;
+    }
+}
+
+.modal-gallery {
+    position: relative;
+    background: #fff;
+    width: min(1180px, 96vw);
+    margin: 0.75rem auto;
+    padding: 1.1rem;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-2xl);
+}
+
+@media (min-width: 768px) {
+    .modal-gallery {
+        padding: 1.75rem 2rem 2rem;
+    }
+}
+
+.modal-gallery__head {
+    max-width: 46rem;
+    margin-bottom: 1.5rem;
+}
+
+.gallery-albums {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.gallery-album {
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg);
+}
+
+@media (min-width: 820px) {
+    .gallery-album {
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 1.5rem;
+        align-items: stretch;
+    }
+}
+
+.gallery-album__cover {
+    min-height: 13rem;
+    overflow: hidden;
+    background: var(--color-bg-alt);
+}
+
+.gallery-album__cover img,
+.gallery-album__thumbs img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-album__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.gallery-album__date {
+    margin: 0;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-brand-green);
+}
+
+.gallery-album h3 {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    color: var(--color-dark);
+}
+
+.gallery-album p {
+    margin: 0;
+    color: var(--color-dark-70);
+    line-height: 1.65;
+}
+
+.gallery-album__thumbs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.65rem;
+    margin-top: auto;
+}
+
+.gallery-album__thumbs img {
+    aspect-ratio: 4 / 3;
 }
 
 /* PLANS MODAL */
@@ -2835,7 +2952,7 @@ body.modal-open {
     margin-top: 1.5rem;
     padding-top: 1.5rem;
     border-top: 1px solid var(--color-border-50);
-    text-align: left;
+    text-align: right;
 }
 
 .specs-footer-text {
@@ -2848,6 +2965,50 @@ body.modal-open {
 .specs-footer-text .accent-text {
     color: var(--color-brand-green);
     font-weight: 700;
+}
+
+.scroll-top {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 35;
+    width: 2.85rem;
+    height: 2.85rem;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-brand-green);
+    color: #fff;
+    box-shadow: var(--shadow-lg-green);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(0.75rem);
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.scroll-top:hover {
+    background: var(--color-brand-green-hover);
+}
+
+.scroll-top--visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.scroll-top .ph {
+    font-size: 1.25rem;
+}
+
+@media (min-width: 768px) {
+    .scroll-top {
+        right: 1.5rem;
+        bottom: 1.5rem;
+    }
 }
 
 /* FAQ Accordion */
