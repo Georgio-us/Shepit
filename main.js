@@ -18,9 +18,6 @@ if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
 }
 
-// FORCE DISABLE any reload warnings
-window.onbeforeunload = null;
-
 window.addEventListener('load', () => {
     // Attach listeners to forms
     const forms = ['form-footer', 'form-modal', 'form-plans'];
@@ -136,7 +133,6 @@ let lastInteractionContext = 'Головна сторінка';
 function openDynamicModal(title, desc, imgSrc, btnText = 'Записатись на перегляд') {
     lastInteractionContext = `Проєкт: ${title}`;
     
-    // UI mapping
     document.getElementById('info-modal-title').innerText = title;
     document.getElementById('info-modal-desc').innerText = desc;
     document.getElementById('info-modal-img').src = imgSrc;

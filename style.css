@@ -2850,12 +2850,6 @@ body.modal-open {
     font-weight: 700;
 }
 
-/* FAQ */
-.faq-container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
 /* FAQ Accordion */
 .faq-container {
     max-width: 800px;
@@ -2935,7 +2929,7 @@ body.modal-open {
 }
 
 .faq-item.faq-open .faq-item__content {
-    max-height: 1000px; /* Достаточно для любого текста */
+    max-height: 1000px;
 }
 
 .faq-item__inner {
