@@ -2822,87 +2822,136 @@ body.modal-open {
     }
 }
 
-.modal-plans__chess {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
+.plans-catalog {
+    display: grid;
+    gap: 2rem;
+}
+
+.plan-layout-card {
+    display: grid;
+    gap: 1.25rem;
+    padding: 1rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+}
+
+@media (min-width: 1024px) {
+    .plan-layout-card {
+        grid-template-columns: minmax(0, 1.05fr) minmax(22rem, 0.95fr);
+        gap: 2rem;
+        align-items: start;
+        padding: 1.25rem;
+    }
+}
+
+.plan-layout-card__image {
+    display: block;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #fff;
+    border: 1px solid var(--color-border-50);
+}
+
+.plan-layout-card__image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.plan-layout-card__content {
+    padding: 0.25rem;
 }
 
 @media (min-width: 768px) {
-    .modal-plans__chess {
-        gap: 6rem;
+    .plan-layout-card__content {
+        padding: 0.5rem;
     }
 }
 
-.chess-row {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    align-items: center;
-}
-
-@media (min-width: 992px) {
-    .chess-row {
-        gap: 4rem;
-    }
-}
-
-@media (min-width: 992px) {
-    .chess-row {
-        grid-template-columns: 1.2fr 1fr;
-    }
-    .chess-row--reverse {
-        direction: rtl;
-    }
-    .chess-row--reverse .chess-row__content {
-        direction: ltr;
-    }
-}
-
-.chess-row__img img {
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: var(--shadow-lg);
-}
-
-.chess-row__content h3 {
+.plan-layout-card__content h3 {
     font-family: var(--font-serif);
-    font-size: 1.75rem;
-    margin-bottom: 1.5rem;
-    color: var(--color-brand-green);
+    font-size: clamp(1.65rem, 3vw, 2.35rem);
+    line-height: 1.1;
+    margin: 0 0 0.85rem;
+    color: var(--color-dark);
 }
 
-.chess-list {
+.plan-layout-card__lead {
+    margin: 0 0 1.25rem;
+    color: var(--color-dark-70);
+    line-height: 1.65;
+}
+
+.plan-floor-grid {
+    display: grid;
+    gap: 0.9rem;
+    margin-bottom: 1.25rem;
+}
+
+.plan-floor-card {
+    padding: 1rem;
+    background: #fff;
+    border: 1px solid var(--color-border-50);
+    border-radius: 10px;
+}
+
+.plan-floor-card__label {
+    display: inline-flex;
+    margin: 0 0 0.65rem;
+    padding: 0.35rem 0.6rem;
+    border-radius: 999px;
+    background: var(--color-brand-green);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.plan-floor-card h4 {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+    color: var(--color-dark);
+}
+
+.plan-floor-card p:not(.plan-floor-card__label) {
+    margin: 0;
+    color: var(--color-dark-70);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.plan-layout-features {
     list-style: none;
     padding: 0;
-    margin: 1.5rem 0 0;
+    margin: 0;
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
+    gap: 0.65rem;
 }
 
 @media (min-width: 640px) {
-    .chess-list {
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
+    .plan-layout-features {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-.chess-list li {
-    padding-left: 1.5rem;
+.plan-layout-features li {
     position: relative;
-    font-weight: 500;
+    padding-left: 1.25rem;
+    color: var(--color-dark-80);
+    font-weight: 600;
 }
 
-.chess-list li::before {
+.plan-layout-features li::before {
     content: "";
     position: absolute;
     left: 0;
     top: 0.6em;
     width: 6px;
     height: 6px;
+    border-radius: 999px;
     background: var(--color-brand-green);
-    border-radius: 50%;
 }
 
 .modal-plans__footer {
