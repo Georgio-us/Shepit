@@ -626,7 +626,7 @@
         </div>
     </div>
 
-    <div id="plans-modal" class="modal-content">
+    <div id="plans-modal" class="modal-content modal-content--plans">
         <div class="modal-plans">
             <button type="button" onclick="closeModal('plans-modal')" class="modal-plans__close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
             
@@ -638,68 +638,72 @@
 
                 <div class="plans-catalog">
                     <article class="plan-layout-card">
-                        <a href="assets/plan 1.PNG" target="_blank" rel="noopener" class="plan-layout-card__image" aria-label="Відкрити планування дуплекса 110 м²">
-                            <img src="assets/plan 1.PNG" loading="lazy" decoding="async" alt="Планування дуплекса 110 м² Shepit House">
-                        </a>
-                        <div class="plan-layout-card__content">
-                            <span class="modal-project__label">Дуплекс</span>
-                            <h3>Дуплекс 110 м²</h3>
-                            <p class="plan-layout-card__lead">Продумане планування для комфортного життя великої родини: 4 спальні, 2 санвузли, кухня-вітальня з виходом до власного двору та тераси.</p>
+                        <div class="plan-layout-card__top">
+                            <button type="button" class="plan-layout-card__image" data-plan-preview="assets/plan 1.PNG" data-plan-title="Дуплекс 110 м²" aria-label="Відкрити планування дуплекса 110 м²">
+                                <img src="assets/plan 1.PNG" loading="lazy" decoding="async" alt="Планування дуплекса 110 м² Shepit House">
+                            </button>
+                            <div class="plan-layout-card__content">
+                                <span class="modal-project__label">Дуплекс</span>
+                                <h3>Дуплекс 110 м²</h3>
+                                <p class="plan-layout-card__lead">Продумане планування для комфортного життя великої родини: 4 спальні, 2 санвузли, кухня-вітальня з виходом до власного двору та тераси.</p>
 
-                            <div class="plan-floor-grid">
-                                <div class="plan-floor-card">
-                                    <p class="plan-floor-card__label">1 поверх</p>
-                                    <h4>Денна зона</h4>
-                                    <p>Простора кухня-вітальня 26,7 м², спальня або кабінет, санвузол, тамбур і зручний сходовий блок. Це рівень для щоденного життя, зустрічей і відпочинку родини.</p>
-                                </div>
-                                <div class="plan-floor-card">
-                                    <p class="plan-floor-card__label">2 поверх</p>
-                                    <h4>Приватна зона</h4>
-                                    <p>Три окремі спальні, основний санвузол і хол між кімнатами. Простір відділений від активної частини дому, тому підходить для спокійного сну, роботи та дитячих кімнат.</p>
-                                </div>
+                                <ul class="plan-layout-features">
+                                    <li>Загальна площа 110 м²</li>
+                                    <li>4 спальні</li>
+                                    <li>2 санвузли</li>
+                                    <li>Кухня-вітальня 26,7 м²</li>
+                                    <li>Власний двір і тераса</li>
+                                    <li>2 паркомісця</li>
+                                </ul>
                             </div>
+                        </div>
 
-                            <ul class="plan-layout-features">
-                                <li>Загальна площа 110 м²</li>
-                                <li>4 спальні</li>
-                                <li>2 санвузли</li>
-                                <li>Кухня-вітальня 26,7 м²</li>
-                                <li>Власний двір і тераса</li>
-                                <li>2 паркомісця</li>
-                            </ul>
+                        <div class="plan-floor-grid">
+                            <div class="plan-floor-card">
+                                <p class="plan-floor-card__label">1 поверх</p>
+                                <h4>Денна зона</h4>
+                                <p>Простора кухня-вітальня 26,7 м², спальня або кабінет, санвузол, тамбур і зручний сходовий блок. Це рівень для щоденного життя, зустрічей і відпочинку родини.</p>
+                            </div>
+                            <div class="plan-floor-card">
+                                <p class="plan-floor-card__label">2 поверх</p>
+                                <h4>Приватна зона</h4>
+                                <p>Три окремі спальні, основний санвузол і хол між кімнатами. Простір відділений від активної частини дому, тому підходить для спокійного сну, роботи та дитячих кімнат.</p>
+                            </div>
                         </div>
                     </article>
 
                     <article class="plan-layout-card">
-                        <a href="assets/plan 2.PNG" target="_blank" rel="noopener" class="plan-layout-card__image" aria-label="Відкрити планування таунхауса 100 м²">
-                            <img src="assets/plan 2.PNG" loading="lazy" decoding="async" alt="Планування таунхауса 100 м² Shepit House">
-                        </a>
-                        <div class="plan-layout-card__content">
-                            <span class="modal-project__label">Таунхаус</span>
-                            <h3>Таунхаус 100 м²</h3>
-                            <p class="plan-layout-card__lead">Компактний і функціональний формат для сім'ї: 3 спальні, 2 санвузли, кухня-студія з виходом на терасу, власний двір і 2 паркомісця.</p>
+                        <div class="plan-layout-card__top">
+                            <button type="button" class="plan-layout-card__image" data-plan-preview="assets/plan 2.PNG" data-plan-title="Таунхаус 100 м²" aria-label="Відкрити планування таунхауса 100 м²">
+                                <img src="assets/plan 2.PNG" loading="lazy" decoding="async" alt="Планування таунхауса 100 м² Shepit House">
+                            </button>
+                            <div class="plan-layout-card__content">
+                                <span class="modal-project__label">Таунхаус</span>
+                                <h3>Таунхаус 100 м²</h3>
+                                <p class="plan-layout-card__lead">Компактний і функціональний формат для сім'ї: 3 спальні, 2 санвузли, кухня-студія з виходом на терасу, власний двір і 2 паркомісця.</p>
 
-                            <div class="plan-floor-grid">
-                                <div class="plan-floor-card">
-                                    <p class="plan-floor-card__label">1 поверх</p>
-                                    <h4>Денна зона</h4>
-                                    <p>Кухня-студія 28,7 м² з виходом на терасу, спальня або кабінет, санвузол, тамбур і хол. Перший поверх працює як простір для прийому гостей, роботи й сімейних вечорів.</p>
-                                </div>
-                                <div class="plan-floor-card">
-                                    <p class="plan-floor-card__label">2 поверх</p>
-                                    <h4>Зона відпочинку</h4>
-                                    <p>Три спальні, ванна кімната, хол і зручне розташування сходів. Планування розділяє активну та приватну частини дому, щоб кожен мав власний простір.</p>
-                                </div>
+                                <ul class="plan-layout-features">
+                                    <li>Загальна площа 100 м²</li>
+                                    <li>3 спальні</li>
+                                    <li>2 санвузли</li>
+                                    <li>Кухня-студія 28,7 м²</li>
+                                    <li>Власний двір і тераса</li>
+                                    <li>2 паркомісця</li>
+                                </ul>
                             </div>
+                        </div>
 
-                            <ul class="plan-layout-features">
-                                <li>Загальна площа 100 м²</li>
-                                <li>3 спальні</li>
-                                <li>2 санвузли</li>
-                                <li>Кухня-студія 28,7 м²</li>
-                                <li>Власний двір і тераса</li>
-                                <li>2 паркомісця</li>
-                            </ul>
+                        <div class="plan-floor-grid">
+                            <div class="plan-floor-card">
+                                <p class="plan-floor-card__label">1 поверх</p>
+                                <h4>Денна зона</h4>
+                                <p>Кухня-студія 28,7 м² з виходом на терасу, спальня або кабінет, санвузол, тамбур і хол. Перший поверх працює як простір для прийому гостей, роботи й сімейних вечорів.</p>
+                            </div>
+                            <div class="plan-floor-card">
+                                <p class="plan-floor-card__label">2 поверх</p>
+                                <h4>Зона відпочинку</h4>
+                                <p>Три спальні, ванна кімната, хол і зручне розташування сходів. Планування розділяє активну та приватну частини дому, щоб кожен мав власний простір.</p>
+                            </div>
                         </div>
                     </article>
                 </div>
@@ -731,6 +735,14 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div id="plan-preview-modal" class="modal-content modal-content--plan-preview">
+        <div class="modal-plan-preview">
+            <button type="button" onclick="closeModal('plan-preview-modal')" class="modal-close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
+            <img id="plan-preview-img" src="" alt="">
+            <p id="plan-preview-title" class="modal-plan-preview__title"></p>
         </div>
     </div>
 

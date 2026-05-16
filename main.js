@@ -64,6 +64,22 @@ document.querySelectorAll('[data-modal-open]').forEach((control) => {
     });
 });
 
+document.querySelectorAll('[data-plan-preview]').forEach((control) => {
+    control.addEventListener('click', () => {
+        const previewImage = document.getElementById('plan-preview-img');
+        const previewTitle = document.getElementById('plan-preview-title');
+        const title = control.dataset.planTitle || 'Планування';
+
+        if (previewImage) {
+            previewImage.src = control.dataset.planPreview;
+            previewImage.alt = title;
+        }
+
+        if (previewTitle) previewTitle.textContent = title;
+        openModal('plan-preview-modal');
+    });
+});
+
 window.addEventListener('scroll', () => {
     if (!navbar) return;
     if (window.scrollY > 50) {

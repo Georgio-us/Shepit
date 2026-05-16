@@ -1925,6 +1925,17 @@ body.modal-open {
     -webkit-overflow-scrolling: touch;
 }
 
+.modal-content--plans,
+.modal-content--plan-preview {
+    align-items: flex-start;
+}
+
+.modal-content--plans > *,
+.modal-content--plan-preview > * {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 @media (min-width: 640px) {
     .modal-content {
         padding: 1.5rem;
@@ -2783,30 +2794,43 @@ body.modal-open {
     background: #fff;
     width: 100%;
     max-width: 1200px;
-    margin: 1rem auto;
+    margin: 0 auto;
     border-radius: 12px;
-    padding: 1.5rem;
+    padding: 1rem 0.75rem;
     position: relative;
 }
 
 @media (min-width: 768px) {
     .modal-plans {
-        padding: 4rem;
+        padding: 3rem;
         margin: 2rem auto;
+    }
+}
+
+@media (max-width: 767px) {
+    .modal-content--plans {
+        padding: 0.6rem;
     }
 }
 
 .modal-plans__close {
     position: absolute;
-    top: 2rem;
-    right: 2rem;
+    top: 1rem;
+    right: 1rem;
     font-size: 1.5rem;
     transition: color 0.2s ease;
 }
 
 .modal-plans__intro {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
+    padding: 0 2rem;
+}
+
+@media (min-width: 768px) {
+    .modal-plans__intro {
+        margin-bottom: 4rem;
+    }
 }
 
 .modal-plans__title {
@@ -2829,8 +2853,8 @@ body.modal-open {
 
 .plan-layout-card {
     display: grid;
-    gap: 1.25rem;
-    padding: 1rem;
+    gap: 1rem;
+    padding: 0.75rem;
     background: var(--color-bg);
     border: 1px solid var(--color-border);
     border-radius: 14px;
@@ -2838,19 +2862,34 @@ body.modal-open {
 
 @media (min-width: 1024px) {
     .plan-layout-card {
-        grid-template-columns: minmax(0, 1.05fr) minmax(22rem, 0.95fr);
-        gap: 2rem;
-        align-items: start;
         padding: 1.25rem;
+        gap: 1.5rem;
+    }
+}
+
+.plan-layout-card__top {
+    display: grid;
+    gap: 1.25rem;
+    align-items: start;
+}
+
+@media (min-width: 1024px) {
+    .plan-layout-card__top {
+        grid-template-columns: minmax(0, 1.1fr) minmax(22rem, 0.9fr);
+        gap: 2rem;
     }
 }
 
 .plan-layout-card__image {
     display: block;
+    width: 100%;
+    padding: 0;
     overflow: hidden;
     border-radius: 10px;
     background: #fff;
     border: 1px solid var(--color-border-50);
+    cursor: zoom-in;
+    text-align: left;
 }
 
 .plan-layout-card__image img {
@@ -2886,7 +2925,12 @@ body.modal-open {
 .plan-floor-grid {
     display: grid;
     gap: 0.9rem;
-    margin-bottom: 1.25rem;
+}
+
+@media (min-width: 768px) {
+    .plan-floor-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 .plan-floor-card {
@@ -2952,6 +2996,35 @@ body.modal-open {
     height: 6px;
     border-radius: 999px;
     background: var(--color-brand-green);
+}
+
+.modal-plan-preview {
+    width: min(1240px, 96vw);
+    margin: 0 auto;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 12px;
+    position: relative;
+}
+
+.modal-plan-preview img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.modal-plan-preview__title {
+    margin: 0.85rem 2.5rem 0 0;
+    color: var(--color-dark-70);
+    font-weight: 700;
+}
+
+@media (min-width: 768px) {
+    .modal-plan-preview {
+        margin: 2rem auto;
+        padding: 1.5rem;
+    }
 }
 
 .modal-plans__footer {
