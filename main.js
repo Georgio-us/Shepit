@@ -213,3 +213,15 @@ async function submitForm(event) {
         submitBtn.innerText = originalBtnText;
     }
 }
+
+function toggleFaq(button) {
+    const item = button.closest('.faq-item');
+    const isActive = item.classList.contains('active');
+    
+    // Close all others
+    document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
+    
+    if (!isActive) {
+        item.classList.add('active');
+    }
+}

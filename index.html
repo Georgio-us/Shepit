@@ -219,7 +219,7 @@
                 <div class="pricing-banner__text">
                     <p class="pricing-banner__label">Вартість резиденцій</p>
                     <p class="pricing-banner__price"><span>від 89 100$</span><span>до 114 000$</span></p>
-                    <p class="pricing-banner__note">Можливе зручне розтермінування від забудовника</p>
+                    <p class="pricing-banner__note">Зручне розтермінування на 12 місяців від забудовника</p>
                 </div>
                 <button type="button" onclick="openModal('lead-modal')" class="btn-dark">Отримати прайс</button>
             </div>
@@ -279,6 +279,10 @@
                             <p>Двокамерні, профіль шестикамерний</p>
                         </div>
                     </div>
+                </div>
+
+                <div class="specs-layout__footer reveal delay-200">
+                    <p class="specs-footer-text">Термін введення в експлуатацію: <span class="accent-text">червень 2027 року</span></p>
                 </div>
             </div>
         </div>
@@ -448,6 +452,58 @@
         </div>
     </section>
 
+    <section id="faq" class="section section--bg section--border-t">
+        <div class="shell">
+            <div class="faq-container">
+                <div class="faq-head reveal">
+                    <h2 class="heading-md">Поширені запитання</h2>
+                </div>
+
+                <div class="faq-list">
+                    <div class="faq-item reveal delay-100">
+                        <button class="faq-item__trigger" onclick="toggleFaq(this)">
+                            <span>Які терміни введення будинків в експлуатацію?</span>
+                            <i class="ph ph-plus"></i>
+                        </button>
+                        <div class="faq-item__content">
+                            <p>Завершення будівництва та введення резиденцій в експлуатацію заплановано на червень 2027 року. Будівництво ведеться згідно із затвердженим графіком.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item reveal delay-200">
+                        <button class="faq-item__trigger" onclick="toggleFaq(this)">
+                            <span>Яка актуальна ціна за квадратний метр?</span>
+                            <i class="ph ph-plus"></i>
+                        </button>
+                        <div class="faq-item__content">
+                            <p>Поточна вартість резиденцій у Shepit House становить від 990$ за м². Ціна залежить від обраного типу будинку (таунхаус чи дуплекс) та площі ділянки.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item reveal delay-300">
+                        <button class="faq-item__trigger" onclick="toggleFaq(this)">
+                            <span>Чи є можливість оформити розтермінування?</span>
+                            <i class="ph ph-plus"></i>
+                        </button>
+                        <div class="faq-item__content">
+                            <p>Так, ми пропонуємо зручне розтермінування терміном до 12 місяців безпосередньо від забудовника. Це дозволяє гнучко планувати ваш бюджет без участі банків.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item reveal delay-100">
+                        <button class="faq-item__trigger" onclick="toggleFaq(this)">
+                            <span>Які комунікації підведені до будинків?</span>
+                            <i class="ph ph-plus"></i>
+                        </button>
+                        <div class="faq-item__content">
+                            <p>До кожної резиденції підведені всі необхідні комунікації: централізоване водопостачання, електрика, каналізація (септик) та передбачена можливість підключення газу.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer id="contacts" class="site-footer">
         <div class="shell">
             <div class="footer-grid">
@@ -582,6 +638,21 @@
                 </div>
 
                 <div class="modal-plans__footer">
+                    <div class="plans-conditions reveal">
+                        <div class="condition-card">
+                            <p class="condition-card__label">Термін здачі</p>
+                            <p class="condition-card__value">Червень 2027</p>
+                        </div>
+                        <div class="condition-card">
+                            <p class="condition-card__label">Вартість м²</p>
+                            <p class="condition-card__value">від 990$</p>
+                        </div>
+                        <div class="condition-card">
+                            <p class="condition-card__label">Розтермінування</p>
+                            <p class="condition-card__value">на 12 місяців</p>
+                        </div>
+                    </div>
+
                     <div class="plans-form-panel">
                         <h3>Бажаєте отримати техпаспорт та повний каталог?</h3>
                         <p>Залиште контакти, и ми надішлемо вам всі деталі у Telegram.</p>
