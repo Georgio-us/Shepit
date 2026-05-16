@@ -2666,10 +2666,17 @@ body.modal-open {
     background: #fff;
     width: 100%;
     max-width: 1200px;
-    margin: 2rem auto;
+    margin: 1rem auto;
     border-radius: 12px;
-    padding: 4rem;
+    padding: 1.5rem;
     position: relative;
+}
+
+@media (min-width: 768px) {
+    .modal-plans {
+        padding: 4rem;
+        margin: 2rem auto;
+    }
 }
 
 .modal-plans__close {
@@ -2687,21 +2694,40 @@ body.modal-open {
 
 .modal-plans__title {
     font-family: var(--font-serif);
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+    .modal-plans__title {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
 }
 
 .modal-plans__chess {
     display: flex;
     flex-direction: column;
-    gap: 6rem;
+    gap: 3rem;
+}
+
+@media (min-width: 768px) {
+    .modal-plans__chess {
+        gap: 6rem;
+    }
 }
 
 .chess-row {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 4rem;
+    gap: 2rem;
     align-items: center;
+}
+
+@media (min-width: 992px) {
+    .chess-row {
+        gap: 4rem;
+    }
 }
 
 @media (min-width: 992px) {
@@ -2732,10 +2758,17 @@ body.modal-open {
 .chess-list {
     list-style: none;
     padding: 0;
-    margin: 2rem 0 0;
+    margin: 1.5rem 0 0;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+    .chess-list {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
 }
 
 .chess-list li {
@@ -2756,16 +2789,29 @@ body.modal-open {
 }
 
 .modal-plans__footer {
-    margin-top: 6rem;
-    padding-top: 4rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
     border-top: 1px solid var(--color-border);
+}
+
+@media (min-width: 768px) {
+    .modal-plans__footer {
+        margin-top: 6rem;
+        padding-top: 4rem;
+    }
 }
 
 .plans-form-panel {
     background: var(--color-bg-alt);
-    padding: 3rem;
+    padding: 1.5rem;
     border-radius: 12px;
     text-align: center;
+}
+
+@media (min-width: 768px) {
+    .plans-form-panel {
+        padding: 3rem;
+    }
 }
 
 .form-stack--inline {
