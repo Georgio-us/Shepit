@@ -11,37 +11,30 @@ app.use(express.static(__dirname));
 app.get('/health', (req, res) => res.status(200).send('OK'));
 
 app.post('/api/lead', (req, res) => {
-    console.log('--- НОВИЙ ЛІД ---');
     const { name, phone, source, device, timestamp } = req.body;
     const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
     const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
     if (!BOT_TOKEN || !CHAT_ID) {
-        console.error('Missing ENV variables');
+        console.error('[Error] Telegram credentials missing');
         return res.status(500).json({ success: false });
     }
 
-    // Use HTML for better stability with special characters
     const text = `
 <b>✨ НОВА ЗАЯВКА: Shepit House ✨</b>
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 
-👤 <b>Клієнт:</b> ${name || 'Не вказано'}
-📞 <b>Телефон:</b> <code>${phone || 'Не вказано'}</code>
+👤 <b>Клієнт:</b> ${name || '—'}
+📞 <b>Телефон:</b> <code>${phone || '—'}</code>
 
-📍 <b>Звідки:</b> ${source || 'Головна сторінка'}
-📱 <b>Пристрій:</b> ${device || 'Невідомо'}
-⏰ <b>Час:</b> ${timestamp || 'Щойно'}
+📍 <b>Звідки:</b> ${source || 'Головна'}
+📱 <b>Пристрій:</b> ${device || '—'}
+⏰ <b>Час:</b> ${timestamp || '—'}
 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-#lead #shepit_house
-    `.trim();
+#lead #shepit_house`.trim();
 
-    const data = JSON.stringify({
-        chat_id: CHAT_ID,
-        text: text,
-        parse_mode: 'HTML'
-    });
+    const data = JSON.stringify({ chat_id: CHAT_ID, text: text, parse_mode: 'HTML' });
 
     const options = {
         hostname: 'api.telegram.org',
@@ -55,26 +48,15 @@ app.post('/api/lead', (req, res) => {
     };
 
     const telegramReq = https.request(options, (telegramRes) => {
-        let resData = '';
-        telegramRes.on('data', (d) => resData += d);
-        telegramRes.on('end', () => {
-            const result = JSON.parse(resData);
-            if (!result.ok) {
-                console.error('TELEGRAM ERROR:', result);
-            }
-            res.json({ success: result.ok });
-        });
+        telegramRes.on('data', () => {}); // Consume stream
+        telegramRes.on('end', () => res.json({ success: telegramRes.statusCode === 200 }));
     });
 
-    telegramReq.on('error', (e) => {
-        console.error('REQUEST ERROR:', e);
-        res.status(500).json({ success: false });
-    });
-
+    telegramReq.on('error', () => res.status(500).json({ success: false }));
     telegramReq.write(data);
     telegramReq.end();
+    
+    console.log(`[Lead] Received from ${name} (${phone})`);
 });
 
-app.listen(PORT, () => {
-    console.log(`SERVER_RUNNING_ON_${PORT}`);
-});
+app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));

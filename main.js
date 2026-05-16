@@ -22,8 +22,6 @@ if ('scrollRestoration' in history) {
 window.onbeforeunload = null;
 
 window.addEventListener('load', () => {
-    console.log('SITE_VERSION: 3.0_FINAL');
-
     // Attach listeners to forms
     const forms = ['form-footer', 'form-modal'];
     forms.forEach(id => {

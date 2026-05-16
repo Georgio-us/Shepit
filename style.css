@@ -438,26 +438,7 @@ body.modal-open {
     }
 }
 
-.hero__kicker {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 2rem;
-}
 
-.hero__kicker-line {
-    width: 2rem;
-    height: 1px;
-    background: var(--color-brand-green);
-}
-
-.hero__kicker-text {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    font-weight: 600;
-    color: var(--color-brand-green);
-}
 
 .hero__title {
     font-family: var(--font-serif);
