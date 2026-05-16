@@ -214,7 +214,13 @@ async function submitForm(event) {
     }
 }
 
-function toggleFaq(button) {
-    const item = button.closest('.faq-item');
-    item.classList.toggle('active');
-}
+// FAQ Logic
+document.querySelectorAll('.faq-item__trigger').forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        const item = trigger.closest('.faq-item');
+        if (item) {
+            item.classList.toggle('faq-open');
+        }
+    });
+});

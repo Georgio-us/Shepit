@@ -2887,7 +2887,7 @@ body.modal-open {
     box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
 
-.faq-item.active {
+.faq-item.faq-open {
     border-color: var(--color-brand-green-muted);
     box-shadow: 0 8px 30px rgba(0,0,0,0.08);
 }
@@ -2908,7 +2908,7 @@ body.modal-open {
     border: none;
 }
 
-.faq-item.active .faq-item__trigger {
+.faq-item.faq-open .faq-item__trigger {
     color: var(--color-brand-green);
     padding-bottom: 1.25rem;
 }
@@ -2924,7 +2924,7 @@ body.modal-open {
     flex-shrink: 0;
 }
 
-.faq-item.active .faq-item__trigger i {
+.faq-item.faq-open .faq-item__trigger i {
     transform: rotate(180deg);
 }
 
@@ -2934,7 +2934,7 @@ body.modal-open {
     transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.faq-item.active .faq-item__content {
+.faq-item.faq-open .faq-item__content {
     max-height: 1000px; /* Достаточно для любого текста */
 }
 
