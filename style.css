@@ -3,17 +3,17 @@
    ============================================================================= */
 
 :root {
-    --color-brand-green: #58643c; /* Deeper olive */
-    --color-brand-green-hover: #465030;
-    --color-brand-green-muted: rgba(88, 100, 60, 0.7);
-    --color-brand-green-10: rgba(88, 100, 60, 0.1);
-    --color-brand-green-20: rgba(88, 100, 60, 0.2);
+    --color-brand-green: #4a5433; /* Rich Deep Olive */
+    --color-brand-green-hover: #3d452a;
+    --color-brand-green-muted: rgba(74, 84, 51, 0.7);
+    --color-brand-green-10: rgba(74, 84, 51, 0.1);
+    --color-brand-green-20: rgba(74, 84, 51, 0.2);
 
-    --color-bg: #f4f5f0;
-    --color-bg-alt: #eaece4;
-    --color-dark: #21241e;
-    --color-border: #d7dcd1;
-    --color-border-50: rgba(215, 220, 209, 0.5);
+    --color-bg: #f8f9f5;
+    --color-bg-alt: #f0f3ea; /* Subtle Olive Tint */
+    --color-dark: #1b1e17;
+    --color-border: #dce1d5;
+    --color-border-50: rgba(220, 225, 213, 0.5);
 
     --color-dark-80: rgba(33, 36, 30, 0.8);
     --color-dark-70: rgba(33, 36, 30, 0.7);
@@ -35,8 +35,8 @@
     --font-sans: "Manrope", system-ui, sans-serif;
     --font-serif: "Playfair Display", Georgia, serif;
 
-    --shadow-premium: 0 20px 40px -10px rgba(88, 100, 60, 0.08);
-    --shadow-premium-hover: 0 30px 60px -15px rgba(88, 100, 60, 0.2);
+    --shadow-premium: 0 20px 40px -10px rgba(74, 84, 51, 0.08);
+    --shadow-premium-hover: 0 30px 60px -15px rgba(74, 84, 51, 0.2);
     --shadow-nav: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
     --shadow-lg-green: 0 10px 15px -3px var(--color-brand-green-20);
@@ -2520,4 +2520,256 @@ body.modal-open {
     background: #fff;
     font-weight: 600;
     color: var(--color-dark-80);
+}
+
+/* =============================================================================
+   NEW MODAL TEMPLATES (PROJECTS & PLANS)
+   ============================================================================= */
+
+.modal-project {
+    position: relative;
+    background: #fff;
+    width: 100%;
+    max-width: 1100px;
+    margin: 2rem auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-2xl);
+}
+
+.modal-project__close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 10;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    box-shadow: var(--shadow-md);
+    transition: all 0.2s ease;
+}
+
+.modal-project__close:hover {
+    background: var(--color-brand-green);
+    color: #fff;
+}
+
+.modal-project__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 992px) {
+    .modal-project__grid {
+        grid-template-columns: 1.2fr 1fr;
+    }
+}
+
+.modal-project__media {
+    background: var(--color-bg-alt);
+}
+
+.modal-project__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    min-height: 300px;
+}
+
+.modal-project__body {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.modal-project__label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-brand-green);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.modal-project__title {
+    font-family: var(--font-serif);
+    font-size: 2.25rem;
+    margin: 0;
+    color: var(--color-dark);
+}
+
+.modal-project__specs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.spec-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.spec-item i {
+    font-size: 1.5rem;
+    color: var(--color-brand-green);
+}
+
+.spec-item div p:first-child {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: var(--color-dark-50);
+    margin: 0;
+}
+
+.spec-item div p:last-child {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.modal-project__desc {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--color-dark-70);
+}
+
+.modal-project__btn {
+    align-self: flex-start;
+    padding: 1.25rem 2.5rem;
+    background: var(--color-brand-green);
+    color: #fff;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background 0.2s ease;
+}
+
+/* PLANS MODAL */
+.modal-plans {
+    background: #fff;
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    border-radius: 12px;
+    padding: 4rem;
+    position: relative;
+}
+
+.modal-plans__close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-size: 1.5rem;
+    transition: color 0.2s ease;
+}
+
+.modal-plans__intro {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.modal-plans__title {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.modal-plans__chess {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+}
+
+.chess-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+@media (min-width: 992px) {
+    .chess-row {
+        grid-template-columns: 1.2fr 1fr;
+    }
+    .chess-row--reverse {
+        direction: rtl;
+    }
+    .chess-row--reverse .chess-row__content {
+        direction: ltr;
+    }
+}
+
+.chess-row__img img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: var(--shadow-lg);
+}
+
+.chess-row__content h3 {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-brand-green);
+}
+
+.chess-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.chess-list li {
+    padding-left: 1.5rem;
+    position: relative;
+    font-weight: 500;
+}
+
+.chess-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 6px;
+    height: 6px;
+    background: var(--color-brand-green);
+    border-radius: 50%;
+}
+
+.modal-plans__footer {
+    margin-top: 6rem;
+    padding-top: 4rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.plans-form-panel {
+    background: var(--color-bg-alt);
+    padding: 3rem;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.form-stack--inline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.form-stack--inline input {
+    flex: 1;
+    min-width: 250px;
 }

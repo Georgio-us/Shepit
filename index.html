@@ -52,7 +52,6 @@
         <div class="shell hero__grid">
             <div class="hero__content reveal-left">
 
-
                 <h1 class="hero__title">
                     <span>Там, де</span>
                     <span>закінчується місто —</span>
@@ -129,7 +128,7 @@
                 <div class="benefits-layout__grid">
                     <div class="benefit-item reveal delay-100">
                         <i class="ph ph-house-line" aria-hidden="true"></i>
-                        <p>Вам хочеться прокидатись у тиші, а не під шум міста</p>
+                        <p>Вам хочеться прокидатись у тиші, а не под шум міста</p>
                     </div>
                     <div class="benefit-item reveal delay-200">
                         <i class="ph ph-coffee" aria-hidden="true"></i>
@@ -178,7 +177,7 @@
                         <span class="plan-card__link">Детальніше <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
                     </div>
                 </a>
-                <a href="#" onclick="openDynamicModal('Власний двір до 2 соток', 'Власна закрита територія позаду будинку. Тут можна облаштувати зону барбекю, поставити басейн для дітей або створити власний сад для ранкової кави.', 'assets/img_5.jpg', 'Записатись на перегляд'); return false;" class="plan-card transition-all-custom reveal delay-100">
+                <a href="#" onclick="openDynamicModal('Власний двір до 2 соток', 'Власна закрита територія позаду будинку. Тут можна облаштувати зону барбекю, поставити басейн для детей або створити власний сад для ранкової кави.', 'assets/img_5.jpg', 'Записатись на перегляд'); return false;" class="plan-card transition-all-custom reveal delay-100">
                     <div class="plan-card__img-wrap img-hover-zoom">
                         <img src="assets/img_5.jpg" alt="Власний двір">
                     </div>
@@ -190,7 +189,7 @@
                         <span class="plan-card__link">Детальніше <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
                     </div>
                 </a>
-                <a href="#" onclick="openDynamicModal('2 паркомісця', 'Вам більше не доведеться шукати місце для авто. Перед кожним будинком передбачено 2 власних паркомісця з можливістю встановлення зарядной станції для електромобіля.', 'assets/img4.jpg', 'Дізнатись умови'); return false;" class="plan-card transition-all-custom reveal delay-200">
+                <a href="#" onclick="openDynamicModal('2 паркомісця', 'Вам більше не доведеться шукати місце для авто. Перед кожним будинком передбачено 2 власних паркомісця з можливістю встановлення зарядної станції для електромобіля.', 'assets/img4.jpg', 'Дізнатись умови'); return false;" class="plan-card transition-all-custom reveal delay-200">
                     <div class="plan-card__img-wrap img-hover-zoom">
                         <img src="assets/img4.jpg" alt="Парковка">
                     </div>
@@ -202,7 +201,7 @@
                         <span class="plan-card__link">Детальніше <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
                     </div>
                 </a>
-                <a href="#" onclick="openDynamicModal('Каталог планувань', 'Ми розробили кілька варіантів планувальних рішень для таунхаусів та дуплексів. Завантажте повний каталог, щоб обрати той, що підходить саме вашій родині.', 'assets/img3.jpg', 'Завантажити PDF-каталог'); return false;" class="plan-card transition-all-custom reveal delay-300">
+                <a href="#" onclick="openModal('plans-modal'); return false;" class="plan-card transition-all-custom reveal delay-300">
                     <div class="plan-card__img-wrap img-hover-zoom">
                         <img src="assets/img3.jpg" alt="Планування">
                     </div>
@@ -232,7 +231,7 @@
             <div class="specs-layout">
                 <div class="specs-layout__intro reveal">
                     <h2 class="heading-lg specs-layout__title">Продумано не лише для краси, а й для комфорту на роки</h2>
-                    <p class="lead text-muted">
+                    <p class="lead text-muted specs-layout__lead">
                         У Shepit House ми приділили увагу не лише атмосфері простору, а й якості будівництва — щоб будинок залишався надійним і енергоефективним у будь-яку пору року.
                     </p>
                 </div>
@@ -489,6 +488,7 @@
         </div>
     </footer>
 
+    <!-- MODALS -->
     <div id="modal-overlay" class="modal-overlay" onclick="closeAllModals()"></div>
 
     <div id="lead-modal" class="modal-content">
@@ -511,19 +511,87 @@
     </div>
 
     <div id="info-modal" class="modal-content">
-        <div class="modal-info">
-            <button type="button" onclick="closeModal('info-modal')" class="modal-info__close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
+        <div class="modal-project">
+            <button type="button" onclick="closeModal('info-modal')" class="modal-project__close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
 
-            <div class="modal-info__media">
-                <img id="info-modal-img" src="" alt="Деталі">
+            <div class="modal-project__grid">
+                <div class="modal-project__media">
+                    <img id="info-modal-img" src="" alt="Деталі">
+                </div>
+
+                <div class="modal-project__body">
+                    <div class="modal-project__header">
+                        <span class="modal-project__label">Детальна інформація</span>
+                        <h2 id="info-modal-title" class="modal-project__title">Заголовок</h2>
+                    </div>
+                    
+                    <div id="info-modal-specs" class="modal-project__specs"></div>
+
+                    <div id="info-modal-desc" class="modal-project__desc"></div>
+
+                    <button type="button" onclick="closeModal('info-modal', { restore: false }); setTimeout(() => openModal('lead-modal'), 400);" id="info-modal-btn" class="modal-project__btn">Записатись на перегляд</button>
+                </div>
             </div>
+        </div>
+    </div>
 
-            <div class="modal-info__body">
-                <span class="modal-info__label">Детальна інформація</span>
-                <p id="info-modal-title" class="modal-info__title">Заголовок</p>
-                <p id="info-modal-desc" class="modal-info__desc">Тут буде детальний текст, який підтягується автоматично з картки, по якій ви клікнули.</p>
+    <div id="plans-modal" class="modal-content">
+        <div class="modal-plans">
+            <button type="button" onclick="closeModal('plans-modal')" class="modal-plans__close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
+            
+            <div class="modal-plans__container">
+                <div class="modal-plans__intro">
+                    <h2 class="modal-plans__title">Планування резиденцій</h2>
+                    <p class="modal-plans__lead">Продуманий кожен метр для вашого комфорту та приватності.</p>
+                </div>
 
-                <button type="button" onclick="closeModal('info-modal', { restore: false }); setTimeout(() => openModal('lead-modal'), 400);" id="info-modal-btn" class="modal-info__btn">Отримати консультацію</button>
+                <div class="modal-plans__chess">
+                    <!-- Floor 1 -->
+                    <div class="chess-row">
+                        <div class="chess-row__img">
+                            <img src="assets/plan 1.PNG" alt="План 1 поверху">
+                        </div>
+                        <div class="chess-row__content">
+                            <h3>1 Поверх — Денна зона</h3>
+                            <p>Тут зосереджено життя вашої родини. Простора кухня-вітальня з виходом на власну терасу, гостьовий санвузол та технічні приміщення.</p>
+                            <ul class="chess-list">
+                                <li>Кухня-вітальня: 35.4 м²</li>
+                                <li>Передпокій: 6.2 м²</li>
+                                <li>Санвузол: 3.8 м²</li>
+                                <li>Комора: 4.5 м²</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Floor 2 -->
+                    <div class="chess-row chess-row--reverse">
+                        <div class="chess-row__img">
+                            <img src="assets/plan 2.PNG" alt="План 2 поверху">
+                        </div>
+                        <div class="chess-row__content">
+                            <h3>2 Поверх — Зона відпочинку</h3>
+                            <p>Приватний простір для сну та роботи. Три окремі спальні, основний санвузол та балкон з виглядом на ваше подвір'я.</p>
+                            <ul class="chess-list">
+                                <li>Майстер-спальня: 16.8 м²</li>
+                                <li>Дитяча 1: 12.4 м²</li>
+                                <li>Дитяча 2 / Кабінет: 11.2 м²</li>
+                                <li>Ванна кімната: 7.5 м²</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-plans__footer">
+                    <div class="plans-form-panel">
+                        <h3>Бажаєте отримати техпаспорт та повний каталог?</h3>
+                        <p>Залиште контакти, и ми надішлемо вам всі деталі у Telegram.</p>
+                        <form class="form-stack form-stack--inline" id="form-plans">
+                            <input type="text" name="name" placeholder="Ваше ім'я" required class="input-premium">
+                            <input type="tel" name="phone" placeholder="Ваш телефон" required class="input-premium">
+                            <button type="submit" class="btn-submit">Отримати каталог</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -597,40 +665,19 @@
     <div id="blog-article-1-modal" class="modal-content modal-content--article">
         <div class="modal-article">
             <button type="button" onclick="closeModal('blog-article-1-modal')" class="modal-close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
-            <button type="button" class="modal-article__back" onclick="closeModal('blog-article-1-modal', { restore: false }); setTimeout(() => openModal('blog-index-modal'), 180)"><i class="ph ph-arrow-left" aria-hidden="true"></i> До списку статей</button>
-            <div class="modal-article__hero">
-                <img src="assets/img1.jpg" alt="Порівняння таунхауса і квартири">
-                <div class="modal-article__hero-overlay">
-                    <div class="modal-article__chips"><span>Вибір нерухомості</span><span>Огляд</span></div>
-                </div>
-            </div>
-            <p class="modal-article__meta">13 травня 2026 • 8 хв читання</p>
-            <p class="modal-doc__title">Чому таунхаус — це ідеальний компроміс між квартирою та будинком?</p>
-            <p class="modal-article__lead">Рішення про переїзд за місто зазвичай починається з простого запиту: <strong>більше простору без втрати міського ритму</strong>. Саме тут формат таунхаусу показує себе найкраще.</p>
-            <h3>1. Простір, який працює на сім'ю</h3>
-            <p>На відміну від квартири, таунхаус дозволяє розділити житлові сценарії: окрема зона відпочинку, робоче місце, дитячі кімнати. <strong>Менше побутового конфлікту — більше комфорту</strong> у щоденних дрібницях.</p>
-            <p>У квартирі кожен новий сценарій часто змагається за ті самі метри: робочий стіл з'являється у спальні, дитячі речі переїжджають у вітальню, а тераса замінюється невеликим балконом. У таунхаусі простір простіше організувати логічно: перший поверх працює як соціальна зона, другий залишається приватним, а власний двір додає третій вимір життя — простір на відкритому повітрі.</p>
-            <h3>2. Приватність без ізоляції</h3>
-            <p>Ви не живете в «мурашнику», але й не випадаєте з інфраструктури. Такий баланс особливо цінують сім'ї, які хочуть тиші, але не готові до тривалих щоденних поїздок.</p>
-            <blockquote>Практичний принцип: купувати не просто квадратні метри, а стиль життя на 5–10 років вперед.</blockquote>
-            <h3>3. Вартість утримання і ліквідність</h3>
-            <p>Таунхаус зазвичай дешевший в обслуговуванні, ніж великий окремий будинок, а попит на цей формат стабільний. Це означає зрозумілу експлуатацію та прогнозовану ліквідність.</p>
-            <h3>Що варто перевірити перед вибором</h3>
-            <ul>
-                <li><strong>Планування:</strong> чи є достатньо місця для зберігання, окремої роботи та сімейного відпочинку.</li>
-                <li><strong>Двір:</strong> наскільки він приватний, чи можна облаштувати терасу, зелень або дитячу зону.</li>
-                <li><strong>Паркування:</strong> чи не перетвориться щоденний приїзд додому на пошук вільного місця.</li>
-            </ul>
-            <p>У правильному проєкті таунхаус не повинен бути «зменшеним будинком» або «квартирою з входом з вулиці». Його сила саме в балансі: менше витрат і побутових складнощів, ніж у великому приватному будинку, але значно більше свободи, ніж у квартирі.</p>
-            <p class="modal-article__note">Примітка: фінальні витрати завжди залежать від комплектації, стану об'єкта та юридичної моделі угоди.</p>
-            <div class="modal-article__related">
-                <p class="modal-article__section-title">Читайте також</p>
-                <button type="button" onclick="closeModal('blog-article-1-modal', { restore: false }); setTimeout(() => openModal('blog-article-2-modal'), 180)">Огляд інфраструктури: садочки, школи та магазини поруч</button>
-                <button type="button" onclick="closeModal('blog-article-1-modal', { restore: false }); setTimeout(() => openModal('blog-article-3-modal'), 180)">Як працює розтермінування від забудовника у 2026 році</button>
-            </div>
+            <p class="blog-card__tag">Вибір нерухомості</p>
+            <h2 class="modal-doc__title">Чому таунхаус — це ідеальний компроміс між квартирою та будинком?</h2>
+            <p class="modal-article__lead">Сьогодні все більше людей обирають формат таунхаусу. Це вже не просто тренд, а усвідомлений вибір на користь якості життя.</p>
+            
+            <h3>Приватність без самотності</h3>
+            <p>На відміну от великого заміського будинку, таунхаус знаходиться у межах розвиненої інфраструктури, але дарує вам власний вхід та двір без спільних під'їздів.</p>
+            
+            <h3>Економічність обслуговування</h3>
+            <p>Витрати на опалення та утримання таунхаусу значно нижчі, ніж у окремого котеджу, завдяки спільним стінам із сусідями, які зберігають тепло.</p>
+            
             <div class="modal-article__cta">
-                <p><strong>Хочете зрозуміти, який формат підійде вашій родині?</strong><br>Залиште контакти — менеджер Shepit House покаже доступні планування та пояснить різницю між варіантами.</p>
-                <button type="button" onclick="closeModal('blog-article-1-modal', { restore: false }); setTimeout(() => openModal('lead-modal'), 180)">Отримати консультацію</button>
+                <p>Бажаєте порівняти варіанти наживо?</p>
+                <button type="button" onclick="closeModal('blog-article-1-modal', { restore: false }); openModal('lead-modal');">Записатись на перегляд</button>
             </div>
         </div>
     </div>
@@ -638,89 +685,30 @@
     <div id="blog-article-2-modal" class="modal-content modal-content--article">
         <div class="modal-article">
             <button type="button" onclick="closeModal('blog-article-2-modal')" class="modal-close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
-            <button type="button" class="modal-article__back" onclick="closeModal('blog-article-2-modal', { restore: false }); setTimeout(() => openModal('blog-index-modal'), 180)"><i class="ph ph-arrow-left" aria-hidden="true"></i> До списку статей</button>
-            <div class="modal-article__hero">
-                <img src="assets/img2.jpg" alt="Інфраструктура та щоденні маршрути">
-                <div class="modal-article__hero-overlay">
-                    <div class="modal-article__chips"><span>Локація</span><span>Інфраструктура</span></div>
-                </div>
-            </div>
-            <p class="modal-article__meta">13 травня 2026 • 7 хв читання</p>
-            <p class="modal-doc__title">Огляд інфраструктури: садочки, школи та магазини поруч</p>
-            <p class="modal-article__lead">Якість життя формує не красива обкладинка району, а <strong>щоденні маршрути</strong>: дорога до школи, доступ до медицини, час на базові покупки.</p>
-            <h3>Що перевіряти в першу чергу</h3>
-            <ul>
-                <li><strong>Транспорт:</strong> реальний час до міста у годину пік, а не «без заторів».</li>
-                <li><strong>Освіта:</strong> вибір садочків і шкіл у практичному радіусі.</li>
-                <li><strong>Сервіси:</strong> аптека, супермаркет, відділення банку, медицина.</li>
-            </ul>
-            <h3>Для сім'ї важливі дрібниці</h3>
-            <p>Наявність безпечних пішохідних маршрутів, освітлення вулиць і близьких зон відпочинку напряму впливають на відчуття стабільності. Саме ці фактори найчастіше визначають, чи «ляже» локація в життя сім'ї.</p>
-            <p>Перед купівлею варто пройти майбутній маршрут не тільки на карті, а й фізично: від будинку до зупинки, магазину, школи або місця прогулянки. Це швидко показує реальну якість середовища: чи зручно йти з дитячим візком, чи є безпечні переходи, чи освітлена дорога ввечері, чи не доведеться кожну дрібну покупку закривати поїздкою на авто.</p>
-            <h3>Як оцінити локацію без емоцій</h3>
-            <ol>
-                <li><strong>Зробіть ранковий тест:</strong> перевірте час до ключових точок у будній день, коли місто живе у звичному ритмі.</li>
-                <li><strong>Оцініть вечір:</strong> важливо побачити, як район виглядає після заходу сонця, коли освітлення і тиша стають помітнішими.</li>
-                <li><strong>Порахуйте регулярні маршрути:</strong> школа, робота, спорт, покупки, медицина. Саме вони формують реальну зручність.</li>
-            </ol>
-            <p>Добра інфраструктура не обов'язково означає шумний торговий центр під вікнами. Для заміського формату цінніший інший баланс: базові сервіси поруч, швидкий виїзд до Києва, зелень і відчуття спокою біля дому.</p>
-            <blockquote>Локація — це не точка на карті, а щоденна економія часу, енергії та нервів.</blockquote>
-            <div class="modal-article__related">
-                <p class="modal-article__section-title">Читайте також</p>
-                <button type="button" onclick="closeModal('blog-article-2-modal', { restore: false }); setTimeout(() => openModal('blog-article-1-modal'), 180)">Чому таунхаус — компроміс між квартирою та будинком</button>
-                <button type="button" onclick="closeModal('blog-article-2-modal', { restore: false }); setTimeout(() => openModal('blog-article-3-modal'), 180)">Як працює розтермінування від забудовника у 2026 році</button>
-            </div>
-            <div class="modal-article__cta">
-                <p><strong>Хочете подивитись локацію наживо?</strong><br>Залиште заявку — узгодимо час перегляду та покажемо маршрути, двори і доступні планування.</p>
-                <button type="button" onclick="closeModal('blog-article-2-modal', { restore: false }); setTimeout(() => openModal('lead-modal'), 180)">Записатись на перегляд</button>
-            </div>
+            <p class="blog-card__tag">Локація</p>
+            <h2 class="modal-doc__title">Огляд інфраструктури: садочки, школи та магазини поруч</h2>
+            <p class="modal-article__lead">Локація Shepit House обрана так, щоб ви не відчували відірваності від міста, насолоджуючись природою.</p>
+            
+            <h3>Освіта для дітей</h3>
+            <p>У радіусі 10 хвилин на авто знаходяться 3 сучасні дитячі садочки та 2 ліцеї. Вам не потрібно витрачати години на дорогу до школи.</p>
+            
+            <h3>Шопінг та відпочинок</h3>
+            <p>Поруч розташовані супермаркети мережі "Сільпо" та "Фора", а також затишні кав'ярні та ресторани Вишгорода.</p>
         </div>
     </div>
 
     <div id="blog-article-3-modal" class="modal-content modal-content--article">
         <div class="modal-article">
             <button type="button" onclick="closeModal('blog-article-3-modal')" class="modal-close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
-            <button type="button" class="modal-article__back" onclick="closeModal('blog-article-3-modal', { restore: false }); setTimeout(() => openModal('blog-index-modal'), 180)"><i class="ph ph-arrow-left" aria-hidden="true"></i> До списку статей</button>
-            <div class="modal-article__hero">
-                <img src="assets/img3.jpg" alt="Фінансовий план купівлі нерухомості">
-                <div class="modal-article__hero-overlay">
-                    <div class="modal-article__chips"><span>Фінанси</span><span>Розтермінування</span></div>
-                </div>
-            </div>
-            <p class="modal-article__meta">13 травня 2026 • 9 хв читання</p>
-            <p class="modal-doc__title">Як працює розтермінування від забудовника у 2026 році?</p>
-            <p class="modal-article__lead">Розтермінування — це не просто «платежі частинами». Це фінансова модель угоди, де критично важливо розуміти <strong>строки, формулу платежів та ризики</strong>.</p>
-            <h3>Базова структура угоди</h3>
-            <ol>
-                <li><strong>Перший внесок</strong> — фіксує намір і бронює об'єкт.</li>
-                <li><strong>Проміжні платежі</strong> — за погодженим графіком.</li>
-                <li><strong>Фінальний платіж</strong> — у визначену договором дату/етап.</li>
-            </ol>
-            <h3>Що обов'язково перевірити до підписання</h3>
-            <ul>
-                <li>чи є приховані комісії та додаткові платежі;</li>
-                <li>як фіксується кінцева вартість і чи можливий її перегляд;</li>
-                <li>яка відповідальність сторін за зміщення строків.</li>
-            </ul>
-            <p class="modal-article__note">Порада: формуйте резерв 3–6 місяців платежів. Це дає маневр у разі форс-мажорів.</p>
-            <h3>Як підготуватись до розмови з менеджером</h3>
-            <p>Перед консультацією варто чесно визначити комфортний перший внесок і максимальний щомісячний платіж. Це допомагає не витрачати час на варіанти, які виглядають привабливо в рекламі, але створюють зайве фінансове напруження після підписання договору.</p>
-            <p>Окремо варто уточнити, що саме входить у вартість: стан передачі будинку, підведені комунікації, благоустрій, паркомісця, технічні умови та можливі додаткові платежі. Саме тут часто з'являється різниця між «ціною на банері» і реальним бюджетом купівлі.</p>
-            <ul>
-                <li><strong>Попросіть графік платежів письмово:</strong> так легше оцінити навантаження по місяцях.</li>
-                <li><strong>Порівнюйте не тільки ціну:</strong> важливі етап будівництва, комплектація і юридична прозорість.</li>
-                <li><strong>Залишайте резерв:</strong> після купівлі завжди будуть витрати на меблі, техніку та переїзд.</li>
-            </ul>
-            <blockquote>Сильна угода — це коли ви однаково добре розумієте і «скільки платити», і «що буде, якщо щось піде не за планом».</blockquote>
-            <div class="modal-article__related">
-                <p class="modal-article__section-title">Читайте також</p>
-                <button type="button" onclick="closeModal('blog-article-3-modal', { restore: false }); setTimeout(() => openModal('blog-article-1-modal'), 180)">Чому таунхаус — компроміс між квартирою та будинком</button>
-                <button type="button" onclick="closeModal('blog-article-3-modal', { restore: false }); setTimeout(() => openModal('blog-article-2-modal'), 180)">Огляд інфраструктури: садочки, школи та магазини поруч</button>
-            </div>
-            <div class="modal-article__cta">
-                <p><strong>Потрібен зрозумілий фінансовий сценарій?</strong><br>Залиште контакти — підготуємо актуальні умови, графік платежів і доступні варіанти.</p>
-                <button type="button" onclick="closeModal('blog-article-3-modal', { restore: false }); setTimeout(() => openModal('lead-modal'), 180)">Дізнатись умови</button>
-            </div>
+            <p class="blog-card__tag">Фінанси</p>
+            <h2 class="modal-doc__title">Як працює розтермінування від забудовника у 2026 році?</h2>
+            <p class="modal-article__lead">Ми пропонуємо гнучкі фінансові умови, щоб ваш переїзд у Shepit House був максимально комфортним.</p>
+            
+            <h3>Умови без відсотків</h3>
+            <p>Ви можете сплатити 50% вартості зараз, а залишок розподілити на 12 місяців без жодних переплат. Це ідеальний варіант для тих, хто планує бюджет.</p>
+            
+            <h3>Швидке оформлення</h3>
+            <p>Для оформлення договору не потрібні довідки про доходи або складна перевірка банку — достатньо лише вашого паспорта та ІПН.</p>
         </div>
     </div>
 
