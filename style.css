@@ -2810,9 +2810,15 @@ body.modal-open {
     margin: 0 auto;
 }
 
+/* FAQ Accordion */
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 .faq-head {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem;
 }
 
 .faq-list {
@@ -2831,6 +2837,10 @@ body.modal-open {
 
 .faq-item:hover {
     border-color: var(--color-brand-green-muted);
+}
+
+.faq-item.active {
+    border-color: var(--color-brand-green);
     box-shadow: var(--shadow-sm);
 }
 
@@ -2842,10 +2852,11 @@ body.modal-open {
     justify-content: space-between;
     text-align: left;
     background: none;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-weight: 600;
     color: var(--color-dark);
     transition: color 0.2s ease;
+    cursor: pointer;
 }
 
 .faq-item.active .faq-item__trigger {
@@ -2854,28 +2865,32 @@ body.modal-open {
 
 .faq-item__trigger i {
     font-size: 1.25rem;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .faq-item.active .faq-item__trigger i {
-    transform: rotate(45deg);
+    transform: rotate(180deg);
 }
 
 .faq-item__content {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-out;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .faq-item.active .faq-item__content {
-    max-height: 500px;
+    max-height: 500px; /* Adjust as needed */
 }
 
-.faq-item__content p {
+.faq-item__inner {
     padding: 0 2rem 2rem;
+}
+
+.faq-item__inner p {
     margin: 0;
     color: var(--color-dark-70);
     line-height: 1.6;
+    font-size: 1rem;
 }
 
 /* PLANS MODAL - CONDITIONS */

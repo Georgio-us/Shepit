@@ -140,7 +140,7 @@
                     </div>
                     <div class="benefit-item reveal delay-200">
                         <i class="ph ph-flower-lotus" aria-hidden="true"></i>
-                        <p>Мати простір не тільки в будинку, а й у житті</p>
+                        <p>Мати простір не только в будинку, а й у житті</p>
                     </div>
                     <div class="benefit-item benefit-item--wide reveal delay-300">
                         <i class="ph ph-heart" aria-hidden="true"></i>
@@ -313,7 +313,7 @@
                         <p class="gallery-tile__title">Заливка фундаменту</p>
                     </div>
                 </a>
-                <a href="#" onclick="openDynamicModal('Підготовчі роботи (Серпень 2025)', 'Розчищення ділянки, підготовка до земляних робіт та підведення тимчасових комунікацій для старту будівництва.', 'https://images.unsplash.com/photo-1541888086425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80'); return false;" class="gallery-tile reveal delay-300">
+                <a href="#" onclick="openDynamicModal('Підготовчі роботи (Серпень 2025)', 'Розчищення ділянки, подгтовка до земляних робіт та підведення тимчасових комунікацій для старту будівництва.', 'https://images.unsplash.com/photo-1541888086425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80'); return false;" class="gallery-tile reveal delay-300">
                     <img src="https://images.unsplash.com/photo-1541888086425-d81bb19240f5?auto=format&fit=crop&w=800&q=80" alt="Підготовчі роботи на ділянці">
                     <div class="gallery-tile__cap">
                         <p class="gallery-tile__date">Серпень 2025</p>
@@ -413,6 +413,66 @@
         </div>
     </section>
 
+    <section id="faq" class="section section--bg section--border-t">
+        <div class="shell">
+            <div class="faq-container">
+                <div class="faq-head reveal">
+                    <h2 class="heading-md">Питання та відповіді про купівлю таунхауса в Shepit House</h2>
+                </div>
+
+                <div class="faq-list">
+                    <div class="faq-item reveal delay-100">
+                        <button class="faq-item__trigger" onclick="toggleFaq(this)">
+                            <span>Які терміни введення будинків в експлуатацію?</span>
+                            <i class="ph ph-caret-down"></i>
+                        </button>
+                        <div class="faq-item__content">
+                            <div class="faq-item__inner">
+                                <p>Завершення будівництва та введення резиденцій в експлуатацію заплановано на червень 2027 року. Будівництво ведеться згідно із затвердженим графіком забудови.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item reveal delay-200">
+                        <button class="faq-item__trigger" onclick="toggleFaq(this)">
+                            <span>Яка актуальна ціна за квадратний метр у Shepit House?</span>
+                            <i class="ph ph-caret-down"></i>
+                        </button>
+                        <div class="faq-item__content">
+                            <div class="faq-item__inner">
+                                <p>Поточна вартість резиденцій становить від 990$ за м². Кінцева ціна залежить від обраного типу нерухомості (таунхаус чи дуплекс) та розміру прибудинкової ділянки.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item reveal delay-300">
+                        <button class="faq-item__trigger" onclick="toggleFaq(this)">
+                            <span>Чи можна оформити розтермінування від забудовника?</span>
+                            <i class="ph ph-caret-down"></i>
+                        </button>
+                        <div class="faq-item__content">
+                            <div class="faq-item__inner">
+                                <p>Так, ми пропонуємо розтермінування терміном до 12 місяців безпосередньо від забудовника Shepit House. Це дозволяє придбати таунхаус без залучення банківських кредитів.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item reveal delay-100">
+                        <button class="faq-item__trigger" onclick="toggleFaq(this)">
+                            <span>Які комунікації передбачені у вашому містечку?</span>
+                            <i class="ph ph-caret-down"></i>
+                        </button>
+                        <div class="faq-item__content">
+                            <div class="faq-item__inner">
+                                <p>До кожної резиденції підведені всі необхідні комунікації: централізована вода, електрика, індивідуальна каналізація (септик). Також є технічна можливість підключення газу.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="form" class="section section--bg-alt section--border-t">
         <div class="shell">
             <div class="form-section-grid">
@@ -447,58 +507,6 @@
                         </div>
                         <button type="submit" class="btn-submit">Отримати планування</button>
                     </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="faq" class="section section--bg section--border-t">
-        <div class="shell">
-            <div class="faq-container">
-                <div class="faq-head reveal">
-                    <h2 class="heading-md">Поширені запитання</h2>
-                </div>
-
-                <div class="faq-list">
-                    <div class="faq-item reveal delay-100">
-                        <button class="faq-item__trigger" onclick="toggleFaq(this)">
-                            <span>Які терміни введення будинків в експлуатацію?</span>
-                            <i class="ph ph-plus"></i>
-                        </button>
-                        <div class="faq-item__content">
-                            <p>Завершення будівництва та введення резиденцій в експлуатацію заплановано на червень 2027 року. Будівництво ведеться згідно із затвердженим графіком.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item reveal delay-200">
-                        <button class="faq-item__trigger" onclick="toggleFaq(this)">
-                            <span>Яка актуальна ціна за квадратний метр?</span>
-                            <i class="ph ph-plus"></i>
-                        </button>
-                        <div class="faq-item__content">
-                            <p>Поточна вартість резиденцій у Shepit House становить від 990$ за м². Ціна залежить від обраного типу будинку (таунхаус чи дуплекс) та площі ділянки.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item reveal delay-300">
-                        <button class="faq-item__trigger" onclick="toggleFaq(this)">
-                            <span>Чи є можливість оформити розтермінування?</span>
-                            <i class="ph ph-plus"></i>
-                        </button>
-                        <div class="faq-item__content">
-                            <p>Так, ми пропонуємо зручне розтермінування терміном до 12 місяців безпосередньо від забудовника. Це дозволяє гнучко планувати ваш бюджет без участі банків.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item reveal delay-100">
-                        <button class="faq-item__trigger" onclick="toggleFaq(this)">
-                            <span>Які комунікації підведені до будинків?</span>
-                            <i class="ph ph-plus"></i>
-                        </button>
-                        <div class="faq-item__content">
-                            <p>До кожної резиденції підведені всі необхідні комунікації: централізоване водопостачання, електрика, каналізація (септик) та передбачена можливість підключення газу.</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -609,7 +617,7 @@
                         </div>
                         <div class="chess-row__content">
                             <h3>1 Поверх — Денна зона</h3>
-                            <p>Тут зосереджено життя вашої родини. Простора кухня-вітальня з виходом на власну терасу, гостьовий санвузол та технічні приміщення.</p>
+                            <p>Тут зосереджено життя вашої родини. Простора кухня-вітальня з выходом на власну терасу, гостьовий санвузол та технічні приміщення.</p>
                             <ul class="chess-list">
                                 <li>Кухня-вітальня: 35.4 м²</li>
                                 <li>Передпокій: 6.2 м²</li>
@@ -764,7 +772,7 @@
             <p>У радіусі 10 хвилин на авто знаходяться 3 сучасні дитячі садочки та 2 ліцеї. Вам не потрібно витрачати години на дорогу до школи.</p>
             
             <h3>Шопінг та відпочинок</h3>
-            <p>Поруч розташовані супермаркети мережі "Сільпо" та "Фора", а також затишні кав'ярні та ресторани Вишгорода.</p>
+            <p>Поруч розташовані супермаркети мережі "Сільпо" та "Фора", а также затишні кав'ярні та ресторани Вишгорода.</p>
         </div>
     </div>
 
