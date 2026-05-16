@@ -1891,13 +1891,20 @@ body.modal-open {
     inset: 0;
     z-index: var(--z-modal);
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* Important for long content */
     justify-content: center;
-    padding: 1rem;
+    padding: 2rem 1rem;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     pointer-events: none;
     opacity: 0;
-    transform: translateY(20px) scale(0.95);
+    transform: translateY(20px);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-content > * {
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .modal-content--article {
