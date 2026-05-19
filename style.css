@@ -222,7 +222,7 @@ body.modal-open {
 @media (max-width: 1023px) {
     .site-nav__inner {
         display: grid;
-        grid-template-columns: 2.9rem minmax(0, 1fr) 2.9rem;
+        grid-template-columns: 2.55rem minmax(0, 1fr) 2.55rem;
         align-items: center;
         column-gap: 0.5rem;
     }
@@ -241,6 +241,8 @@ body.modal-open {
     .site-nav__brand {
         grid-column: 1;
         justify-self: start;
+        width: 2.35rem;
+        height: 2.7rem;
     }
 }
 
@@ -581,6 +583,10 @@ body.modal-open {
     .hero__fact-text span {
         color: inherit;
         font-weight: inherit;
+    }
+
+    .hero__fact-text br + span::before {
+        content: " ";
     }
 }
 
@@ -3185,6 +3191,18 @@ body.modal-open {
     flex-direction: column;
     align-items: flex-end;
     gap: 0.65rem;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(0.75rem);
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+.contact-widget--visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
 }
 
 .contact-widget__panel {
@@ -3285,6 +3303,13 @@ body.modal-open {
     }
 }
 
+@media (max-width: 767px) {
+    .contact-widget {
+        right: 1rem;
+        bottom: 1rem;
+    }
+}
+
 .scroll-top {
     position: fixed;
     right: 1rem;
@@ -3326,6 +3351,14 @@ body.modal-open {
     .scroll-top {
         right: 1.5rem;
         bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .scroll-top {
+        left: 1rem;
+        right: auto;
+        bottom: 1rem;
     }
 }
 

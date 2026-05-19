@@ -28,6 +28,7 @@ function closeContactWidget() {
 
 function toggleContactWidget() {
     if (!contactWidget || !contactWidgetToggle || !contactWidgetPanel) return;
+    if (!contactWidget.classList.contains('contact-widget--visible')) return;
     const isOpen = contactWidget.classList.toggle('contact-widget--open');
     contactWidgetToggle.setAttribute('aria-expanded', String(isOpen));
     contactWidgetPanel.setAttribute('aria-hidden', String(!isOpen));
@@ -100,6 +101,8 @@ document.querySelectorAll('[data-plan-preview]').forEach((control) => {
 
 window.addEventListener('scroll', () => {
     if (!navbar) return;
+    const shouldShowFloatingActions = window.scrollY > 650;
+
     if (window.scrollY > 50) {
         navbar.classList.add('site-nav--scrolled');
     } else {
@@ -107,7 +110,12 @@ window.addEventListener('scroll', () => {
     }
 
     if (scrollTopButton) {
-        scrollTopButton.classList.toggle('scroll-top--visible', window.scrollY > 650);
+        scrollTopButton.classList.toggle('scroll-top--visible', shouldShowFloatingActions);
+    }
+
+    if (contactWidget) {
+        contactWidget.classList.toggle('contact-widget--visible', shouldShowFloatingActions);
+        if (!shouldShowFloatingActions) closeContactWidget();
     }
 });
 
