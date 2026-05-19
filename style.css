@@ -586,7 +586,7 @@ body.modal-open {
     right: 0;
     top: 0;
     width: 100%;
-    height: 50vh;
+    height: 58vh;
     z-index: var(--z-hero-decor);
     margin-top: 5rem;
 }
@@ -603,6 +603,7 @@ body.modal-open {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: 64% 50%;
 }
 
 .hero__grad-r {
@@ -618,6 +619,18 @@ body.modal-open {
     width: 100%;
 }
 
+@media (max-width: 1023px) {
+    .hero__grad-r {
+        background: linear-gradient(
+            105deg,
+            var(--color-bg) 0%,
+            rgba(244, 245, 240, 0.72) 34%,
+            rgba(244, 245, 240, 0.28) 68%,
+            transparent 100%
+        );
+    }
+}
+
 @media (min-width: 1024px) {
     .hero__grad-r {
         width: 52%;
@@ -628,7 +641,13 @@ body.modal-open {
     position: absolute;
     inset: 0;
     z-index: 10;
-    background: linear-gradient(to top, var(--color-bg), transparent);
+    background: linear-gradient(
+        to top,
+        var(--color-bg) 0%,
+        rgba(244, 245, 240, 0.84) 18%,
+        rgba(244, 245, 240, 0.38) 42%,
+        transparent 72%
+    );
 }
 
 @media (min-width: 1024px) {
