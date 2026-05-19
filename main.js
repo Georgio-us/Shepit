@@ -4,6 +4,10 @@ const mobileMenuLinks = document.querySelectorAll('.site-nav__mobile-menu a, .si
 const overlay = document.getElementById('modal-overlay');
 const modals = document.querySelectorAll('.modal-content');
 const scrollTopButton = document.querySelector('.scroll-top');
+const contactWidget = document.querySelector('[data-contact-widget]');
+const contactWidgetToggle = document.querySelector('.contact-widget__toggle');
+const contactWidgetPanel = document.getElementById('contact-widget-panel');
+const contactLeadButton = document.querySelector('[data-contact-lead]');
 const focusableSelector = [
     'a[href]',
     'button:not([disabled])',
@@ -14,6 +18,20 @@ const focusableSelector = [
 ].join(',');
 
 let lastFocusedElement = null;
+
+function closeContactWidget() {
+    if (!contactWidget || !contactWidgetToggle || !contactWidgetPanel) return;
+    contactWidget.classList.remove('contact-widget--open');
+    contactWidgetToggle.setAttribute('aria-expanded', 'false');
+    contactWidgetPanel.setAttribute('aria-hidden', 'true');
+}
+
+function toggleContactWidget() {
+    if (!contactWidget || !contactWidgetToggle || !contactWidgetPanel) return;
+    const isOpen = contactWidget.classList.toggle('contact-widget--open');
+    contactWidgetToggle.setAttribute('aria-expanded', String(isOpen));
+    contactWidgetPanel.setAttribute('aria-hidden', String(!isOpen));
+}
 
 if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
@@ -99,6 +117,28 @@ if (scrollTopButton) {
     });
 }
 
+if (contactWidgetToggle) {
+    contactWidgetToggle.addEventListener('click', (event) => {
+        event.stopPropagation();
+        toggleContactWidget();
+    });
+}
+
+if (contactWidget) {
+    contactWidget.addEventListener('click', (event) => {
+        event.stopPropagation();
+    });
+}
+
+if (contactLeadButton) {
+    contactLeadButton.addEventListener('click', () => {
+        closeContactWidget();
+        openModal('lead-modal');
+    });
+}
+
+document.addEventListener('click', closeContactWidget);
+
 const revealObserver = new IntersectionObserver(
     (entries, obs) => {
         entries.forEach((entry) => {
@@ -155,6 +195,7 @@ function closeAllModals(options = {}) {
 
 document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
+        closeContactWidget();
         const activeModal = document.querySelector('.modal-content.active');
         if (activeModal) closeModal(activeModal.id);
     }

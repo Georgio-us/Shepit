@@ -3176,6 +3176,115 @@ body.modal-open {
     font-weight: 700;
 }
 
+.contact-widget {
+    position: fixed;
+    right: 1rem;
+    bottom: 4.65rem;
+    z-index: 36;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.65rem;
+}
+
+.contact-widget__panel {
+    width: min(17rem, calc(100vw - 2rem));
+    display: grid;
+    gap: 0.35rem;
+    padding: 0.45rem;
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    background: rgba(248, 249, 245, 0.96);
+    box-shadow: var(--shadow-premium-hover);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(0.5rem);
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+.contact-widget--open .contact-widget__panel {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.contact-widget__item {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    width: 100%;
+    min-height: 2.7rem;
+    padding: 0.65rem 0.75rem;
+    border-radius: 12px;
+    color: var(--color-dark);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-align: left;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.contact-widget__item:hover {
+    background: var(--color-brand-green-10);
+    color: var(--color-brand-green);
+}
+
+.contact-widget__item .ph {
+    width: 1.6rem;
+    height: 1.6rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: #fff;
+    color: var(--color-brand-green);
+    font-size: 1rem;
+}
+
+.contact-widget__toggle {
+    min-height: 3rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    padding: 0 1rem;
+    border-radius: 999px;
+    background: var(--color-brand-green);
+    color: #fff;
+    box-shadow: var(--shadow-lg-green);
+    font-size: 0.86rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.contact-widget__toggle:hover {
+    background: var(--color-brand-green-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-premium-hover);
+}
+
+.contact-widget__toggle .ph {
+    font-size: 1.15rem;
+}
+
+@media (min-width: 768px) {
+    .contact-widget {
+        right: 1.5rem;
+        bottom: 5.35rem;
+    }
+}
+
 .scroll-top {
     position: fixed;
     right: 1rem;
