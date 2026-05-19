@@ -573,6 +573,17 @@ body.modal-open {
     font-weight: 500;
 }
 
+@media (max-width: 639px) {
+    .hero__fact-text br {
+        display: none;
+    }
+
+    .hero__fact-text span {
+        color: inherit;
+        font-weight: inherit;
+    }
+}
+
 .btn-hero {
     display: inline-flex;
     align-items: center;
