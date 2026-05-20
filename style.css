@@ -570,25 +570,6 @@ body.modal-open {
     margin: 0;
 }
 
-.hero__fact-text span {
-    color: var(--color-dark-60);
-    font-weight: 500;
-}
-
-@media (max-width: 639px) {
-    .hero__fact-text br {
-        display: none;
-    }
-
-    .hero__fact-text span {
-        color: inherit;
-        font-weight: inherit;
-    }
-
-    .hero__fact-text br + span::before {
-        content: " ";
-    }
-}
 
 .btn-hero {
     display: inline-flex;
