@@ -1878,6 +1878,14 @@ body.modal-open {
     color: var(--color-brand-green);
 }
 
+.footer-contact__mail {
+    font-size: 1.1rem !important;
+    font-family: var(--font-sans) !important;
+    font-weight: 600;
+    margin-top: -0.1rem;
+    margin-bottom: 0.85rem !important;
+}
+
 .footer-contact__addr {
     font-size: 0.875rem;
     color: var(--color-dark-60);
