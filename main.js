@@ -103,7 +103,7 @@ window.addEventListener('scroll', () => {
     if (!navbar) return;
     const shouldShowFloatingActions = window.scrollY > 650;
 
-    if (window.scrollY > 50) {
+    if (window.scrollY > 10) {
         navbar.classList.add('site-nav--scrolled');
     } else {
         navbar.classList.remove('site-nav--scrolled');
