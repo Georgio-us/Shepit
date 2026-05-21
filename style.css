@@ -198,6 +198,13 @@ body.modal-open {
     }
 }
 
+@media (max-width: 767px) {
+    .site-nav {
+        background: var(--color-bg);
+        border-bottom-color: var(--color-border-50);
+    }
+}
+
 @media (min-width: 768px) {
     .site-nav {
         padding-left: 3rem;
@@ -813,7 +820,19 @@ body.modal-open {
         object-position: 62% 50%;
     }
 
-    .hero__grad-r,
+    .hero__grad-r {
+        display: block;
+        background:
+            radial-gradient(
+                ellipse at 0% 8%,
+                rgba(248, 249, 245, 0.94) 0%,
+                rgba(248, 249, 245, 0.82) 24%,
+                rgba(248, 249, 245, 0.42) 48%,
+                rgba(248, 249, 245, 0.08) 68%,
+                transparent 82%
+            );
+    }
+
     .hero__grad-b {
         display: none;
     }
