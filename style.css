@@ -698,6 +698,127 @@ body.modal-open {
     }
 }
 
+@media (max-width: 767px) {
+    .hero {
+        min-height: 100svh;
+        align-items: stretch;
+        padding-top: 5rem;
+        background: var(--color-dark);
+    }
+
+    .hero__grid {
+        align-items: stretch;
+        min-height: calc(100svh - 5rem);
+        padding-top: 2.75rem;
+        padding-bottom: 1rem;
+    }
+
+    .hero__content {
+        max-width: none;
+        min-height: calc(100svh - 8.75rem);
+        padding-top: 0;
+        padding-bottom: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero__title {
+        font-size: clamp(2.05rem, 8.5vw, 2.75rem);
+        line-height: 1.12;
+        margin-bottom: 1.35rem;
+        max-width: 12ch;
+        text-shadow: 0 2px 18px rgba(248, 249, 245, 0.35);
+    }
+
+    .hero__lead {
+        max-width: 19.5rem;
+        margin-bottom: 2rem;
+        font-size: 0.98rem;
+        line-height: 1.55;
+        color: var(--color-dark-80);
+        text-shadow: 0 2px 18px rgba(248, 249, 245, 0.45);
+    }
+
+    .hero__action-panel {
+        margin-top: auto;
+        padding: 1.05rem;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 22px;
+        background:
+            linear-gradient(145deg, rgba(74, 84, 51, 0.96), rgba(43, 51, 29, 0.97)),
+            var(--color-brand-green);
+        box-shadow: 0 24px 50px -22px rgba(21, 27, 14, 0.75);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+
+    .hero__facts {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0;
+        margin-bottom: 1rem;
+    }
+
+    .hero__fact {
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 0.65rem;
+        min-width: 0;
+        padding: 0 0.55rem;
+        text-align: center;
+    }
+
+    .hero__fact + .hero__fact {
+        border-left: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .hero__fact-icon {
+        width: 3rem;
+        height: 3rem;
+        border: 0;
+        background: #f4e5c1;
+        color: var(--color-brand-green);
+        font-size: 1.25rem;
+    }
+
+    .hero__fact-text {
+        font-size: 0.75rem;
+        line-height: 1.45;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    .btn-hero {
+        min-height: 3.4rem;
+        padding: 0 1.15rem;
+        border-radius: 8px;
+        background: #f1d9a8;
+        color: var(--color-dark);
+        box-shadow: 0 16px 36px -20px rgba(0, 0, 0, 0.65);
+        font-size: 0.94rem;
+        font-weight: 600;
+    }
+
+    .btn-hero:hover {
+        background: #f1d9a8;
+    }
+
+    .hero__media {
+        top: 5rem;
+        height: calc(100% - 5rem);
+        margin-top: 0;
+    }
+
+    .hero__media img {
+        object-position: 62% 50%;
+    }
+
+    .hero__grad-r,
+    .hero__grad-b {
+        display: none;
+    }
+}
+
 /* =============================================================================
    Блок «Про містечко» (відео)
    ============================================================================= */
