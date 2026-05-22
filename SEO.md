@@ -15,15 +15,24 @@ This is the active Railway-connected domain at the moment. The apex domain `shep
 - Added Twitter Card meta tags.
 - Updated JSON-LD with `url`, `image`, `telephone`, and the current address.
 - Added `robots.txt`.
-- Added `sitemap.xml` with the current single public URL.
+- Added `sitemap.xml` with the current public URLs.
+- Added real indexable blog routes:
+  - `/blog/`
+  - `/blog/chomu-taunhaus-kompromis/`
+  - `/blog/oglyad-infrastruktury/`
+  - `/blog/rozterminuvannya-vid-zabudovnyka/`
 
 ## Sitemap policy
 
-Current sitemap contains only:
+Current sitemap contains:
 
 - `https://www.shepit-house.com.ua/`
+- `https://www.shepit-house.com.ua/blog/`
+- `https://www.shepit-house.com.ua/blog/chomu-taunhaus-kompromis/`
+- `https://www.shepit-house.com.ua/blog/oglyad-infrastruktury/`
+- `https://www.shepit-house.com.ua/blog/rozterminuvannya-vid-zabudovnyka/`
 
-Blog articles, privacy policy, and site map are currently modal content, not separate URLs. They should not be added to XML sitemap until they become real indexable routes.
+Privacy policy and HTML site map are currently modal content, not separate URLs. They should not be added to XML sitemap until they become real indexable routes.
 
 ## Redirect policy
 
@@ -52,10 +61,8 @@ Then update:
 
 ## Future indexable pages
 
-When real routes are added, create/update sitemap entries for:
+When additional real routes are added, create/update sitemap entries for:
 
-- `/blog/`
-- individual blog articles
 - `/privacy-policy/`
 - `/sitemap/` or another HTML site-map route if needed
 

@@ -410,11 +410,11 @@
                     <h2 class="section-head__title">Життя за містом</h2>
                     <p class="lead">Корисні статті про вибір нерухомості, переваги таунхаусів та інфраструктуру району.</p>
                 </div>
-                <a href="#" onclick="openModal('blog-index-modal'); return false;" class="link-arrow">Всі статті <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+                <a href="/blog/" class="link-arrow">Всі статті <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
             </div>
 
             <div class="blog-grid">
-                <a href="#" onclick="openModal('blog-article-1-modal'); return false;" class="blog-card transition-all-custom reveal delay-100">
+                <a href="/blog/chomu-taunhaus-kompromis/" class="blog-card transition-all-custom reveal delay-100">
                     <div class="blog-card__img img-hover-zoom">
                         <img src="assets/img1.jpg" loading="lazy" decoding="async" alt="Сучасний таунхаус інтер'єр">
                     </div>
@@ -426,7 +426,7 @@
                     </div>
                 </a>
 
-                <a href="#" onclick="openModal('blog-article-2-modal'); return false;" class="blog-card transition-all-custom reveal delay-200">
+                <a href="/blog/oglyad-infrastruktury/" class="blog-card transition-all-custom reveal delay-200">
                     <div class="blog-card__img img-hover-zoom">
                         <img src="assets/img2.jpg" loading="lazy" decoding="async" alt="Природа Нових Петрівців">
                     </div>
@@ -438,7 +438,7 @@
                     </div>
                 </a>
 
-                <a href="#" onclick="openModal('blog-article-3-modal'); return false;" class="blog-card transition-all-custom reveal delay-300">
+                <a href="/blog/rozterminuvannya-vid-zabudovnyka/" class="blog-card transition-all-custom reveal delay-300">
                     <div class="blog-card__img img-hover-zoom">
                         <img src="assets/img4.jpg" loading="lazy" decoding="async" alt="Оформлення документів">
                     </div>
@@ -865,154 +865,7 @@
                 <li>Блог</li>
                 <li>Контакти</li>
             </ul>
-            <p>XML sitemap доступний за адресою <a href="/sitemap.xml">/sitemap.xml</a>. Окремі URL для блогу, політики конфіденційності та HTML-мапи сайту додамо після затвердження повної структури сайту.</p>
-        </div>
-    </div>
-
-    <div id="blog-index-modal" class="modal-content modal-content--article">
-        <div class="modal-article modal-article--index">
-            <button type="button" onclick="closeModal('blog-index-modal')" class="modal-close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
-            <button type="button" class="modal-article__back" onclick="closeModal('blog-index-modal')"><i class="ph ph-arrow-left" aria-hidden="true"></i> Назад на головну</button>
-            <p class="modal-doc__title">Блог Shepit House</p>
-            <p class="modal-article__lead">Практичні матеріали про вибір нерухомості, інфраструктуру та фінансові рішення при купівлі таунхаусу.</p>
-            <div class="modal-article__chips">
-                <span>Нерухомість</span><span>Локація</span><span>Фінанси</span>
-            </div>
-            <div class="modal-article__list">
-                <button type="button" onclick="closeModal('blog-index-modal', { restore: false }); setTimeout(() => openModal('blog-article-1-modal'), 180)">Чому таунхаус — компроміс між квартирою та будинком</button>
-                <button type="button" onclick="closeModal('blog-index-modal', { restore: false }); setTimeout(() => openModal('blog-article-2-modal'), 180)">Огляд інфраструктури: садочки, школи та магазини поруч</button>
-                <button type="button" onclick="closeModal('blog-index-modal', { restore: false }); setTimeout(() => openModal('blog-article-3-modal'), 180)">Як працює розтермінування від забудовника у 2026 році</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="blog-article-1-modal" class="modal-content modal-content--article">
-        <div class="modal-article">
-            <button type="button" onclick="closeModal('blog-article-1-modal')" class="modal-close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
-            <button type="button" class="modal-article__back" onclick="closeModal('blog-article-1-modal', { restore: false }); setTimeout(() => openModal('blog-index-modal'), 180)"><i class="ph ph-arrow-left" aria-hidden="true"></i> До списку статей</button>
-            <div class="modal-article__hero">
-                <img src="assets/img1.jpg" alt="Порівняння таунхауса і квартири">
-                <div class="modal-article__hero-overlay">
-                    <div class="modal-article__chips"><span>Вибір нерухомості</span><span>Огляд</span></div>
-                </div>
-            </div>
-            <p class="modal-article__meta">16 травня 2026 • 8 хв читання</p>
-            <h2 class="modal-doc__title">Чому таунхаус — це ідеальний компроміс між квартирою та будинком?</h2>
-            <p class="modal-article__lead">Рішення про переїзд за місто зазвичай починається з простого запиту: <strong>більше простору без втрати міського ритму</strong>. Саме тут формат таунхаусу показує себе найкраще.</p>
-            <h3>1. Простір, який працює на сім'ю</h3>
-            <p>На відміну від квартири, таунхаус дозволяє розділити житлові сценарії: окрема зона відпочинку, робоче місце, дитячі кімнати. <strong>Менше побутового конфлікту — більше комфорту</strong> у щоденних дрібницях.</p>
-            <p>У квартирі кожен новий сценарій часто змагається за ті самі метри: робочий стіл з'являється у спальні, дитячі речі переїжджають у вітальню, а тераса замінюється невеликим балконом. У таунхаусі простір простіше організувати логічно: перший поверх працює як соціальна зона, другий залишається приватним, а власний двір додає третій вимір життя — простір на відкритому повітрі.</p>
-            <h3>2. Приватність без ізоляції</h3>
-            <p>Ви не живете у багатоповерховому будинку, але й не випадаєте з інфраструктури. Такий баланс особливо цінують сім'ї, які хочуть тиші, проте не готові до тривалих щоденних поїздок.</p>
-            <blockquote>Практичний принцип: купувати не просто квадратні метри, а стиль життя на 5–10 років уперед.</blockquote>
-            <h3>3. Вартість утримання і ліквідність</h3>
-            <p>Таунхаус зазвичай простіший в обслуговуванні, ніж великий окремий будинок, а попит на цей формат залишається стабільним. Це означає зрозумілі витрати, прогнозоване користування і кращу ліквідність у майбутньому.</p>
-            <h3>Що варто перевірити перед вибором</h3>
-            <ul>
-                <li><strong>Планування:</strong> чи є достатньо місця для зберігання, роботи та сімейного відпочинку.</li>
-                <li><strong>Двір:</strong> наскільки він приватний, чи можна облаштувати терасу, зелень або дитячу зону.</li>
-                <li><strong>Паркування:</strong> чи не перетвориться щоденний приїзд додому на пошук вільного місця.</li>
-            </ul>
-            <p>У правильному проєкті таунхаус не повинен бути «зменшеним будинком» або «квартирою з входом з вулиці». Його сила саме в балансі: менше витрат і побутових складнощів, ніж у великому приватному будинку, але значно більше свободи, ніж у квартирі.</p>
-            <p class="modal-article__note">Примітка: фінальні витрати завжди залежать від комплектації, стану об'єкта та юридичної моделі угоди.</p>
-            <div class="modal-article__related">
-                <p class="modal-article__section-title">Читайте також</p>
-                <button type="button" onclick="closeModal('blog-article-1-modal', { restore: false }); setTimeout(() => openModal('blog-article-2-modal'), 180)">Огляд інфраструктури: садочки, школи та магазини поруч</button>
-                <button type="button" onclick="closeModal('blog-article-1-modal', { restore: false }); setTimeout(() => openModal('blog-article-3-modal'), 180)">Як працює розтермінування від забудовника у 2026 році</button>
-            </div>
-            <div class="modal-article__cta">
-                <p><strong>Хочете зрозуміти, який формат підійде вашій родині?</strong><br>Залиште контакти — менеджер Shepit House покаже доступні планування та пояснить різницю між варіантами.</p>
-                <button type="button" onclick="closeModal('blog-article-1-modal', { restore: false }); setTimeout(() => openModal('lead-modal'), 180)">Отримати консультацію</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="blog-article-2-modal" class="modal-content modal-content--article">
-        <div class="modal-article">
-            <button type="button" onclick="closeModal('blog-article-2-modal')" class="modal-close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
-            <button type="button" class="modal-article__back" onclick="closeModal('blog-article-2-modal', { restore: false }); setTimeout(() => openModal('blog-index-modal'), 180)"><i class="ph ph-arrow-left" aria-hidden="true"></i> До списку статей</button>
-            <div class="modal-article__hero">
-                <img src="assets/img2.jpg" alt="Інфраструктура та щоденні маршрути">
-                <div class="modal-article__hero-overlay">
-                    <div class="modal-article__chips"><span>Локація</span><span>Інфраструктура</span></div>
-                </div>
-            </div>
-            <p class="modal-article__meta">16 травня 2026 • 7 хв читання</p>
-            <h2 class="modal-doc__title">Огляд інфраструктури: садочки, школи та магазини поруч</h2>
-            <p class="modal-article__lead">Якість життя формує не красива обкладинка району, а <strong>щоденні маршрути</strong>: дорога до школи, доступ до медицини, час на базові покупки.</p>
-            <h3>Що перевіряти в першу чергу</h3>
-            <ul>
-                <li><strong>Транспорт:</strong> реальний час до міста у годину пік, а не «без заторів».</li>
-                <li><strong>Освіта:</strong> вибір садочків і шкіл у практичному радіусі.</li>
-                <li><strong>Сервіси:</strong> аптека, супермаркет, відділення банку, медицина.</li>
-            </ul>
-            <h3>Для сім'ї важливі дрібниці</h3>
-            <p>Наявність безпечних пішохідних маршрутів, освітлення вулиць і близьких зон відпочинку напряму впливають на відчуття стабільності. Саме ці фактори найчастіше визначають, чи «ляже» локація в життя сім'ї.</p>
-            <p>Перед купівлею варто пройти майбутній маршрут не тільки на карті, а й фізично: від будинку до зупинки, магазину, школи або місця прогулянки. Це швидко показує реальну якість середовища: чи зручно йти з дитячим візком, чи є безпечні переходи, чи освітлена дорога ввечері, чи не доведеться кожну дрібну покупку закривати поїздкою на авто.</p>
-            <h3>Як оцінити локацію без емоцій</h3>
-            <ol>
-                <li><strong>Зробіть ранковий тест:</strong> перевірте час до ключових точок у будній день, коли місто живе у звичному ритмі.</li>
-                <li><strong>Оцініть вечір:</strong> важливо побачити, як район виглядає після заходу сонця, коли освітлення і тиша стають помітнішими.</li>
-                <li><strong>Порахуйте регулярні маршрути:</strong> школа, робота, спорт, покупки, медицина. Саме вони формують реальну зручність.</li>
-            </ol>
-            <p>Добра інфраструктура не обов'язково означає шумний торговий центр під вікнами. Для заміського формату цінніший інший баланс: базові сервіси поруч, швидкий виїзд до Києва, зелень і відчуття спокою біля дому.</p>
-            <blockquote>Локація — це не точка на карті, а щоденна економія часу, енергії та нервів.</blockquote>
-            <div class="modal-article__related">
-                <p class="modal-article__section-title">Читайте також</p>
-                <button type="button" onclick="closeModal('blog-article-2-modal', { restore: false }); setTimeout(() => openModal('blog-article-1-modal'), 180)">Чому таунхаус — компроміс між квартирою та будинком</button>
-                <button type="button" onclick="closeModal('blog-article-2-modal', { restore: false }); setTimeout(() => openModal('blog-article-3-modal'), 180)">Як працює розтермінування від забудовника у 2026 році</button>
-            </div>
-            <div class="modal-article__cta">
-                <p><strong>Хочете подивитись локацію наживо?</strong><br>Залиште заявку — узгодимо час перегляду та покажемо маршрути, двори і доступні планування.</p>
-                <button type="button" onclick="closeModal('blog-article-2-modal', { restore: false }); setTimeout(() => openModal('lead-modal'), 180)">Записатись на перегляд</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="blog-article-3-modal" class="modal-content modal-content--article">
-        <div class="modal-article">
-            <button type="button" onclick="closeModal('blog-article-3-modal')" class="modal-close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
-            <button type="button" class="modal-article__back" onclick="closeModal('blog-article-3-modal', { restore: false }); setTimeout(() => openModal('blog-index-modal'), 180)"><i class="ph ph-arrow-left" aria-hidden="true"></i> До списку статей</button>
-            <div class="modal-article__hero">
-                <img src="assets/img3.jpg" alt="Фінансовий план купівлі нерухомості">
-                <div class="modal-article__hero-overlay">
-                    <div class="modal-article__chips"><span>Фінанси</span><span>Розтермінування</span></div>
-                </div>
-            </div>
-            <p class="modal-article__meta">16 травня 2026 • 9 хв читання</p>
-            <h2 class="modal-doc__title">Як працює розтермінування від забудовника у 2026 році?</h2>
-            <p class="modal-article__lead">Розтермінування — це не просто «платежі частинами». Це фінансова модель угоди, де критично важливо розуміти <strong>строки, формулу платежів та ризики</strong>.</p>
-            <h3>Базова структура угоди</h3>
-            <ol>
-                <li><strong>Перший внесок</strong> — фіксує намір і бронює об'єкт.</li>
-                <li><strong>Проміжні платежі</strong> — за погодженим графіком.</li>
-                <li><strong>Фінальний платіж</strong> — у визначену договором дату або етап.</li>
-            </ol>
-            <h3>Що обов'язково перевірити до підписання</h3>
-            <ul>
-                <li>чи є приховані комісії та додаткові платежі;</li>
-                <li>як фіксується кінцева вартість і чи можливий її перегляд;</li>
-                <li>яка відповідальність сторін за зміщення строків.</li>
-            </ul>
-            <p class="modal-article__note">Порада: формуйте резерв 3–6 місяців платежів. Це дає маневр у разі форс-мажорів.</p>
-            <h3>Як підготуватись до розмови з менеджером</h3>
-            <p>Перед консультацією варто чесно визначити комфортний перший внесок і максимальний щомісячний платіж. Це допомагає не витрачати час на варіанти, які виглядають привабливо в рекламі, але створюють зайве фінансове напруження після підписання договору.</p>
-            <p>Окремо варто уточнити, що саме входить у вартість: стан передачі будинку, підведені комунікації, благоустрій, паркомісця, технічні умови та можливі додаткові платежі. Саме тут часто з'являється різниця між «ціною на банері» і реальним бюджетом купівлі.</p>
-            <ul>
-                <li><strong>Попросіть графік платежів письмово:</strong> так легше оцінити навантаження по місяцях.</li>
-                <li><strong>Порівнюйте не тільки ціну:</strong> важливі етап будівництва, комплектація і юридична прозорість.</li>
-                <li><strong>Залишайте резерв:</strong> після купівлі завжди будуть витрати на меблі, техніку та переїзд.</li>
-            </ul>
-            <blockquote>Сильна угода — це коли ви однаково добре розумієте і «скільки платити», і «що буде, якщо щось піде не за планом».</blockquote>
-            <div class="modal-article__related">
-                <p class="modal-article__section-title">Читайте також</p>
-                <button type="button" onclick="closeModal('blog-article-3-modal', { restore: false }); setTimeout(() => openModal('blog-article-1-modal'), 180)">Чому таунхаус — компроміс між квартирою та будинком</button>
-                <button type="button" onclick="closeModal('blog-article-3-modal', { restore: false }); setTimeout(() => openModal('blog-article-2-modal'), 180)">Огляд інфраструктури: садочки, школи та магазини поруч</button>
-            </div>
-            <div class="modal-article__cta">
-                <p><strong>Потрібен зрозумілий фінансовий сценарій?</strong><br>Залиште контакти — підготуємо актуальні умови, графік платежів і доступні варіанти.</p>
-                <button type="button" onclick="closeModal('blog-article-3-modal', { restore: false }); setTimeout(() => openModal('lead-modal'), 180)">Дізнатись умови</button>
-            </div>
+            <p>XML sitemap доступний за адресою <a href="/sitemap.xml">/sitemap.xml</a>. Блог уже має окремий URL <a href="/blog/">/blog/</a> та сторінки статей. Окремі URL для політики конфіденційності та HTML-мапи сайту додамо після затвердження повної структури сайту.</p>
         </div>
     </div>
 
