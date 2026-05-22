@@ -764,7 +764,7 @@ body.modal-open {
     }
 
     .hero__action-panel {
-        margin-top: clamp(7.5rem, 22svh, 13rem);
+        margin-top: clamp(4rem, 13svh, 7.5rem);
         padding: 1.05rem;
         border: 1px solid rgba(255, 255, 255, 0.12);
         border-radius: 22px;
