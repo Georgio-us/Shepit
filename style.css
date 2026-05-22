@@ -535,6 +535,14 @@ body.modal-open {
     max-width: 33rem;
 }
 
+.text-nowrap {
+    white-space: nowrap;
+}
+
+.hero__lead-line {
+    display: inline;
+}
+
 .hero__facts {
     display: flex;
     flex-direction: column;
@@ -730,24 +738,33 @@ body.modal-open {
     }
 
     .hero__title {
-        font-size: clamp(2.05rem, 8.5vw, 2.75rem);
-        line-height: 1.12;
+        font-size: clamp(2rem, 8vw, 2.9rem);
+        line-height: 1.08;
         margin-bottom: 1.35rem;
-        max-width: 12ch;
+        max-width: none;
         text-shadow: 0 2px 18px rgba(248, 249, 245, 0.35);
     }
 
+    .hero__title span {
+        white-space: nowrap;
+    }
+
     .hero__lead {
-        max-width: 19.5rem;
+        max-width: none;
         margin-bottom: 2rem;
-        font-size: 0.98rem;
+        font-size: clamp(0.86rem, 3.65vw, 1.08rem);
         line-height: 1.55;
         color: var(--color-dark-80);
         text-shadow: 0 2px 18px rgba(248, 249, 245, 0.45);
     }
 
+    .hero__lead-line {
+        display: block;
+        white-space: nowrap;
+    }
+
     .hero__action-panel {
-        margin-top: auto;
+        margin-top: clamp(7.5rem, 22svh, 13rem);
         padding: 1.05rem;
         border: 1px solid rgba(255, 255, 255, 0.12);
         border-radius: 22px;
@@ -817,7 +834,7 @@ body.modal-open {
     }
 
     .hero__media img {
-        object-position: 62% 50%;
+        object-position: 58% 50%;
     }
 
     .hero__grad-r {
