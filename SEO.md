@@ -10,17 +10,19 @@ This is the active Railway-connected domain at the moment. The apex domain `shep
 
 ## Implemented now
 
-- Added `<link rel="canonical" href="https://www.shepit-house.com.ua/">`.
+- Added `<link rel="canonical" href="https://www.shepit-house.com.ua/">` on the homepage.
 - Updated Open Graph URL/image to the `www` domain.
 - Added Twitter Card meta tags.
 - Updated JSON-LD with `url`, `image`, `telephone`, and the current address.
 - Added `robots.txt`.
 - Added `sitemap.xml` with the current public URLs.
-- Added real indexable blog routes:
+- Added real indexable routes:
   - `/blog/`
   - `/blog/chomu-taunhaus-kompromis/`
   - `/blog/oglyad-infrastruktury/`
   - `/blog/rozterminuvannya-vid-zabudovnyka/`
+  - `/privacy-policy/`
+  - `/sitemap/`
 
 ## Sitemap policy
 
@@ -31,8 +33,10 @@ Current sitemap contains:
 - `https://www.shepit-house.com.ua/blog/chomu-taunhaus-kompromis/`
 - `https://www.shepit-house.com.ua/blog/oglyad-infrastruktury/`
 - `https://www.shepit-house.com.ua/blog/rozterminuvannya-vid-zabudovnyka/`
+- `https://www.shepit-house.com.ua/privacy-policy/`
+- `https://www.shepit-house.com.ua/sitemap/`
 
-Privacy policy and HTML site map are currently modal content, not separate URLs. They should not be added to XML sitemap until they become real indexable routes.
+Each real page should keep its own title, meta description, canonical URL, Open Graph tags, meaningful `h1`, and sitemap entry.
 
 ## Redirect policy
 
@@ -40,7 +44,7 @@ Recommended current redirect:
 
 `https://shepit-house.com.ua/` -> `https://www.shepit-house.com.ua/`
 
-Use a permanent `301` redirect when the apex domain is available through DNS/provider tooling. This should be configured at DNS/hosting/proxy level, not inside the landing page HTML.
+Use a permanent `301` redirect when the apex domain is available through DNS/provider tooling, Cloudflare, or hosting-level redirects. This should be configured outside the landing page HTML.
 
 ## Future if canonical changes to non-www
 
@@ -50,8 +54,8 @@ If the final production decision is to use:
 
 Then update:
 
-- `canonical` in `index.html`
-- `og:url` in `index.html`
+- `canonical` in all HTML pages
+- `og:url` in all HTML pages
 - `og:image` / `twitter:image` if image URLs change
 - JSON-LD `url` and `image`
 - `robots.txt` sitemap URL
@@ -59,18 +63,9 @@ Then update:
 - Railway custom domains
 - 301 redirect direction: `www` -> apex
 
-## Future indexable pages
+## Future SEO/content work
 
-When additional real routes are added, create/update sitemap entries for:
-
-- `/privacy-policy/`
-- `/sitemap/` or another HTML site-map route if needed
-
-Each real page should have its own:
-
-- `<title>`
-- meta description
-- canonical URL
-- Open Graph tags
-- meaningful `h1`
-- sitemap entry
+- Replace placeholder/fallback social links with real profiles.
+- Replace placeholder video with final video embed or agreed reels-style format.
+- Replace temporary/gallery images when final media pack is approved.
+- Review legal text before production indexing.
