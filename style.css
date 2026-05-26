@@ -3420,7 +3420,7 @@ body.modal-open {
 
 .contact-widget--visible {
     opacity: 1;
-    pointer-events: auto;
+    pointer-events: none; /* Keep none so the parent container itself never intercepts clicks */
     transform: translateY(0);
 }
 
@@ -3499,6 +3499,7 @@ body.modal-open {
     font-size: 0.86rem;
     font-weight: 800;
     letter-spacing: 0.02em;
+    pointer-events: auto; /* Allow this button to be clicked explicitly */
     transition:
         background 0.2s ease,
         transform 0.2s ease,
