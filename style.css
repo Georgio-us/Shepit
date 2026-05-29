@@ -831,10 +831,14 @@ body.modal-open {
         top: 5rem;
         height: calc(100% - 5rem);
         margin-top: 0;
+        background-image: url("assets/hero.png");
+        background-size: cover;
+        background-position: 58% 50%;
     }
 
     .hero__media img {
-        object-position: 58% 50%;
+        object-fit: contain;
+        object-position: center 28%;
     }
 
     .hero__grad-r {
