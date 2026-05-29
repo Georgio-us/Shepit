@@ -20,6 +20,21 @@ function escapeHtml(value) {
         .slice(0, 500);
 }
 
+function normalizePhoneForTelegram(phone) {
+    let clean = String(phone || '').replace(/\D/g, '');
+    if (!clean) return '';
+    
+    if (clean.startsWith('0') && clean.length === 10) {
+        clean = '38' + clean;
+    } else if (clean.startsWith('80') && clean.length === 11) {
+        clean = '3' + clean;
+    } else if (clean.length === 9) {
+        clean = '380' + clean;
+    }
+    
+    return '+' + clean;
+}
+
 app.post('/api/lead', (req, res) => {
     const { name, phone, source, device, timestamp } = req.body;
     const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
@@ -34,12 +49,14 @@ app.post('/api/lead', (req, res) => {
         return res.status(500).json({ success: false });
     }
 
+    const formattedPhone = normalizePhoneForTelegram(phone);
+
     const text = `
 <b>✨ НОВА ЗАЯВКА: Shepit House ✨</b>
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 
 👤 <b>Клієнт:</b> ${escapeHtml(name) || '—'}
-📞 <b>Телефон:</b> <code>${escapeHtml(phone)}</code>
+📞 <b>Телефон:</b> ${formattedPhone}
 
 📍 <b>Звідки:</b> ${escapeHtml(source) || 'Головна'}
 📱 <b>Пристрій:</b> ${escapeHtml(device) || '—'}
