@@ -2474,26 +2474,32 @@ body.modal-open {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 0.5rem;
     margin-top: 2rem;
     min-height: 2.75rem;
     padding: 0.75rem 1.1rem;
     border: 1px solid var(--color-border);
     border-radius: 999px;
-    font-size: 0.75rem;
+    font-size: 0.68rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--color-brand-green);
+    white-space: nowrap;
     transition:
         border-color 0.2s ease,
         color 0.2s ease,
         background 0.2s ease;
 }
 
+.modal-success__back i {
+    font-size: 1rem;
+}
+
 .modal-success__back:hover {
     border-color: var(--color-brand-green);
-    background: var(--color-brand-green-10);
-    color: var(--color-dark);
+    background: var(--color-brand-green);
+    color: #fff;
 }
 
 /* --- Анімації scroll --- */
