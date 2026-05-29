@@ -2471,16 +2471,28 @@ body.modal-open {
 }
 
 .modal-success__back {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     margin-top: 2rem;
+    min-height: 2.75rem;
+    padding: 0.75rem 1.1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--color-brand-green);
-    transition: color 0.2s ease;
+    transition:
+        border-color 0.2s ease,
+        color 0.2s ease,
+        background 0.2s ease;
 }
 
 .modal-success__back:hover {
+    border-color: var(--color-brand-green);
+    background: var(--color-brand-green-10);
     color: var(--color-dark);
 }
 
