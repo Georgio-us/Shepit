@@ -341,8 +341,9 @@
             </div>
 
             <div class="gallery-grid">
-                <a href="#" onclick="openModal('gallery-modal'); return false;" class="gallery-tile reveal delay-100">
+                <a href="#" data-video-open data-video-title="Квітень-травень 2026 р. — відео ходу будівництва" class="gallery-tile gallery-tile--video reveal delay-100">
                     <img src="assets/img1.jpg" loading="lazy" decoding="async" alt="Будівництво стін таунхаусів у Нових Петрівцях — хід робіт">
+                    <span class="gallery-play" aria-hidden="true"><i class="ph ph-play"></i></span>
                     <div class="gallery-tile__cap">
                         <p class="gallery-tile__date">Квітень-травень 2026 р.</p>
                         <p class="gallery-tile__title">Котлован та старт монолітних робіт</p>
@@ -782,8 +783,9 @@
             <div class="gallery-albums">
                 <article class="gallery-album">
                     <div class="gallery-album__cover">
-                        <button type="button" class="gallery-album__image" data-plan-preview="assets/img1.jpg" data-plan-title="Квітень-травень 2026 р. — котлован та старт монолітних робіт">
+                        <button type="button" class="gallery-album__image gallery-album__image--video" data-video-open data-video-title="Квітень-травень 2026 р. — відео ходу будівництва">
                             <img src="assets/img1.jpg" loading="lazy" decoding="async" alt="Квітень-травень 2026 р. — котлован та старт монолітних робіт Shepit House">
+                            <span class="gallery-play" aria-hidden="true"><i class="ph ph-play"></i></span>
                         </button>
                     </div>
                     <div class="gallery-album__body">
@@ -838,7 +840,7 @@
         <div class="modal-video-box">
             <button type="button" onclick="closeModal('video-modal')" class="modal-video-close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
             <div class="modal-video-placeholder">
-                <p><i class="ph ph-play-circle" aria-hidden="true"></i>Тут буде YouTube Video Player</p>
+                <p><i class="ph ph-play-circle" aria-hidden="true"></i>Відео завантажиться після відкриття</p>
             </div>
         </div>
     </div>

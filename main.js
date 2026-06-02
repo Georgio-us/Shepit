@@ -8,6 +8,7 @@ const contactWidget = document.querySelector('[data-contact-widget]');
 const contactWidgetToggle = document.querySelector('.contact-widget__toggle');
 const contactWidgetPanel = document.getElementById('contact-widget-panel');
 const contactLeadButton = document.querySelector('[data-contact-lead]');
+const constructionVideoUrl = 'https://www.youtube-nocookie.com/embed/6gkOhjr1IhM?rel=0&modestbranding=1&playsinline=1&autoplay=1';
 const focusableSelector = [
     'a[href]',
     'button:not([disabled])',
@@ -99,6 +100,27 @@ document.querySelectorAll('[data-plan-preview]').forEach((control) => {
     });
 });
 
+document.querySelectorAll('[data-video-open]').forEach((control) => {
+    control.addEventListener('click', (event) => {
+        event.preventDefault();
+        const videoBox = document.querySelector('#video-modal .modal-video-placeholder');
+        const title = control.dataset.videoTitle || 'Відео ходу будівництва';
+
+        openModal('video-modal');
+
+        if (videoBox) {
+            videoBox.innerHTML = `
+                <iframe
+                    src="${constructionVideoUrl}"
+                    title="${title}"
+                    allow="autoplay; encrypted-media; picture-in-picture"
+                    allowfullscreen
+                ></iframe>
+            `;
+        }
+    });
+});
+
 window.addEventListener('scroll', () => {
     if (!navbar) return;
     const shouldShowFloatingActions = window.scrollY > 650;
@@ -182,6 +204,7 @@ function closeModal(modalId, options = {}) {
         modal.classList.remove('active');
         modal.setAttribute('aria-hidden', 'true');
     }
+    if (modalId === 'video-modal') resetVideoModal();
     const hasActiveModal = Boolean(document.querySelector('.modal-content.active'));
     if (!hasActiveModal) {
         if (overlay) overlay.classList.remove('active');
@@ -196,9 +219,16 @@ function closeAllModals(options = {}) {
         modal.classList.remove('active');
         modal.setAttribute('aria-hidden', 'true');
     });
+    resetVideoModal();
     if (overlay) overlay.classList.remove('active');
     document.body.classList.remove('modal-open');
     if (restore && lastFocusedElement) lastFocusedElement.focus();
+}
+
+function resetVideoModal() {
+    const videoBox = document.querySelector('#video-modal .modal-video-placeholder');
+    if (!videoBox) return;
+    videoBox.innerHTML = '<p><i class="ph ph-play-circle" aria-hidden="true"></i>Відео завантажиться після відкриття</p>';
 }
 
 document.addEventListener('keydown', (event) => {
