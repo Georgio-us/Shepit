@@ -2409,12 +2409,14 @@ body.modal-open {
 }
 
 .modal-video-close {
-    width: 2rem;
-    height: 2rem;
+    --video-close-shift: calc((min(92vw, 28rem) - 1.75rem) / 2);
+    width: 1.75rem;
+    height: 1.75rem;
     border-radius: 999px;
     background: rgba(244, 245, 240, 0.92);
     color: var(--color-ink);
     box-shadow: var(--shadow-md);
+    transform: translateX(var(--video-close-shift));
     transition:
         background 0.2s ease,
         color 0.2s ease,
@@ -2423,19 +2425,20 @@ body.modal-open {
 
 @media (min-width: 768px) {
     .modal-video-close {
-        width: 2.25rem;
-        height: 2.25rem;
+        --video-close-shift: calc((min(92vw, 28rem) - 2rem) / 2);
+        width: 2rem;
+        height: 2rem;
     }
 }
 
 .modal-video-close:hover {
     background: var(--color-brand-green);
     color: #fff;
-    transform: scale(1.04);
+    transform: translateX(var(--video-close-shift)) scale(1.04);
 }
 
 .modal-video-close .ph {
-    font-size: 1.25rem;
+    font-size: 1rem;
 }
 
 .modal-video-placeholder {
