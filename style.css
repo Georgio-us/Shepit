@@ -2398,12 +2398,19 @@ body.modal-open {
 
 .modal-video-close {
     position: absolute;
-    top: -3rem;
-    right: 0;
+    top: 0.75rem;
+    right: 0.75rem;
+    z-index: 2;
     width: 2.5rem;
     height: 2.5rem;
-    color: #fff;
-    transition: color 0.2s ease;
+    border-radius: 999px;
+    background: rgba(244, 245, 240, 0.9);
+    color: var(--color-ink);
+    box-shadow: var(--shadow-md);
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
 }
 
 @media (min-width: 768px) {
@@ -2414,7 +2421,9 @@ body.modal-open {
 }
 
 .modal-video-close:hover {
-    color: var(--color-brand-green);
+    background: var(--color-brand-green);
+    color: #fff;
+    transform: scale(1.04);
 }
 
 .modal-video-close .ph {
