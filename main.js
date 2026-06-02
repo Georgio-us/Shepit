@@ -121,6 +121,13 @@ document.querySelectorAll('[data-video-open]').forEach((control) => {
     });
 });
 
+const videoModal = document.getElementById('video-modal');
+if (videoModal) {
+    videoModal.addEventListener('click', (event) => {
+        if (event.target === videoModal) closeModal('video-modal');
+    });
+}
+
 window.addEventListener('scroll', () => {
     if (!navbar) return;
     const shouldShowFloatingActions = window.scrollY > 650;
