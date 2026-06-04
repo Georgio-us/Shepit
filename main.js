@@ -8,7 +8,7 @@ const contactWidget = document.querySelector('[data-contact-widget]');
 const contactWidgetToggle = document.querySelector('.contact-widget__toggle');
 const contactWidgetPanel = document.getElementById('contact-widget-panel');
 const contactLeadButton = document.querySelector('[data-contact-lead]');
-const constructionVideoUrl = 'https://www.youtube-nocookie.com/embed/6gkOhjr1IhM?rel=0&modestbranding=1&playsinline=1&autoplay=1';
+const defaultVideoId = '6gkOhjr1IhM';
 const focusableSelector = [
     'a[href]',
     'button:not([disabled])',
@@ -104,14 +104,16 @@ document.querySelectorAll('[data-video-open]').forEach((control) => {
     control.addEventListener('click', (event) => {
         event.preventDefault();
         const videoBox = document.querySelector('#video-modal .modal-video-placeholder');
+        const videoId = control.dataset.videoId || defaultVideoId;
         const title = control.dataset.videoTitle || 'Відео ходу будівництва';
+        const videoUrl = `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1&playsinline=1&autoplay=1`;
 
         openModal('video-modal');
 
         if (videoBox) {
             videoBox.innerHTML = `
                 <iframe
-                    src="${constructionVideoUrl}"
+                    src="${videoUrl}"
                     title="${title}"
                     allow="autoplay; encrypted-media; picture-in-picture"
                     allowfullscreen
