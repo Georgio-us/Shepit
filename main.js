@@ -78,12 +78,6 @@ document.querySelectorAll('[data-scroll-target]').forEach((control) => {
     });
 });
 
-document.querySelectorAll('[data-modal-open]').forEach((control) => {
-    control.addEventListener('click', () => {
-        openModal(control.dataset.modalOpen);
-    });
-});
-
 document.querySelectorAll('[data-plan-preview]').forEach((control) => {
     control.addEventListener('click', () => {
         const previewImage = document.getElementById('plan-preview-img');
