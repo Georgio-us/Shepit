@@ -14,11 +14,11 @@
     <meta property="og:url" content="https://www.shepit-house.com.ua/">
     <meta property="og:title" content="Shepit House — Таунхауси та дуплекси у Нових Петрівцях">
     <meta property="og:description" content="Сучасні таунхауси та дуплекси з власним двором у 15 хвилинах від Києва.">
-    <meta property="og:image" content="https://www.shepit-house.com.ua/assets/hero.png">
+    <meta property="og:image" content="https://www.shepit-house.com.ua/assets/hero.webp">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Shepit House — Таунхауси та дуплекси у Нових Петрівцях">
     <meta name="twitter:description" content="Сучасні таунхауси та дуплекси з власним двором у 15 хвилинах від Києва.">
-    <meta name="twitter:image" content="https://www.shepit-house.com.ua/assets/hero.png">
+    <meta name="twitter:image" content="https://www.shepit-house.com.ua/assets/hero.webp">
 
     <!-- Microformat Schema.org (JSON-LD) -->
     <script type="application/ld+json">
@@ -27,7 +27,7 @@
       "@type": "RealEstateListing",
       "name": "Shepit House — Житловий комплекс таунхаусів та дуплексів",
       "url": "https://www.shepit-house.com.ua/",
-      "image": "https://www.shepit-house.com.ua/assets/hero.png",
+      "image": "https://www.shepit-house.com.ua/assets/hero.webp",
       "telephone": "+380950734376",
       "description": "Продаж таунхаусів та дуплексів у Нових Петрівцях. Закрита територія, сучасна архітектура.",
       "address": {
@@ -46,9 +46,11 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" media="print" onload="this.media='all'">
 
-    <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -56,7 +58,7 @@
     <nav id="navbar" class="site-nav">
         <div class="shell site-nav__inner">
             <a href="./" class="site-nav__brand">
-                <img src="assets/Logo-mark_black.svg" alt="Shepit House" class="site-nav__logo-img">
+                <img src="assets/Logo-mark_black.svg" alt="Shepit House" width="490" height="560" class="site-nav__logo-img">
             </a>
 
             <ul class="site-nav__menu">
@@ -129,7 +131,7 @@
         <div class="hero__media">
             <div class="hero__grad-r" aria-hidden="true"></div>
             <div class="hero__grad-b" aria-hidden="true"></div>
-            <img src="assets/hero.webp" width="1672" height="941" alt="Екстер'єр таунхаусів Shepit House у Нових Петрівцях — сучасна архітектура">
+            <img src="assets/hero.webp" width="1672" height="941" fetchpriority="high" alt="Екстер'єр таунхаусів Shepit House у Нових Петрівцях — сучасна архітектура">
         </div>
     </header>
 
@@ -137,11 +139,11 @@
         <div class="shell">
             <div class="two-col">
                 <button type="button" data-video-open data-video-id="u7pzWFN_Waw" data-video-title="Відео про Shepit House" class="video-thumb img-hover-zoom reveal" aria-label="Відкрити відео">
-                    <img src="https://img.youtube.com/vi/u7pzWFN_Waw/maxresdefault.jpg" loading="lazy" decoding="async" alt="Відео про Shepit House — прев'ю">
+                    <img src="https://img.youtube.com/vi/u7pzWFN_Waw/maxresdefault.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="Відео про Shepit House — прев'ю">
                     <div class="video-thumb__overlay">
                         <div class="video-thumb__play">
                             <span class="video-thumb__ping" aria-hidden="true"></span>
-                            <i class="ph-fill ph-play" aria-hidden="true"></i>
+                            <i class="ph ph-play" aria-hidden="true"></i>
                         </div>
                     </div>
                 </button>
@@ -207,7 +209,7 @@
             </div>
 
             <div class="plan-cards">
-                <a href="#" onclick="openDynamicModal('Проєкт 100–120 м²', 'Продуманий простір для життя: велика кухня-вітальня на першому поверсі, 3 спальні на другому, панорамні вікна та вихід на власну терасу. Ідеально для сім\'ї.', 'assets/img1.jpg', 'Отримати детальне планування'); return false;" class="plan-card transition-all-custom reveal">
+                <a href="#" onclick="openDynamicModal('Проєкт 100–120 м²', 'Продуманий простір для життя: велика кухня-вітальня на першому поверсі, 3 спальні на другому, панорамні вікна та вихід на власну терасу. Ідеально для сім\'ї.', 'assets/img1.webp', 'Отримати детальне планування'); return false;" class="plan-card transition-all-custom reveal">
                     <div class="plan-card__img-wrap img-hover-zoom">
                         <img src="assets/img1.webp" width="1800" height="1012" loading="lazy" decoding="async" alt="Планування таунхауса 100-120 м² Shepit House">
                     </div>
@@ -219,7 +221,7 @@
                         <span class="plan-card__link">Детальніше <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
                     </div>
                 </a>
-                <a href="#" onclick="openDynamicModal('Власний двір до 2 соток', 'Власна закрита територія позаду будинку. Тут можна облаштувати зону барбекю, поставити дитячий басейн або створити власний сад для ранкової кави.', 'assets/img_5.jpg', 'Записатись на перегляд'); return false;" class="plan-card transition-all-custom reveal delay-100">
+                <a href="#" onclick="openDynamicModal('Власний двір до 2 соток', 'Власна закрита територія позаду будинку. Тут можна облаштувати зону барбекю, поставити дитячий басейн або створити власний сад для ранкової кави.', 'assets/img_5.webp', 'Записатись на перегляд'); return false;" class="plan-card transition-all-custom reveal delay-100">
                     <div class="plan-card__img-wrap img-hover-zoom">
                         <img src="assets/img_5.webp" width="1800" height="1012" loading="lazy" decoding="async" alt="Власна ділянка таунхауса до 2 соток у Нових Петрівцях">
                     </div>
@@ -231,7 +233,7 @@
                         <span class="plan-card__link">Детальніше <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
                     </div>
                 </a>
-                <a href="#" onclick="openDynamicModal('2 паркомісця', 'Вам більше не доведеться шукати місце для авто. Перед кожним будинком передбачено 2 власних паркомісця з можливістю встановлення зарядної станції для електромобіля.', 'assets/img4.jpg', 'Дізнатись умови'); return false;" class="plan-card transition-all-custom reveal delay-200">
+                <a href="#" onclick="openDynamicModal('2 паркомісця', 'Вам більше не доведеться шукати місце для авто. Перед кожним будинком передбачено 2 власних паркомісця з можливістю встановлення зарядної станції для електромобіля.', 'assets/img4.webp', 'Дізнатись умови'); return false;" class="plan-card transition-all-custom reveal delay-200">
                     <div class="plan-card__img-wrap img-hover-zoom">
                         <img src="assets/img4.webp" width="1800" height="1012" loading="lazy" decoding="async" alt="Парковка на два автомобілі біля кожного будинку">
                     </div>
@@ -565,7 +567,7 @@
             <div class="footer-grid">
                 <div class="footer-block">
                     <a href="./" class="footer-logo-link" aria-label="Повернутись на головну">
-                        <img src="assets/Logo-mark_black.svg" alt="Shepit House" class="footer-logo">
+                        <img src="assets/Logo-mark_black.svg" alt="Shepit House" width="490" height="560" class="footer-logo">
                     </a>
                     <div>
                         <p>У комплексі всього 8 будинків — ми свідомо залишили простір камерним, тихим і приватним.</p>
@@ -630,7 +632,7 @@
 
             <div class="modal-project__grid">
                 <div class="modal-project__media">
-                    <img id="info-modal-img" src="" alt="Деталі">
+                    <img id="info-modal-img" src="" width="800" height="600" alt="Деталі">
                 </div>
 
                 <div class="modal-project__body">
@@ -764,7 +766,7 @@
     <div id="plan-preview-modal" class="modal-content modal-content--plan-preview">
         <div class="modal-plan-preview">
             <button type="button" onclick="closeModal('plan-preview-modal')" class="modal-close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
-            <img id="plan-preview-img" src="" alt="">
+            <img id="plan-preview-img" src="" width="1200" height="800" alt="">
             <p id="plan-preview-title" class="modal-plan-preview__title"></p>
         </div>
     </div>
