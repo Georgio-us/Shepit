@@ -314,6 +314,9 @@ async function submitForm(event) {
             closeAllModals({ restore: false });
             setTimeout(() => openModal('success-modal'), 300);
             form.reset();
+            if (typeof gtag === 'function') {
+                gtag('event', 'generate_lead');
+            }
         } else {
             alert('Помилка. Спробуйте ще раз.');
         }
