@@ -2853,7 +2853,7 @@ body.modal-open {
 .hero__location-badge-pill {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 10px;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.25);
   padding: 0.45rem 1rem;
@@ -3571,7 +3571,7 @@ body.modal-open {
 @media (min-width: 1024px) {
   .layouts-grid {
     grid-template-columns: 3fr 3fr 2fr;
-    gap: 10px;
+    gap: 2rem;
   }
   
   .catalog-card {
