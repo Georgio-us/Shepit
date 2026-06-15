@@ -3133,3 +3133,89 @@ body.modal-open {
     font-size: 0.95rem;
   }
 }
+
+/* Benefits Bar Section (V2 ribbon immediately below Hero) */
+.benefits-bar {
+  background-color: #f4f5f0; /* Light warm cream ribbon matching mockup */
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  padding: 3.5rem 0;
+  text-align: center;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem 1rem;
+}
+
+@media (min-width: 640px) {
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .benefits-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .benefits-grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0;
+  }
+}
+
+.benefits-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+  .benefits-item:not(:last-child) {
+    border-right: 1px solid rgba(74, 84, 51, 0.15); /* Subtly colored brand-green divider line */
+  }
+}
+
+.benefits-item__icon {
+  color: var(--color-brand-green);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 1rem;
+}
+
+.benefits-item__icon svg {
+  width: 2.5rem;
+  height: 2.5rem;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  flex-shrink: 0;
+}
+
+.benefits-item__title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin: 0 0 0.5rem;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.benefits-item__subtext {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-dark-70);
+  margin: 0;
+  line-height: 1.35;
+}
