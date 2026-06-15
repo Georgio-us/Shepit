@@ -3425,69 +3425,61 @@ body.modal-open {
   transform: translateX(4px);
 }
 
-/* layout card overlay badges */
-.layout-card__badge-desc {
-  position: absolute;
-  top: 1.25rem;
-  right: 1.25rem;
-  background-color: var(--color-brand-green);
-  color: #ffffff;
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 0.45rem 0.9rem;
-  border-radius: 4px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  text-transform: none;
-  letter-spacing: normal;
-  max-width: 70%;
-  text-align: right;
-  z-index: 2;
-}
-
-.layout-card__badge-area {
-  position: absolute;
-  bottom: 1.25rem;
-  left: 1.25rem;
-  background-color: #ffffff;
-  color: var(--color-brand-green);
-  font-family: var(--font-serif);
-  font-size: 1.6rem;
-  font-weight: 700;
-  padding: 0.45rem 0.95rem;
-  border-radius: 4px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  line-height: 1;
-  display: inline-flex;
+/* layout header wrapper (side-by-side) */
+.layout-card__header {
+  display: grid;
+  grid-template-columns: auto 1fr;
   align-items: center;
-  z-index: 2;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
 }
 
-.layout-card__badge-area sup {
-  font-size: 0.6em;
-  top: -0.25em;
-  margin-left: 2px;
+.layout-card__title {
+  font-family: var(--font-serif);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--color-brand-green);
+  margin: 0;
+  line-height: 1;
+  white-space: nowrap;
 }
 
-@media (max-width: 480px) {
-  .layout-card__badge {
-    top: 0.75rem;
-    left: 0.75rem;
-    font-size: 0.6rem;
-    padding: 0.35rem 0.65rem;
+.layout-card__lead {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  line-height: 1.35;
+  color: var(--color-dark-70);
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .layout-card__content {
+    padding: 1.2rem 1.2rem;
   }
-  .layout-card__badge-desc {
-    top: 0.75rem;
-    right: 0.75rem;
-    font-size: 0.6rem;
-    padding: 0.35rem 0.65rem;
-    max-width: 55%;
+  
+  .layout-card__header {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
   }
-  .layout-card__badge-area {
-    bottom: 0.75rem;
-    left: 0.75rem;
-    font-size: 1.25rem;
-    padding: 0.35rem 0.75rem;
+
+  .layout-card__title {
+    font-size: 1.8rem;
+  }
+
+  .layout-card__lead {
+    font-size: 0.8rem;
+    line-height: 1.3;
+  }
+
+  .layout-card__features {
+    margin-bottom: 1.25rem;
+    padding: 0.75rem 0;
+  }
+
+  .btn-layout-card {
+    padding: 0.75rem;
+    font-size: 0.85rem;
   }
 }
 
