@@ -2846,7 +2846,7 @@ body.modal-open {
 .hero__location-badge {
   display: inline-flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0;
   margin-bottom: 2.5rem;
 }
 
@@ -2869,9 +2869,10 @@ body.modal-open {
 }
 
 .hero__location-badge-text {
-  font-size: 1.1rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.8);
+  margin-left: 10px;
 }
 
 /* Title: large font, line-height 1.15, gold price */
@@ -3085,9 +3086,9 @@ body.modal-open {
 
   .hero__location-badge {
     margin-bottom: 1.75rem;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
+    flex-direction: row;
+    align-items: center;
+    gap: 0;
   }
 
   .hero__title {
