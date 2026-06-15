@@ -798,6 +798,14 @@ body.modal-open {
   font-weight: 500;
   margin: 0;
 }
+#specs .pricing-banner {
+  margin-top: 4rem;
+}
+@media (max-width: 767px) {
+  #specs .pricing-banner {
+    margin-top: 2.5rem;
+  }
+}
 .btn-dark {
   background: var(--color-dark);
   color: #fff;

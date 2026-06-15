@@ -89,7 +89,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
     <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
-    <link rel="stylesheet" href="style.css?v=12">
+    <link rel="stylesheet" href="style.css?v=13">
 </head>
 <body>
 
@@ -107,10 +107,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </a>
 
             <ul class="site-nav__menu">
+                <li><a href="#layouts-selection">Проєкти</a></li>
                 <li><a href="#about">Про містечко</a></li>
-                <li><a href="#planning">Проєкти</a></li>
-                <li><a href="#progress">Хід будівництва</a></li>
                 <li><a href="#location">Локація</a></li>
+                <li><a href="#progress">Хід будівництва</a></li>
                 <li><button type="button" data-scroll-target="blog">Блог</button></li>
                 <li><a href="#contacts">Контакти</a></li>
             </ul>
@@ -123,10 +123,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div id="site-nav-menu" class="site-nav__mobile-panel">
             <ul class="site-nav__mobile-menu">
+                <li><a href="#layouts-selection">Проєкти</a></li>
                 <li><a href="#about">Про містечко</a></li>
-                <li><a href="#planning">Проєкти</a></li>
-                <li><a href="#progress">Хід будівництва</a></li>
                 <li><a href="#location">Локація</a></li>
+                <li><a href="#progress">Хід будівництва</a></li>
                 <li><button type="button" data-scroll-target="blog">Блог</button></li>
                 <li><a href="#contacts">Контакти</a></li>
             </ul>
@@ -161,7 +161,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="hero__divider"></div>
 
                 <div class="hero__actions">
-                    <a href="#planning" class="btn-hero btn-hero--primary">
+                    <a href="#layouts-selection" class="btn-hero btn-hero--primary">
                         <svg class="btn-hero__svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <rect x="3" y="3" width="18" height="18" rx="2"/>
                             <path d="M9 3v18M9 12h12M15 12v9"/>
@@ -171,7 +171,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <span class="btn-hero__bottom-line">планування</span>
                         </div>
                     </a>
-                    
+
                     <button type="button" onclick="openLeadModal('Розрахунок платежу (Hero)')" class="btn-hero btn-hero--secondary">
                         <svg class="btn-hero__svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <rect x="4" y="2" width="16" height="20" rx="2"/>
@@ -296,7 +296,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </p>
                 </div>
             </div>
-            
+
             <div class="layouts-grid">
                 <!-- Card 1: Townhouse -->
                 <div class="layout-card reveal">
@@ -309,7 +309,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <h3 class="layout-card__title">100 м<sup>2</sup></h3>
                             <p class="layout-card__lead">Продуманий простір для комфортного життя родини</p>
                         </div>
-                        
+
                         <div class="layout-card__features">
                             <div class="layout-card__feature">
                                 <div class="layout-card__feature-icon">
@@ -354,7 +354,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <span class="layout-card__feature-label">Ділянка<br>до 2 соток</span>
                             </div>
                         </div>
-                        
+
                         <a href="townhouse/" class="btn-layout-card">
                             <span>Дивитись планування</span>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -364,7 +364,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </a>
                     </div>
                 </div>
-                
+
                 <!-- Card 2: Duplex -->
                 <div class="layout-card reveal delay-100">
                     <div class="layout-card__image-container">
@@ -376,7 +376,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <h3 class="layout-card__title">120 м<sup>2</sup></h3>
                             <p class="layout-card__lead">Більше простору для вашої родини</p>
                         </div>
-                        
+
                         <div class="layout-card__features">
                             <div class="layout-card__feature">
                                 <div class="layout-card__feature-icon">
@@ -421,7 +421,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <span class="layout-card__feature-label">Ділянка<br>до 2 соток</span>
                             </div>
                         </div>
-                        
+
                         <a href="duplex/" class="btn-layout-card">
                             <span>Дивитись планування</span>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -432,7 +432,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Catalog Banner -->
             <div class="catalog-banner reveal delay-200">
                 <div class="catalog-banner__left">
@@ -443,12 +443,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <text x="32" y="66" fill="currentColor" font-family="var(--font-sans)" font-size="12" font-weight="800" text-anchor="middle" letter-spacing="0.05em">PDF</text>
                     </svg>
                 </div>
-                
+
                 <div class="catalog-banner__center">
                     <h4 class="catalog-banner__title">Не знаєте який формат обрати?</h4>
                     <p class="catalog-banner__subtext">Отримайте повний каталог з усіма плануваннями, актуальними цінами та умовами розтермінування</p>
                 </div>
-                
+
                 <div class="catalog-banner__right">
                     <button type="button" class="btn-catalog-banner-download" onclick="openModal('lead-modal')">
                         <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -467,80 +467,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <span>Без реєстрації та спаму</span>
                     </div>
                 </div>
-        </div>
-    </section>
-
-    <section id="planning" class="section section--bg">
-        <div class="shell">
-            <div class="plan-intro">
-                <div class="plan-intro__title reveal">
-                    <h2 class="heading-md">Проєкти таунхаусів та дуплексів під Києвом</h2>
-                </div>
-                <div class="plan-intro__text reveal delay-100">
-                    <p class="lead">
-                        У Shepit House всього 4 таунхауси та 4 дуплекси. Ми свідомо створили невеликий простір без щільної забудови — щоб тут залишалось головне: тиша, приватність і відчуття дому.
-                    </p>
-                </div>
-            </div>
-
-            <div class="plan-cards">
-                <a href="#" onclick="openDynamicModal('Проєкт 100–120 м²', 'Продуманий простір для життя: велика кухня-вітальня на першому поверсі, 3 спальні на другому, панорамні вікна та вихід на власну терасу. Ідеально для сім\'ї.', 'assets/img1.webp', 'Отримати детальне планування'); return false;" class="plan-card transition-all-custom reveal">
-                    <div class="plan-card__img-wrap img-hover-zoom">
-                        <img src="assets/img1.webp" width="1800" height="1012" loading="lazy" decoding="async" alt="Планування таунхауса 100-120 м² Shepit House">
-                    </div>
-                    <div class="plan-card__body">
-                        <div>
-                            <h3 class="plan-card__title">100–120 м²</h3>
-                            <p class="plan-card__subtitle">Продуманого простору для життя</p>
-                        </div>
-                        <span class="plan-card__link">Детальніше <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-                    </div>
-                </a>
-                <a href="#" onclick="openDynamicModal('Власний двір до 2 соток', 'Власна закрита територія позаду будинку. Тут можна облаштувати зону барбекю, поставити дитячий басейн або створити власний сад для ранкової кави.', 'assets/img_5.webp', 'Записатись на перегляд'); return false;" class="plan-card transition-all-custom reveal delay-100">
-                    <div class="plan-card__img-wrap img-hover-zoom">
-                        <img src="assets/img_5.webp" width="1800" height="1012" loading="lazy" decoding="async" alt="Власна ділянка таунхауса до 2 соток у Нових Петрівцях">
-                    </div>
-                    <div class="plan-card__body">
-                        <div>
-                            <h3 class="plan-card__title">До 2 соток</h3>
-                            <p class="plan-card__subtitle">Власного закритого двору</p>
-                        </div>
-                        <span class="plan-card__link">Детальніше <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-                    </div>
-                </a>
-                <a href="#" onclick="openDynamicModal('2 паркомісця', 'Вам більше не доведеться шукати місце для авто. Перед кожним будинком передбачено 2 власних паркомісця з можливістю встановлення зарядної станції для електромобіля.', 'assets/img4.webp', 'Дізнатись умови'); return false;" class="plan-card transition-all-custom reveal delay-200">
-                    <div class="plan-card__img-wrap img-hover-zoom">
-                        <img src="assets/img4.webp" width="1800" height="1012" loading="lazy" decoding="async" alt="Парковка на два автомобілі біля кожного будинку">
-                    </div>
-                    <div class="plan-card__body">
-                        <div>
-                            <h3 class="plan-card__title">2 паркомісця</h3>
-                            <p class="plan-card__subtitle">Біля кожного будинку</p>
-                        </div>
-                        <span class="plan-card__link">Детальніше <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-                    </div>
-                </a>
-                <a href="#" onclick="openModal('plans-modal'); return false;" class="plan-card transition-all-custom reveal delay-300">
-                    <div class="plan-card__img-wrap img-hover-zoom">
-                        <img src="assets/img3.webp" width="1800" height="1012" loading="lazy" decoding="async" alt="Каталог планувань таунхаусів та дуплексів Shepit House">
-                    </div>
-                    <div class="plan-card__body">
-                        <div>
-                            <h3 class="plan-card__title">Всі планування</h3>
-                            <p class="plan-card__subtitle">Каталог таунхаусів та дуплексів</p>
-                        </div>
-                        <span class="plan-card__link">Дивитись каталог <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="pricing-banner reveal">
-                <div class="pricing-banner__text">
-                    <p class="pricing-banner__label">Вартість резиденцій</p>
-                    <p class="pricing-banner__price"><span>від 89 100$</span><span>до 114 000$</span></p>
-                    <p class="pricing-banner__note">Зручне розтермінування на 12 місяців від забудовника</p>
-                </div>
-                <button type="button" onclick="openModal('lead-modal')" class="btn-dark">Отримати прайс</button>
             </div>
         </div>
     </section>
@@ -664,6 +590,59 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
                 </div>
             </div>
+
+            <div class="pricing-banner reveal">
+                <div class="pricing-banner__text">
+                    <p class="pricing-banner__label">Вартість резиденцій</p>
+                    <p class="pricing-banner__price"><span>від 89 100$</span><span>до 114 000$</span></p>
+                    <p class="pricing-banner__note">Зручне розтермінування на 12 місяців від забудовника</p>
+                </div>
+                <button type="button" onclick="openModal('lead-modal')" class="btn-dark">Отримати прайс</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="location" class="section section--white section--border-t">
+        <div class="shell">
+            <div class="two-col">
+                <div class="location-map reveal">
+                    <iframe
+                        src="https://maps.google.com/maps?q=%D0%9A%D0%BE%D1%82%D0%B5%D0%B4%D0%B6%D0%BD%D0%B5+%D0%BC%D1%96%D1%81%D1%82%D0%B5%D1%87%D0%BA%D0%BE+Shepit+house%2C+%D0%B2%D1%83%D0%BB.+%D0%9B%D1%96%D1%81%D0%BE%D0%B2%D0%B0%2C+%D0%9D%D0%BE%D0%B2%D1%96+%D0%9F%D0%B5%D1%82%D1%80%D1%96%D0%B2%D1%86%D1%96%2C+%D0%9A%D0%B8%D1%97%D0%B2%D1%81%D1%8C%D0%BA%D0%B0+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C%2C+07354&amp;z=12&amp;hl=uk&amp;output=embed"
+                        width="100%"
+                        height="100%"
+                        style="border:0; display:block;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Котеджне містечко Shepit House на карті">
+                    </iframe>
+                </div>
+
+                <div class="location-text reveal delay-100">
+                    <h2 class="heading-xl location-text__title">Місце, де місто <br>стає тихішим</h2>
+
+                    <p class="lead text-muted location-text__lead">
+                        Достатньо близько до Києва, щоб залишатись у звичному ритмі. І достатньо далеко — щоб нарешті відчути тишу.
+                    </p>
+
+                    <div class="location-cards">
+                        <div class="location-card">
+                            <div class="location-card__icon"><i class="ph ph-car" aria-hidden="true"></i></div>
+                            <div>
+                                <h3>До метро Героїв Дніпра</h3>
+                                <p>15 хв на авто зручною трасою</p>
+                            </div>
+                        </div>
+                        <div class="location-card">
+                            <div class="location-card__icon"><i class="ph ph-person-simple-walk" aria-hidden="true"></i></div>
+                            <div>
+                                <h3>До лісу та Київського моря</h3>
+                                <p>10 хв пішки для ваших прогулянок</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -704,51 +683,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </section>
 
-    <section id="location" class="section section--white section--border-t">
-        <div class="shell">
-            <div class="two-col">
-                <div class="location-map reveal">
-                    <iframe 
-                        src="https://maps.google.com/maps?q=%D0%9A%D0%BE%D1%82%D0%B5%D0%B4%D0%B6%D0%BD%D0%B5+%D0%BC%D1%96%D1%81%D1%82%D0%B5%D1%87%D0%BA%D0%BE+Shepit+house%2C+%D0%B2%D1%83%D0%BB.+%D0%9B%D1%96%D1%81%D0%BE%D0%B2%D0%B0%2C+%D0%9D%D0%BE%D0%B2%D1%96+%D0%9F%D0%B5%D1%82%D1%80%D1%96%D0%B2%D1%86%D1%96%2C+%D0%9A%D0%B8%D1%97%D0%B2%D1%81%D1%8C%D0%BA%D0%B0+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C%2C+07354&amp;z=12&amp;hl=uk&amp;output=embed" 
-                        width="100%" 
-                        height="100%" 
-                        style="border:0; display:block;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade"
-                        title="Котеджне містечко Shepit House на карті">
-                    </iframe>
-                </div>
-
-                <div class="location-text reveal delay-100">
-                    <h2 class="heading-xl location-text__title">Місце, де місто <br>стає тихішим</h2>
-
-                    <p class="lead text-muted location-text__lead">
-                        Достатньо близько до Києва, щоб залишатись у звичному ритмі. І достатньо далеко — щоб нарешті відчути тишу.
-                    </p>
-
-                    <div class="location-cards">
-                        <div class="location-card">
-                            <div class="location-card__icon"><i class="ph ph-car" aria-hidden="true"></i></div>
-                            <div>
-                                <h3>До метро Героїв Дніпра</h3>
-                                <p>15 хв на авто зручною трасою</p>
-                            </div>
-                        </div>
-                        <div class="location-card">
-                            <div class="location-card__icon"><i class="ph ph-person-simple-walk" aria-hidden="true"></i></div>
-                            <div>
-                                <h3>До лісу та Київського моря</h3>
-                                <p>10 хв пішки для ваших прогулянок</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="blog" class="section section--bg section--border-t">
+    <section id="blog" class="section section--white section--border-t">
         <div class="shell">
             <div class="section-head reveal">
                 <div>
@@ -975,7 +910,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <span class="modal-project__label">Детальна інформація</span>
                         <h2 id="info-modal-title" class="modal-project__title">Заголовок</h2>
                     </div>
-                    
+
                     <div id="info-modal-specs" class="modal-project__specs"></div>
 
                     <div id="info-modal-desc" class="modal-project__desc"></div>
@@ -989,7 +924,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div id="plans-modal" class="modal-content modal-content--plans">
         <div class="modal-plans">
             <button type="button" onclick="closeModal('plans-modal')" class="modal-plans__close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
-            
+
             <div class="modal-plans__container">
                 <div class="modal-plans__intro">
                     <h2 class="modal-plans__title">Планування резиденцій</h2>
