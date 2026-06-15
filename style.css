@@ -199,7 +199,20 @@ body.modal-open {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+.site-nav__logo-img.logo-black {
+  display: none;
+}
+.site-nav__logo-img.logo-white {
   display: block;
+}
+.site-nav--scrolled .site-nav__logo-img.logo-black,
+.site-nav--open .site-nav__logo-img.logo-black {
+  display: block;
+}
+.site-nav--scrolled .site-nav__logo-img.logo-white,
+.site-nav--open .site-nav__logo-img.logo-white {
+  display: none;
 }
 @media (min-width: 640px) {
   .site-nav__brand {
