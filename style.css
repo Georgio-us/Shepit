@@ -3571,7 +3571,7 @@ body.modal-open {
 @media (min-width: 1024px) {
   .layouts-grid {
     grid-template-columns: 3fr 3fr 2fr;
-    gap: 2rem;
+    gap: 10px;
   }
   
   .catalog-card {
