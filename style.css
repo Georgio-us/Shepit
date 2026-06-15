@@ -2809,7 +2809,7 @@ body.modal-open {
   align-items: center;
   justify-content: flex-start;
   padding-top: 5rem;
-  padding-bottom: 7rem; /* Space for the bottom features bar */
+  padding-bottom: 5rem;
   overflow: hidden;
   background: #000;
 }
@@ -3003,70 +3003,10 @@ body.modal-open {
   transform: translateY(-2px);
 }
 
-/* Bottom Features Bar */
-.hero__features-bar {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(27, 30, 23, 0.8);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  z-index: 15;
-  padding: 1.25rem 0;
-}
-
-.hero__features-bar-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.hero__feature-item {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  flex: 1;
-}
-
-/* Vertical divider borders between items */
-.hero__feature-item:not(:first-child) {
-  border-left: 1px solid rgba(255, 255, 255, 0.15);
-  padding-left: 1.5rem;
-}
-
-.hero__feature-icon {
-  font-size: 1.75rem;
-  color: var(--color-gold-accent);
-  display: flex;
-  align-items: center;
-}
-
-.hero__feature-text {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  line-height: 1.2;
-}
-
-.hero__feature-top {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: #fff;
-}
-
-.hero__feature-bottom {
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.6);
-  font-weight: 500;
-}
-
 /* Bounce scroll down indicator (Mouse Icon) */
 .hero__scroll-down {
   position: absolute;
-  bottom: 5.5rem; /* Sits just above the features bar */
+  bottom: 2.5rem; /* Shipped down since features bar is removed */
   left: 50%;
   transform: translateX(-50%);
   z-index: 20;
@@ -3125,24 +3065,10 @@ body.modal-open {
   flex-shrink: 0;
 }
 
-.hero__feature-svg {
-  width: 2rem;
-  height: 2rem;
-  stroke: currentColor;
-  stroke-width: 1.75;
-  flex-shrink: 0;
-}
-
 /* Mobile Overrides (Full responsive) */
 @media (max-width: 1023px) {
-  .hero__features-bar {
-    display: none; /* Hide bottom bar on tablet/mobile to save space */
-  }
   .hero__scroll-down {
     bottom: 2rem;
-  }
-  .hero {
-    padding-bottom: 5rem;
   }
 }
 
