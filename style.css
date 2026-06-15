@@ -3054,7 +3054,7 @@ body.modal-open {
     padding-bottom: 6rem;
   }
   .hero__scroll-down {
-    bottom: 2rem;
+    display: none;
   }
 }
 
@@ -3101,7 +3101,7 @@ body.modal-open {
   }
 
   .hero__divider {
-    margin-bottom: 4.75rem;
+    margin-bottom: 4.0rem;
   }
 
   .hero__actions {
