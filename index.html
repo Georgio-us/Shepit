@@ -89,7 +89,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
     <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
-    <link rel="stylesheet" href="style.css?v=8">
+    <link rel="stylesheet" href="style.css?v=9">
 </head>
 <body>
 
@@ -279,6 +279,214 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
                     <h3 class="benefits-item__title">15 хвилин <br>до метро Героїв Дніпра</h3>
                     <p class="benefits-item__subtext">і всієї інфраструктури</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Layouts Selection Block -->
+    <section id="layouts-selection" class="section section--bg-alt">
+        <div class="shell">
+            <div class="layouts-intro">
+                <h2 class="heading-lg reveal">Проєкти таунхаусів та дуплексів під Києвом</h2>
+                <p class="lead reveal delay-100">Оберіть формат житла, який підходить саме вам</p>
+            </div>
+            
+            <div class="layouts-grid">
+                <!-- Card 1: Townhouse -->
+                <div class="layout-card reveal">
+                    <div class="layout-card__image-container">
+                        <img src="assets/img1.webp" alt="Таунхаус 100 м² Shepit House" loading="lazy" decoding="async">
+                        <span class="layout-card__badge">ТАУНХАУС</span>
+                    </div>
+                    <div class="layout-card__content">
+                        <h3 class="layout-card__title">100 м²</h3>
+                        <p class="layout-card__lead">Продуманий простір для комфортного життя родини</p>
+                        
+                        <div class="layout-card__features">
+                            <div class="layout-card__feature">
+                                <div class="layout-card__feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M3 7v11M21 7v11M3 10h18M3 14h18" />
+                                        <path d="M6 10V8a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v2M13 10V8a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v2" />
+                                    </svg>
+                                </div>
+                                <span class="layout-card__feature-label">3 спальні</span>
+                            </div>
+                            <div class="layout-card__feature">
+                                <div class="layout-card__feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M4 20h16" />
+                                        <path d="M10 20v-5" />
+                                        <path d="M10 15a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z" />
+                                        <path d="M15 20v-3" />
+                                        <path d="M15 17a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" />
+                                    </svg>
+                                </div>
+                                <span class="layout-card__feature-label">Власний<br>двір</span>
+                            </div>
+                            <div class="layout-card__feature">
+                                <div class="layout-card__feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M7 11l1.5-4.5c.3-.9 1.1-1.5 2-1.5h3c.9 0 1.7.6 2 1.5L17 11" />
+                                        <rect x="4" y="11" width="16" height="6" rx="1.5" />
+                                        <rect x="6" y="17" width="3" height="3" rx="0.5" />
+                                        <rect x="15" y="17" width="3" height="3" rx="0.5" />
+                                        <circle cx="7.5" cy="14" r="1" />
+                                        <circle cx="16.5" cy="14" r="1" />
+                                    </svg>
+                                </div>
+                                <span class="layout-card__feature-label">2 паркомісця</span>
+                            </div>
+                            <div class="layout-card__feature">
+                                <div class="layout-card__feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="4" y="4" width="16" height="16" rx="2" stroke-dasharray="4 4" />
+                                    </svg>
+                                </div>
+                                <span class="layout-card__feature-label">Ділянка<br>до 2 соток</span>
+                            </div>
+                        </div>
+                        
+                        <button type="button" class="btn-layout-card" onclick="openModal('lead-modal')">
+                            <span>Дивитись планування</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Card 2: Duplex -->
+                <div class="layout-card reveal delay-100">
+                    <div class="layout-card__image-container">
+                        <img src="assets/img3.webp" alt="Дуплекс 120 м² Shepit House" loading="lazy" decoding="async">
+                        <span class="layout-card__badge">ДУПЛЕКС</span>
+                    </div>
+                    <div class="layout-card__content">
+                        <h3 class="layout-card__title">120 м²</h3>
+                        <p class="layout-card__lead">Більше простору для вашої родини</p>
+                        
+                        <div class="layout-card__features">
+                            <div class="layout-card__feature">
+                                <div class="layout-card__feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M3 7v11M21 7v11M3 10h18M3 14h18" />
+                                        <path d="M6 10V8a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v2M13 10V8a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v2" />
+                                    </svg>
+                                </div>
+                                <span class="layout-card__feature-label">4 спальні</span>
+                            </div>
+                            <div class="layout-card__feature">
+                                <div class="layout-card__feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M4 20h16" />
+                                        <path d="M10 20v-5" />
+                                        <path d="M10 15a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z" />
+                                        <path d="M15 20v-3" />
+                                        <path d="M15 17a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" />
+                                    </svg>
+                                </div>
+                                <span class="layout-card__feature-label">Власний<br>двір</span>
+                            </div>
+                            <div class="layout-card__feature">
+                                <div class="layout-card__feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M7 11l1.5-4.5c.3-.9 1.1-1.5 2-1.5h3c.9 0 1.7.6 2 1.5L17 11" />
+                                        <rect x="4" y="11" width="16" height="6" rx="1.5" />
+                                        <rect x="6" y="17" width="3" height="3" rx="0.5" />
+                                        <rect x="15" y="17" width="3" height="3" rx="0.5" />
+                                        <circle cx="7.5" cy="14" r="1" />
+                                        <circle cx="16.5" cy="14" r="1" />
+                                    </svg>
+                                </div>
+                                <span class="layout-card__feature-label">2 паркомісця</span>
+                            </div>
+                            <div class="layout-card__feature">
+                                <div class="layout-card__feature-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="4" y="4" width="16" height="16" rx="2" stroke-dasharray="4 4" />
+                                    </svg>
+                                </div>
+                                <span class="layout-card__feature-label">Ділянка<br>до 2 соток</span>
+                            </div>
+                        </div>
+                        
+                        <button type="button" class="btn-layout-card" onclick="openModal('lead-modal')">
+                            <span>Дивитись планування</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Card 3: Catalog -->
+                <div class="catalog-card reveal delay-200">
+                    <div class="catalog-card__icon-top">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
+                            <path d="M14 2v4a1 1 0 0 0 1 1h4" />
+                            <circle cx="12" cy="14" r="3.5" />
+                            <path d="M12 12v4M10 14l2 2 2-2" />
+                        </svg>
+                    </div>
+                    <h3 class="catalog-card__title">Отримайте каталог усіх планувань</h3>
+                    
+                    <hr class="catalog-card__divider">
+                    
+                    <ul class="catalog-card__list">
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="8 12 11 15 16 9"></polyline>
+                            </svg>
+                            <span>Актуальні планування та ціни</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="8 12 11 15 16 9"></polyline>
+                            </svg>
+                            <span>Умови розтермінування</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="8 12 11 15 16 9"></polyline>
+                            </svg>
+                            <span>Статус будівництва</span>
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="8 12 11 15 16 9"></polyline>
+                            </svg>
+                            <span>Додаткові опції та можливості</span>
+                        </li>
+                    </ul>
+                    
+                    <hr class="catalog-card__divider">
+                    
+                    <button type="button" class="btn-catalog-download" onclick="openModal('lead-modal')">
+                        <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="12" y1="18" x2="12" y2="12"></line>
+                            <polyline points="9 15 12 18 15 15"></polyline>
+                        </svg>
+                        <span>Отримати PDF каталог</span>
+                    </button>
+                    
+                    <p class="catalog-card__footer">
+                        <svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                        <span>Без реєстрації та спаму</span>
+                    </p>
                 </div>
             </div>
         </div>
