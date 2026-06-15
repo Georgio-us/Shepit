@@ -3047,16 +3047,19 @@ body.modal-open {
 
 /* Mobile Overrides (Full responsive) */
 @media (max-width: 1023px) {
+  .hero {
+    min-height: 85vh;
+    min-height: 85dvh;
+    padding-top: 5.5rem;
+    padding-bottom: 4.5rem;
+  }
   .hero__scroll-down {
-    bottom: 2rem;
+    bottom: 1.5rem;
   }
 }
 
 @media (max-width: 767px) {
   .hero {
-    min-height: 100vh;
-    padding-top: 6rem;
-    padding-bottom: 4rem;
     display: flex;
     align-items: center;
   }
