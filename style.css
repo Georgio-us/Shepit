@@ -2862,7 +2862,7 @@ body.modal-open {
 /* Title: large font, line-height 1.15, gold price */
 .hero__title {
   font-family: var(--font-sans);
-  font-size: 3.2rem;
+  font-size: clamp(3.2rem, 5.5vw, 4.5rem);
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.015em;
@@ -2876,7 +2876,7 @@ body.modal-open {
 }
 
 .hero__lead {
-  font-size: 1.35rem;
+  font-size: clamp(1.35rem, 2.5vw, 1.6rem);
   font-weight: 500;
   line-height: 1.45;
   color: rgba(255, 255, 255, 0.85);
