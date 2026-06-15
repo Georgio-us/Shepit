@@ -417,21 +417,6 @@ body.modal-open {
   color: var(--color-gold-accent);
 }
 
-/* Opaque/Scrolled/Open state overrides to guarantee dark text */
-.site-nav--scrolled .site-nav__menu a,
-.site-nav--scrolled .site-nav__menu button,
-.site-nav--open .site-nav__menu a,
-.site-nav--open .site-nav__menu button {
-  color: var(--color-dark-70);
-}
-.site-nav--scrolled .site-nav__phone,
-.site-nav--open .site-nav__phone {
-  color: var(--color-dark);
-}
-.site-nav--scrolled .site-nav__burger,
-.site-nav--open .site-nav__burger {
-  color: var(--color-dark);
-}
 
 .two-col {
   display: grid;
