@@ -133,52 +133,89 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </nav>
 
     <header class="hero">
+        <div class="hero__media">
+            <img src="assets/hero.webp" width="1672" height="941" fetchpriority="high" alt="Екстер'єр таунхаусів Shepit House у Нових Петрівцях — сучасна архітектура">
+            <div class="hero__overlay" aria-hidden="true"></div>
+        </div>
+
         <div class="shell hero__grid">
             <div class="hero__content reveal-left">
-                <div class="hero__badge reveal delay-100">
-                    <i class="ph ph-map-pin"></i>
-                    <span>15 хвилин від Києва</span>
+                <div class="hero__location-badge">
+                    <span class="hero__location-badge-pill">
+                        <i class="ph ph-map-pin"></i>
+                        <span>Нові Петрівці</span>
+                    </span>
+                    <span class="hero__location-badge-text">15 хв від Києва</span>
                 </div>
 
-                <h1 class="hero__title reveal delay-200">
-                    <span class="hero__title-sub">Клубне містечко Shepit House</span>
+                <h1 class="hero__title">
                     Таунхауси та дуплекси <br>
-                    <span class="hero__title-accent">від 89 100 $</span>
+                    <span class="hero__title-accent">від $89 100</span>
                 </h1>
 
-                <p class="hero__lead reveal delay-300">
-                    Сучасні резиденції <span class="text-highlight">100–120 м²</span> з власним подвір'ям у Нових Петрівцях. Зручне розтермінування від забудовника <span class="text-highlight">до 12 місяців</span>.
+                <p class="hero__lead">
+                    100–120 м² з власним двором <br>
+                    та розтермінуванням до 12 місяців
                 </p>
 
-                <div class="hero__actions reveal delay-400">
+                <div class="hero__divider"></div>
+
+                <div class="hero__actions">
                     <a href="#planning" class="btn-hero btn-hero--primary">
-                        <span>Подивитися планування</span>
-                        <i class="ph ph-arrow-right btn-hero__icon" aria-hidden="true"></i>
+                        <i class="ph ph-layout btn-hero__large-icon"></i>
+                        <div class="btn-hero__text-block">
+                            <span class="btn-hero__top-line">Переглянути</span>
+                            <span class="btn-hero__bottom-line">планування</span>
+                        </div>
                     </a>
+                    
                     <button type="button" onclick="openLeadModal('Розрахунок платежу (Hero)')" class="btn-hero btn-hero--secondary">
-                        <span>Розрахувати платіж</span>
-                        <i class="ph ph-calculator btn-hero__icon" aria-hidden="true"></i>
+                        <i class="ph ph-calculator btn-hero__large-icon"></i>
+                        <div class="btn-hero__text-block">
+                            <span class="btn-hero__top-line">Розрахувати</span>
+                            <span class="btn-hero__bottom-line">платіж</span>
+                        </div>
                     </button>
                 </div>
+            </div>
+        </div>
 
-                <div class="hero__facts reveal delay-500">
-                    <div class="hero__fact">
-                        <div class="hero__fact-icon"><i class="ph ph-tree"></i></div>
-                        <p class="hero__fact-text">10 хв пішки до лісу та води</p>
+        <div class="hero__features-bar">
+            <div class="shell hero__features-bar-inner">
+                <div class="hero__feature-item">
+                    <div class="hero__feature-icon"><i class="ph ph-arrows-out-simple"></i></div>
+                    <div class="hero__feature-text">
+                        <span class="hero__feature-top">100–120 м²</span>
+                        <span class="hero__feature-bottom">площа будинку</span>
                     </div>
-                    <div class="hero__fact">
-                        <div class="hero__fact-icon"><i class="ph ph-lock-key"></i></div>
-                        <p class="hero__fact-text">Закрита територія під охороною</p>
+                </div>
+                <div class="hero__feature-item">
+                    <div class="hero__feature-icon"><i class="ph ph-tree"></i></div>
+                    <div class="hero__feature-text">
+                        <span class="hero__feature-top">Власний</span>
+                        <span class="hero__feature-bottom">двір</span>
+                    </div>
+                </div>
+                <div class="hero__feature-item">
+                    <div class="hero__feature-icon"><i class="ph ph-bed"></i></div>
+                    <div class="hero__feature-text">
+                        <span class="hero__feature-top">3 окремі</span>
+                        <span class="hero__feature-bottom">спальні</span>
+                    </div>
+                </div>
+                <div class="hero__feature-item">
+                    <div class="hero__feature-icon"><i class="ph ph-calendar"></i></div>
+                    <div class="hero__feature-text">
+                        <span class="hero__feature-top">Розтермінування</span>
+                        <span class="hero__feature-bottom">до 12 місяців</span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="hero__media">
-            <div class="hero__grad-r" aria-hidden="true"></div>
-            <div class="hero__grad-b" aria-hidden="true"></div>
-            <img src="assets/hero.webp" width="1672" height="941" fetchpriority="high" alt="Екстер'єр таунхаусів Shepit House у Нових Петрівцях — сучасна архітектура">
-        </div>
+        <a href="#about" class="hero__scroll-down" aria-label="Прокрутити вниз">
+            <i class="ph ph-arrow-down"></i>
+        </a>
     </header>
 
     <section id="about" class="section section--bg">
