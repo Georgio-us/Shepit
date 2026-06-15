@@ -2918,6 +2918,7 @@ body.modal-open {
 .btn-hero {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   padding: 0.9rem 2.25rem;
   border-radius: 8px;
