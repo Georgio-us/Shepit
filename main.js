@@ -251,6 +251,11 @@ document.addEventListener('keydown', (event) => {
 
 // Global interaction tracking
 let lastInteractionContext = 'Головна сторінка';
+if (window.location.pathname.includes('/townhouse')) {
+    lastInteractionContext = 'Сторінка Таунхаус';
+} else if (window.location.pathname.includes('/duplex')) {
+    lastInteractionContext = 'Сторінка Дуплекс';
+}
 
 function openDynamicModal(title, desc, imgSrc, btnText = 'Записатись на перегляд') {
     lastInteractionContext = `Проєкт: ${title}`;
@@ -303,7 +308,22 @@ async function submitForm(event) {
     const data = {
         name: formData.get('name'),
         phone: formData.get('phone'),
-        source: form.id === 'form-plans' ? 'Модалка Планувань' : (form.closest('#lead-modal') ? lastInteractionContext : 'Футер'),
+        source: (() => {
+            let pageName = 'Головна';
+            if (window.location.pathname.includes('/townhouse')) {
+                pageName = 'Таунхаус';
+            } else if (window.location.pathname.includes('/duplex')) {
+                pageName = 'Дуплекс';
+            }
+            
+            if (form.id === 'form-plans') {
+                return `Планування (${pageName})`;
+            } else if (form.closest('#lead-modal')) {
+                return `${lastInteractionContext} (Модалка)`;
+            } else {
+                return `Футер (${pageName})`;
+            }
+        })(),
         device: device,
         timestamp: new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kyiv' })
     };
