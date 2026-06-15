@@ -2858,7 +2858,7 @@ body.modal-open {
   border: 1px solid rgba(255, 255, 255, 0.25);
   padding: 0.45rem 1rem;
   border-radius: 999px;
-  font-size: 1.1rem;
+  font-size: 0.85rem;
   font-weight: 700;
   color: #fff;
 }
@@ -2866,13 +2866,6 @@ body.modal-open {
 .hero__location-badge-pill i {
   color: var(--color-gold-accent);
   font-size: 1rem;
-}
-
-.hero__location-badge-text {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.8);
-  margin-left: 10px;
 }
 
 /* Title: large font, line-height 1.15, gold price */
