@@ -148,8 +148,8 @@ body.modal-open {
 }
 @media (max-width: 767px) {
   .site-nav {
-    background: var(--color-bg);
-    border-bottom-color: var(--color-border-50);
+    background: transparent;
+    border-bottom-color: transparent;
   }
 }
 @media (min-width: 768px) {
@@ -158,7 +158,8 @@ body.modal-open {
     padding-right: 3rem;
   }
 }
-.site-nav--scrolled {
+.site-nav--scrolled,
+.site-nav--open {
   background-color: rgba(244, 245, 240, 0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -325,6 +326,7 @@ body.modal-open {
   font-size: 1.5rem;
   color: var(--color-dark);
   padding: 0;
+  transition: color 0.2s ease;
 }
 @media (max-width: 1023px) {
   .site-nav__burger {
@@ -372,6 +374,33 @@ body.modal-open {
   .site-nav__mobile-panel {
     display: none;
   }
+}
+
+/* Transparent top state overrides (unscrolled, closed mobile menu) */
+.site-nav:not(.site-nav--scrolled):not(.site-nav--open) .site-nav__menu {
+  color: rgba(255, 255, 255, 0.85);
+}
+.site-nav:not(.site-nav--scrolled):not(.site-nav--open) .site-nav__menu a:hover,
+.site-nav:not(.site-nav--scrolled):not(.site-nav--open) .site-nav__menu button:hover {
+  color: var(--color-gold-accent);
+}
+.site-nav:not(.site-nav--scrolled):not(.site-nav--open) .site-nav__phone {
+  color: rgba(255, 255, 255, 0.9);
+}
+.site-nav:not(.site-nav--scrolled):not(.site-nav--open) .site-nav__phone:hover {
+  color: var(--color-gold-accent);
+}
+@media (max-width: 767px) {
+  .site-nav:not(.site-nav--scrolled):not(.site-nav--open) .site-nav__phone {
+    border-color: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+.site-nav:not(.site-nav--scrolled):not(.site-nav--open) .site-nav__burger {
+  color: #ffffff;
+}
+.site-nav:not(.site-nav--scrolled):not(.site-nav--open) .site-nav__burger:hover {
+  color: var(--color-gold-accent);
 }
 
 .two-col {

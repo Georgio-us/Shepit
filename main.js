@@ -52,16 +52,31 @@ window.addEventListener('load', () => {
     window.scrollTo(0, 0);
 });
 
+function updateNavbarLogo() {
+    if (!navbar) return;
+    const logoImg = navbar.querySelector('.site-nav__logo-img');
+    if (!logoImg) return;
+    const isScrolled = navbar.classList.contains('site-nav--scrolled');
+    const isOpen = navbar.classList.contains('site-nav--open');
+    if (isScrolled || isOpen) {
+        logoImg.src = 'assets/Logo-mark_black.svg';
+    } else {
+        logoImg.src = 'assets/Logo-mark_white.svg';
+    }
+}
+
 function closeMobileMenu() {
     if (!navbar) return;
     navbar.classList.remove('site-nav--open');
     if (burger) burger.setAttribute('aria-expanded', 'false');
+    updateNavbarLogo();
 }
 
 if (burger && navbar) {
     burger.addEventListener('click', () => {
         const isOpen = navbar.classList.toggle('site-nav--open');
         burger.setAttribute('aria-expanded', String(isOpen));
+        updateNavbarLogo();
     });
 }
 
@@ -133,6 +148,7 @@ window.addEventListener('scroll', () => {
     } else {
         navbar.classList.remove('site-nav--scrolled');
     }
+    updateNavbarLogo();
 
     if (scrollTopButton) {
         scrollTopButton.classList.toggle('scroll-top--visible', shouldShowFloatingActions);
