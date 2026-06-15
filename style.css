@@ -3048,13 +3048,13 @@ body.modal-open {
 /* Mobile Overrides (Full responsive) */
 @media (max-width: 1023px) {
   .hero {
-    min-height: 85vh;
-    min-height: 85dvh;
-    padding-top: 5.5rem;
-    padding-bottom: 4.5rem;
+    min-height: 90vh;
+    min-height: 90dvh;
+    padding-top: 7.5rem;
+    padding-bottom: 6rem;
   }
   .hero__scroll-down {
-    bottom: 1.5rem;
+    bottom: 2rem;
   }
 }
 
@@ -3283,7 +3283,7 @@ body.modal-open {
 .layout-card__image-container {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
 }
 
 .layout-card__image-container img {
@@ -3570,8 +3570,8 @@ body.modal-open {
 
 @media (min-width: 1024px) {
   .layouts-grid {
-    grid-template-columns: 4fr 4fr 2fr;
-    gap: 2.25rem;
+    grid-template-columns: 3fr 3fr 2fr;
+    gap: 2rem;
   }
   
   .catalog-card {
@@ -3852,13 +3852,6 @@ body.modal-open {
     width: auto;
     padding-left: 2rem;
     padding-right: 2rem;
-  }
-}
-
-/* Limit the max-width of layouts section to keep layout cards compact */
-@media (min-width: 1024px) {
-  #layouts-selection .shell {
-    max-width: 1160px;
   }
 }
 
