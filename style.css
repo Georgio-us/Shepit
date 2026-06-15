@@ -390,7 +390,8 @@ body.modal-open {
 }
 
 /* Transparent top state overrides (unscrolled, closed mobile menu) */
-.site-nav:not(.site-nav--scrolled):not(.site-nav--open) .site-nav__menu {
+.site-nav:not(.site-nav--scrolled):not(.site-nav--open) .site-nav__menu a,
+.site-nav:not(.site-nav--scrolled):not(.site-nav--open) .site-nav__menu button {
   color: rgba(255, 255, 255, 0.85);
 }
 .site-nav:not(.site-nav--scrolled):not(.site-nav--open) .site-nav__menu a:hover,
@@ -414,6 +415,22 @@ body.modal-open {
 }
 .site-nav:not(.site-nav--scrolled):not(.site-nav--open) .site-nav__burger:hover {
   color: var(--color-gold-accent);
+}
+
+/* Opaque/Scrolled/Open state overrides to guarantee dark text */
+.site-nav--scrolled .site-nav__menu a,
+.site-nav--scrolled .site-nav__menu button,
+.site-nav--open .site-nav__menu a,
+.site-nav--open .site-nav__menu button {
+  color: var(--color-dark-70);
+}
+.site-nav--scrolled .site-nav__phone,
+.site-nav--open .site-nav__phone {
+  color: var(--color-dark);
+}
+.site-nav--scrolled .site-nav__burger,
+.site-nav--open .site-nav__burger {
+  color: var(--color-dark);
 }
 
 .two-col {
