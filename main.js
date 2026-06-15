@@ -186,6 +186,13 @@ const revealObserver = new IntersectionObserver(
 
 document.querySelectorAll('.reveal, .reveal-left').forEach((el) => revealObserver.observe(el));
 
+function openLeadModal(context) {
+    if (context) {
+        lastInteractionContext = context;
+    }
+    openModal('lead-modal');
+}
+
 function openModal(modalId) {
     const modal = document.getElementById(modalId);
     if (!modal || !overlay) return;
