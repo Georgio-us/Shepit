@@ -3429,7 +3429,7 @@ body.modal-open {
 .layout-card__header {
   display: grid;
   grid-template-columns: auto 1fr;
-  align-items: center;
+  align-items: baseline;
   gap: 1.25rem;
   margin-bottom: 1.25rem;
 }
