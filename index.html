@@ -172,7 +172,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </div>
                     </a>
 
-                    <button type="button" onclick="openLeadModal('Розрахунок платежу (Hero)')" class="btn-hero btn-hero--secondary">
+                    <button type="button" onclick="openPaymentModal()" class="btn-hero btn-hero--secondary">
                         <svg class="btn-hero__svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <rect x="4" y="2" width="16" height="20" rx="2"/>
                             <line x1="8" y1="6" x2="16" y2="6"/>
@@ -892,6 +892,102 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <input type="tel" name="phone" placeholder="Ваш телефон" required class="input-premium input-premium--sm">
                 </div>
                 <button type="submit" class="btn-submit">Відправити</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="payment-modal" class="modal-content modal-content--payment">
+        <div class="payment-modal">
+            <button type="button" onclick="closeModal('payment-modal')" class="modal-close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
+
+            <div class="payment-modal__head">
+                <p class="modal-project__label">Орієнтовний розрахунок</p>
+                <h2 class="payment-modal__title">Розрахувати платіж</h2>
+                <p class="payment-modal__lead">Оберіть формат резиденції, перший внесок і період розтермінування. Ми підготуємо для вас точні умови після заявки.</p>
+            </div>
+
+            <form class="payment-form" id="form-payment">
+                <div class="payment-form__section">
+                    <p class="payment-form__label">Тип об'єкта</p>
+                    <div class="payment-options payment-options--objects" data-payment-group="unit">
+                        <label class="payment-option">
+                            <input type="radio" name="unit" value="townhouse-92" checked>
+                            <span>
+                                <strong>Таунхаус 1</strong>
+                                <small>92 м²</small>
+                            </span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="unit" value="townhouse-102">
+                            <span>
+                                <strong>Таунхаус 2</strong>
+                                <small>102 м²</small>
+                            </span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="unit" value="duplex-101">
+                            <span>
+                                <strong>Дуплекс</strong>
+                                <small>101 м²</small>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="payment-form__section">
+                    <p class="payment-form__label">Перший внесок</p>
+                    <div class="payment-options payment-options--compact" data-payment-group="deposit">
+                        <label class="payment-option"><input type="radio" name="deposit" value="0" checked><span>0%</span></label>
+                        <label class="payment-option"><input type="radio" name="deposit" value="10"><span>10%</span></label>
+                        <label class="payment-option"><input type="radio" name="deposit" value="20"><span>20%</span></label>
+                        <label class="payment-option"><input type="radio" name="deposit" value="30"><span>30%</span></label>
+                        <label class="payment-option"><input type="radio" name="deposit" value="50"><span>50%</span></label>
+                        <label class="payment-option"><input type="radio" name="deposit" value="75"><span>75%</span></label>
+                    </div>
+                </div>
+
+                <div class="payment-form__section">
+                    <p class="payment-form__label">Період розтермінування</p>
+                    <div class="payment-options payment-options--compact" data-payment-group="months">
+                        <label class="payment-option"><input type="radio" name="months" value="0"><span>Одразу</span></label>
+                        <label class="payment-option"><input type="radio" name="months" value="3"><span>3 міс.</span></label>
+                        <label class="payment-option"><input type="radio" name="months" value="6"><span>6 міс.</span></label>
+                        <label class="payment-option"><input type="radio" name="months" value="9"><span>9 міс.</span></label>
+                        <label class="payment-option"><input type="radio" name="months" value="12" checked><span>12 міс.</span></label>
+                    </div>
+                </div>
+
+                <div class="payment-summary" aria-live="polite">
+                    <div>
+                        <p class="payment-summary__label">Орієнтовний щомісячний платіж</p>
+                        <p class="payment-summary__value" data-payment-monthly>$0</p>
+                    </div>
+                    <dl class="payment-summary__details">
+                        <div>
+                            <dt>Формат</dt>
+                            <dd data-payment-unit>Таунхаус 1, 92 м²</dd>
+                        </div>
+                        <div>
+                            <dt>Перший внесок</dt>
+                            <dd data-payment-deposit>$0</dd>
+                        </div>
+                        <div>
+                            <dt>Залишок</dt>
+                            <dd data-payment-balance>$0</dd>
+                        </div>
+                    </dl>
+                    <p class="payment-summary__note">Розрахунок попередній. Точну вартість, доступність резиденцій та умови розтермінування уточнить менеджер.</p>
+                </div>
+
+                <div class="payment-form__contacts">
+                    <p class="payment-form__label">Ваші контакти</p>
+                    <div class="payment-form__fields">
+                        <input type="text" name="name" placeholder="Ваше ім'я" required class="input-premium">
+                        <input type="tel" name="phone" placeholder="Ваш телефон" required class="input-premium">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit payment-form__submit">Запросити розрахунок</button>
             </form>
         </div>
     </div>

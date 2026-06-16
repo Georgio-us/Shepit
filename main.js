@@ -8,6 +8,7 @@ const contactWidget = document.querySelector('[data-contact-widget]');
 const contactWidgetToggle = document.querySelector('.contact-widget__toggle');
 const contactWidgetPanel = document.getElementById('contact-widget-panel');
 const contactLeadButton = document.querySelector('[data-contact-lead]');
+const paymentForm = document.getElementById('form-payment');
 const defaultVideoId = '6gkOhjr1IhM';
 const focusableSelector = [
     'a[href]',
@@ -41,7 +42,7 @@ if ('scrollRestoration' in history) {
 
 window.addEventListener('load', () => {
     // Attach listeners to forms
-    const forms = ['form-footer', 'form-modal', 'form-plans'];
+    const forms = ['form-footer', 'form-modal', 'form-plans', 'form-payment'];
     forms.forEach(id => {
         const f = document.getElementById(id);
         if (f) f.addEventListener('submit', submitForm);
@@ -193,6 +194,12 @@ function openLeadModal(context) {
     openModal('lead-modal');
 }
 
+function openPaymentModal() {
+    lastInteractionContext = 'Розрахунок платежу';
+    updatePaymentEstimate();
+    openModal('payment-modal');
+}
+
 function openModal(modalId) {
     const modal = document.getElementById(modalId);
     if (!modal || !overlay) return;
@@ -257,6 +264,83 @@ if (window.location.pathname.includes('/townhouse')) {
     lastInteractionContext = 'Сторінка Дуплекс';
 }
 
+const paymentUnits = {
+    'townhouse-92': {
+        title: 'Таунхаус 1',
+        area: 92
+    },
+    'townhouse-102': {
+        title: 'Таунхаус 2',
+        area: 102
+    },
+    'duplex-101': {
+        title: 'Дуплекс',
+        area: 101
+    }
+};
+const paymentPricePerMeter = 990;
+
+function formatUsd(value) {
+    return `$${Math.round(value).toLocaleString('en-US').replace(/,/g, ' ')}`;
+}
+
+function getPaymentEstimate() {
+    if (!paymentForm) return null;
+    const formData = new FormData(paymentForm);
+    const unitKey = formData.get('unit') || 'townhouse-92';
+    const unit = paymentUnits[unitKey] || paymentUnits['townhouse-92'];
+    const depositPercent = Number(formData.get('deposit') || 0);
+    const months = Number(formData.get('months') || 0);
+    const total = unit.area * paymentPricePerMeter;
+    const deposit = total * (depositPercent / 100);
+    const balance = total - deposit;
+    const monthly = months > 0 ? balance / months : balance;
+
+    return {
+        unit,
+        depositPercent,
+        months,
+        total,
+        deposit,
+        balance,
+        monthly
+    };
+}
+
+function getPaymentSummaryText() {
+    const estimate = getPaymentEstimate();
+    if (!estimate) return 'Розрахунок платежу';
+    const period = estimate.months > 0 ? `${estimate.months} міс.` : 'оплата одразу';
+
+    return [
+        'Розрахунок платежу',
+        `${estimate.unit.title}, ${estimate.unit.area} м²`,
+        `перший внесок ${estimate.depositPercent}% (${formatUsd(estimate.deposit)})`,
+        `період: ${period}`,
+        `орієнтовний платіж: ${formatUsd(estimate.monthly)}`
+    ].join(' | ');
+}
+
+function updatePaymentEstimate() {
+    const estimate = getPaymentEstimate();
+    if (!estimate) return;
+
+    const unitEl = document.querySelector('[data-payment-unit]');
+    const depositEl = document.querySelector('[data-payment-deposit]');
+    const balanceEl = document.querySelector('[data-payment-balance]');
+    const monthlyEl = document.querySelector('[data-payment-monthly]');
+
+    if (unitEl) unitEl.textContent = `${estimate.unit.title}, ${estimate.unit.area} м²`;
+    if (depositEl) depositEl.textContent = `${formatUsd(estimate.deposit)} (${estimate.depositPercent}%)`;
+    if (balanceEl) balanceEl.textContent = formatUsd(estimate.balance);
+    if (monthlyEl) monthlyEl.textContent = formatUsd(estimate.monthly);
+}
+
+if (paymentForm) {
+    paymentForm.addEventListener('change', updatePaymentEstimate);
+    updatePaymentEstimate();
+}
+
 function openDynamicModal(title, desc, imgSrc, btnText = 'Записатись на перегляд') {
     lastInteractionContext = `Проєкт: ${title}`;
     
@@ -318,6 +402,8 @@ async function submitForm(event) {
             
             if (form.id === 'form-plans') {
                 return `Планування (${pageName})`;
+            } else if (form.id === 'form-payment') {
+                return getPaymentSummaryText();
             } else if (form.closest('#lead-modal')) {
                 return `${lastInteractionContext} (Модалка)`;
             } else {
