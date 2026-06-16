@@ -937,7 +937,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                 <div class="payment-form__section">
                     <p class="payment-form__label">Перший внесок</p>
-                    <div class="payment-options payment-options--compact" data-payment-group="deposit">
+                    <div class="payment-options payment-options--compact" data-payment-group="deposit" data-payment-deposit-options>
                         <label class="payment-option"><input type="radio" name="deposit" value="0" checked><span>0%</span></label>
                         <label class="payment-option"><input type="radio" name="deposit" value="10"><span>10%</span></label>
                         <label class="payment-option"><input type="radio" name="deposit" value="20"><span>20%</span></label>
@@ -945,10 +945,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <label class="payment-option"><input type="radio" name="deposit" value="50"><span>50%</span></label>
                         <label class="payment-option"><input type="radio" name="deposit" value="70"><span>70%</span></label>
                     </div>
-                </div>
-
-                <div class="payment-form__section">
-                    <p class="payment-form__label">Формат оплати</p>
                     <label class="payment-option payment-option--cash">
                         <input type="checkbox" name="paymentMode" value="cash">
                         <span>
@@ -960,7 +956,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                 <div class="payment-form__section" data-payment-installment-section>
                     <p class="payment-form__label">Період розтермінування</p>
-                    <div class="payment-options payment-options--compact payment-options--months" data-payment-group="months">
+                    <div class="payment-options payment-options--compact payment-options--months" data-payment-group="months" data-payment-month-options>
                         <label class="payment-option"><input type="radio" name="months" value="3"><span>3 міс.</span></label>
                         <label class="payment-option"><input type="radio" name="months" value="6"><span>6 міс.</span></label>
                         <label class="payment-option"><input type="radio" name="months" value="9"><span>9 міс.</span></label>
@@ -993,16 +989,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="payment-cash-offer" aria-live="polite" hidden>
                     <div class="payment-cash-offer__art" aria-hidden="true">
                         <svg viewBox="0 0 220 180" role="img">
-                            <path d="M38 78h144v82H38z" fill="#f6f1e7" stroke="#1f332b" stroke-width="4"/>
-                            <path d="M28 56h164v30H28z" fill="#a7b79e" stroke="#1f332b" stroke-width="4"/>
-                            <path d="M102 56h20v104h-20z" fill="#d5aa63"/>
-                            <path d="M26 82h168" stroke="#1f332b" stroke-width="4"/>
-                            <path d="M80 54c-23-11-29-30-17-38 15-10 34 14 47 40" fill="none" stroke="#1f332b" stroke-width="5" stroke-linecap="round"/>
-                            <path d="M140 54c23-11 29-30 17-38-15-10-34 14-47 40" fill="none" stroke="#1f332b" stroke-width="5" stroke-linecap="round"/>
-                            <path d="M70 116c22 18 58 18 80 0" fill="none" stroke="#d5aa63" stroke-width="5" stroke-linecap="round"/>
-                            <circle cx="54" cy="34" r="5" fill="#d5aa63"/>
-                            <circle cx="176" cy="38" r="6" fill="#a7b79e"/>
-                            <circle cx="188" cy="128" r="5" fill="#d5aa63"/>
+                            <path d="M110 168c44.2 0 80-35.8 80-80S154.2 8 110 8 30 43.8 30 88s35.8 80 80 80z" fill="#f6f1e7"/>
+                            <path d="M48 78h124v76H48z" fill="#fff" stroke="#1f332b" stroke-width="5" stroke-linejoin="round"/>
+                            <path d="M34 54h152v30H34z" fill="#a7b79e" stroke="#1f332b" stroke-width="5" stroke-linejoin="round"/>
+                            <path d="M99 54h22v100H99z" fill="#d5aa63"/>
+                            <path d="M34 84h152" stroke="#1f332b" stroke-width="5"/>
+                            <path d="M100 54c-25-8-43-22-36-38 7-15 31-7 46 38" fill="none" stroke="#1f332b" stroke-width="5" stroke-linecap="round"/>
+                            <path d="M120 54c25-8 43-22 36-38-7-15-31-7-46 38" fill="none" stroke="#1f332b" stroke-width="5" stroke-linecap="round"/>
+                            <path d="M74 118c22 20 50 20 72 0" fill="none" stroke="#d5aa63" stroke-width="6" stroke-linecap="round"/>
+                            <path d="M58 32l8 8M162 132l10 10M178 38l-8 10" stroke="#d5aa63" stroke-width="5" stroke-linecap="round"/>
                         </svg>
                     </div>
                     <div>

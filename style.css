@@ -1650,6 +1650,9 @@ body.modal-open {
   display: grid;
   gap: 0.875rem;
 }
+.payment-options--locked {
+  opacity: 0.45;
+}
 .payment-options--objects {
   grid-template-columns: 1fr;
 }
@@ -1683,6 +1686,13 @@ body.modal-open {
 .payment-option:hover {
   border-color: var(--color-brand-green-20);
   box-shadow: var(--shadow-nav);
+}
+.payment-options--locked .payment-option {
+  cursor: not-allowed;
+}
+.payment-options--locked .payment-option:hover {
+  border-color: var(--color-border);
+  box-shadow: none;
 }
 .payment-option input {
   appearance: none;
@@ -1721,6 +1731,7 @@ body.modal-open {
 }
 .payment-option--cash {
   min-height: 5.5rem;
+  margin-top: 0.875rem;
   border-color: var(--color-brand-green-20);
   background:
     linear-gradient(135deg, rgba(167, 183, 158, 0.18), rgba(213, 170, 99, 0.12)),
@@ -1823,7 +1834,7 @@ body.modal-open {
   border: 1px solid rgba(31, 51, 43, 0.1);
 }
 .payment-cash-offer__art svg {
-  width: min(12rem, 70vw);
+  width: min(13rem, 72vw);
   height: auto;
 }
 .payment-cash-offer__title {

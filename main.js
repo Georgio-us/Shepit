@@ -242,6 +242,12 @@ function closeAllModals(options = {}) {
     if (restore && lastFocusedElement) lastFocusedElement.focus();
 }
 
+modals.forEach((modal) => {
+    modal.addEventListener('click', (event) => {
+        if (event.target === modal) closeModal(modal.id);
+    });
+});
+
 function resetVideoModal() {
     const videoBox = document.querySelector('#video-modal .modal-video-placeholder');
     if (!videoBox) return;
@@ -330,6 +336,19 @@ function getPaymentSummaryText() {
     ].join(' | ');
 }
 
+function setPaymentControlsLocked(isLocked) {
+    const depositOptionsEl = document.querySelector('[data-payment-deposit-options]');
+    const monthOptionsEl = document.querySelector('[data-payment-month-options]');
+    const installmentSectionEl = document.querySelector('[data-payment-installment-section]');
+
+    if (installmentSectionEl) installmentSectionEl.classList.toggle('payment-form__section--locked', isLocked);
+    if (depositOptionsEl) depositOptionsEl.classList.toggle('payment-options--locked', isLocked);
+    if (monthOptionsEl) monthOptionsEl.classList.toggle('payment-options--locked', isLocked);
+    paymentForm.querySelectorAll('input[name="deposit"], input[name="months"]').forEach((input) => {
+        input.disabled = isLocked;
+    });
+}
+
 function updatePaymentEstimate() {
     const estimate = getPaymentEstimate();
     if (!estimate) return;
@@ -341,12 +360,11 @@ function updatePaymentEstimate() {
     const summaryEl = document.querySelector('.payment-summary');
     const cashOfferEl = document.querySelector('.payment-cash-offer');
     const submitEl = document.querySelector('[data-payment-submit]');
-    const installmentSectionEl = document.querySelector('[data-payment-installment-section]');
     const isCash = estimate.paymentMode === 'cash';
 
     if (summaryEl) summaryEl.hidden = isCash;
     if (cashOfferEl) cashOfferEl.hidden = !isCash;
-    if (installmentSectionEl) installmentSectionEl.hidden = isCash;
+    setPaymentControlsLocked(isCash);
     if (submitEl) {
         submitEl.textContent = isCash ? 'Уточнити умови 100% оплати' : 'Уточнити наявність';
     }
@@ -358,7 +376,12 @@ function updatePaymentEstimate() {
 }
 
 if (paymentForm) {
-    paymentForm.addEventListener('change', updatePaymentEstimate);
+    paymentForm.addEventListener('change', (event) => {
+        if (event.target.name === 'paymentMode' && !event.target.checked) {
+            setPaymentControlsLocked(false);
+        }
+        updatePaymentEstimate();
+    });
     updatePaymentEstimate();
 }
 
