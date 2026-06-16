@@ -324,7 +324,7 @@ body.modal-open {
 .btn-nav-cta {
   display: none;
   background: var(--color-brand-green);
-  color: #fff;
+  color: #fff !important;
   padding: 0.75rem 1.5rem;
   font-size: 0.75rem;
   text-transform: uppercase;
@@ -3971,8 +3971,7 @@ body.modal-open {
 
 .site-nav--subpage .site-nav__menu a,
 .site-nav--subpage .site-nav__menu button,
-.site-nav--subpage .site-nav__actions a,
-.site-nav--subpage .site-nav__actions button {
+.site-nav--subpage .site-nav__actions a {
   color: var(--color-dark) !important;
 }
 
