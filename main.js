@@ -95,6 +95,30 @@ document.querySelectorAll('[data-plan-preview]').forEach((control) => {
     });
 });
 
+const layoutPreviewControl = document.querySelector('[data-layout-preview]');
+const layoutImage = document.querySelector('[data-layout-image]');
+document.querySelectorAll('[data-layout-tab]').forEach((tab) => {
+    tab.addEventListener('click', () => {
+        if (!layoutPreviewControl || !layoutImage) return;
+        const src = tab.dataset.planSrc;
+        const title = tab.dataset.planTitle || 'Планування';
+        const alt = tab.dataset.planAlt || title;
+        if (!src) return;
+
+        document.querySelectorAll('[data-layout-tab]').forEach((item) => {
+            const isActive = item === tab;
+            item.classList.toggle('active', isActive);
+            item.setAttribute('aria-selected', String(isActive));
+        });
+
+        layoutImage.src = src;
+        layoutImage.alt = alt;
+        layoutPreviewControl.dataset.planPreview = src;
+        layoutPreviewControl.dataset.planTitle = title;
+        layoutPreviewControl.setAttribute('aria-label', `Відкрити ${title}`);
+    });
+});
+
 document.querySelectorAll('[data-video-open]').forEach((control) => {
     control.addEventListener('click', (event) => {
         event.preventDefault();

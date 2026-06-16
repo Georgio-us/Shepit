@@ -3983,8 +3983,39 @@ body.modal-open {
 .site-nav--subpage .site-nav__burger {
   color: var(--color-dark) !important;
 }
+.site-nav--subpage .btn-nav-cta {
+  color: #fff !important;
+}
 
 /* Layout Details Subpage Styles */
+.back-link--button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.75rem 1.1rem;
+  margin-bottom: 2.5rem;
+  border: 1px solid var(--color-border);
+  background: #fff;
+  color: var(--color-brand-green);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.back-link--button:hover {
+  border-color: var(--color-brand-green);
+  color: var(--color-dark);
+  box-shadow: var(--shadow-nav);
+}
+.back-link--button .ph {
+  font-size: 1.05rem;
+}
 .layouts-detail {
   display: grid;
   grid-template-columns: 1fr;
@@ -4000,13 +4031,45 @@ body.modal-open {
   }
 }
 
+.layouts-detail__plan {
+  display: grid;
+  gap: 1rem;
+}
+.layouts-detail__tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+.layouts-detail__tab {
+  min-height: 2.75rem;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--color-border);
+  background: #fff;
+  color: var(--color-dark-70);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 800;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+.layouts-detail__tab:hover,
+.layouts-detail__tab.active {
+  border-color: var(--color-brand-green);
+  background: var(--color-brand-green);
+  color: #fff;
+}
 .layouts-detail__img-container {
   position: relative;
   background-color: #ffffff;
   border: 1px solid var(--color-border);
   border-radius: 8px;
   overflow: hidden;
-  padding: 1.5rem;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -4017,13 +4080,7 @@ body.modal-open {
 .layouts-detail__img-container img {
   width: 100%;
   height: auto;
-  max-width: 650px;
   display: block;
-  transition: transform 0.4s ease;
-}
-
-.layouts-detail__img-container:hover img {
-  transform: scale(1.02);
 }
 
 .layouts-detail__info {

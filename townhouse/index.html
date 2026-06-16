@@ -48,7 +48,7 @@
 
     <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
     <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
-    <link rel="stylesheet" href="../style.css?v=13">
+    <link rel="stylesheet" href="../style.css?v=14">
 </head>
 <body class="subpage-body" style="padding-top: 80px; background-color: var(--color-bg);">
     <!-- Google Tag Manager (noscript) -->
@@ -91,14 +91,20 @@
     <!-- Subpage Main Content -->
     <main class="section" style="padding-top: 4rem; padding-bottom: 6rem;">
         <div class="shell">
-            <a href="../" class="back-link" style="display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-sans); font-size: 0.9rem; color: var(--color-brand-green); text-decoration: none; font-weight: 600; margin-bottom: 2.5rem; transition: color 0.2s ease;">
-                <i class="ph ph-arrow-left"></i> Повернутися на головну
+            <a href="../#layouts-selection" class="back-link back-link--button">
+                <i class="ph ph-arrow-left" aria-hidden="true"></i> Назад
             </a>
 
             <div class="layouts-detail">
-                <!-- Left: Clickable plan drawing -->
-                <div class="layouts-detail__img-container" data-plan-preview="../assets/plan 2.webp" data-plan-title="Таунхаус 100 м²">
-                    <img src="../assets/plan 2.webp" width="1200" height="800" alt="Планування таунхауса 100 м² Shepit House">
+                <div class="layouts-detail__plan">
+                    <div class="layouts-detail__tabs" role="tablist" aria-label="Планування таунхауса 100 м²">
+                        <button type="button" class="layouts-detail__tab active" data-layout-tab data-plan-src="../assets/1-pov-t100.webp" data-plan-title="Таунхаус 100 м² — 1 поверх" data-plan-alt="Планування першого поверху таунхауса 100 м² Shepit House" aria-selected="true">1 поверх</button>
+                        <button type="button" class="layouts-detail__tab" data-layout-tab data-plan-src="../assets/2-pov-t100.webp" data-plan-title="Таунхаус 100 м² — 2 поверх" data-plan-alt="Планування другого поверху таунхауса 100 м² Shepit House" aria-selected="false">2 поверх</button>
+                        <button type="button" class="layouts-detail__tab" data-layout-tab data-plan-src="../assets/plan 2.webp" data-plan-title="Таунхаус 100 м² — загальний план" data-plan-alt="Загальне планування таунхауса 100 м² Shepit House" aria-selected="false">Загальний план</button>
+                    </div>
+                    <button type="button" class="layouts-detail__img-container" data-layout-preview data-plan-preview="../assets/1-pov-t100.webp" data-plan-title="Таунхаус 100 м² — 1 поверх" aria-label="Відкрити планування таунхауса 100 м²">
+                        <img src="../assets/1-pov-t100.webp" width="1286" height="1223" alt="Планування першого поверху таунхауса 100 м² Shepit House" data-layout-image>
+                    </button>
                 </div>
 
                 <!-- Right: Detailed info -->
@@ -199,6 +205,6 @@
         </div>
     </div>
 
-    <script src="../main.js?v=5"></script>
+    <script src="../main.js?v=6"></script>
 </body>
 </html>
