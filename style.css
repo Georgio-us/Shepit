@@ -4147,6 +4147,45 @@ body.modal-open {
   flex-shrink: 0;
 }
 
+@media (max-width: 1023px) {
+  .layouts-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1.25rem;
+  }
+  .layouts-detail__plan,
+  .layouts-detail__info {
+    display: contents;
+  }
+  .layouts-detail__label {
+    order: 1;
+    margin-bottom: -0.85rem;
+  }
+  .layouts-detail__title {
+    order: 2;
+    font-size: clamp(2.15rem, 9vw, 2.35rem);
+    margin-bottom: 0;
+  }
+  .layouts-detail__tabs {
+    order: 3;
+  }
+  .layouts-detail__img-container {
+    order: 4;
+  }
+  .layouts-detail__lead {
+    order: 5;
+    margin-bottom: 0.5rem;
+  }
+  .layouts-detail__features {
+    order: 6;
+    margin-bottom: 0.75rem;
+  }
+  .layouts-detail__floors {
+    order: 7;
+  }
+}
+
 .layouts-detail__floors {
   display: flex;
   flex-direction: column;
