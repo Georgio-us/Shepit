@@ -284,15 +284,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
 
     <!-- Layouts Selection Block -->
-    <section id="layouts-selection" class="section section--bg-alt">
+    <section id="layouts-selection" class="section section--bg-alt section--layouts">
         <div class="shell">
-            <div class="plan-intro">
+            <div class="plan-intro plan-intro--layouts">
                 <div class="plan-intro__title reveal">
-                    <h2 class="heading-md">Проєкти таунхаусів <br>та дуплексів під Києвом</h2>
+                    <h2 class="heading-md">Таунхауси та дуплекси Shepit House</h2>
                 </div>
                 <div class="plan-intro__text reveal delay-100">
                     <p class="lead">
-                        У Shepit House всього 4 таунхауси та 4 дуплекси. Ми свідомо створили невеликий простір без щільної забудови — щоб тут залишалось головне: тиша, приватність і відчуття дому.
+                        Оберіть формат, який підходить саме вам.
+                        Таунхаус із власним подвір’ям або дуплекс із більшою приватністю — залежно від ваших потреб та стилю життя.
                     </p>
                 </div>
             </div>
@@ -942,14 +943,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <label class="payment-option"><input type="radio" name="deposit" value="20"><span>20%</span></label>
                         <label class="payment-option"><input type="radio" name="deposit" value="30"><span>30%</span></label>
                         <label class="payment-option"><input type="radio" name="deposit" value="50"><span>50%</span></label>
-                        <label class="payment-option"><input type="radio" name="deposit" value="75"><span>75%</span></label>
+                        <label class="payment-option"><input type="radio" name="deposit" value="70"><span>70%</span></label>
                     </div>
                 </div>
 
                 <div class="payment-form__section">
+                    <p class="payment-form__label">Формат оплати</p>
+                    <label class="payment-option payment-option--cash">
+                        <input type="checkbox" name="paymentMode" value="cash">
+                        <span>
+                            <strong>Плачу 100% одразу</strong>
+                            <small>Персональні умови при повній оплаті</small>
+                        </span>
+                    </label>
+                </div>
+
+                <div class="payment-form__section" data-payment-installment-section>
                     <p class="payment-form__label">Період розтермінування</p>
-                    <div class="payment-options payment-options--compact" data-payment-group="months">
-                        <label class="payment-option"><input type="radio" name="months" value="0"><span>Одразу</span></label>
+                    <div class="payment-options payment-options--compact payment-options--months" data-payment-group="months">
                         <label class="payment-option"><input type="radio" name="months" value="3"><span>3 міс.</span></label>
                         <label class="payment-option"><input type="radio" name="months" value="6"><span>6 міс.</span></label>
                         <label class="payment-option"><input type="radio" name="months" value="9"><span>9 міс.</span></label>
@@ -979,6 +990,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <p class="payment-summary__note">Розрахунок попередній. Точну вартість, доступність резиденцій та умови розтермінування уточнить менеджер.</p>
                 </div>
 
+                <div class="payment-cash-offer" aria-live="polite" hidden>
+                    <div class="payment-cash-offer__art" aria-hidden="true">
+                        <svg viewBox="0 0 220 180" role="img">
+                            <path d="M38 78h144v82H38z" fill="#f6f1e7" stroke="#1f332b" stroke-width="4"/>
+                            <path d="M28 56h164v30H28z" fill="#a7b79e" stroke="#1f332b" stroke-width="4"/>
+                            <path d="M102 56h20v104h-20z" fill="#d5aa63"/>
+                            <path d="M26 82h168" stroke="#1f332b" stroke-width="4"/>
+                            <path d="M80 54c-23-11-29-30-17-38 15-10 34 14 47 40" fill="none" stroke="#1f332b" stroke-width="5" stroke-linecap="round"/>
+                            <path d="M140 54c23-11 29-30 17-38-15-10-34 14-47 40" fill="none" stroke="#1f332b" stroke-width="5" stroke-linecap="round"/>
+                            <path d="M70 116c22 18 58 18 80 0" fill="none" stroke="#d5aa63" stroke-width="5" stroke-linecap="round"/>
+                            <circle cx="54" cy="34" r="5" fill="#d5aa63"/>
+                            <circle cx="176" cy="38" r="6" fill="#a7b79e"/>
+                            <circle cx="188" cy="128" r="5" fill="#d5aa63"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="payment-summary__label">Повна оплата</p>
+                        <h3 class="payment-cash-offer__title">При 100% оплаті діють особливі умови</h3>
+                        <p class="payment-cash-offer__text">Ми готуємо дуже приємні умови для клієнтів, які обирають повну оплату. Залиште контакти, і менеджер уточнить доступність резиденцій та персональну пропозицію.</p>
+                    </div>
+                </div>
+
                 <div class="payment-form__contacts">
                     <p class="payment-form__label">Ваші контакти</p>
                     <div class="payment-form__fields">
@@ -987,7 +1020,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
                 </div>
 
-                <button type="submit" class="btn-submit payment-form__submit">Запросити розрахунок</button>
+                <button type="submit" class="btn-submit payment-form__submit" data-payment-submit>Уточнити наявність</button>
             </form>
         </div>
     </div>

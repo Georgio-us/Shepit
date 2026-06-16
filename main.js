@@ -290,15 +290,17 @@ function getPaymentEstimate() {
     const unitKey = formData.get('unit') || 'townhouse-92';
     const unit = paymentUnits[unitKey] || paymentUnits['townhouse-92'];
     const depositPercent = Number(formData.get('deposit') || 0);
-    const months = Number(formData.get('months') || 0);
+    const paymentMode = formData.get('paymentMode') || 'installment';
+    const months = Number(formData.get('months') || 12);
     const total = unit.area * paymentPricePerMeter;
     const deposit = total * (depositPercent / 100);
     const balance = total - deposit;
-    const monthly = months > 0 ? balance / months : balance;
+    const monthly = balance / months;
 
     return {
         unit,
         depositPercent,
+        paymentMode,
         months,
         total,
         deposit,
@@ -310,13 +312,20 @@ function getPaymentEstimate() {
 function getPaymentSummaryText() {
     const estimate = getPaymentEstimate();
     if (!estimate) return 'Розрахунок платежу';
-    const period = estimate.months > 0 ? `${estimate.months} міс.` : 'оплата одразу';
+    if (estimate.paymentMode === 'cash') {
+        return [
+            '100% оплата',
+            `${estimate.unit.title}, ${estimate.unit.area} м²`,
+            `орієнтовна вартість: ${formatUsd(estimate.total)}`,
+            'запит персональних умов'
+        ].join(' | ');
+    }
 
     return [
         'Розрахунок платежу',
         `${estimate.unit.title}, ${estimate.unit.area} м²`,
         `перший внесок ${estimate.depositPercent}% (${formatUsd(estimate.deposit)})`,
-        `період: ${period}`,
+        `період: ${estimate.months} міс.`,
         `орієнтовний платіж: ${formatUsd(estimate.monthly)}`
     ].join(' | ');
 }
@@ -329,6 +338,18 @@ function updatePaymentEstimate() {
     const depositEl = document.querySelector('[data-payment-deposit]');
     const balanceEl = document.querySelector('[data-payment-balance]');
     const monthlyEl = document.querySelector('[data-payment-monthly]');
+    const summaryEl = document.querySelector('.payment-summary');
+    const cashOfferEl = document.querySelector('.payment-cash-offer');
+    const submitEl = document.querySelector('[data-payment-submit]');
+    const installmentSectionEl = document.querySelector('[data-payment-installment-section]');
+    const isCash = estimate.paymentMode === 'cash';
+
+    if (summaryEl) summaryEl.hidden = isCash;
+    if (cashOfferEl) cashOfferEl.hidden = !isCash;
+    if (installmentSectionEl) installmentSectionEl.hidden = isCash;
+    if (submitEl) {
+        submitEl.textContent = isCash ? 'Уточнити умови 100% оплати' : 'Уточнити наявність';
+    }
 
     if (unitEl) unitEl.textContent = `${estimate.unit.title}, ${estimate.unit.area} м²`;
     if (depositEl) depositEl.textContent = `${formatUsd(estimate.deposit)} (${estimate.depositPercent}%)`;
