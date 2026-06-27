@@ -1606,9 +1606,26 @@ body.modal-open {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
+.calculator-page-body {
+  padding-top: 80px;
+  background: var(--color-bg-alt);
+}
+.calculator-page {
+  padding: 4rem 0 6rem;
+}
+.payment-modal--page {
+  width: min(100%, 72rem);
+  max-height: none;
+  overflow: visible;
+}
 @media (min-width: 768px) {
   .payment-modal {
     padding: 3rem;
+  }
+}
+@media (max-width: 767px) {
+  .calculator-page {
+    padding: 2.5rem 0 4rem;
   }
 }
 .payment-modal__head {
