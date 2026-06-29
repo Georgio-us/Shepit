@@ -1614,9 +1614,10 @@ body.modal-open {
   padding: 4rem 0 6rem;
 }
 .payment-modal--page {
-  width: min(100%, 72rem);
+  width: min(100%, 86rem);
   max-height: none;
   overflow: visible;
+  box-shadow: var(--shadow-premium);
 }
 @media (min-width: 768px) {
   .payment-modal {
@@ -1883,6 +1884,220 @@ body.modal-open {
 .payment-form__submit {
   margin-top: 0;
   min-height: 3.5rem;
+}
+.payment-modal--page .payment-modal__head {
+  max-width: 44rem;
+  margin-bottom: 1.5rem;
+}
+.payment-modal--page .payment-modal__title {
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  margin-bottom: 0.75rem;
+}
+.payment-modal--page .payment-modal__lead {
+  max-width: 42rem;
+  line-height: 1.5;
+}
+.payment-modal--page .payment-form {
+  gap: 1.25rem;
+}
+.payment-modal--page .payment-form__section,
+.payment-modal--page .payment-form__contacts {
+  gap: 0.75rem;
+}
+.payment-modal--page .payment-options {
+  gap: 0.75rem;
+}
+.payment-modal--page .payment-option {
+  min-height: 3.5rem;
+  padding: 0.75rem 0.9rem;
+}
+.payment-modal--page .payment-option input {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.7rem;
+}
+.payment-modal--page .payment-option strong {
+  font-size: 0.95rem;
+}
+.payment-modal--page .payment-option--cash {
+  min-height: 4.25rem;
+  margin-top: 0.75rem;
+}
+.payment-modal--page .payment-summary,
+.payment-modal--page .payment-cash-offer {
+  padding: 1.25rem;
+}
+.payment-modal--page .payment-summary {
+  gap: 1rem;
+}
+.payment-modal--page .payment-summary__value {
+  font-size: clamp(2rem, 3.4vw, 3rem);
+}
+.payment-modal--page .payment-cash-offer {
+  gap: 1rem;
+}
+.payment-modal--page .payment-cash-offer__art {
+  min-height: 7rem;
+}
+.payment-modal--page .payment-cash-offer__art svg {
+  width: min(9rem, 68vw);
+}
+.payment-modal--page .payment-cash-offer__title {
+  font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+}
+.payment-modal--page .payment-cash-offer__text {
+  line-height: 1.5;
+}
+.payment-modal--page .input-premium {
+  padding-top: 0.65rem;
+  padding-bottom: 0.65rem;
+}
+.payment-modal--page .payment-form__submit {
+  min-height: 3.25rem;
+}
+@media (min-width: 1024px) {
+  .calculator-page {
+    padding: 2rem 0 4rem;
+  }
+  .payment-modal--page {
+    padding: 2.25rem;
+  }
+  .payment-modal--page .payment-modal__head {
+    margin-bottom: 1.75rem;
+  }
+  .payment-modal--page .payment-form {
+    grid-template-columns: minmax(0, 1.16fr) minmax(22rem, 0.84fr);
+    grid-template-areas:
+      "objects summary"
+      "deposit summary"
+      "months contacts"
+      "months submit";
+    align-items: start;
+    column-gap: 2rem;
+    row-gap: 1.25rem;
+  }
+  .payment-modal--page .payment-form__section:nth-of-type(1) {
+    grid-area: objects;
+  }
+  .payment-modal--page .payment-form__section:nth-of-type(2) {
+    grid-area: deposit;
+  }
+  .payment-modal--page .payment-form__section:nth-of-type(3) {
+    grid-area: months;
+  }
+  .payment-modal--page .payment-summary,
+  .payment-modal--page .payment-cash-offer {
+    grid-area: summary;
+  }
+  .payment-modal--page .payment-form__contacts {
+    grid-area: contacts;
+  }
+  .payment-modal--page .payment-form__submit {
+    grid-area: submit;
+  }
+  .payment-modal--page .payment-summary {
+    grid-template-columns: 1fr;
+  }
+  .payment-modal--page .payment-summary__note {
+    grid-column: auto;
+  }
+  .payment-modal--page .payment-cash-offer {
+    grid-template-columns: 7rem 1fr;
+  }
+  .payment-modal--page .payment-options--compact {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  .payment-modal--page .payment-options--months {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .payment-modal--page .payment-form__fields {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}
+@media (max-width: 767px) {
+  .calculator-page-body {
+    padding-top: 68px;
+  }
+  .calculator-page {
+    padding: 1rem 0 2rem;
+  }
+  .calculator-page .shell {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  .payment-modal--page {
+    padding: 0.85rem;
+  }
+  .payment-modal--page .payment-modal__head {
+    margin-bottom: 1.25rem;
+    padding-right: 0;
+  }
+  .payment-modal--page .payment-modal__title {
+    font-size: clamp(2rem, 12vw, 2.65rem);
+    line-height: 1.02;
+  }
+  .payment-modal--page .payment-modal__lead {
+    font-size: 0.98rem;
+    line-height: 1.45;
+  }
+  .payment-modal--page .payment-form {
+    gap: 1rem;
+  }
+  .payment-modal--page .payment-options {
+    gap: 0.55rem;
+  }
+  .payment-modal--page .payment-options--compact {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .payment-modal--page .payment-options--months {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .payment-modal--page .payment-option {
+    min-height: 3.15rem;
+    padding: 0.65rem 0.7rem;
+  }
+  .payment-modal--page .payment-option input {
+    margin-right: 0.55rem;
+  }
+  .payment-modal--page .payment-option--cash {
+    min-height: 3.8rem;
+  }
+  .payment-modal--page .payment-option--cash strong {
+    font-size: 0.95rem;
+  }
+  .payment-modal--page .payment-option--cash small {
+    font-size: 0.75rem;
+  }
+  .payment-modal--page .payment-summary,
+  .payment-modal--page .payment-cash-offer {
+    padding: 0.85rem;
+  }
+  .payment-modal--page .payment-summary {
+    gap: 0.85rem;
+  }
+  .payment-modal--page .payment-summary__label {
+    margin-bottom: 0.35rem;
+  }
+  .payment-modal--page .payment-summary__details div {
+    gap: 0.75rem;
+    padding-bottom: 0.6rem;
+  }
+  .payment-modal--page .payment-summary__value {
+    font-size: 2.2rem;
+  }
+  .payment-modal--page .payment-cash-offer__art {
+    min-height: 6rem;
+  }
+  .payment-modal--page .payment-cash-offer__title {
+    font-size: 1.55rem;
+  }
+  .payment-modal--page .payment-form__fields {
+    gap: 0.75rem;
+  }
+  .payment-modal--page .payment-form__submit {
+    min-height: 3rem;
+  }
 }
 .modal-close {
   position: absolute;
