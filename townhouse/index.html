@@ -48,7 +48,7 @@
 
     <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
     <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
-    <link rel="stylesheet" href="../style.css?v=16">
+    <link rel="stylesheet" href="../style.css?v=20">
 </head>
 <body class="subpage-body" style="padding-top: 80px; background-color: var(--color-bg);">
     <!-- Google Tag Manager (noscript) -->
@@ -89,7 +89,7 @@
     </nav>
 
     <!-- Subpage Main Content -->
-    <main class="section" style="padding-top: 4rem; padding-bottom: 6rem;">
+    <main class="section layouts-detail-page" style="padding-top: 4rem; padding-bottom: 6rem;">
         <div class="shell">
             <a href="../#layouts-selection" class="back-link back-link--button">
                 <i class="ph ph-arrow-left" aria-hidden="true"></i> Назад
@@ -97,7 +97,7 @@
 
             <div class="layouts-detail">
                 <div class="layouts-detail__plan">
-                    <div class="layouts-detail__tabs" role="tablist" aria-label="Планування таунхауса 100 м²">
+                    <div class="layouts-detail__tabs" id="plan" role="tablist" aria-label="Планування таунхауса 100 м²">
                         <button type="button" class="layouts-detail__tab active" data-layout-tab data-plan-src="../assets/1-pov-t100.webp" data-plan-title="Таунхаус 100 м² — 1 поверх" data-plan-alt="Планування першого поверху таунхауса 100 м² Shepit House" aria-selected="true">1 поверх</button>
                         <button type="button" class="layouts-detail__tab" data-layout-tab data-plan-src="../assets/2-pov-t100.webp" data-plan-title="Таунхаус 100 м² — 2 поверх" data-plan-alt="Планування другого поверху таунхауса 100 м² Shepit House" aria-selected="false">2 поверх</button>
                         <button type="button" class="layouts-detail__tab" data-layout-tab data-plan-src="../assets/plan 2.webp" data-plan-title="Таунхаус 100 м² — загальний план" data-plan-alt="Загальне планування таунхауса 100 м² Shepit House" aria-selected="false">Загальний план</button>
@@ -121,6 +121,8 @@
                         <li>Власний двір і тераса</li>
                         <li>2 паркомісця</li>
                     </ul>
+
+                    <button type="button" class="layouts-detail__quick-cta" onclick="openModal('lead-modal')">Уточнити наявність</button>
 
                     <div class="layouts-detail__floors">
                         <div class="layouts-detail__floor-card">
@@ -205,6 +207,6 @@
         </div>
     </div>
 
-    <script src="../main.js?v=6"></script>
+    <script src="../main.js?v=9"></script>
 </body>
 </html>

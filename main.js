@@ -48,6 +48,13 @@ window.addEventListener('load', () => {
         if (f) f.addEventListener('submit', submitForm);
     });
     if (window.location.hash) {
+        const hashTarget = document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
+        if (hashTarget) {
+            requestAnimationFrame(() => {
+                hashTarget.scrollIntoView({ block: 'start' });
+            });
+            return;
+        }
         history.replaceState(null, '', window.location.pathname + window.location.search);
     }
     window.scrollTo(0, 0);
