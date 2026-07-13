@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shepit House — приватні резиденції серед природи</title>
+    <meta name="description" content="Вісім приватних резиденцій Shepit House у Нових Петрівцях — сучасна архітектура, власний двір і природа поруч.">
+    <link rel="preload" href="assets/visual_1.webp" as="image" type="image/webp" fetchpriority="high">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="v2.css?v=15">
+    <link rel="stylesheet" href="version-switcher.css?v=1">
+</head>
+<body>
+    <nav class="version-switcher" aria-label="Перемикач версії сайту">
+        <span class="version-switcher__label">Preview</span>
+        <a href="index.html" class="version-switcher__link">V1</a>
+        <a href="v2.html" class="version-switcher__link is-active" aria-current="page">V2</a>
+    </nav>
+
+    <main>
+        <section class="hero-v2" aria-labelledby="hero-v2-title">
+            <img class="hero-v2__image" src="assets/visual_1.webp" width="1678" height="937" fetchpriority="high" alt="Резиденції Shepit House серед зелені у Нових Петрівцях">
+            <div class="hero-v2__veil" aria-hidden="true"></div>
+
+            <header class="hero-v2__header v2-grid">
+                <a class="hero-v2__brand" href="v2.html" aria-label="Shepit House — головна">
+                    <span>SHEPIT</span>
+                    <small>HOUSE</small>
+                </a>
+
+                <nav class="hero-v2__nav" id="v2-navigation" aria-label="Головна навігація">
+                    <a class="is-active" href="#about">Про проєкт</a>
+                    <a href="#location">Локація</a>
+                    <a href="#residences">Резиденції</a>
+                    <a href="#contacts">Контакти</a>
+                </nav>
+
+                <a class="hero-v2__cta" href="#residences">
+                    <span>Обрати дім</span>
+                    <i aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M5 19 19 5M9 5h10v10"/></svg>
+                    </i>
+                </a>
+
+                <button class="hero-v2__menu" type="button" aria-expanded="false" aria-controls="v2-navigation" aria-label="Відкрити меню">
+                    <span></span><span></span>
+                </button>
+            </header>
+
+            <div class="hero-v2__content v2-grid">
+                <div class="hero-v2__copy">
+                    <p class="hero-v2__eyebrow">Приватні резиденції серед природи</p>
+                    <h1 id="hero-v2-title">Де природа<br>стає домом</h1>
+                    <p class="hero-v2__lead">Вісім приватних резиденцій із власним двором — достатньо близько до Києва і достатньо далеко від міського шуму.</p>
+                </div>
+
+                <div class="hero-v2__cards" aria-label="Формати резиденцій">
+                    <a class="hero-stat" href="townhouse/">
+                        <img src="assets/townhouse_front.webp" width="1537" height="1023" loading="lazy" decoding="async" alt="Фасад таунхауса Shepit House">
+                        <strong>100 м²</strong>
+                        <p>Таунхаус для родини: три спальні та власний двір.</p>
+                    </a>
+
+                    <a class="hero-stat" href="duplex/">
+                        <img src="assets/duplex_front.webp" width="1537" height="1023" loading="lazy" decoding="async" alt="Фасад дуплекса Shepit House">
+                        <strong>110 м²</strong>
+                        <p>Дуплекс із додатковим простором і чотирма спальнями.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-v2" id="about" aria-labelledby="about-v2-title">
+            <div class="about-v2__intro v2-grid">
+                <p class="about-v2__index"><span>(01)</span>Про SHEPIT HOUSE</p>
+
+                <h2 id="about-v2-title">
+                    <span class="about-v2__ink">SHEPIT HOUSE</span> створений для тих,
+                    хто цінує <span class="about-v2__ink">тишу, приватність і близькість до природи —</span>
+                    простір, де хочеться <span class="about-v2__ink">сповільнитись і бути собою</span>
+                </h2>
+
+                <p class="about-v2__text">Ми поєднали сучасну архітектуру, власний двір і спокійне природне оточення. Тут кожна деталь працює на комфорт родини та відчуття свого дому.</p>
+
+                <a class="about-v2__action" href="#residences">
+                    <span>Обрати дім</span>
+                    <i aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M5 19 19 5M9 5h10v10"/></svg>
+                    </i>
+                </a>
+            </div>
+
+            <div class="about-gallery" aria-labelledby="about-gallery-title">
+                <div class="about-gallery__heading v2-grid">
+                    <p class="about-gallery__brand">SHEPIT <span>HOUSE</span></p>
+                    <div class="about-gallery__copy">
+                        <h3 id="about-gallery-title">Приватний простір, створений у гармонії з природою</h3>
+                        <p>Вісім резиденцій, у яких архітектура, світло та власний двір формують спокійний простір для щоденного життя.</p>
+                    </div>
+                </div>
+
+                <div class="about-gallery__stage v2-grid">
+                    <div class="about-gallery__controls" aria-label="Керування галереєю">
+                        <button class="about-gallery__arrow" type="button" data-gallery-prev aria-label="Попереднє зображення">←</button>
+                        <span class="about-gallery__progress" aria-hidden="true"><i></i></span>
+                        <button class="about-gallery__arrow" type="button" data-gallery-next aria-label="Наступне зображення">→</button>
+                        <span class="about-gallery__counter" aria-live="polite">01 / 04</span>
+                    </div>
+
+                    <div class="about-gallery__viewport" tabindex="0" aria-label="Галерея SHEPIT HOUSE">
+                        <div class="about-gallery__track">
+                            <figure class="about-gallery__slide is-active"><img src="assets/img1.webp" width="1800" height="1012" loading="lazy" decoding="async" alt="Архітектура SHEPIT HOUSE серед зелені"></figure>
+                            <figure class="about-gallery__slide"><img src="assets/img2.webp" width="1800" height="1012" loading="lazy" decoding="async" alt="Простір резиденції SHEPIT HOUSE"></figure>
+                            <figure class="about-gallery__slide"><img src="assets/img3.webp" width="1800" height="1012" loading="lazy" decoding="async" alt="Деталі сучасної архітектури SHEPIT HOUSE"></figure>
+                            <figure class="about-gallery__slide"><img src="assets/img4.webp" width="1800" height="1012" loading="lazy" decoding="async" alt="Природне оточення SHEPIT HOUSE"></figure>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-gallery__stats">
+                    <div class="about-gallery__metric"><span>Резиденції</span><strong>8</strong></div>
+                    <div class="about-gallery__metric"><span>Площа</span><strong>100–110 м²</strong></div>
+                    <div class="about-gallery__metric"><span>Вартість</span><strong>від $85 000</strong></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="homes-v2" id="residences" aria-labelledby="homes-v2-title">
+            <div class="homes-v2__heading v2-grid">
+                <div class="homes-v2__title">
+                    <span>(02)</span>
+                    <h2 id="homes-v2-title">Наші будинки</h2>
+                </div>
+
+                <div class="homes-v2__intro">
+                    <p>Три продумані планування для різних сценаріїв життя — від компактного сімейного формату до просторого дуплекса з власним двором.</p>
+                    <a class="homes-v2__action" href="#homes-list">
+                        <span>Усі планування</span>
+                        <i aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M5 19 19 5M9 5h10v10"/></svg>
+                        </i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="homes-v2__list" id="homes-list">
+                <a class="home-card" href="townhouse/" aria-label="Відкрити планування таунхауса T92">
+                    <img src="assets/townhouse_front.webp" width="1537" height="1023" loading="lazy" decoding="async" alt="Фасад таунхауса SHEPIT HOUSE">
+                    <span class="home-card__veil" aria-hidden="true"></span>
+                    <div class="home-card__top">
+                        <span>Таунхаус</span>
+                        <strong>T92</strong>
+                    </div>
+                    <div class="home-card__bottom">
+                        <div><strong>92 м²</strong><span>Площа</span></div>
+                        <div><strong>3</strong><span>Спальні</span></div>
+                        <span class="home-card__arrow" aria-hidden="true">↗</span>
+                    </div>
+                </a>
+
+                <a class="home-card" href="townhouse/" aria-label="Відкрити планування таунхауса T102">
+                    <img src="assets/img3.webp" width="1800" height="1012" loading="lazy" decoding="async" alt="Таунхауси SHEPIT HOUSE із власними дворами">
+                    <span class="home-card__veil" aria-hidden="true"></span>
+                    <div class="home-card__top">
+                        <span>Таунхаус</span>
+                        <strong>T102</strong>
+                    </div>
+                    <div class="home-card__bottom">
+                        <div><strong>102 м²</strong><span>Площа</span></div>
+                        <div><strong>3</strong><span>Спальні</span></div>
+                        <span class="home-card__arrow" aria-hidden="true">↗</span>
+                    </div>
+                </a>
+
+                <a class="home-card" href="duplex/" aria-label="Відкрити планування дуплекса D101">
+                    <img src="assets/duplex_front.webp" width="1537" height="1023" loading="lazy" decoding="async" alt="Фасад дуплекса SHEPIT HOUSE">
+                    <span class="home-card__veil" aria-hidden="true"></span>
+                    <div class="home-card__top">
+                        <span>Дуплекс</span>
+                        <strong>D101</strong>
+                    </div>
+                    <div class="home-card__bottom">
+                        <div><strong>101 м²</strong><span>Площа</span></div>
+                        <div><strong>4</strong><span>Спальні</span></div>
+                        <span class="home-card__arrow" aria-hidden="true">↗</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="plan-v2" id="masterplan" aria-labelledby="plan-v2-title">
+            <div class="plan-v2__heading v2-grid">
+                <div class="plan-v2__title">
+                    <span>(03)</span>
+                    <h2 id="plan-v2-title">Генеральний план</h2>
+                </div>
+
+                <p class="plan-v2__lead">Вісім приватних резиденцій, об’єднаних закритою територією. Оберіть номер, щоб побачити формат, площу та актуальний статус будинку.</p>
+            </div>
+
+            <div class="plan-v2__layout v2-grid" data-v2-masterplan>
+                <div class="plan-v2__media">
+                    <img src="assets/visual_2.webp" width="1537" height="1023" loading="lazy" decoding="async" alt="Генеральний план восьми резиденцій SHEPIT HOUSE">
+                    <span class="plan-v2__shade" aria-hidden="true"></span>
+
+                    <button class="plan-pin is-active is-sale" type="button" style="--pin-x:36.82%;--pin-y:16.62%" data-plan-unit="01" data-plan-type="Таунхаус" data-plan-area="100 м²" data-plan-status="У продажу" data-plan-url="townhouse/" aria-label="Резиденція 01, таунхаус, у продажу">01</button>
+                    <button class="plan-pin is-reserved" type="button" style="--pin-x:46.78%;--pin-y:16.62%" data-plan-unit="02" data-plan-type="Таунхаус" data-plan-area="100 м²" data-plan-status="Заброньовано" data-plan-url="townhouse/" aria-label="Резиденція 02, таунхаус, заброньовано">02</button>
+                    <button class="plan-pin is-sold" type="button" style="--pin-x:55.69%;--pin-y:16.62%" data-plan-unit="03" data-plan-type="Таунхаус" data-plan-area="100 м²" data-plan-status="Продано" data-plan-url="townhouse/" aria-label="Резиденція 03, таунхаус, продано" disabled>03</button>
+                    <button class="plan-pin is-sale" type="button" style="--pin-x:65.97%;--pin-y:16.62%" data-plan-unit="04" data-plan-type="Таунхаус" data-plan-area="100 м²" data-plan-status="У продажу" data-plan-url="townhouse/" aria-label="Резиденція 04, таунхаус, у продажу">04</button>
+                    <button class="plan-pin is-reserved" type="button" style="--pin-x:32.14%;--pin-y:29.91%" data-plan-unit="05" data-plan-type="Дуплекс" data-plan-area="110 м²" data-plan-status="Заброньовано" data-plan-url="duplex/" aria-label="Резиденція 05, дуплекс, заброньовано">05</button>
+                    <button class="plan-pin is-sold" type="button" style="--pin-x:29.54%;--pin-y:49.76%" data-plan-unit="06" data-plan-type="Дуплекс" data-plan-area="110 м²" data-plan-status="Продано" data-plan-url="duplex/" aria-label="Резиденція 06, дуплекс, продано" disabled>06</button>
+                    <button class="plan-pin is-sale" type="button" style="--pin-x:71.11%;--pin-y:29.91%" data-plan-unit="07" data-plan-type="Дуплекс" data-plan-area="110 м²" data-plan-status="У продажу" data-plan-url="duplex/" aria-label="Резиденція 07, дуплекс, у продажу">07</button>
+                    <button class="plan-pin is-reserved" type="button" style="--pin-x:72.48%;--pin-y:49.76%" data-plan-unit="08" data-plan-type="Дуплекс" data-plan-area="110 м²" data-plan-status="Заброньовано" data-plan-url="duplex/" aria-label="Резиденція 08, дуплекс, заброньовано">08</button>
+                </div>
+
+                <aside class="plan-v2__panel" aria-label="Статуси резиденцій">
+                    <div class="plan-v2__legend">
+                        <span><i class="is-sale"></i>У продажу</span>
+                        <span><i class="is-sold"></i>Продано</span>
+                        <span><i class="is-reserved"></i>Заброньовано</span>
+                    </div>
+
+                    <div class="plan-v2__selected" aria-live="polite">
+                        <span data-plan-number>Резиденція 01</span>
+                        <strong data-plan-type-output>Таунхаус</strong>
+                        <div><span data-plan-area-output>100 м²</span><em data-plan-status-output>У продажу</em></div>
+                        <ul class="plan-v2__benefits">
+                            <li data-plan-bedrooms-output>3 спальні</li>
+                            <li>Власний двір</li>
+                            <li>2 паркомісця</li>
+                        </ul>
+                        <a href="tel:+380950734376" data-plan-link aria-label="Забронювати перегляд резиденції">Забронювати перегляд <span aria-hidden="true">↗</span></a>
+                    </div>
+
+                    <div class="plan-v2__units" aria-label="Список резиденцій">
+                        <button class="is-active" type="button" data-plan-target="01"><span>01</span><em>У продажу</em></button>
+                        <button type="button" data-plan-target="02"><span>02</span><em>Заброньовано</em></button>
+                        <button type="button" data-plan-target="03" disabled><span>03</span><em>Продано</em></button>
+                        <button type="button" data-plan-target="04"><span>04</span><em>У продажу</em></button>
+                        <button type="button" data-plan-target="05"><span>05</span><em>Заброньовано</em></button>
+                        <button type="button" data-plan-target="06" disabled><span>06</span><em>Продано</em></button>
+                        <button type="button" data-plan-target="07"><span>07</span><em>У продажу</em></button>
+                        <button type="button" data-plan-target="08"><span>08</span><em>Заброньовано</em></button>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section class="location-v2" id="location" aria-labelledby="location-v2-title">
+            <div class="location-v2__heading v2-grid">
+                <div class="location-v2__title">
+                    <span>(04) · Локація</span>
+                    <h2 id="location-v2-title">Місто поруч.<br>Тиша — щодня.</h2>
+                </div>
+
+                <div class="location-v2__intro">
+                    <p>Достатньо близько до Києва, щоб залишатись у звичному ритмі. І достатньо далеко, щоб нарешті відчути тишу.</p>
+                    <span>вул. Лісова, Нові Петрівці</span>
+                    <a class="location-v2__route" href="https://www.google.com/maps/search/?api=1&amp;query=%D0%9A%D0%BE%D1%82%D0%B5%D0%B4%D0%B6%D0%BD%D0%B5+%D0%BC%D1%96%D1%81%D1%82%D0%B5%D1%87%D0%BA%D0%BE+Shepit+House%2C+%D0%B2%D1%83%D0%BB.+%D0%9B%D1%96%D1%81%D0%BE%D0%B2%D0%B0%2C+%D0%9D%D0%BE%D0%B2%D1%96+%D0%9F%D0%B5%D1%82%D1%80%D1%96%D0%B2%D1%86%D1%96%2C+%D0%9A%D0%B8%D1%97%D0%B2%D1%81%D1%8C%D0%BA%D0%B0+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C%2C+07354" target="_blank" rel="noopener noreferrer">
+                        <span>Прокласти маршрут</span>
+                        <i aria-hidden="true">↗</i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="location-v2__body v2-grid">
+                <div class="location-v2__statement">
+                    <div class="location-v2__map-head">
+                        <span>Нові Петрівці · вул. Лісова</span>
+                        <strong>SHEPIT HOUSE</strong>
+                    </div>
+                    <div class="location-v2__map-frame">
+                        <iframe
+                            src="https://maps.google.com/maps?q=%D0%9A%D0%BE%D1%82%D0%B5%D0%B4%D0%B6%D0%BD%D0%B5+%D0%BC%D1%96%D1%81%D1%82%D0%B5%D1%87%D0%BA%D0%BE+Shepit+house%2C+%D0%B2%D1%83%D0%BB.+%D0%9B%D1%96%D1%81%D0%BE%D0%B2%D0%B0%2C+%D0%9D%D0%BE%D0%B2%D1%96+%D0%9F%D0%B5%D1%82%D1%80%D1%96%D0%B2%D1%86%D1%96%2C+%D0%9A%D0%B8%D1%97%D0%B2%D1%81%D1%8C%D0%BA%D0%B0+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C%2C+07354&amp;z=13&amp;hl=uk&amp;output=embed"
+                            title="SHEPIT HOUSE на мапі"
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+
+                <div class="location-v2__facts">
+                    <article>
+                        <span>01</span>
+                        <div>
+                            <strong>10 хв</strong>
+                            <p>пішки до<br>Київського моря</p>
+                        </div>
+                    </article>
+                    <article>
+                        <span>02</span>
+                        <div>
+                            <strong>10 хв</strong>
+                            <p>пішки до<br>лісу</p>
+                        </div>
+                    </article>
+                    <article>
+                        <span>03</span>
+                        <div>
+                            <strong>до 500 м</strong>
+                            <p>до найближчого<br>супермаркету</p>
+                        </div>
+                    </article>
+                    <article>
+                        <span>04</span>
+                        <div>
+                            <strong>до 500 м</strong>
+                            <p>до дитячого<br>майданчика</p>
+                        </div>
+                    </article>
+                    <article>
+                        <span>05</span>
+                        <div>
+                            <strong>15 хв</strong>
+                            <p>на авто до метро<br>Героїв Дніпра</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <script src="v2.js?v=6"></script>
+</body>
+</html>

@@ -52,11 +52,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta property="og:url" content="https://www.shepit-house.com.ua/">
     <meta property="og:title" content="Shepit House — Таунхауси та дуплекси у Нових Петрівцях">
     <meta property="og:description" content="Сучасні таунхауси та дуплекси з власним двором у 15 хвилинах від Києва.">
-    <meta property="og:image" content="https://www.shepit-house.com.ua/assets/hero.webp">
+    <meta property="og:image" content="https://www.shepit-house.com.ua/assets/visual_1.webp">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Shepit House — Таунхауси та дуплекси у Нових Петрівцях">
     <meta name="twitter:description" content="Сучасні таунхауси та дуплекси з власним двором у 15 хвилинах від Києва.">
-    <meta name="twitter:image" content="https://www.shepit-house.com.ua/assets/hero.webp">
+    <meta name="twitter:image" content="https://www.shepit-house.com.ua/assets/visual_1.webp">
 
     <!-- Microformat Schema.org (JSON-LD) -->
     <script type="application/ld+json">
@@ -65,7 +65,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       "@type": "RealEstateListing",
       "name": "Shepit House — Житловий комплекс таунхаусів та дуплексів",
       "url": "https://www.shepit-house.com.ua/",
-      "image": "https://www.shepit-house.com.ua/assets/hero.webp",
+      "image": "https://www.shepit-house.com.ua/assets/visual_1.webp",
       "telephone": "+380950734376",
       "description": "Продаж таунхаусів та дуплексів у Нових Петрівцях. Закрита територія, сучасна архітектура.",
       "address": {
@@ -80,7 +80,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </script>
 
     <link rel="icon" href="assets/Logo-mark_black.svg" type="image/svg+xml">
-    <link rel="preload" href="assets/hero.webp" as="image">
+    <link rel="preload" href="assets/visual_1.webp" as="image" type="image/webp" fetchpriority="high">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,8 +90,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
     <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
     <link rel="stylesheet" href="style.css?v=20">
+    <link rel="stylesheet" href="home-v2.css?v=1">
+    <link rel="stylesheet" href="version-switcher.css?v=1">
 </head>
-<body>
+<body class="home-v2">
+
+    <nav class="version-switcher" aria-label="Перемикач версії сайту">
+        <span class="version-switcher__label">Preview</span>
+        <a href="index.html" class="version-switcher__link is-active" aria-current="page">V1</a>
+        <a href="v2.html" class="version-switcher__link">V2</a>
+    </nav>
 
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-53F9CWJ4"
@@ -99,16 +107,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
 
-    <nav id="navbar" class="site-nav">
+    <nav id="navbar" class="site-nav" aria-label="Головна навігація">
         <div class="shell site-nav__inner">
             <a href="./" class="site-nav__brand">
                 <img src="assets/Logo-mark_white.svg" alt="Shepit House" width="490" height="560" class="site-nav__logo-img logo-white">
                 <img src="assets/Logo-mark_black.svg" alt="Shepit House" width="490" height="560" class="site-nav__logo-img logo-black">
+                <span class="site-nav__wordmark" aria-hidden="true">SHEPIT</span>
             </a>
 
             <ul class="site-nav__menu">
                 <li><a href="#layouts-selection">Проєкти</a></li>
-                <li><a href="#about">Про містечко</a></li>
                 <li><a href="#location">Локація</a></li>
                 <li><a href="#progress">Хід будівництва</a></li>
                 <li><button type="button" data-scroll-target="blog">Блог</button></li>
@@ -117,488 +125,175 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             <div class="site-nav__actions">
                 <a href="tel:+380950734376" class="site-nav__phone">+38 (095) 073 43 76</a>
-                <button type="button" onclick="openModal('lead-modal')" class="btn-nav-cta">Отримати ціну</button>
+                <button type="button" onclick="openModal('lead-modal')" class="btn-nav-cta">Зв’язатися</button>
                 <button type="button" class="site-nav__burger" aria-label="Меню" aria-expanded="false" aria-controls="site-nav-menu"><i class="ph ph-list"></i></button>
             </div>
         </div>
         <div id="site-nav-menu" class="site-nav__mobile-panel">
-            <ul class="site-nav__mobile-menu">
-                <li><a href="#layouts-selection">Проєкти</a></li>
-                <li><a href="#about">Про містечко</a></li>
-                <li><a href="#location">Локація</a></li>
-                <li><a href="#progress">Хід будівництва</a></li>
-                <li><button type="button" data-scroll-target="blog">Блог</button></li>
-                <li><a href="#contacts">Контакти</a></li>
-            </ul>
+            <div class="shell site-nav__panel-inner">
+                <p class="site-nav__panel-label">Навігація</p>
+                <ul class="site-nav__mobile-menu">
+                    <li><a href="#layouts-selection"><span>01</span> Резиденції</a></li>
+                    <li><a href="#location"><span>02</span> Локація</a></li>
+                    <li><a href="#progress"><span>03</span> Хід будівництва</a></li>
+                    <li><button type="button" data-scroll-target="blog"><span>04</span> Блог</button></li>
+                    <li><a href="#contacts"><span>05</span> Контакти</a></li>
+                </ul>
+                <div class="site-nav__panel-footer">
+                    <a href="tel:+380950734376">+38 (095) 073 43 76</a>
+                    <button type="button" onclick="openModal('lead-modal')">Запланувати перегляд</button>
+                </div>
+            </div>
         </div>
     </nav>
 
-    <header class="hero">
+    <header class="hero hero-v2">
         <div class="hero__media">
-            <img src="assets/hero.webp" width="1672" height="941" fetchpriority="high" alt="Екстер'єр таунхаусів Shepit House у Нових Петрівцях — сучасна архітектура">
+            <img src="assets/visual_1.webp" width="1678" height="937" fetchpriority="high" alt="Котеджне містечко Shepit House серед зелені у Нових Петрівцях">
             <div class="hero__overlay" aria-hidden="true"></div>
         </div>
 
-        <div class="shell hero__grid">
-            <div class="hero__content reveal-left">
-                <h1 class="hero__title">
-                    Таунхауси та дуплекси <br>
-                    <span class="hero__title-accent">від $85 000</span>
-                </h1>
+        <div class="shell hero-v2__inner">
+            <div class="hero-v2__copy">
+                <p class="hero-v2__eyebrow">Нові Петрівці · 15 хв до метро</p>
+                <h1 class="hero-v2__title">Жити ближче<br>до тиші</h1>
+                <p class="hero-v2__lead">Вісім приватних резиденцій серед природи — з власним двором і простором для щоденного життя.</p>
 
-                <p class="hero__lead">
-                    Лише 8 резиденцій з власним двором, <br>
-                    15 хв до метро Героїв Дніпра
-                </p>
-
-                <div class="hero__location-badge">
-                    <a href="https://maps.google.com/maps?q=%D0%9A%D0%BE%D1%82%D0%B5%D0%B4%D0%B6%D0%BD%D0%B5+%D0%BC%D1%96%D1%81%D1%82%D0%B5%D1%87%D0%BA%D0%BE+Shepit+house%2C+%D0%B2%D1%83%D0%BB.+%D0%9B%D1%96%D1%81%D0%BE%D0%B2%D0%B0%2C+%D0%9D%D0%BE%D0%B2%D1%96+%D0%9F%D0%B5%D1%82%D1%80%D1%96%D0%B2%D1%86%D1%96%2C+%D0%9A%D0%B8%D1%97%D0%B2%D1%81%D1%8C%D0%BA%D0%B0+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C%2C+07354" target="_blank" rel="noopener noreferrer" class="hero__location-badge-pill">
-                        <i class="ph ph-map-pin"></i>
-                        <span>Зручна локація</span>
-                    </a>
-                </div>
-
-                <div class="hero__divider"></div>
-
-                <div class="hero__actions">
-                    <a href="#layouts-selection" class="btn-hero btn-hero--primary">
-                        <svg class="btn-hero__svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="3" width="18" height="18" rx="2"/>
-                            <path d="M9 3v18M9 12h12M15 12v9"/>
-                        </svg>
-                        <div class="btn-hero__text-block">
-                            <span class="btn-hero__top-line">Переглянути</span>
-                            <span class="btn-hero__bottom-line">планування</span>
-                        </div>
-                    </a>
-
-                    <a href="calculator/" class="btn-hero btn-hero--secondary">
-                        <svg class="btn-hero__svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="4" y="2" width="16" height="20" rx="2"/>
-                            <line x1="8" y1="6" x2="16" y2="6"/>
-                            <line x1="16" y1="14" x2="16" y2="18"/>
-                            <path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"/>
-                        </svg>
-                        <div class="btn-hero__text-block">
-                            <span class="btn-hero__top-line">Розрахувати</span>
-                            <span class="btn-hero__bottom-line">платіж</span>
-                        </div>
+                <div class="hero-v2__actions">
+                    <a href="#layouts-selection" class="hero-v2__primary">Обрати резиденцію</a>
+                    <a href="#location" class="hero-v2__secondary">
+                        <span>Відкрити локацію</span>
+                        <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
                     </a>
                 </div>
             </div>
+
+            <dl class="hero-v2__facts" aria-label="Ключові характеристики Shepit House">
+                <div>
+                    <dt>Резиденції</dt>
+                    <dd>8</dd>
+                </div>
+                <div>
+                    <dt>Площа</dt>
+                    <dd>100–110 м²</dd>
+                </div>
+                <div>
+                    <dt>Вартість</dt>
+                    <dd>від $85 000</dd>
+                </div>
+            </dl>
         </div>
 
-        <a href="#about" class="hero__scroll-down" aria-label="Прокрутити вниз">
-            <div class="mouse-icon">
-                <div class="mouse-wheel"></div>
-            </div>
+        <a href="#layouts-selection" class="hero-v2__scroll" aria-label="Перейти до вибору резиденції">
+            <span>Дивитися далі</span>
+            <i class="ph ph-arrow-down" aria-hidden="true"></i>
         </a>
     </header>
 
-    <!-- Benefits Ribbon Block -->
-    <section class="benefits-bar">
+    <section id="layouts-selection" class="residences-v2">
         <div class="shell">
-            <div class="benefits-grid">
-                <!-- Item 1 -->
-                <div class="benefits-item">
-                    <div class="benefits-item__icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M3 20V10l7-5.5 7 5.5v10H3z"/>
-                            <path d="M8 20v-6h4v6"/>
-                            <path d="M17 10l4 3.14V20h-4" stroke-dasharray="3 3"/>
-                            <path d="M21 20H17" stroke-dasharray="3 3"/>
-                        </svg>
+            <div class="residences-v2__head reveal">
+                <p class="residences-v2__index">01</p>
+                <p class="residences-v2__display" aria-hidden="true">Резиденції</p>
+                <h2 class="residences-v2__title">Два формати приватного життя</h2>
+            </div>
+
+            <div class="residences-v2__grid">
+                <a href="townhouse/" class="residence-preview reveal" aria-label="Відкрити сторінку таунхауса 100 м²">
+                    <div class="residence-preview__media">
+                        <img src="assets/townhouse_front.webp" width="1537" height="1023" alt="Фасад таунхаусів Shepit House" loading="lazy" decoding="async">
+                        <span class="residence-preview__type">Таунхаус</span>
+                        <div class="residence-preview__meta">
+                            <h3>100 м<sup>2</sup></h3>
+                            <p>3 спальні · власний двір</p>
+                            <span class="residence-preview__arrow" aria-hidden="true"><i class="ph ph-arrow-up-right"></i></span>
+                        </div>
                     </div>
-                    <h3 class="benefits-item__title">100–110 м²</h3>
-                    <p class="benefits-item__subtext">житлової площі</p>
-                </div>
-                <!-- Item 2 -->
-                <div class="benefits-item">
-                    <div class="benefits-item__icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 19v-9"/>
-                            <path d="M12 10a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/>
-                            <path d="M12 3v5"/>
-                            <path d="M7 19v-6"/>
-                            <path d="M7 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                            <path d="M17 19v-6"/>
-                            <path d="M17 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                        </svg>
+                </a>
+
+                <a href="duplex/" class="residence-preview reveal delay-100" aria-label="Відкрити сторінку дуплекса 110 м²">
+                    <div class="residence-preview__media">
+                        <img src="assets/duplex_front.webp" width="1537" height="1023" alt="Фасад дуплекса Shepit House" loading="lazy" decoding="async">
+                        <span class="residence-preview__type">Дуплекс</span>
+                        <div class="residence-preview__meta">
+                            <h3>110 м<sup>2</sup></h3>
+                            <p>4 спальні · власний двір</p>
+                            <span class="residence-preview__arrow" aria-hidden="true"><i class="ph ph-arrow-up-right"></i></span>
+                        </div>
                     </div>
-                    <h3 class="benefits-item__title">До 2 соток</h3>
-                    <p class="benefits-item__subtext">власного двору</p>
-                </div>
-                <!-- Item 3 -->
-                <div class="benefits-item">
-                    <div class="benefits-item__icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16.5 10 12 10s-6.7.6-8.5 1.1C2.7 11.3 2 12.1 2 13v3c0 .6.4 1 1 1h2"/>
-                            <path d="M5 17v2c0 .6.4 1 1 1h1c.6 0 1-.4 1-1v-2h8v2c0 .6.4 1 1 1h1c.6 0 1-.4 1-1v-2"/>
-                            <path d="M4 10l1.5-5.5C5.8 3.6 6.7 3 7.7 3h8.6c1 0 1.9.6 2.2 1.5L20 10"/>
-                            <circle cx="6.5" cy="13.5" r="1"/>
-                            <circle cx="17.5" cy="13.5" r="1"/>
-                        </svg>
-                    </div>
-                    <h3 class="benefits-item__title">2 паркомісця</h3>
-                    <p class="benefits-item__subtext">для кожної резиденції</p>
-                </div>
-                <!-- Item 4 -->
-                <div class="benefits-item">
-                    <div class="benefits-item__icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="5" y="11" width="14" height="10" rx="2" ry="2"/>
-                            <path d="M12 14v3"/>
-                            <circle cx="12" cy="14" r="0.5"/>
-                            <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
-                        </svg>
-                    </div>
-                    <h3 class="benefits-item__title">Закрита<br>територія</h3>
-                    <p class="benefits-item__subtext">безпека та спокій<br>для вас і дітей</p>
-                </div>
-                <!-- Item 5 -->
-                <div class="benefits-item">
-                    <div class="benefits-item__icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                            <line x1="16" y1="2" x2="16" y2="6"/>
-                            <line x1="8" y1="2" x2="8" y2="6"/>
-                            <line x1="3" y1="10" x2="21" y2="10"/>
-                        </svg>
-                    </div>
-                    <h3 class="benefits-item__title">Розтермінування <br>до 12 місяців</h3>
-                    <p class="benefits-item__subtext">без переплат</p>
-                </div>
-                <!-- Item 6 -->
-                <div class="benefits-item">
-                    <div class="benefits-item__icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                            <circle cx="12" cy="10" r="3"/>
-                        </svg>
-                    </div>
-                    <h3 class="benefits-item__title">15 хвилин <br>до метро Героїв Дніпра</h3>
-                    <p class="benefits-item__subtext">і всієї інфраструктури</p>
-                </div>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Layouts Selection Block -->
-    <section id="layouts-selection" class="section section--bg-alt section--layouts">
+    <section id="masterplan" class="masterplan-v2">
         <div class="shell">
-            <div class="plan-intro plan-intro--layouts">
-                <div class="plan-intro__title reveal">
-                    <h2 class="heading-md">Таунхауси та дуплекси <br>Shepit House</h2>
-                </div>
-                <div class="plan-intro__text reveal delay-100">
-                    <p class="lead">
-                        Оберіть формат, який підходить саме вам.
-                        Таунхаус із власним подвір’ям або дуплекс із більшою приватністю — залежно від ваших потреб та стилю життя.
-                    </p>
-                </div>
+            <div class="masterplan-v2__head reveal">
+                <p class="masterplan-v2__index">02 · Генеральний план</p>
+                <h2 class="masterplan-v2__title">Вісім резиденцій.<br>Один приватний простір.</h2>
+                <p class="masterplan-v2__lead">Закрита територія, власні двори та продуманий рух усередині комплексу.</p>
             </div>
 
-            <div class="layouts-grid">
-                <!-- Card 1: Townhouse -->
-                <div class="layout-card reveal">
-                    <div class="layout-card__image-container">
-                        <img src="assets/img1.webp" alt="Таунхаус 100 м² Shepit House" loading="lazy" decoding="async">
-                        <span class="layout-card__badge">ТАУНХАУС</span>
+            <div class="masterplan-v2__viewport reveal">
+            <div class="masterplan-v2__canvas" data-masterplan>
+                <img src="assets/visual_2.webp" width="1537" height="1023" loading="lazy" decoding="async" alt="Генеральний план восьми резиденцій Shepit House">
+                <div class="masterplan-v2__shade" aria-hidden="true"></div>
+                <svg class="masterplan-v2__overlay" viewBox="0 0 1537 1023" preserveAspectRatio="xMidYMid slice" aria-label="Інтерактивний вибір резиденції">
+                    <g class="masterplan-house" role="button" tabindex="0" aria-label="Резиденція 01, таунхаус 100 квадратних метрів" data-masterplan-house data-house-id="01" data-house-type="Таунхаус" data-house-area="100 м²" data-house-url="townhouse/">
+                        <polygon points="484,84 650,84 650,264 484,264"></polygon>
+                        <circle cx="566" cy="170" r="24"></circle><text x="566" y="170">01</text>
+                    </g>
+                    <g class="masterplan-house" role="button" tabindex="0" aria-label="Резиденція 02, таунхаус 100 квадратних метрів" data-masterplan-house data-house-id="02" data-house-type="Таунхаус" data-house-area="100 м²" data-house-url="townhouse/">
+                        <polygon points="650,84 788,84 788,264 650,264"></polygon>
+                        <circle cx="719" cy="170" r="24"></circle><text x="719" y="170">02</text>
+                    </g>
+                    <g class="masterplan-house" role="button" tabindex="0" aria-label="Резиденція 03, таунхаус 100 квадратних метрів" data-masterplan-house data-house-id="03" data-house-type="Таунхаус" data-house-area="100 м²" data-house-url="townhouse/">
+                        <polygon points="788,84 925,84 925,264 788,264"></polygon>
+                        <circle cx="856" cy="170" r="24"></circle><text x="856" y="170">03</text>
+                    </g>
+                    <g class="masterplan-house" role="button" tabindex="0" aria-label="Резиденція 04, таунхаус 100 квадратних метрів" data-masterplan-house data-house-id="04" data-house-type="Таунхаус" data-house-area="100 м²" data-house-url="townhouse/">
+                        <polygon points="925,84 1104,84 1104,264 925,264"></polygon>
+                        <circle cx="1014" cy="170" r="24"></circle><text x="1014" y="170">04</text>
+                    </g>
+                    <g class="masterplan-house" role="button" tabindex="0" aria-label="Резиденція 05, дуплекс 110 квадратних метрів" data-masterplan-house data-house-id="05" data-house-type="Дуплекс" data-house-area="110 м²" data-house-url="duplex/">
+                        <polygon points="357,238 635,238 638,362 322,362"></polygon>
+                        <circle cx="494" cy="306" r="24"></circle><text x="494" y="306">05</text>
+                    </g>
+                    <g class="masterplan-house" role="button" tabindex="0" aria-label="Резиденція 06, дуплекс 110 квадратних метрів" data-masterplan-house data-house-id="06" data-house-type="Дуплекс" data-house-area="110 м²" data-house-url="duplex/">
+                        <polygon points="322,362 638,362 579,648 288,648"></polygon>
+                        <circle cx="454" cy="509" r="24"></circle><text x="454" y="509">06</text>
+                    </g>
+                    <g class="masterplan-house" role="button" tabindex="0" aria-label="Резиденція 07, дуплекс 110 квадратних метрів" data-masterplan-house data-house-id="07" data-house-type="Дуплекс" data-house-area="110 м²" data-house-url="duplex/">
+                        <polygon points="971,238 1198,240 1241,362 964,362"></polygon>
+                        <circle cx="1093" cy="306" r="24"></circle><text x="1093" y="306">07</text>
+                    </g>
+                    <g class="masterplan-house" role="button" tabindex="0" aria-label="Резиденція 08, дуплекс 110 квадратних метрів" data-masterplan-house data-house-id="08" data-house-type="Дуплекс" data-house-area="110 м²" data-house-url="duplex/">
+                        <polygon points="964,362 1241,362 1287,650 957,650"></polygon>
+                        <circle cx="1114" cy="509" r="24"></circle><text x="1114" y="509">08</text>
+                    </g>
+                </svg>
+                <div class="masterplan-v2__caption">
+                    <div>
+                        <span>Shepit House</span>
+                        <strong>Генеральний план</strong>
                     </div>
-                    <div class="layout-card__content">
-                        <div class="layout-card__header">
-                            <h3 class="layout-card__title">100 м<sup>2</sup></h3>
-                            <p class="layout-card__lead">Продуманий простір для комфортного життя родини</p>
-                        </div>
-
-                        <div class="layout-card__features">
-                            <div class="layout-card__feature">
-                                <div class="layout-card__feature-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M3 7v11M21 7v11M3 10h18M3 14h18" />
-                                        <path d="M6 10V8a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v2M13 10V8a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v2" />
-                                    </svg>
-                                </div>
-                                <span class="layout-card__feature-label">3 спальні</span>
-                            </div>
-                            <div class="layout-card__feature">
-                                <div class="layout-card__feature-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M4 20h16" />
-                                        <path d="M10 20v-5" />
-                                        <path d="M10 15a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z" />
-                                        <path d="M15 20v-3" />
-                                        <path d="M15 17a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" />
-                                    </svg>
-                                </div>
-                                <span class="layout-card__feature-label">Власний<br>двір</span>
-                            </div>
-                            <div class="layout-card__feature">
-                                <div class="layout-card__feature-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M7 11l1.5-4.5c.3-.9 1.1-1.5 2-1.5h3c.9 0 1.7.6 2 1.5L17 11" />
-                                        <rect x="4" y="11" width="16" height="6" rx="1.5" />
-                                        <rect x="6" y="17" width="3" height="3" rx="0.5" />
-                                        <rect x="15" y="17" width="3" height="3" rx="0.5" />
-                                        <circle cx="7.5" cy="14" r="1" />
-                                        <circle cx="16.5" cy="14" r="1" />
-                                    </svg>
-                                </div>
-                                <span class="layout-card__feature-label">2 паркомісця</span>
-                            </div>
-                            <div class="layout-card__feature">
-                                <div class="layout-card__feature-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                                        <rect x="4" y="4" width="16" height="16" rx="2" stroke-dasharray="4 4" />
-                                    </svg>
-                                </div>
-                                <span class="layout-card__feature-label">Ділянка<br>до 2 соток</span>
-                            </div>
-                        </div>
-
-                        <a href="townhouse/#plan" class="btn-layout-card">
-                            <span>Дивитись планування</span>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                                <polyline points="12 5 19 12 12 19"></polyline>
-                            </svg>
-                        </a>
-                    </div>
+                    <a href="#layouts-selection">Обрати формат <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
                 </div>
-
-                <!-- Card 2: Duplex -->
-                <div class="layout-card reveal delay-100">
-                    <div class="layout-card__image-container">
-                        <img src="assets/img3.webp" alt="Дуплекс 110 м² Shepit House" loading="lazy" decoding="async">
-                        <span class="layout-card__badge">ДУПЛЕКС</span>
+                <p class="masterplan-v2__hint"><i class="ph ph-cursor-click" aria-hidden="true"></i> Оберіть будинок</p>
+                <aside class="masterplan-v2__info" data-masterplan-info aria-live="polite" aria-hidden="true">
+                    <div>
+                        <span data-masterplan-number>Резиденція 01</span>
+                        <strong data-masterplan-type>Таунхаус</strong>
                     </div>
-                    <div class="layout-card__content">
-                        <div class="layout-card__header">
-                            <h3 class="layout-card__title">110 м<sup>2</sup></h3>
-                            <p class="layout-card__lead">Більше простору для вашої родини</p>
-                        </div>
-
-                        <div class="layout-card__features">
-                            <div class="layout-card__feature">
-                                <div class="layout-card__feature-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M3 7v11M21 7v11M3 10h18M3 14h18" />
-                                        <path d="M6 10V8a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v2M13 10V8a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v2" />
-                                    </svg>
-                                </div>
-                                <span class="layout-card__feature-label">4 спальні</span>
-                            </div>
-                            <div class="layout-card__feature">
-                                <div class="layout-card__feature-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M4 20h16" />
-                                        <path d="M10 20v-5" />
-                                        <path d="M10 15a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z" />
-                                        <path d="M15 20v-3" />
-                                        <path d="M15 17a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" />
-                                    </svg>
-                                </div>
-                                <span class="layout-card__feature-label">Власний<br>двір</span>
-                            </div>
-                            <div class="layout-card__feature">
-                                <div class="layout-card__feature-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M7 11l1.5-4.5c.3-.9 1.1-1.5 2-1.5h3c.9 0 1.7.6 2 1.5L17 11" />
-                                        <rect x="4" y="11" width="16" height="6" rx="1.5" />
-                                        <rect x="6" y="17" width="3" height="3" rx="0.5" />
-                                        <rect x="15" y="17" width="3" height="3" rx="0.5" />
-                                        <circle cx="7.5" cy="14" r="1" />
-                                        <circle cx="16.5" cy="14" r="1" />
-                                    </svg>
-                                </div>
-                                <span class="layout-card__feature-label">2 паркомісця</span>
-                            </div>
-                            <div class="layout-card__feature">
-                                <div class="layout-card__feature-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                                        <rect x="4" y="4" width="16" height="16" rx="2" stroke-dasharray="4 4" />
-                                    </svg>
-                                </div>
-                                <span class="layout-card__feature-label">Ділянка<br>до 2 соток</span>
-                            </div>
-                        </div>
-
-                        <a href="duplex/#plan" class="btn-layout-card">
-                            <span>Дивитись планування</span>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                                <polyline points="12 5 19 12 12 19"></polyline>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
+                    <p data-masterplan-area>100 м²</p>
+                    <a href="townhouse/" data-masterplan-link>Детальніше <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+                </aside>
+                <dl class="masterplan-v2__facts" aria-label="Характеристики комплексу">
+                    <div><dt>Резиденцій</dt><dd>8</dd></div>
+                    <div><dt>Формати</dt><dd>Таунхаус · Дуплекс</dd></div>
+                    <div><dt>Територія</dt><dd>Закрита</dd></div>
+                </dl>
             </div>
-
-            <!-- Catalog Banner -->
-            <div class="catalog-banner reveal delay-200">
-                <div class="catalog-banner__left">
-                    <svg class="catalog-banner__pdf-icon" viewBox="0 0 64 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M42 2H8C4.68629 2 2 4.68629 2 8V72C2 75.3137 4.68629 78 8 78H56C59.3137 78 62 75.3137 62 72V22L42 2Z" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round" />
-                        <path d="M42 2V22H62" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round" />
-                        <path d="M32 28V46M32 46L24 38M32 46L40 38" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
-                        <text x="32" y="66" fill="currentColor" font-family="var(--font-sans)" font-size="12" font-weight="800" text-anchor="middle" letter-spacing="0.05em">PDF</text>
-                    </svg>
-                </div>
-
-                <div class="catalog-banner__center">
-                    <h4 class="catalog-banner__title">Не знаєте який формат обрати?</h4>
-                    <p class="catalog-banner__subtext">Отримайте повний каталог з усіма плануваннями, актуальними цінами та умовами розтермінування</p>
-                </div>
-
-                <div class="catalog-banner__right">
-                    <button type="button" class="btn-catalog-banner-download" onclick="openModal('lead-modal')">
-                        <svg class="download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                            <polyline points="14 2 14 8 20 8"></polyline>
-                            <line x1="12" y1="18" x2="12" y2="12"></line>
-                            <polyline points="9 15 12 18 15 15"></polyline>
-                        </svg>
-                        <span>Отримати PDF каталог</span>
-                    </button>
-                    <div class="catalog-banner__secure">
-                        <svg class="lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                        </svg>
-                        <span>Без реєстрації та спаму</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="section section--bg">
-        <div class="shell">
-            <div class="two-col">
-                <button type="button" data-video-open data-video-id="u7pzWFN_Waw" data-video-title="Відео про Shepit House" class="video-thumb img-hover-zoom reveal" aria-label="Відкрити відео">
-                    <img src="https://img.youtube.com/vi/u7pzWFN_Waw/maxresdefault.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="Відео про Shepit House — прев'ю">
-                    <div class="video-thumb__overlay">
-                        <div class="video-thumb__play">
-                            <span class="video-thumb__ping" aria-hidden="true"></span>
-                            <i class="ph ph-play play-icon" aria-hidden="true"></i>
-                        </div>
-                    </div>
-                </button>
-
-                <div class="reveal delay-100">
-                    <h2 class="heading-xl">
-                        Уявіть свій <br><span class="accent">ранок</span> тут
-                    </h2>
-                    <p class="lead">
-                        Тиша, свіже повітря та простір, де все створено для вашого комфорту. Почніть день із кави на власній терасі, насолоджуючись спокоєм.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="benefits" class="section section--bg-alt section--border-y">
-        <div class="shell">
-            <div class="benefits-layout">
-                <div class="benefits-layout__title reveal">
-                    <h2 class="heading-lg">
-                        Shepit House — <br>саме для вас, якщо...
-                    </h2>
-                </div>
-
-                <div class="benefits-layout__grid">
-                    <div class="benefit-item reveal delay-100">
-                        <i class="ph ph-house-line" aria-hidden="true"></i>
-                        <p>Вам хочеться прокидатись у тиші, а не під шум міста</p>
-                    </div>
-                    <div class="benefit-item reveal delay-200">
-                        <i class="ph ph-coffee" aria-hidden="true"></i>
-                        <p>Пити каву не "на балконі", а на власній терасі</p>
-                    </div>
-                    <div class="benefit-item reveal delay-100">
-                        <i class="ph ph-users" aria-hidden="true"></i>
-                        <p>Мати безпечне місце, де діти можуть рости вільно</p>
-                    </div>
-                    <div class="benefit-item reveal delay-200">
-                        <i class="ph ph-flower-lotus" aria-hidden="true"></i>
-                        <p>Мати простір не тільки в будинку, а й у житті</p>
-                    </div>
-                    <div class="benefit-item benefit-item--wide reveal delay-300">
-                        <i class="ph ph-heart" aria-hidden="true"></i>
-                        <p>Повертатись додому і відчувати абсолютний спокій</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="specs" class="section section--bg-alt section--border-t">
-        <div class="shell">
-            <div class="specs-layout">
-                <div class="specs-layout__intro reveal">
-                    <h2 class="heading-lg specs-layout__title">Продумано не лише для краси, а й для комфорту на роки</h2>
-                    <p class="lead text-muted specs-layout__lead">
-                        У Shepit House ми приділили увагу не лише атмосфері простору, а й якості будівництва — щоб будинок залишався надійним і енергоефективним у будь-яку пору року.
-                    </p>
-                </div>
-
-                <div class="specs-layout__grid-wrap reveal delay-100">
-                    <div class="specs-grid">
-                        <div class="spec-cell">
-                            <i class="ph ph-columns" aria-hidden="true"></i>
-                            <h3>Фундамент</h3>
-                            <p>Монолітно-каркасний</p>
-                        </div>
-                        <div class="spec-cell">
-                            <i class="ph ph-wall" aria-hidden="true"></i>
-                            <h3>Стіни</h3>
-                            <p>Газоблок</p>
-                        </div>
-                        <div class="spec-cell">
-                            <i class="ph ph-stack" aria-hidden="true"></i>
-                            <h3>Поверховість</h3>
-                            <p>2 повноцінні поверхи</p>
-                        </div>
-                        <div class="spec-cell">
-                            <i class="ph ph-house-line" aria-hidden="true"></i>
-                            <h3>Покрівля</h3>
-                            <p>Утеплення мінватою</p>
-                        </div>
-                        <div class="spec-cell">
-                            <i class="ph ph-shield-check" aria-hidden="true"></i>
-                            <h3>Утеплення стін</h3>
-                            <p>Мінвата + пінопласт</p>
-                        </div>
-                        <div class="spec-cell">
-                            <i class="ph ph-squares-four" aria-hidden="true"></i>
-                            <h3>Перекриття</h3>
-                            <p>Збірні залізобетонні плити</p>
-                        </div>
-                        <div class="spec-cell">
-                            <i class="ph ph-steps" aria-hidden="true"></i>
-                            <h3>Сходи</h3>
-                            <p>Залізобетонні монолітні</p>
-                        </div>
-                        <div class="spec-cell">
-                            <i class="ph ph-windows-logo" aria-hidden="true"></i>
-                            <h3>Вікна</h3>
-                            <p>Двокамерні, профіль шестикамерний</p>
-                        </div>
-                    </div>
-
-                    <div class="specs-layout__footer reveal delay-200">
-                        <p class="specs-footer-text">Термін введення в експлуатацію: <span class="accent-text">червень 2027 року</span></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pricing-banner reveal">
-                <div class="pricing-banner__text">
-                    <p class="pricing-banner__label">Вартість резиденцій</p>
-                    <p class="pricing-banner__price"><span>від 85 000$</span><span>до 114 000$</span></p>
-                    <p class="pricing-banner__note">Зручне розтермінування на 12 місяців від забудовника</p>
-                </div>
-                <button type="button" onclick="openModal('lead-modal')" class="btn-dark">Отримати прайс</button>
             </div>
         </div>
     </section>
@@ -796,45 +491,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </section>
 
-    <section id="form" class="section section--bg-alt section--border-t">
-        <div class="shell">
-            <div class="form-section-grid">
-                <div class="form-section-grid__copy reveal">
-                    <h2 class="heading-md">Ми створюємо простір, у якому важливо кожне відчуття</h2>
-                    <p class="lead text-muted form-copy__lead">
-                        Shepit House — це невеликий камерний проєкт, де важлива не лише архітектура, а й відчуття життя всередині.
-                    </p>
-                    <div class="manager">
-                        <div class="manager__photo">
-                            <img src="assets/photo_rop 1.webp" width="831" height="830" loading="lazy" decoding="async" alt="Менеджер з продажу Shepit House — Борис">
-                        </div>
-                        <div>
-                            <p class="manager__name">Борис</p>
-                            <p class="manager__role">Керівник відділу продажу</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-section-grid__panel form-panel reveal delay-200">
-                    <p class="form-panel__title">Отримати презентацію</p>
-                    <p class="form-panel__lead">
-                        Залиште свої контакти, і ми надішлемо актуальні планування, вартість та умови розтермінування.
-                    </p>
-
-                    <form class="form-stack" id="form-footer">
-                        <div>
-                            <input type="text" name="name" placeholder="Ваше ім'я" required class="input-premium">
-                        </div>
-                        <div>
-                            <input type="tel" name="phone" placeholder="Ваш телефон" required class="input-premium">
-                        </div>
-                        <button type="submit" class="btn-submit">Отримати планування</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <footer id="contacts" class="site-footer">
         <div class="shell">
             <div class="footer-grid">
@@ -896,266 +552,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
                 <button type="submit" class="btn-submit">Відправити</button>
             </form>
-        </div>
-    </div>
-
-    <div id="payment-modal" class="modal-content modal-content--payment">
-        <div class="payment-modal">
-            <button type="button" onclick="closeModal('payment-modal')" class="modal-close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
-
-            <div class="payment-modal__head">
-                <p class="modal-project__label">Орієнтовний розрахунок</p>
-                <h2 class="payment-modal__title">Розрахувати платіж</h2>
-                <p class="payment-modal__lead">Оберіть формат резиденції, перший внесок і період розтермінування. Ми підготуємо для вас точні умови після заявки.</p>
-            </div>
-
-            <form class="payment-form" id="form-payment">
-                <div class="payment-form__section">
-                    <p class="payment-form__label">Тип об'єкта</p>
-                    <div class="payment-options payment-options--objects" data-payment-group="unit">
-                        <label class="payment-option">
-                            <input type="radio" name="unit" value="townhouse-92" checked>
-                            <span>
-                                <strong>Таунхаус 1</strong>
-                                <small>92 м²</small>
-                            </span>
-                        </label>
-                        <label class="payment-option">
-                            <input type="radio" name="unit" value="townhouse-102">
-                            <span>
-                                <strong>Таунхаус 2</strong>
-                                <small>102 м²</small>
-                            </span>
-                        </label>
-                        <label class="payment-option">
-                            <input type="radio" name="unit" value="duplex-101">
-                            <span>
-                                <strong>Дуплекс</strong>
-                                <small>101 м²</small>
-                            </span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="payment-form__section">
-                    <p class="payment-form__label">Перший внесок</p>
-                    <div class="payment-options payment-options--compact" data-payment-group="deposit" data-payment-deposit-options>
-                        <label class="payment-option"><input type="radio" name="deposit" value="0" checked><span>0%</span></label>
-                        <label class="payment-option"><input type="radio" name="deposit" value="10"><span>10%</span></label>
-                        <label class="payment-option"><input type="radio" name="deposit" value="20"><span>20%</span></label>
-                        <label class="payment-option"><input type="radio" name="deposit" value="30"><span>30%</span></label>
-                        <label class="payment-option"><input type="radio" name="deposit" value="50"><span>50%</span></label>
-                        <label class="payment-option"><input type="radio" name="deposit" value="70"><span>70%</span></label>
-                    </div>
-                    <label class="payment-option payment-option--cash">
-                        <input type="checkbox" name="paymentMode" value="cash">
-                        <span>
-                            <strong>Плачу 100% одразу</strong>
-                            <small>Персональні умови при повній оплаті</small>
-                        </span>
-                    </label>
-                </div>
-
-                <div class="payment-form__section" data-payment-installment-section>
-                    <p class="payment-form__label">Період розтермінування</p>
-                    <div class="payment-options payment-options--compact payment-options--months" data-payment-group="months" data-payment-month-options>
-                        <label class="payment-option"><input type="radio" name="months" value="3"><span>3 міс.</span></label>
-                        <label class="payment-option"><input type="radio" name="months" value="6"><span>6 міс.</span></label>
-                        <label class="payment-option"><input type="radio" name="months" value="9"><span>9 міс.</span></label>
-                        <label class="payment-option"><input type="radio" name="months" value="12" checked><span>12 міс.</span></label>
-                    </div>
-                </div>
-
-                <div class="payment-summary" aria-live="polite">
-                    <div>
-                        <p class="payment-summary__label">Орієнтовний щомісячний платіж</p>
-                        <p class="payment-summary__value" data-payment-monthly>$0</p>
-                    </div>
-                    <dl class="payment-summary__details">
-                        <div>
-                            <dt>Формат</dt>
-                            <dd data-payment-unit>Таунхаус 1, 92 м²</dd>
-                        </div>
-                        <div>
-                            <dt>Перший внесок</dt>
-                            <dd data-payment-deposit>$0</dd>
-                        </div>
-                        <div>
-                            <dt>Залишок</dt>
-                            <dd data-payment-balance>$0</dd>
-                        </div>
-                    </dl>
-                    <p class="payment-summary__note">Розрахунок попередній. Точну вартість, доступність резиденцій та умови розтермінування уточнить менеджер.</p>
-                </div>
-
-                <div class="payment-cash-offer" aria-live="polite" hidden>
-                    <div class="payment-cash-offer__art" aria-hidden="true">
-                        <svg viewBox="0 0 220 180" role="img">
-                            <path d="M110 168c44.2 0 80-35.8 80-80S154.2 8 110 8 30 43.8 30 88s35.8 80 80 80z" fill="#f6f1e7"/>
-                            <path d="M48 78h124v76H48z" fill="#fff" stroke="#1f332b" stroke-width="5" stroke-linejoin="round"/>
-                            <path d="M34 54h152v30H34z" fill="#a7b79e" stroke="#1f332b" stroke-width="5" stroke-linejoin="round"/>
-                            <path d="M99 54h22v100H99z" fill="#d5aa63"/>
-                            <path d="M34 84h152" stroke="#1f332b" stroke-width="5"/>
-                            <path d="M100 54c-25-8-43-22-36-38 7-15 31-7 46 38" fill="none" stroke="#1f332b" stroke-width="5" stroke-linecap="round"/>
-                            <path d="M120 54c25-8 43-22 36-38-7-15-31-7-46 38" fill="none" stroke="#1f332b" stroke-width="5" stroke-linecap="round"/>
-                            <path d="M74 118c22 20 50 20 72 0" fill="none" stroke="#d5aa63" stroke-width="6" stroke-linecap="round"/>
-                            <path d="M58 32l8 8M162 132l10 10M178 38l-8 10" stroke="#d5aa63" stroke-width="5" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <p class="payment-summary__label">Повна оплата</p>
-                        <h3 class="payment-cash-offer__title">При 100% оплаті діють особливі умови</h3>
-                        <p class="payment-cash-offer__text">Ми готуємо дуже приємні умови для клієнтів, які обирають повну оплату. Залиште контакти, і менеджер уточнить доступність резиденцій та персональну пропозицію.</p>
-                    </div>
-                </div>
-
-                <div class="payment-form__contacts">
-                    <p class="payment-form__label">Ваші контакти</p>
-                    <div class="payment-form__fields">
-                        <input type="text" name="name" placeholder="Ваше ім'я" required class="input-premium">
-                        <input type="tel" name="phone" placeholder="Ваш телефон" required class="input-premium">
-                    </div>
-                </div>
-
-                <button type="submit" class="btn-submit payment-form__submit" data-payment-submit>Уточнити наявність</button>
-            </form>
-        </div>
-    </div>
-
-    <div id="info-modal" class="modal-content">
-        <div class="modal-project">
-            <button type="button" onclick="closeModal('info-modal')" class="modal-project__close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
-
-            <div class="modal-project__grid">
-                <div class="modal-project__media">
-                    <img id="info-modal-img" src="" width="800" height="600" alt="Деталі">
-                </div>
-
-                <div class="modal-project__body">
-                    <div class="modal-project__header">
-                        <span class="modal-project__label">Детальна інформація</span>
-                        <h2 id="info-modal-title" class="modal-project__title">Заголовок</h2>
-                    </div>
-
-                    <div id="info-modal-specs" class="modal-project__specs"></div>
-
-                    <div id="info-modal-desc" class="modal-project__desc"></div>
-
-                    <button type="button" onclick="closeModal('info-modal', { restore: false }); setTimeout(() => openModal('lead-modal'), 400);" id="info-modal-btn" class="modal-project__btn">Записатись на перегляд</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="plans-modal" class="modal-content modal-content--plans">
-        <div class="modal-plans">
-            <button type="button" onclick="closeModal('plans-modal')" class="modal-plans__close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
-
-            <div class="modal-plans__container">
-                <div class="modal-plans__intro">
-                    <h2 class="modal-plans__title">Планування резиденцій</h2>
-                    <p class="modal-plans__lead">Продуманий кожен метр для вашого комфорту та приватності.</p>
-                </div>
-
-                <div class="plans-catalog">
-                    <article class="plan-layout-card">
-                        <div class="plan-layout-card__top">
-                            <button type="button" class="plan-layout-card__image" data-plan-preview="assets/plan 1.webp" data-plan-title="Дуплекс 110 м²" aria-label="Відкрити планування дуплекса 110 м²">
-                                <img src="assets/plan 1.webp" width="1200" height="800" loading="lazy" decoding="async" alt="Планування дуплекса 110 м² Shepit House">
-                            </button>
-                            <div class="plan-layout-card__content">
-                                <span class="modal-project__label">Дуплекс</span>
-                                <h3>Дуплекс 110 м²</h3>
-                                <p class="plan-layout-card__lead">Продумане планування для комфортного життя великої родини: 4 спальні, 2 санвузли, кухня-вітальня з виходом до власного двору та тераси.</p>
-
-                                <ul class="plan-layout-features">
-                                    <li>Загальна площа 110 м²</li>
-                                    <li>4 спальні</li>
-                                    <li>2 санвузли</li>
-                                    <li>Кухня-вітальня 26,7 м²</li>
-                                    <li>Власний двір і тераса</li>
-                                    <li>2 паркомісця</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="plan-floor-grid">
-                            <div class="plan-floor-card">
-                                <p class="plan-floor-card__label">1 поверх</p>
-                                <h4>Денна зона</h4>
-                                <p>Простора кухня-вітальня 26,7 м², спальня або кабінет, санвузол, тамбур і зручний сходовий блок. Це рівень для щоденного життя, зустрічей і відпочинку родини.</p>
-                            </div>
-                            <div class="plan-floor-card">
-                                <p class="plan-floor-card__label">2 поверх</p>
-                                <h4>Приватна зона</h4>
-                                <p>Три окремі спальні, основний санвузол і хол між кімнатами. Простір відділений від активної частини дому, тому підходить для спокійного сну, роботи та дитячих кімнат.</p>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="plan-layout-card">
-                        <div class="plan-layout-card__top">
-                            <button type="button" class="plan-layout-card__image" data-plan-preview="assets/plan 2.webp" data-plan-title="Таунхаус 100 м²" aria-label="Відкрити планування таунхауса 100 м²">
-                                <img src="assets/plan 2.webp" width="1200" height="800" loading="lazy" decoding="async" alt="Планування таунхауса 100 м² Shepit House">
-                            </button>
-                            <div class="plan-layout-card__content">
-                                <span class="modal-project__label">Таунхаус</span>
-                                <h3>Таунхаус 100 м²</h3>
-                                <p class="plan-layout-card__lead">Компактний і функціональний формат для сім'ї: 3 спальні, 2 санвузли, кухня-студія з виходом на терасу, власний двір і 2 паркомісця.</p>
-
-                                <ul class="plan-layout-features">
-                                    <li>Загальна площа 100 м²</li>
-                                    <li>3 спальні</li>
-                                    <li>2 санвузли</li>
-                                    <li>Кухня-студія 28,7 м²</li>
-                                    <li>Власний двір і тераса</li>
-                                    <li>2 паркомісця</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="plan-floor-grid">
-                            <div class="plan-floor-card">
-                                <p class="plan-floor-card__label">1 поверх</p>
-                                <h4>Денна зона</h4>
-                                <p>Кухня-студія 28,7 м² з виходом на терасу, спальня або кабінет, санвузол, тамбур і хол. Перший поверх працює як простір для прийому гостей, роботи й сімейних вечорів.</p>
-                            </div>
-                            <div class="plan-floor-card">
-                                <p class="plan-floor-card__label">2 поверх</p>
-                                <h4>Зона відпочинку</h4>
-                                <p>Три спальні, ванна кімната, хол і зручне розташування сходів. Планування розділяє активну та приватну частини дому, щоб кожен мав власний простір.</p>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="modal-plans__footer">
-                    <div class="plans-conditions reveal">
-                        <div class="condition-card">
-                            <p class="condition-card__label">Термін здачі</p>
-                            <p class="condition-card__value">Червень 2027</p>
-                        </div>
-                        <div class="condition-card">
-                            <p class="condition-card__label">Вартість м²</p>
-                            <p class="condition-card__value">від 990$</p>
-                        </div>
-                        <div class="condition-card">
-                            <p class="condition-card__label">Розтермінування</p>
-                            <p class="condition-card__value">на 12 місяців</p>
-                        </div>
-                    </div>
-
-                    <div class="plans-form-panel">
-                        <h3>Хочете переглянути більше планувань?</h3>
-                        <p>Залиште контакти, і ми надішлемо вам усі деталі та доступні варіанти.</p>
-                        <form class="form-stack form-stack--inline" id="form-plans">
-                            <input type="text" name="name" placeholder="Ваше ім'я" required class="input-premium">
-                            <input type="tel" name="phone" placeholder="Ваш телефон" required class="input-premium">
-                            <button type="submit" class="btn-submit">Отримати каталог</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 

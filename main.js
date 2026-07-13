@@ -1,6 +1,6 @@
 const navbar = document.getElementById('navbar');
 const burger = document.querySelector('.site-nav__burger');
-const mobileMenuLinks = document.querySelectorAll('.site-nav__mobile-menu a, .site-nav__mobile-menu button');
+const mobileMenuLinks = document.querySelectorAll('.site-nav__mobile-panel a, .site-nav__mobile-panel button');
 const overlay = document.getElementById('modal-overlay');
 const modals = document.querySelectorAll('.modal-content');
 const scrollTopButton = document.querySelector('.scroll-top');
@@ -42,7 +42,7 @@ if ('scrollRestoration' in history) {
 
 window.addEventListener('load', () => {
     // Attach listeners to forms
-    const forms = ['form-footer', 'form-modal', 'form-plans', 'form-payment'];
+    const forms = ['form-modal', 'form-payment'];
     forms.forEach(id => {
         const f = document.getElementById(id);
         if (f) f.addEventListener('submit', submitForm);
@@ -63,15 +63,34 @@ window.addEventListener('load', () => {
 function closeMobileMenu() {
     if (!navbar) return;
     navbar.classList.remove('site-nav--open');
+    document.body.classList.remove('site-menu-open');
     if (burger) burger.setAttribute('aria-expanded', 'false');
+    const burgerIcon = burger?.querySelector('i');
+    if (burgerIcon) {
+        burgerIcon.classList.remove('ph-x');
+        burgerIcon.classList.add('ph-list');
+    }
 }
 
 if (burger && navbar) {
     burger.addEventListener('click', () => {
         const isOpen = navbar.classList.toggle('site-nav--open');
+        document.body.classList.toggle('site-menu-open', isOpen);
         burger.setAttribute('aria-expanded', String(isOpen));
+        const burgerIcon = burger.querySelector('i');
+        if (burgerIcon) {
+            burgerIcon.classList.toggle('ph-list', !isOpen);
+            burgerIcon.classList.toggle('ph-x', isOpen);
+        }
     });
 }
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && navbar?.classList.contains('site-nav--open')) {
+        closeMobileMenu();
+        burger?.focus();
+    }
+});
 
 mobileMenuLinks.forEach((link) => {
     link.addEventListener('click', closeMobileMenu);
@@ -101,6 +120,52 @@ document.querySelectorAll('[data-plan-preview]').forEach((control) => {
         openModal('plan-preview-modal');
     });
 });
+
+const masterplan = document.querySelector('[data-masterplan]');
+
+if (masterplan) {
+    const houses = Array.from(masterplan.querySelectorAll('[data-masterplan-house]'));
+    const info = masterplan.querySelector('[data-masterplan-info]');
+    const number = masterplan.querySelector('[data-masterplan-number]');
+    const type = masterplan.querySelector('[data-masterplan-type]');
+    const area = masterplan.querySelector('[data-masterplan-area]');
+    const link = masterplan.querySelector('[data-masterplan-link]');
+    let selectedHouse = null;
+
+    const showHouse = (house, persist = false) => {
+        if (!house || !info) return;
+        houses.forEach((item) => item.classList.toggle('is-selected', persist && item === house));
+        if (persist) selectedHouse = house;
+        if (number) number.textContent = `Резиденція ${house.dataset.houseId}`;
+        if (type) type.textContent = house.dataset.houseType;
+        if (area) area.textContent = house.dataset.houseArea;
+        if (link) link.href = house.dataset.houseUrl;
+        info.classList.add('is-visible');
+        info.setAttribute('aria-hidden', 'false');
+    };
+
+    const restoreSelection = () => {
+        if (selectedHouse) {
+            showHouse(selectedHouse, true);
+            return;
+        }
+        info?.classList.remove('is-visible');
+        info?.setAttribute('aria-hidden', 'true');
+    };
+
+    houses.forEach((house) => {
+        house.addEventListener('mouseenter', () => showHouse(house));
+        house.addEventListener('mouseleave', restoreSelection);
+        house.addEventListener('focus', () => showHouse(house));
+        house.addEventListener('blur', restoreSelection);
+        house.addEventListener('click', () => showHouse(house, true));
+        house.addEventListener('keydown', (event) => {
+            if (!['Enter', ' '].includes(event.key)) return;
+            event.preventDefault();
+            showHouse(house, true);
+        });
+    });
+}
 
 const layoutPreviewControl = document.querySelector('[data-layout-preview]');
 const layoutImage = document.querySelector('[data-layout-image]');
@@ -217,19 +282,6 @@ const revealObserver = new IntersectionObserver(
 );
 
 document.querySelectorAll('.reveal, .reveal-left').forEach((el) => revealObserver.observe(el));
-
-function openLeadModal(context) {
-    if (context) {
-        lastInteractionContext = context;
-    }
-    openModal('lead-modal');
-}
-
-function openPaymentModal() {
-    lastInteractionContext = 'Розрахунок платежу';
-    updatePaymentEstimate();
-    openModal('payment-modal');
-}
 
 function openModal(modalId) {
     const modal = document.getElementById(modalId);
@@ -414,43 +466,6 @@ if (paymentForm) {
         updatePaymentEstimate();
     });
     updatePaymentEstimate();
-}
-
-function openDynamicModal(title, desc, imgSrc, btnText = 'Записатись на перегляд') {
-    lastInteractionContext = `Проєкт: ${title}`;
-    
-    document.getElementById('info-modal-title').innerText = title;
-    document.getElementById('info-modal-desc').innerText = desc;
-    document.getElementById('info-modal-img').src = imgSrc;
-    document.getElementById('info-modal-btn').innerText = btnText;
-
-    // Define specs based on title
-    let specsHtml = '';
-    if (title.includes('100–120')) {
-        specsHtml = `
-            <div class="spec-item"><i class="ph ph-arrows-out"></i><p>Площа до 120 м²</p></div>
-            <div class="spec-item"><i class="ph ph-bed"></i><p>3 окремі спальні</p></div>
-            <div class="spec-item"><i class="ph ph-bathtub"></i><p>2 санвузли</p></div>
-            <div class="spec-item"><i class="ph ph-park"></i><p>Ділянка до 2 соток</p></div>
-        `;
-    } else if (title.includes('двір')) {
-        specsHtml = `
-            <div class="spec-item"><i class="ph ph-lock-key"></i><p>Приватна територія</p></div>
-            <div class="spec-item"><i class="ph ph-shield-check"></i><p>Паркан по периметру</p></div>
-            <div class="spec-item"><i class="ph ph-sun"></i><p>Зона відпочинку</p></div>
-            <div class="spec-item"><i class="ph ph-tree-evergreen"></i><p>Власний сад</p></div>
-        `;
-    } else if (title.includes('паркомісця')) {
-        specsHtml = `
-            <div class="spec-item"><i class="ph ph-car"></i><p>2 паркомісця біля дому</p></div>
-            <div class="spec-item"><i class="ph ph-lightning"></i><p>Можливість зарядки електроавто</p></div>
-            <div class="spec-item"><i class="ph ph-shield-check"></i><p>Закрита територія</p></div>
-            <div class="spec-item"><i class="ph ph-clock"></i><p>Доступ 24/7</p></div>
-        `;
-    }
-
-    document.getElementById('info-modal-specs').innerHTML = specsHtml;
-    openModal('info-modal');
 }
 
 async function submitForm(event) {
