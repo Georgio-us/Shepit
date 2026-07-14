@@ -1,258 +1,153 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uk">
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-53F9CWJ4');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Калькулятор розтермінування — SHEPIT HOUSE</title>
+  <meta name="description" content="Розрахуйте орієнтовний щомісячний платіж за резиденцію SHEPIT HOUSE: оберіть будинок, перший внесок і строк до 12 місяців.">
+  <link rel="canonical" href="https://www.shepit-house.com.ua/calculator/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SHEPIT HOUSE">
+  <meta property="og:locale" content="uk_UA">
+  <meta property="og:url" content="https://www.shepit-house.com.ua/calculator/">
+  <meta property="og:title" content="Калькулятор розтермінування — SHEPIT HOUSE">
+  <meta property="og:description" content="Оберіть резиденцію, перший внесок і строк — калькулятор покаже орієнтовний графік оплати.">
+  <meta property="og:image" content="https://www.shepit-house.com.ua/assets/visual_1.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/Logo-mark_black.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="calculator-v2.css?v=1">
 
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-53F9CWJ4');</script>
-<!-- End Google Tag Manager -->
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Калькулятор платежу | Shepit House</title>
-    <meta name="description" content="Розрахуйте орієнтовний платіж за таунхаус або дуплекс Shepit House: оберіть формат резиденції, перший внесок та період розтермінування.">
-    <link rel="canonical" href="https://www.shepit-house.com.ua/calculator/">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Shepit House">
-    <meta property="og:locale" content="uk_UA">
-    <meta property="og:url" content="https://www.shepit-house.com.ua/calculator/">
-    <meta property="og:title" content="Калькулятор платежу Shepit House">
-    <meta property="og:description" content="Оберіть формат резиденції, перший внесок та період розтермінування, щоб отримати орієнтовний платіж.">
-    <meta property="og:image" content="https://www.shepit-house.com.ua/assets/hero.webp">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Калькулятор платежу Shepit House">
-    <meta name="twitter:description" content="Розрахуйте орієнтовний платіж за резиденцію Shepit House.">
-    <meta name="twitter:image" content="https://www.shepit-house.com.ua/assets/hero.webp">
-    <link rel="icon" href="/assets/Logo-mark_black.svg" type="image/svg+xml">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap"></noscript>
-    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
-    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
-    <link rel="stylesheet" href="../style.css?v=17">
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BZKXJY7T45"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-BZKXJY7T45');
-    </script>
-
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1008871435016680');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1008871435016680&ev=PageView&noscript=1"/></noscript>
-    <!-- End Meta Pixel Code -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BZKXJY7T45"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-BZKXJY7T45');</script>
+  <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1008871435016680');fbq('track','PageView');</script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1008871435016680&ev=PageView&noscript=1" alt=""></noscript>
 </head>
-<body class="subpage-body calculator-page-body">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-53F9CWJ4" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+<body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-53F9CWJ4" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
 
-    <nav id="navbar" class="site-nav site-nav--subpage">
-        <div class="shell site-nav__inner">
-            <a href="../" class="site-nav__brand">
-                <img src="../assets/Logo-mark_white.svg" alt="Shepit House" width="490" height="560" class="site-nav__logo-img logo-white">
-                <img src="../assets/Logo-mark_black.svg" alt="Shepit House" width="490" height="560" class="site-nav__logo-img logo-black">
-            </a>
+  <header class="calculator-header">
+    <a class="calculator-brand" href="../v2.html" aria-label="SHEPIT HOUSE — головна">
+      <span>SHEPIT</span><small>HOUSE</small>
+    </a>
+    <a class="calculator-close" href="../v2.html#installment" aria-label="Повернутися на головну">
+      <span></span><span></span>
+    </a>
+  </header>
 
-            <ul class="site-nav__menu">
-                <li><a href="../#layouts-selection">Проєкти</a></li>
-                <li><a href="../#about">Про містечко</a></li>
-                <li><a href="../#location">Локація</a></li>
-                <li><a href="../#progress">Хід будівництва</a></li>
-                <li><a href="../#contacts">Контакти</a></li>
-            </ul>
+  <main class="calculator-page">
+    <section class="calculator-intro" aria-labelledby="calculator-title">
+      <div class="calculator-index">
+        <span>(01) · Розтермінування</span>
+        <p>Прямі умови від забудовника</p>
+      </div>
+      <div class="calculator-copy">
+        <h1 id="calculator-title">Ваш дім.<br><span>Ваш темп оплати.</span></h1>
+        <p>Оберіть резиденцію, перший внесок і строк. Розрахунок одразу покаже орієнтовний щомісячний платіж.</p>
+      </div>
+    </section>
 
-            <div class="site-nav__actions">
-                <a href="tel:+380950734376" class="site-nav__phone">+38 (095) 073 43 76</a>
-                <button type="button" onclick="openModal('lead-modal')" class="btn-nav-cta">Отримати ціну</button>
-                <button type="button" class="site-nav__burger" aria-label="Меню" aria-expanded="false" aria-controls="site-nav-menu"><i class="ph ph-list"></i></button>
-            </div>
+    <form class="calculator-workspace" data-calculator-form>
+      <div class="calculator-controls">
+        <fieldset class="calculator-group calculator-group--units">
+          <legend><span>01</span>Оберіть резиденцію</legend>
+          <div class="unit-options">
+            <label class="unit-option">
+              <input type="radio" name="unit" value="t92" checked>
+              <span><small>Таунхаус</small><strong>T92</strong><em>92 м²</em></span>
+            </label>
+            <label class="unit-option">
+              <input type="radio" name="unit" value="t102">
+              <span><small>Таунхаус</small><strong>T102</strong><em>102 м²</em></span>
+            </label>
+            <label class="unit-option">
+              <input type="radio" name="unit" value="d101">
+              <span><small>Дуплекс</small><strong>D101</strong><em>101 м²</em></span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="calculator-group">
+          <legend><span>02</span>Перший внесок</legend>
+          <div class="range-value"><strong data-deposit-percent>0%</strong><span data-deposit-amount>$0</span></div>
+          <input class="calculator-range" type="range" name="deposit" min="0" max="70" step="10" value="0" aria-label="Перший внесок у відсотках">
+          <div class="range-scale" aria-hidden="true"><span>0%</span><span>30%</span><span>70%</span></div>
+        </fieldset>
+
+        <fieldset class="calculator-group" data-installment-group>
+          <legend><span>03</span>Строк розтермінування</legend>
+          <div class="month-options">
+            <label><input type="radio" name="months" value="3"><span>3</span><small>міс.</small></label>
+            <label><input type="radio" name="months" value="6"><span>6</span><small>міс.</small></label>
+            <label><input type="radio" name="months" value="9"><span>9</span><small>міс.</small></label>
+            <label><input type="radio" name="months" value="12" checked><span>12</span><small>міс.</small></label>
+          </div>
+        </fieldset>
+
+        <label class="cash-option">
+          <input type="checkbox" name="cash" value="cash">
+          <span class="cash-option__toggle" aria-hidden="true"><i></i></span>
+          <span><strong>100% оплата</strong><small>Персональні умови при повній оплаті</small></span>
+        </label>
+      </div>
+
+      <aside class="calculator-result" aria-live="polite">
+        <div class="result-head">
+          <p>Попередній розрахунок</p>
+          <span>0% комісії</span>
         </div>
-        <div id="site-nav-menu" class="site-nav__mobile-panel">
-            <ul class="site-nav__mobile-menu">
-                <li><a href="../#layouts-selection">Проєкти</a></li>
-                <li><a href="../#about">Про містечко</a></li>
-                <li><a href="../#location">Локація</a></li>
-                <li><a href="../#progress">Хід будівництва</a></li>
-                <li><a href="../#contacts">Контакти</a></li>
-            </ul>
+
+        <div class="result-primary" data-installment-result>
+          <span>Щомісячний платіж</span>
+          <strong data-monthly>$0</strong>
+          <small>протягом <b data-months>12 місяців</b></small>
         </div>
-    </nav>
 
-    <main class="calculator-page">
-        <div class="shell">
-            <a href="../" class="back-link back-link--button">
-                <i class="ph ph-arrow-left" aria-hidden="true"></i> Назад
-            </a>
-
-            <div class="payment-modal payment-modal--page">
-                <div class="payment-modal__head">
-                    <p class="modal-project__label">Орієнтовний розрахунок</p>
-                    <h1 class="payment-modal__title">Розрахувати платіж</h1>
-                    <p class="payment-modal__lead">Оберіть формат резиденції, перший внесок і період розтермінування. Ми підготуємо для вас точні умови після заявки.</p>
-                </div>
-
-                <form class="payment-form" id="form-payment">
-                    <div class="payment-form__section">
-                        <p class="payment-form__label">Тип об'єкта</p>
-                        <div class="payment-options payment-options--objects" data-payment-group="unit">
-                            <label class="payment-option">
-                                <input type="radio" name="unit" value="townhouse-92" checked>
-                                <span>
-                                    <strong>Таунхаус 1</strong>
-                                    <small>92 м²</small>
-                                </span>
-                            </label>
-                            <label class="payment-option">
-                                <input type="radio" name="unit" value="townhouse-102">
-                                <span>
-                                    <strong>Таунхаус 2</strong>
-                                    <small>102 м²</small>
-                                </span>
-                            </label>
-                            <label class="payment-option">
-                                <input type="radio" name="unit" value="duplex-101">
-                                <span>
-                                    <strong>Дуплекс</strong>
-                                    <small>101 м²</small>
-                                </span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="payment-form__section">
-                        <p class="payment-form__label">Перший внесок</p>
-                        <div class="payment-options payment-options--compact" data-payment-group="deposit" data-payment-deposit-options>
-                            <label class="payment-option"><input type="radio" name="deposit" value="0" checked><span>0%</span></label>
-                            <label class="payment-option"><input type="radio" name="deposit" value="10"><span>10%</span></label>
-                            <label class="payment-option"><input type="radio" name="deposit" value="20"><span>20%</span></label>
-                            <label class="payment-option"><input type="radio" name="deposit" value="30"><span>30%</span></label>
-                            <label class="payment-option"><input type="radio" name="deposit" value="50"><span>50%</span></label>
-                            <label class="payment-option"><input type="radio" name="deposit" value="70"><span>70%</span></label>
-                        </div>
-                        <label class="payment-option payment-option--cash">
-                            <input type="checkbox" name="paymentMode" value="cash">
-                            <span>
-                                <strong>Плачу 100% одразу</strong>
-                                <small>Персональні умови при повній оплаті</small>
-                            </span>
-                        </label>
-                    </div>
-
-                    <div class="payment-form__section" data-payment-installment-section>
-                        <p class="payment-form__label">Період розтермінування</p>
-                        <div class="payment-options payment-options--compact payment-options--months" data-payment-group="months" data-payment-month-options>
-                            <label class="payment-option"><input type="radio" name="months" value="3"><span>3 міс.</span></label>
-                            <label class="payment-option"><input type="radio" name="months" value="6"><span>6 міс.</span></label>
-                            <label class="payment-option"><input type="radio" name="months" value="9"><span>9 міс.</span></label>
-                            <label class="payment-option"><input type="radio" name="months" value="12" checked><span>12 міс.</span></label>
-                        </div>
-                    </div>
-
-                    <div class="payment-summary" aria-live="polite">
-                        <div>
-                            <p class="payment-summary__label">Орієнтовний щомісячний платіж</p>
-                            <p class="payment-summary__value" data-payment-monthly>$0</p>
-                        </div>
-                        <dl class="payment-summary__details">
-                            <div>
-                                <dt>Формат</dt>
-                                <dd data-payment-unit>Таунхаус 1, 92 м²</dd>
-                            </div>
-                            <div>
-                                <dt>Перший внесок</dt>
-                                <dd data-payment-deposit>$0</dd>
-                            </div>
-                            <div>
-                                <dt>Залишок</dt>
-                                <dd data-payment-balance>$0</dd>
-                            </div>
-                        </dl>
-                        <p class="payment-summary__note">Розрахунок попередній. Точну вартість, доступність резиденцій та умови розтермінування уточнить менеджер.</p>
-                    </div>
-
-                    <div class="payment-cash-offer" aria-live="polite" hidden>
-                        <div class="payment-cash-offer__art" aria-hidden="true">
-                            <svg viewBox="0 0 220 180" role="img">
-                                <path d="M110 168c44.2 0 80-35.8 80-80S154.2 8 110 8 30 43.8 30 88s35.8 80 80 80z" fill="#f6f1e7"/>
-                                <path d="M48 78h124v76H48z" fill="#fff" stroke="#1f332b" stroke-width="5" stroke-linejoin="round"/>
-                                <path d="M34 54h152v30H34z" fill="#a7b79e" stroke="#1f332b" stroke-width="5" stroke-linejoin="round"/>
-                                <path d="M99 54h22v100H99z" fill="#d5aa63"/>
-                                <path d="M34 84h152" stroke="#1f332b" stroke-width="5"/>
-                                <path d="M100 54c-25-8-43-22-36-38 7-15 31-7 46 38" fill="none" stroke="#1f332b" stroke-width="5" stroke-linecap="round"/>
-                                <path d="M120 54c25-8 43-22 36-38-7-15-31-7-46 38" fill="none" stroke="#1f332b" stroke-width="5" stroke-linecap="round"/>
-                                <path d="M74 118c22 20 50 20 72 0" fill="none" stroke="#d5aa63" stroke-width="6" stroke-linecap="round"/>
-                                <path d="M58 32l8 8M162 132l10 10M178 38l-8 10" stroke="#d5aa63" stroke-width="5" stroke-linecap="round"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <p class="payment-summary__label">Повна оплата</p>
-                            <h3 class="payment-cash-offer__title">При 100% оплаті діють особливі умови</h3>
-                            <p class="payment-cash-offer__text">Ми готуємо дуже приємні умови для клієнтів, які обирають повну оплату. Залиште контакти, і менеджер уточнить доступність резиденцій та персональну пропозицію.</p>
-                        </div>
-                    </div>
-
-                    <div class="payment-form__contacts">
-                        <p class="payment-form__label">Ваші контакти</p>
-                        <div class="payment-form__fields">
-                            <input type="text" name="name" placeholder="Ваше ім'я" required class="input-premium">
-                            <input type="tel" name="phone" placeholder="Ваш телефон" required class="input-premium">
-                        </div>
-                    </div>
-
-                    <button type="submit" class="btn-submit payment-form__submit" data-payment-submit>Уточнити наявність</button>
-                </form>
-            </div>
+        <div class="result-primary result-primary--cash" data-cash-result hidden>
+          <span>Повна оплата</span>
+          <strong>Особливі умови</strong>
+          <small>Менеджер підготує персональну пропозицію</small>
         </div>
-    </main>
 
-    <div id="modal-overlay" class="modal-overlay" onclick="closeAllModals()"></div>
-    <div id="lead-modal" class="modal-content">
-        <div class="modal-panel">
-            <button type="button" onclick="closeModal('lead-modal')" class="modal-close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
-            <p class="form-panel__title modal-lead__title">Залишити заявку</p>
-            <p class="form-panel__lead modal-lead__lead">Залиште контакти, і ми зв'яжемось з вами для консультації та підбору резиденції.</p>
-            <form class="form-stack" id="form-modal">
-                <input type="text" name="name" placeholder="Ваше ім'я" required class="input-premium">
-                <input type="tel" name="phone" placeholder="Ваш телефон" required class="input-premium">
-                <button type="submit" class="btn-submit">Надіслати</button>
-            </form>
+        <dl class="result-details">
+          <div><dt>Резиденція</dt><dd data-unit-label>T92 · 92 м²</dd></div>
+          <div><dt>Орієнтовна вартість</dt><dd data-total>$0</dd></div>
+          <div><dt>Перший внесок</dt><dd data-deposit-detail>$0</dd></div>
+          <div><dt>Залишок</dt><dd data-balance>$0</dd></div>
+        </dl>
+
+        <div class="result-timeline" data-timeline aria-label="Графік платежів"></div>
+        <p class="result-note">Розрахунок базується на орієнтовній вартості $990/м². Фінальну ціну, наявність і персональні умови підтвердить менеджер.</p>
+
+        <div class="result-contacts">
+          <label><span>Ваше ім’я</span><input type="text" name="name" autocomplete="name" placeholder="Ім’я" required></label>
+          <label><span>Номер телефону</span><input type="tel" name="phone" autocomplete="tel" placeholder="+38 (___) ___ __ __" required></label>
         </div>
+
+        <button class="result-submit" type="submit">
+          <span>Отримати точні умови</span>
+          <i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19 19 5M9 5h10v10"/></svg></i>
+        </button>
+        <p class="form-status" data-form-status role="status"></p>
+      </aside>
+    </form>
+  </main>
+
+  <div class="calculator-success" data-success-modal hidden>
+    <div class="calculator-success__panel" role="dialog" aria-modal="true" aria-labelledby="success-title">
+      <button type="button" data-success-close aria-label="Закрити">×</button>
+      <span>Заявку надіслано</span>
+      <h2 id="success-title">Дякуємо.<br>Ми вже рахуємо точні умови.</h2>
+      <p>Менеджер зв’яжеться з вами найближчим часом і підтвердить актуальну вартість обраної резиденції.</p>
+      <a href="../v2.html"><span>Повернутися на головну</span><i>↗</i></a>
     </div>
+  </div>
 
-    <div id="success-modal" class="modal-content">
-        <div class="modal-success">
-            <button type="button" onclick="closeModal('success-modal')" class="modal-close" aria-label="Закрити"><i class="ph ph-x" aria-hidden="true"></i></button>
-            <div class="modal-success__icon"><i class="ph ph-check" aria-hidden="true"></i></div>
-            <p class="modal-success__title">Дякуємо!</p>
-            <p>Ваша заявка успішно відправлена. Наш менеджер зв'яжеться з вами найближчим часом.</p>
-            <a href="https://t.me/shepit_house" target="_blank" rel="noopener" class="modal-success__back">
-                <i class="ph ph-telegram-logo" aria-hidden="true"></i>
-                <span>Більше в нашому Telegram-каналі</span>
-            </a>
-        </div>
-    </div>
-
-    <script src="../main.js?v=8"></script>
+  <script src="calculator-v2.js?v=1" defer></script>
 </body>
 </html>

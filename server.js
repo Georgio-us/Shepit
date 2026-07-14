@@ -90,4 +90,47 @@ app.post('/api/lead', (req, res) => {
     console.log(`[Lead] Received from ${escapeHtml(name)} (${escapeHtml(phone)})`);
 });
 
+app.post('/api/newsletter', (req, res) => {
+    const { email, source, timestamp } = req.body;
+    const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+    const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
+    const cleanEmail = String(email || '').trim().toLowerCase();
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
+        return res.status(400).json({ success: false, error: 'Invalid email' });
+    }
+
+    if (!BOT_TOKEN || !CHAT_ID) {
+        console.error('[Error] Telegram credentials missing');
+        return res.status(500).json({ success: false });
+    }
+
+    const text = `
+<b>✉️ НОВА ПІДПИСКА: SHEPIT Journal</b>
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+📧 <b>Email:</b> ${escapeHtml(cleanEmail)}
+📍 <b>Звідки:</b> ${escapeHtml(source) || 'Журнал'}
+⏰ <b>Час:</b> ${escapeHtml(timestamp) || '—'}
+
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+#newsletter #shepit_house`.trim();
+
+    const data = JSON.stringify({ chat_id: CHAT_ID, text, parse_mode: 'HTML' });
+    const options = {
+        hostname: 'api.telegram.org',
+        port: 443,
+        path: `/bot${BOT_TOKEN}/sendMessage`,
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(data) }
+    };
+    const telegramReq = https.request(options, (telegramRes) => {
+        telegramRes.on('data', () => {});
+        telegramRes.on('end', () => res.json({ success: telegramRes.statusCode === 200 }));
+    });
+    telegramReq.on('error', () => res.status(500).json({ success: false }));
+    telegramReq.write(data);
+    telegramReq.end();
+});
+
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
