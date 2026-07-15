@@ -737,6 +737,8 @@ button {
   transform: translateY(0.35rem);
   transition: transform 220ms ease;
 }
+.home-card__arrow svg { width:22px; height:22px; fill:none; stroke:currentColor; stroke-linecap:round; stroke-linejoin:round; stroke-width:1.6; }
+.media-v2 a span svg, .journal-v2__aside > a span svg { width:18px; height:18px; fill:none; stroke:currentColor; stroke-linecap:round; stroke-linejoin:round; stroke-width:1.6; }
 
 .home-card:hover > img {
   transform: scale(1.045);
@@ -1433,6 +1435,13 @@ button {
   font-size: clamp(14px, 1.05vw, 20px);
   line-height: 1.25;
 }
+
+.payment-v2__calculator { display: grid; grid-template-columns: 28px 1fr 22px; gap: 14px; align-items: center; width: min(100%, 360px); margin-top: 30px; padding: 13px 13px 13px 15px; color: var(--v2-white); border: 1px solid rgba(32,31,34,.82); border-radius: 16px; background: var(--v2-ink); font-size: 12px; line-height: 1.25; transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease; }
+.payment-v2__calculator svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.25; }
+.payment-v2__calculator i { font-style: normal; font-size: 18px; text-align: right; }
+.payment-v2__calculator:hover { border-color: #000; background: #111014; transform: translateY(-2px); }
+.payment-v2__schedule .payment-v2__calculator i { display:grid; width:22px; height:22px; place-items:center; margin:0; color:var(--v2-white); background:transparent; }
+.payment-v2__schedule .payment-v2__calculator i svg { width:20px; height:20px; }
 
 .payment-v2__orbit {
   position: absolute;
@@ -2522,6 +2531,13 @@ body.is-global-menu-open {
   position: relative;
   display: grid;
   justify-items: end;
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.floating-actions.is-footer-zone .contact-widget-v2 {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(14px);
 }
 
 .contact-widget-v2__toggle {
@@ -2534,20 +2550,38 @@ body.is-global-menu-open {
   border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: var(--v2-radius-pill);
   background: rgba(32, 31, 34, 0.94);
-  box-shadow: 0 16px 42px rgba(16, 15, 17, 0.18);
+  box-shadow: 0 0 0 1px rgba(196, 168, 131, 0.05), 0 0 24px rgba(196, 168, 131, 0.1), 0 16px 42px rgba(16, 15, 17, 0.28);
   font-size: var(--v2-cta-font);
   font-weight: 500;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
+  cursor: pointer;
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 
 .contact-widget-v2__toggle svg {
-  width: 23px;
+  display: block;
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
   fill: none;
   stroke: currentColor;
-  stroke-width: 1.55;
+  stroke-width: 1.7;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+.contact-widget-v2__toggle svg circle {
+  fill: currentColor;
+  stroke: none;
+}
+
+.contact-widget-v2__toggle:hover,
+.contact-widget-v2__toggle:focus-visible {
+  border-color: rgba(196, 168, 131, 0.58);
+  box-shadow: 0 0 0 1px rgba(196, 168, 131, 0.1), 0 0 30px rgba(196, 168, 131, 0.18), 0 18px 48px rgba(16, 15, 17, 0.32);
+  outline: none;
+  transform: translateY(-1px);
 }
 
 .contact-widget-v2__panel {
@@ -2655,6 +2689,40 @@ body.is-global-menu-open .floating-menu-button,
 body.is-global-menu-open .floating-actions {
   opacity: 0;
   pointer-events: none;
+}
+
+.application-modal[hidden] { display: none; }
+.application-modal { position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center; padding: 24px; }
+.application-modal__backdrop { position: absolute; inset: 0; background: rgba(8, 15, 13, .78); backdrop-filter: blur(10px); }
+.application-modal__dialog { position: relative; width: min(100%, 580px); padding: clamp(34px, 6vw, 72px); color: var(--v2-white); background: var(--v2-ink); box-shadow: 0 30px 100px rgba(0,0,0,.3); }
+.application-modal__close { position: absolute; top: 22px; right: 22px; width: 42px; height: 42px; border: 1px solid rgba(255,255,255,.3); border-radius: 50%; background: transparent; cursor: pointer; }
+.application-modal__close span, .application-modal__close span::after { position: absolute; left: 12px; top: 20px; width: 17px; height: 1px; background: var(--v2-white); content: ''; transform: rotate(45deg); }
+.application-modal__close span::after { left: 0; top: 0; transform: rotate(90deg); }
+.application-modal__eyebrow { display: block; color: var(--copper, #c5a883); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; }
+.application-modal h2 { margin: 22px 0 16px; font-size: clamp(34px, 5vw, 58px); font-weight: 400; letter-spacing: -.05em; line-height: .95; }
+.application-modal__content > p, .application-modal__success > p { max-width: 38ch; color: rgba(255,255,255,.68); line-height: 1.6; }
+.application-modal__form { display: grid; gap: 22px; margin-top: 38px; }
+.application-modal__form label { display: grid; gap: 8px; border-bottom: 1px solid rgba(255,255,255,.35); }
+.application-modal__form label span { color: rgba(255,255,255,.55); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; }
+.application-modal__form input { width: 100%; padding: 9px 0 15px; border: 0; outline: 0; color: var(--v2-white); background: transparent; font: inherit; font-size: 20px; }
+.application-modal__form input::placeholder { color: rgba(255,255,255,.35); }
+.application-modal__form button, .application-modal__success a { display: flex; align-items: center; justify-content: space-between; min-height: 62px; padding: 0 9px 0 24px; border: 0; border-radius: 999px; color: var(--v2-ink); background: var(--v2-white); font: inherit; cursor: pointer; text-decoration: none; }
+.application-modal__form button i { display: grid; width: 46px; height: 46px; place-items: center; border-radius: 50%; color: var(--v2-white); background: var(--v2-ink); font-style: normal; }
+.application-modal__form button:disabled { opacity: .55; cursor: wait; }
+.application-modal__status { min-height: 18px; margin: 0; color: #eab0a8; font-size: 12px; }
+.application-modal__success-mark { display: grid; width: 58px; height: 58px; place-items: center; margin-bottom: 28px; border: 1px solid rgba(255,255,255,.5); border-radius: 50%; font-size: 26px; }
+.application-modal__success a { margin-top: 34px; }
+body.is-application-modal-open { overflow: hidden; }
+
+.cookie-notice[hidden] { display: none; }
+.cookie-notice { position: fixed; right: var(--v2-page-x); bottom: 24px; z-index: 900; display: flex; width: min(520px, calc(100vw - 48px)); align-items: center; gap: 22px; padding: 16px 16px 16px 20px; color: var(--v2-white); border: 1px solid rgba(255,255,255,.18); border-radius: 18px; background: rgba(32,31,34,.95); box-shadow: 0 18px 55px rgba(0,0,0,.28); backdrop-filter: blur(18px); }
+.cookie-notice p { margin: 0; color: rgba(255,255,255,.72); font-size: 12px; line-height: 1.45; }
+.cookie-notice p a { color: var(--v2-white); text-decoration: underline; text-underline-offset: 3px; }
+.cookie-notice button { flex: 0 0 auto; padding: 11px 18px; border-radius: 999px; color: var(--v2-ink); background: var(--v2-white); font-size: 13px; cursor: pointer; }
+
+@media (max-width: 620px) {
+  .cookie-notice { right: 16px; bottom: 16px; width: calc(100vw - 32px); align-items: flex-end; }
+  .cookie-notice button { padding-inline: 15px; }
 }
 
 .media-modal[hidden] {

@@ -8,6 +8,7 @@ const contactToggle = document.querySelector('[data-contact-toggle]');
 const contactPanel = document.getElementById('contact-widget-panel');
 const contactScrollButton = document.querySelector('[data-contact-scroll]');
 const scrollTopButton = document.querySelector('[data-scroll-top]');
+const siteFooter = document.querySelector('.footer-v2');
 let lastMenuTrigger = null;
 let closeMenuTimer = null;
 
@@ -17,6 +18,10 @@ const syncFloatingControls = () => {
     floatingMenuButton?.classList.toggle('is-visible', hasScrolled);
     floatingActions?.classList.toggle('is-visible', hasScrolled);
     scrollTopButton?.classList.toggle('is-visible', canReturnTop);
+    const footerTop = siteFooter?.getBoundingClientRect().top;
+    const footerInBottomZone = Boolean(siteFooter && (footerTop <= window.innerHeight - 250 || footerTop <= 250));
+    floatingActions?.classList.toggle('is-footer-zone', footerInBottomZone);
+    if (footerInBottomZone) closeContactWidget();
 };
 
 const closeGlobalMenu = ({ restoreFocus = true } = {}) => {
@@ -76,9 +81,91 @@ contactWidget?.querySelectorAll('a').forEach((link) => {
 
 contactScrollButton?.addEventListener('click', () => {
     closeContactWidget();
-    const form = document.getElementById('v2-contact-form');
-    form?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    window.setTimeout(() => form?.querySelector('input')?.focus(), 550);
+    openApplicationModal();
+});
+
+const applicationModal = document.querySelector('[data-application-modal]');
+const applicationForm = document.querySelector('[data-application-form]');
+const applicationFormView = document.querySelector('[data-application-form-view]');
+const applicationSuccess = document.querySelector('[data-application-success]');
+const cookieNotice = document.querySelector('[data-cookie-notice]');
+const cookieAccept = document.querySelector('[data-cookie-accept]');
+
+if (cookieNotice && window.localStorage.getItem('shepit-cookie-notice-accepted') !== '1') {
+    cookieNotice.hidden = false;
+}
+
+cookieAccept?.addEventListener('click', () => {
+    window.localStorage.setItem('shepit-cookie-notice-accepted', '1');
+    cookieNotice.hidden = true;
+});
+
+function openApplicationModal() {
+    if (!applicationModal) return;
+    applicationFormView.hidden = false;
+    applicationSuccess.hidden = true;
+    applicationModal.hidden = false;
+    document.body.classList.add('is-application-modal-open');
+    applicationForm?.querySelector('input')?.focus();
+}
+
+function closeApplicationModal() {
+    if (!applicationModal) return;
+    applicationModal.hidden = true;
+    document.body.classList.remove('is-application-modal-open');
+}
+
+document.querySelectorAll('[data-application-modal-open]').forEach((trigger) => {
+    trigger.addEventListener('click', (event) => {
+        event.preventDefault();
+        closeContactWidget();
+        openApplicationModal();
+    });
+});
+
+applicationModal?.querySelectorAll('[data-application-modal-close]').forEach((control) => {
+    control.addEventListener('click', closeApplicationModal);
+});
+
+applicationForm?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const submit = applicationForm.querySelector('button[type="submit"]');
+    const label = submit?.querySelector('span');
+    const status = applicationForm.querySelector('[data-application-status]');
+    const data = new FormData(applicationForm);
+    if (submit) submit.disabled = true;
+    if (label) label.textContent = 'Надсилаємо…';
+    if (status) status.textContent = '';
+
+    try {
+        const response = await fetch('/api/lead', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                name: data.get('name'),
+                phone: data.get('phone'),
+                source: 'Модальне вікно заявки SHEPIT HOUSE',
+                device: /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ? '📱 Мобільний' : '💻 Десктоп',
+                timestamp: new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kyiv' })
+            })
+        });
+        const result = await response.json();
+        if (!response.ok || !result.success) throw new Error('Lead submission failed');
+        applicationForm.reset();
+        applicationFormView.hidden = true;
+        applicationSuccess.hidden = false;
+        if (typeof window.shepitTrack === 'function') window.shepitTrack('generate_lead', { form_name: 'application_modal_v2' });
+    } catch (error) {
+        console.error(error);
+        if (status) status.textContent = 'Не вдалося надіслати. Зателефонуйте нам: +38 (095) 073 43 76.';
+    } finally {
+        if (submit) submit.disabled = false;
+        if (label) label.textContent = 'Надіслати заявку';
+    }
+});
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && applicationModal && !applicationModal.hidden) closeApplicationModal();
 });
 
 scrollTopButton?.addEventListener('click', () => {
@@ -288,8 +375,7 @@ const contactForm = document.getElementById('v2-contact-form');
 const questionButton = document.querySelector('[data-question-button]');
 
 questionButton?.addEventListener('click', () => {
-    contactForm?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    window.setTimeout(() => contactForm?.querySelector('input')?.focus(), 500);
+    openApplicationModal();
 });
 
 contactForm?.addEventListener('submit', async (event) => {
@@ -313,7 +399,7 @@ contactForm?.addEventListener('submit', async (event) => {
             body: JSON.stringify({
                 name: formData.get('name'),
                 phone: formData.get('phone'),
-                source: 'Відкрита форма V2',
+                source: 'Відкрита форма SHEPIT HOUSE',
                 device: isMobile ? '📱 Мобільний' : '💻 Десктоп',
                 timestamp: new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kyiv' })
             })
@@ -324,7 +410,7 @@ contactForm?.addEventListener('submit', async (event) => {
 
         contactForm.reset();
         if (status) status.textContent = 'Дякуємо. Ми зв’яжемося з вами найближчим часом.';
-        if (typeof gtag === 'function') gtag('event', 'generate_lead');
+        if (typeof window.shepitTrack === 'function') window.shepitTrack('generate_lead', { form_name: 'contact_form_v2' });
     } catch (error) {
         console.error(error);
         if (status) status.textContent = 'Не вдалося надіслати. Зателефонуйте нам: +38 (095) 073 43 76.';

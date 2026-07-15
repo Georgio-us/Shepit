@@ -1,3 +1,5 @@
+# SHEPIT HOUSE public crawl policy
+# Indexable URLs are declared exclusively in sitemap.xml.
 User-agent: *
 Allow: /
 

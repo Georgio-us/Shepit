@@ -59,8 +59,8 @@ document.querySelector('#app').innerHTML = `
       </div>
       <article class="residence-summary">
         <div class="residence-summary__top">
-          <a class="residence-brand" href="../../v2.html">SHEPIT <small>HOUSE</small></a>
-          <a class="residence-close" href="../../v2.html#residences" aria-label="Повернутися до резиденцій"></a>
+          <a class="residence-brand" href="/">SHEPIT <small>HOUSE</small></a>
+          <a class="residence-close" href="/#residences" aria-label="Повернутися до резиденцій"></a>
         </div>
         <div class="residence-summary__body">
           <p class="residence-kicker">Приватна резиденція · Нові Петрівці</p>
@@ -326,7 +326,7 @@ document.querySelector('[data-booking-form]').addEventListener('submit', async e
     dateTimeLabel.textContent = 'Обрати дату та час';
     document.querySelector('[data-picker-open]').classList.remove('has-value');
     status.textContent = 'Дякуємо. Менеджер зв’яжеться з вами для підтвердження.';
-    if (typeof window.gtag === 'function') window.gtag('event', 'generate_lead', { residence: model.code });
+    if (typeof window.shepitTrack === 'function') window.shepitTrack('generate_lead', { form_name: 'residence_booking', residence: model.code });
   } catch (error) {
     status.textContent = 'Не вдалося надіслати. Спробуйте ще раз або зателефонуйте нам.';
   } finally {

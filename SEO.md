@@ -1,71 +1,62 @@
-# SEO notes
+# SHEPIT HOUSE — SEO specification
 
-## Current canonical domain
+## Scope
 
-Primary URL for indexing:
+This document describes the single public SEO surface of SHEPIT HOUSE. `index.html` is the homepage; all other indexable pages have their own stable URL. There are no alternate-version URLs in this site structure.
+
+## Canonical URL policy
+
+The canonical host is:
 
 `https://www.shepit-house.com.ua/`
 
-This is the active Railway-connected domain at the moment. The apex domain `shepit-house.com.ua` is not treated as canonical until DNS/redirect handling is finalized.
+Every public HTML page declares a self-referencing canonical URL on that host. The same URL is used in `og:url`, structured data and `sitemap.xml`.
 
-## Implemented now
+When the host is configured, the non-canonical host must permanently redirect to the canonical host at the DNS, CDN or hosting layer. Do not use `robots.txt` to solve canonicalization.
 
-- Added `<link rel="canonical" href="https://www.shepit-house.com.ua/">` on the homepage.
-- Updated Open Graph URL/image to the `www` domain.
-- Added Twitter Card meta tags.
-- Updated JSON-LD with `url`, `image`, `telephone`, and the current address.
-- Added `robots.txt`.
-- Added `sitemap.xml` with the current public URLs.
-- Added real indexable routes:
-  - `/blog/`
-  - `/blog/chomu-taunhaus-kompromis/`
-  - `/blog/oglyad-infrastruktury/`
-  - `/blog/rozterminuvannya-vid-zabudovnyka/`
-  - `/privacy-policy/`
-  - `/sitemap/`
+## Indexable URL set
 
-## Sitemap policy
+Only the following URLs belong in `sitemap.xml`:
 
-Current sitemap contains:
+- `/`
+- `/residences/`
+- `/residences/t92/`
+- `/residences/t102/`
+- `/residences/d101/`
+- `/calculator/`
+- `/blog/`
+- `/blog/chomu-taunhaus-kompromis/`
+- `/blog/oglyad-infrastruktury/`
+- `/blog/rozterminuvannya-vid-zabudovnyka/`
+- `/privacy-policy/`
+- `/sitemap/`
 
-- `https://www.shepit-house.com.ua/`
-- `https://www.shepit-house.com.ua/blog/`
-- `https://www.shepit-house.com.ua/blog/chomu-taunhaus-kompromis/`
-- `https://www.shepit-house.com.ua/blog/oglyad-infrastruktury/`
-- `https://www.shepit-house.com.ua/blog/rozterminuvannya-vid-zabudovnyka/`
-- `https://www.shepit-house.com.ua/privacy-policy/`
-- `https://www.shepit-house.com.ua/sitemap/`
+The 404 page is deliberately excluded and has `noindex,follow`.
 
-Each real page should keep its own title, meta description, canonical URL, Open Graph tags, meaningful `h1`, and sitemap entry.
+## Metadata contract
 
-## Redirect policy
+Each indexable page must have:
 
-Recommended current redirect:
+- a unique `title` and meta description;
+- a self-referencing canonical URL;
+- `og:type`, `og:site_name`, `og:locale`, `og:url`, `og:title`, `og:description` and `og:image`;
+- `twitter:card`, `twitter:title`, `twitter:description` and `twitter:image`;
+- one meaningful visible `h1`.
 
-`https://shepit-house.com.ua/` -> `https://www.shepit-house.com.ua/`
+Blog articles additionally carry `Article` structured data. The homepage carries `Organization` and `WebSite` JSON-LD with the project contact details. Structured data must reflect visible, current information only.
 
-Use a permanent `301` redirect when the apex domain is available through DNS/provider tooling, Cloudflare, or hosting-level redirects. This should be configured outside the landing page HTML.
+## Crawling and sitemap
 
-## Future if canonical changes to non-www
+`robots.txt` permits crawling of the public site and points only to `https://www.shepit-house.com.ua/sitemap.xml`.
 
-If the final production decision is to use:
+`sitemap.xml` is the source of truth for indexable URLs. A URL may be added only after its page, self-canonical and internal links are ready. Update `lastmod` only when the page content has materially changed.
 
-`https://shepit-house.com.ua/`
+## Release checks
 
-Then update:
+Before publishing the site to its canonical host:
 
-- `canonical` in all HTML pages
-- `og:url` in all HTML pages
-- `og:image` / `twitter:image` if image URLs change
-- JSON-LD `url` and `image`
-- `robots.txt` sitemap URL
-- every `<loc>` inside `sitemap.xml`
-- Railway custom domains
-- 301 redirect direction: `www` -> apex
-
-## Future SEO/content work
-
-- Replace placeholder/fallback social links with real profiles.
-- Replace placeholder video with final video embed or agreed reels-style format.
-- Replace temporary/gallery images when final media pack is approved.
-- Review legal text before production indexing.
+1. Verify every sitemap URL returns `200` and has the matching self-canonical.
+2. Verify non-existent and retired URLs return `404` with the noindex page.
+3. Confirm the canonical host, `www`/apex redirect and HTTPS at the hosting layer.
+4. Validate homepage organization JSON-LD and article JSON-LD.
+5. Submit the final sitemap in the Search Console property for the canonical host.

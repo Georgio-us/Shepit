@@ -167,3 +167,4 @@ img { display: block; max-width: 100%; }
   html { scroll-behavior: auto; }
   *,*::before,*::after { transition-duration: .01ms !important; }
 }
+.pill-button svg { width:22px; height:22px; fill:none; stroke:currentColor; stroke-linecap:round; stroke-linejoin:round; stroke-width:1.6; }

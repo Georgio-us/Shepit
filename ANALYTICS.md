@@ -1,75 +1,62 @@
 # Analytics Tracking
 
-This project uses two tracking snippets that must be present on every public HTML page.
+The site uses one shared loader, `analytics-v2.js`, on every public HTML page.
+It is the only place that initializes Google Tag Manager, GA4 and Meta Pixel.
 
 ## Active IDs
 
 - Google tag / GA4: `G-BZKXJY7T45`
+- Google Tag Manager: `GTM-53F9CWJ4`
 - Meta Pixel: `1008871435016680`
+
+## Loader ownership and duplicate prevention
+
+`analytics-v2.js` sends the GA4 page view and Meta `PageView` directly, and loads
+GTM for container-managed tags. The GTM container must not also contain a GA4
+Configuration/Google tag for `G-BZKXJY7T45` or a Meta Pixel base tag for
+`1008871435016680`; either would duplicate page views. Do not add provider
+snippets to individual HTML pages.
 
 ## Current Pages Covered
 
-The snippets are currently installed on:
-
-- `index.html`
-- `blog/index.html`
-- `blog/oglyad-infrastruktury/index.html`
-- `blog/chomu-taunhaus-kompromis/index.html`
-- `blog/rozterminuvannya-vid-zabudovnyka/index.html`
-- `privacy-policy/index.html`
-- `sitemap/index.html`
+The shared loader is installed on the homepage, residences catalog and detail
+pages, calculator, blog and all three articles, privacy policy, sitemap, and
+`404.html`.
 
 ## Rule For New URLs
 
-When adding a new URL as a real HTML page, add both snippets inside `<head>`:
+When adding a new public HTML page, include `analytics-v2.js` once in `<head>` and
+do not copy separate GA or Meta snippets into the page unless there is a specific
+integration reason.
 
-1. Google tag `gtag.js`
-2. Meta Pixel script and `noscript` fallback
+## Events
 
-Do not add duplicate copies of the same snippet to a page.
+The shared layer records CTA and conversion-intent events for application-modal
+opens, form submit attempts, phone, Telegram and Viber clicks, contact-widget opens,
+residence and calculator navigation, masterplan interactions, video and FAQ opens,
+newsletter submit attempts, and cookie-notice acceptance.
 
-## Google Tag Snippet
+Only a successful `POST /api/lead` sends `generate_lead`. This one event reaches
+GA4 and Meta Pixel (`Lead`) through `window.shepitTrack`, so failed submissions do
+not become conversions. The successful newsletter response sends GA4 `sign_up`
+with `method: newsletter`.
 
-```html
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BZKXJY7T45"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+No personal data is sent as event parameters.
 
-  gtag('config', 'G-BZKXJY7T45');
-</script>
-```
+## Consent status
 
-## Meta Pixel Snippet
+The current loader starts analytics immediately. A consent-mode implementation is
+not present; it must be added only after the required cookie/legal policy is agreed.
 
-```html
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1008871435016680');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1008871435016680&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-```
+## Verification
 
-## Verification Command
-
-Run this after adding new pages:
+Run these checks after adding new pages:
 
 ```bash
-rg -n "G-BZKXJY7T45|1008871435016680" -g '*.html' .
+node --check analytics-v2.js
+rg -l "analytics-v2.js" -g '*.html' .
+rg -n -i "googletagmanager|gtag/js|connect\\.facebook\\.net" --glob '*.html' .
 ```
 
-Each public `.html` page should show both IDs.
+Each public `.html` page should load the shared analytics layer exactly once. The
+last command must return no inline provider snippets.

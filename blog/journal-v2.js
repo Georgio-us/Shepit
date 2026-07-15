@@ -17,9 +17,11 @@ if (newsletterForm) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, source: 'SHEPIT Journal', timestamp: new Date().toISOString() })
       });
-      if (!response.ok) throw new Error('Newsletter request failed');
+      const result = await response.json();
+      if (!response.ok || !result.success) throw new Error('Newsletter request failed');
       newsletterForm.classList.add('is-success');
       newsletterForm.reset();
+      if (typeof window.shepitTrack === 'function') window.shepitTrack('sign_up', { method: 'newsletter' });
       status.textContent = 'Готово. Наступний важливий лист надійде на вашу пошту.';
     } catch (error) {
       status.textContent = 'Не вдалося підписати. Спробуйте ще раз або напишіть нам у Telegram.';

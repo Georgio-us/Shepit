@@ -48,6 +48,11 @@ img { display: block; width: 100%; }
 .article-toc a { display: grid; grid-template-columns: 30px 1fr; gap: 9px; padding: 14px 0; color: var(--gray); font-size: 13px; line-height: 1.35; }
 .article-toc a::before { content: "0" counter(toc); color: var(--ink); font-size: 10px; }
 .article-toc a:hover { color: var(--ink); }
+.article-toc__cta { display:flex !important; grid-template-columns:none !important; align-items:center; justify-content:space-between; gap:12px; margin-top:20px; padding:14px 16px !important; border:1px solid var(--ink); border-radius:999px; color:var(--ink) !important; font-size:12px !important; font-weight:500; }
+.article-toc__cta::before { display:none !important; }
+.article-toc__cta span { font-size:17px; }
+.article-toc__cta span svg { width:17px; height:17px; fill:none; stroke:currentColor; stroke-linecap:round; stroke-linejoin:round; stroke-width:1.6; }
+.article-toc__cta:hover { color:var(--paper) !important; background:var(--ink); }
 .article-body { min-width: 0; font-size: clamp(18px,1.25vw,24px); line-height: 1.6; }
 .article-body h2 { margin: clamp(80px,7vw,135px) 0 28px; font-size: clamp(38px,4vw,76px); font-weight: 400; line-height: 1; letter-spacing: -.055em; }
 .article-body h2:first-child { margin-top: 0; }
@@ -82,6 +87,8 @@ img { display: block; width: 100%; }
 .article-action__aside p { max-width: 500px; margin: 0 0 34px; color: var(--gray); font-size: 17px; line-height: 1.5; }
 .pill-action { display: inline-flex; min-height: 64px; align-items: center; gap: 22px; padding-left: 28px; border-radius: 999px; background: var(--ink); color: var(--paper); font-size: 15px; font-weight: 500; }
 .pill-action i { display: grid; width: 54px; height: 54px; place-items: center; margin-right: 5px; border-radius: 50%; background: var(--paper); color: var(--ink); font-size: 24px; font-style: normal; }
+.pill-action i svg { width:22px; height:22px; fill:none; stroke:currentColor; stroke-linecap:round; stroke-linejoin:round; stroke-width:1.6; }
+.article-nav__back i svg { width:18px; height:18px; fill:none; stroke:currentColor; stroke-linecap:round; stroke-linejoin:round; stroke-width:1.6; }
 
 .next-article { display: grid; grid-template-columns: .72fr 1.28fr; gap: 60px; padding: clamp(80px,8vw,150px) var(--page-x); color: var(--paper); background: var(--ink); }
 .next-article__label { color: var(--gray); font-size: 13px; }

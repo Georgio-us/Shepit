@@ -82,9 +82,9 @@ function applyUrlSelection() {
 function getLeadSource() {
   const estimate = getEstimate();
   if (estimate.cash) {
-    return `Калькулятор V2 | ${estimate.unit.code}, ${estimate.unit.area} м² | 100% оплата | орієнтовна вартість ${formatMoney(estimate.total)}`;
+    return `Калькулятор SHEPIT HOUSE | ${estimate.unit.code}, ${estimate.unit.area} м² | 100% оплата | орієнтовна вартість ${formatMoney(estimate.total)}`;
   }
-  return `Калькулятор V2 | ${estimate.unit.code}, ${estimate.unit.area} м² | внесок ${estimate.depositPercent}% (${formatMoney(estimate.deposit)}) | ${estimate.months} міс. | платіж ${formatMoney(estimate.monthly)}`;
+  return `Калькулятор SHEPIT HOUSE | ${estimate.unit.code}, ${estimate.unit.area} м² | внесок ${estimate.depositPercent}% (${formatMoney(estimate.deposit)}) | ${estimate.months} міс. | платіж ${formatMoney(estimate.monthly)}`;
 }
 
 form.addEventListener('input', render);
@@ -116,8 +116,7 @@ form.addEventListener('submit', async event => {
     const result = await response.json();
     if (!response.ok || !result.success) throw new Error('submit_failed');
 
-    if (typeof gtag === 'function') gtag('event', 'generate_lead', { form_name: 'calculator_v2', unit: getEstimate().key });
-    if (typeof fbq === 'function') fbq('track', 'Lead');
+    if (typeof window.shepitTrack === 'function') window.shepitTrack('generate_lead', { form_name: 'calculator_v2', unit: getEstimate().key });
     document.querySelector('[data-success-modal]').hidden = false;
     document.body.classList.add('is-modal-open');
     form.elements.name.value = '';
