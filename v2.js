@@ -373,6 +373,29 @@ document.addEventListener('keydown', (event) => {
 
 const contactForm = document.getElementById('v2-contact-form');
 const questionButton = document.querySelector('[data-question-button]');
+const colorTestToggle = document.querySelector('[data-color-test-toggle]');
+const colorTestLabel = document.querySelector('[data-color-test-label]');
+const colorTestStorageKey = 'shepit-v2-color-mode';
+
+const setColorTestMode = (isOlive) => {
+    document.body.classList.toggle('is-olive-accent', isOlive);
+    colorTestToggle?.setAttribute('aria-pressed', String(isOlive));
+    if (colorTestLabel) colorTestLabel.textContent = isOlive ? 'Олива' : 'Графіт';
+};
+
+try {
+    setColorTestMode(window.localStorage.getItem(colorTestStorageKey) === 'olive');
+} catch {
+    setColorTestMode(false);
+}
+
+colorTestToggle?.addEventListener('click', () => {
+    const isOlive = !document.body.classList.contains('is-olive-accent');
+    setColorTestMode(isOlive);
+    try {
+        window.localStorage.setItem(colorTestStorageKey, isOlive ? 'olive' : 'graphite');
+    } catch {}
+});
 
 questionButton?.addEventListener('click', () => {
     openApplicationModal();

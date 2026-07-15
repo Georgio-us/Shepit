@@ -5,7 +5,10 @@
 }
 
 :root {
-  --v2-ink: #201f22;
+  --v2-graphite: #201f22;
+  --v2-olive-dark: #252c19;
+  --v2-accent: var(--v2-graphite);
+  --v2-ink: var(--v2-accent);
   --v2-gray: #707070;
   --v2-silver: #858585;
   --v2-white: #ffffff;
@@ -23,6 +26,11 @@
   --v2-cta-height: 58px;
   --v2-cta-control: 50px;
   --v2-cta-font: clamp(15px, 0.9vw, 17px);
+}
+
+body.is-olive-accent {
+  --v2-accent: var(--v2-olive-dark);
+  --v2-ink: var(--v2-olive-dark);
 }
 
 html,
@@ -2333,6 +2341,46 @@ body.is-global-menu-open {
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   transition: opacity 220ms ease, transform 220ms ease, background-color 180ms ease;
+}
+
+.color-test-toggle {
+  position: fixed;
+  bottom: clamp(18px, 2.1vw, 34px);
+  left: var(--v2-page-x);
+  z-index: 90;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 42px;
+  padding: 0 15px 0 8px;
+  color: var(--v2-white);
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: var(--v2-radius-pill);
+  background: var(--v2-ink);
+  box-shadow: 0 12px 30px rgba(16, 15, 17, 0.2);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.color-test-toggle__swatch {
+  width: 24px;
+  height: 24px;
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
+  background: var(--v2-graphite);
+  transition: background-color 180ms ease;
+}
+
+body.is-olive-accent .color-test-toggle__swatch {
+  background: var(--v2-olive-dark);
+}
+
+@media (max-width: 599px) {
+  .color-test-toggle {
+    bottom: 18px;
+    min-height: 38px;
+    padding-right: 13px;
+  }
 }
 
 .floating-menu-button.is-visible {
