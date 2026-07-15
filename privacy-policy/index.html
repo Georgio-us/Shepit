@@ -24,7 +24,7 @@
     .shell{width:100%;padding-inline:var(--page)}
     .legal-header{display:flex;align-items:center;justify-content:space-between;padding-top:clamp(24px,3vw,48px);padding-bottom:clamp(70px,10vw,150px);border-bottom:1px solid var(--line)}
     .brand{font-size:17px;letter-spacing:.18em}.brand small{display:block;margin-top:3px;font-size:8px;letter-spacing:.38em;text-align:right}
-    .back{display:flex;gap:12px;align-items:center;color:var(--gray);font-size:13px}.back i{font-style:normal;font-size:18px}
+    .back{display:flex;gap:12px;align-items:center;color:var(--gray);font-size:13px}.back svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.6}
     .legal-main{display:grid;grid-template-columns:minmax(180px,.7fr) minmax(0,1.3fr);gap:clamp(50px,10vw,180px);padding-top:clamp(60px,10vw,150px);padding-bottom:clamp(80px,13vw,200px)}
     .eyebrow{color:var(--accent);font-size:11px;letter-spacing:.15em;text-transform:uppercase}.legal-title{position:sticky;top:32px;align-self:start}.legal-title h1{margin:24px 0 0;font-size:clamp(42px,5.8vw,96px);font-weight:400;letter-spacing:-.07em;line-height:.92}
     .legal-copy{max-width:720px}.legal-copy>p:first-child{margin-top:0;color:var(--gray);font-size:clamp(18px,1.6vw,25px);line-height:1.5}.legal-copy section{padding:30px 0;border-top:1px solid var(--line)}.legal-copy h2{margin:0 0 16px;font-size:clamp(20px,2vw,30px);font-weight:500;letter-spacing:-.04em}.legal-copy p,.legal-copy li{color:#555559;font-size:15px;line-height:1.75}.legal-copy ul{padding-left:20px}.legal-copy a{text-decoration:underline;text-underline-offset:3px}
@@ -35,7 +35,7 @@
 <body>
   <header class="legal-header shell">
     <a class="brand" href="/" aria-label="SHEPIT HOUSE — головна">SHEPIT<small>HOUSE</small></a>
-    <a class="back" href="/"><i aria-hidden="true">↙</i> На головну</a>
+    <a class="back" href="/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg> На головну</a>
   </header>
 
   <main class="legal-main shell">

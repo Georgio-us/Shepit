@@ -459,6 +459,19 @@ button {
   background: var(--v2-silver);
 }
 
+.about-gallery__arrow svg,
+.media-v2__feature-caption > i svg,
+.application-modal__success a svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.6;
+}
+
 .about-gallery__progress {
   position: relative;
   height: 1px;
