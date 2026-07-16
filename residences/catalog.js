@@ -22,7 +22,7 @@ if (plan) {
       code.textContent = model.code;
       type.textContent = model.type;
       area.textContent = model.area;
-      status.textContent = pin.classList.contains('is-reserved') ? 'Заброньовано' : 'У продажу';
+      status.textContent = 'У продажу';
       link.href = model.url;
     });
   });

@@ -275,7 +275,7 @@ if (v2Masterplan) {
         if (typeOutput) typeOutput.textContent = pin.dataset.planType;
         if (areaOutput) areaOutput.textContent = pin.dataset.planArea;
         if (statusOutput) statusOutput.textContent = pin.dataset.planStatus;
-        if (bedroomsOutput) bedroomsOutput.textContent = pin.dataset.planType === 'Таунхаус' ? '3 спальні' : '4 спальні';
+        if (bedroomsOutput) bedroomsOutput.textContent = pin.dataset.planType.startsWith('Таунхаус') ? '3 спальні' : '4 спальні';
         if (detailsLink) detailsLink.setAttribute('aria-label', `Забронювати перегляд резиденції ${pin.dataset.planUnit}`);
 
         if (selectedPanel) {
@@ -377,23 +377,31 @@ const colorTestToggle = document.querySelector('[data-color-test-toggle]');
 const colorTestLabel = document.querySelector('[data-color-test-label]');
 const colorTestStorageKey = 'shepit-v2-color-mode';
 
-const setColorTestMode = (isOlive) => {
-    document.body.classList.toggle('is-olive-accent', isOlive);
-    colorTestToggle?.setAttribute('aria-pressed', String(isOlive));
-    if (colorTestLabel) colorTestLabel.textContent = isOlive ? 'Олива' : 'Графіт';
+const colorModes = [
+    { id: 'graphite', label: 'Графіт', className: '' },
+    { id: 'olive', label: 'Олива', className: 'is-olive-accent' },
+    { id: 'olive-light', label: 'Світла олива', className: 'is-olive-light-accent' }
+];
+
+const setColorTestMode = (modeId) => {
+    const mode = colorModes.find((item) => item.id === modeId) || (modeId === 'green' ? colorModes[1] : colorModes[0]);
+    colorModes.filter((item) => item.className).forEach((item) => document.body.classList.toggle(item.className, item.className === mode.className));
+    colorTestToggle?.setAttribute('aria-label', `Кольорова тема: ${mode.label}. Натисніть, щоб змінити.`);
+    if (colorTestLabel) colorTestLabel.textContent = mode.label;
 };
 
 try {
-    setColorTestMode(window.localStorage.getItem(colorTestStorageKey) === 'olive');
+    setColorTestMode(window.localStorage.getItem(colorTestStorageKey));
 } catch {
-    setColorTestMode(false);
+    setColorTestMode('graphite');
 }
 
 colorTestToggle?.addEventListener('click', () => {
-    const isOlive = !document.body.classList.contains('is-olive-accent');
-    setColorTestMode(isOlive);
+    const activeIndex = colorModes.findIndex((item) => item.className ? document.body.classList.contains(item.className) : !document.body.classList.contains('is-olive-accent') && !document.body.classList.contains('is-olive-light-accent'));
+    const nextMode = colorModes[(activeIndex + 1) % colorModes.length];
+    setColorTestMode(nextMode.id);
     try {
-        window.localStorage.setItem(colorTestStorageKey, isOlive ? 'olive' : 'graphite');
+        window.localStorage.setItem(colorTestStorageKey, nextMode.id);
     } catch {}
 });
 
