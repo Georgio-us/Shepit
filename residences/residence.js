@@ -2,7 +2,7 @@ const models = {
   t92: {
     code: 'T92', type: 'Таунхаус', area: '92 м²', parcel: 'до 2 соток', bedrooms: '3', price: 'від $85 000',
     description: 'Компактна приватна резиденція для сім\'ї: три спальні, власний двір, тераса та два паркомісця.',
-    gallery: ['../../assets/townhouse-front-day.webp', '../../assets/townhouse-front-night.webp'],
+    gallery: ['../../assets/townhouse-front-day.webp', '../../assets/townhouse-front-night.webp', '../../assets/townhouse-back-day.webp', '../../assets/townhouse-back-night.webp'],
     plans: ['../../assets/plan-t92-floor-1.webp', '../../assets/plan-t92-floor-2.webp'],
     rooms: [
       [['Тамбур', '3,8 м²'], ['Кухня-вітальня', '28,7 м²'], ['Кабінет / спальня', '10,4 м²'], ['Санвузол', '4,2 м²'], ['Тераса', '16 м²']],
@@ -13,7 +13,7 @@ const models = {
   t102: {
     code: 'T102', type: 'Таунхаус', area: '102 м²', parcel: 'до 2 соток', bedrooms: '3', price: 'за запитом',
     description: 'Збільшений формат таунхауса з просторою денною зоною, трьома спальнями та приватною територією.',
-    gallery: ['../../assets/townhouse-front-day.webp', '../../assets/townhouse-front-night.webp'],
+    gallery: ['../../assets/townhouse-front-day.webp', '../../assets/townhouse-front-night.webp', '../../assets/townhouse-back-day.webp', '../../assets/townhouse-back-night.webp'],
     plans: ['../../assets/plan-t102-floor-1.webp', '../../assets/plan-t102-floor-2.webp'],
     rooms: [
       [['Тамбур', '4,1 м²'], ['Кухня-вітальня', '31,2 м²'], ['Кабінет', '10,8 м²'], ['Санвузол', '4,5 м²'], ['Тераса', '18 м²']],
