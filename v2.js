@@ -375,7 +375,6 @@ const contactForm = document.getElementById('v2-contact-form');
 const questionButton = document.querySelector('[data-question-button]');
 const colorTestToggle = document.querySelector('[data-color-test-toggle]');
 const colorTestLabel = document.querySelector('[data-color-test-label]');
-const colorTestStorageKey = 'shepit-v2-color-mode';
 
 const colorModes = [
     { id: 'graphite', label: 'Графіт', className: '' },
@@ -384,26 +383,14 @@ const colorModes = [
 ];
 
 const setColorTestMode = (modeId) => {
-    const mode = colorModes.find((item) => item.id === modeId) || (modeId === 'green' ? colorModes[1] : colorModes[0]);
+    const mode = colorModes.find((item) => item.id === modeId) || colorModes[1];
     colorModes.filter((item) => item.className).forEach((item) => document.body.classList.toggle(item.className, item.className === mode.className));
     colorTestToggle?.setAttribute('aria-label', `Кольорова тема: ${mode.label}. Натисніть, щоб змінити.`);
     if (colorTestLabel) colorTestLabel.textContent = mode.label;
 };
 
-try {
-    setColorTestMode(window.localStorage.getItem(colorTestStorageKey));
-} catch {
-    setColorTestMode('graphite');
-}
-
-colorTestToggle?.addEventListener('click', () => {
-    const activeIndex = colorModes.findIndex((item) => item.className ? document.body.classList.contains(item.className) : !document.body.classList.contains('is-olive-accent') && !document.body.classList.contains('is-olive-light-accent'));
-    const nextMode = colorModes[(activeIndex + 1) % colorModes.length];
-    setColorTestMode(nextMode.id);
-    try {
-        window.localStorage.setItem(colorTestStorageKey, nextMode.id);
-    } catch {}
-});
+// The public site is locked to olive. Other tokens stay defined for future use.
+setColorTestMode('olive');
 
 questionButton?.addEventListener('click', () => {
     openApplicationModal();

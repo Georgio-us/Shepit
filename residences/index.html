@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="catalog.css?v=2">
+  <link rel="stylesheet" href="catalog.css?v=4">
 </head>
 <body>
   <header class="catalog-header shell">
@@ -67,8 +67,8 @@
             <div><dt>Вартість</dt><dd>від $85 000</dd></div>
           </dl>
           <div class="model__plans" aria-label="Плани поверхів T92">
-            <figure><img src="../assets/plan-t92-floor-1.webp" alt="Перший поверх T92" loading="lazy"><figcaption>01 · Перший поверх</figcaption></figure>
-            <figure><img src="../assets/plan-t92-floor-2.webp" alt="Другий поверх T92" loading="lazy"><figcaption>02 · Другий поверх</figcaption></figure>
+            <button class="plan-preview" type="button" data-plan-preview data-plan-src="../assets/plan-t92-floor-1.webp" data-plan-alt="Перший поверх T92"><img src="../assets/plan-t92-floor-1.webp" alt="Перший поверх T92" loading="lazy"><span>01 · Перший поверх</span></button>
+            <button class="plan-preview" type="button" data-plan-preview data-plan-src="../assets/plan-t92-floor-2.webp" data-plan-alt="Другий поверх T92"><img src="../assets/plan-t92-floor-2.webp" alt="Другий поверх T92" loading="lazy"><span>02 · Другий поверх</span></button>
           </div>
           <a class="pill-button" href="t92/"><span>Переглянути T92</span><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19 19 5M9 5h10v10"/></svg></i></a>
         </div>
@@ -76,7 +76,7 @@
 
       <article class="model model--dark model--reverse" id="t102">
         <div class="model__visual">
-          <img src="../assets/img3.webp" width="1800" height="1012" alt="Резиденції таунхауса T102" loading="lazy">
+          <img src="../assets/townhouse-back-night.webp" width="1920" height="1193" alt="Задній двір таунхауса T102 увечері" loading="lazy">
           <span class="model__code" aria-hidden="true">T102</span>
           <p class="model__tag">Таунхаус · 02</p>
         </div>
@@ -93,8 +93,8 @@
             <div><dt>Вартість</dt><dd>за запитом</dd></div>
           </dl>
           <div class="model__plans" aria-label="Плани поверхів T102">
-            <figure><img src="../assets/plan-t102-floor-1.webp" alt="Перший поверх T102" loading="lazy"><figcaption>01 · Перший поверх</figcaption></figure>
-            <figure><img src="../assets/plan-t102-floor-2.webp" alt="Другий поверх T102" loading="lazy"><figcaption>02 · Другий поверх</figcaption></figure>
+            <button class="plan-preview" type="button" data-plan-preview data-plan-src="../assets/plan-t102-floor-1.webp" data-plan-alt="Перший поверх T102"><img src="../assets/plan-t102-floor-1.webp" alt="Перший поверх T102" loading="lazy"><span>01 · Перший поверх</span></button>
+            <button class="plan-preview" type="button" data-plan-preview data-plan-src="../assets/plan-t102-floor-2.webp" data-plan-alt="Другий поверх T102"><img src="../assets/plan-t102-floor-2.webp" alt="Другий поверх T102" loading="lazy"><span>02 · Другий поверх</span></button>
           </div>
           <a class="pill-button pill-button--inverse" href="t102/"><span>Переглянути T102</span><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19 19 5M9 5h10v10"/></svg></i></a>
         </div>
@@ -119,8 +119,8 @@
             <div><dt>Вартість</dt><dd>за запитом</dd></div>
           </dl>
           <div class="model__plans" aria-label="Плани поверхів D101">
-            <figure><img src="../assets/plan-d101-floor-1.webp" alt="Перший поверх D101" loading="lazy"><figcaption>01 · Перший поверх</figcaption></figure>
-            <figure><img src="../assets/plan-d101-floor-2.webp" alt="Другий поверх D101" loading="lazy"><figcaption>02 · Другий поверх</figcaption></figure>
+            <button class="plan-preview" type="button" data-plan-preview data-plan-src="../assets/plan-d101-floor-1.webp" data-plan-alt="Перший поверх D101"><img src="../assets/plan-d101-floor-1.webp" alt="Перший поверх D101" loading="lazy"><span>01 · Перший поверх</span></button>
+            <button class="plan-preview" type="button" data-plan-preview data-plan-src="../assets/plan-d101-floor-2.webp" data-plan-alt="Другий поверх D101"><img src="../assets/plan-d101-floor-2.webp" alt="Другий поверх D101" loading="lazy"><span>02 · Другий поверх</span></button>
           </div>
           <a class="pill-button" href="d101/"><span>Переглянути D101</span><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19 19 5M9 5h10v10"/></svg></i></a>
         </div>
@@ -154,9 +154,9 @@
         <div class="catalog-plan__media">
           <img src="../assets/visual_2.webp" width="1537" height="1023" alt="Генеральний план восьми резиденцій SHEPIT HOUSE" loading="lazy">
           <button class="unit-pin is-sale" type="button" style="--x:36.82%;--y:16.62%;--mobile-x:33.53%" data-unit="03" data-model="t92">03</button>
-          <button class="unit-pin is-sold" type="button" style="--x:46.78%;--y:16.62%;--mobile-x:45.98%" data-unit="04" data-model="t92" disabled>04</button>
+          <button class="unit-pin is-sold" type="button" style="--x:46.78%;--y:16.62%;--mobile-x:45.98%" data-unit="04" data-model="t92" data-status="sold">04</button>
           <button class="unit-pin is-sale" type="button" style="--x:55.69%;--y:16.62%;--mobile-x:57.11%" data-unit="05" data-model="t102">05</button>
-          <button class="unit-pin is-sold" type="button" style="--x:65.97%;--y:16.62%;--mobile-x:69.96%" data-unit="06" data-model="t102" disabled>06</button>
+          <button class="unit-pin is-sold" type="button" style="--x:65.97%;--y:16.62%;--mobile-x:69.96%" data-unit="06" data-model="t102" data-status="sold">06</button>
           <button class="unit-pin is-sale" type="button" style="--x:32.14%;--y:29.91%;--mobile-x:27.68%" data-unit="02" data-model="d101">02</button>
           <button class="unit-pin is-active is-sale" type="button" style="--x:29.54%;--y:49.76%;--mobile-x:24.43%" data-unit="01" data-model="d101">01</button>
           <button class="unit-pin is-sale" type="button" style="--x:71.11%;--y:29.91%;--mobile-x:76.39%" data-unit="07" data-model="d101">07</button>
@@ -174,7 +174,7 @@
 
     <section class="catalog-cta shell" aria-labelledby="cta-title">
       <p class="section-index"><span>(04)</span> · Наступний крок</p>
-      <div><h2 id="cta-title">Планування краще<br>відчути наживо.</h2><p>Оберіть резиденцію та домовтеся про персональний перегляд у Нових Петрівцях.</p><a class="pill-button" href="t92/#booking"><span>Записатися на перегляд</span><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19 19 5M9 5h10v10"/></svg></i></a></div>
+      <div><h2 id="cta-title">Планування краще<br>відчути наживо.</h2><p>Оберіть резиденцію та домовтеся про персональний перегляд у Нових Петрівцях.</p><button class="pill-button" type="button" data-catalog-application-open><span>Записатися на перегляд</span><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19 19 5M9 5h10v10"/></svg></i></button></div>
     </section>
   </main>
 
@@ -185,7 +185,22 @@
     <p>© 2026 SHEPIT HOUSE</p>
   </footer>
 
+  <div class="plan-lightbox" data-plan-lightbox hidden>
+    <button class="plan-lightbox__backdrop" type="button" data-plan-lightbox-close aria-label="Закрити перегляд"></button>
+    <div class="plan-lightbox__dialog" role="dialog" aria-modal="true" aria-label="Перегляд планування" data-plan-lightbox-dialog>
+      <button class="plan-lightbox__close" type="button" data-plan-lightbox-close aria-label="Закрити перегляд">×</button>
+      <img src="" alt="" data-plan-lightbox-image>
+    </div>
+  </div>
+  <div class="catalog-application" data-catalog-application hidden>
+    <button class="catalog-application__backdrop" type="button" data-catalog-application-close aria-label="Закрити форму"></button>
+    <div class="catalog-application__dialog" role="dialog" aria-modal="true" aria-labelledby="catalog-application-title">
+      <button class="catalog-application__close" type="button" data-catalog-application-close aria-label="Закрити форму">×</button>
+      <span>SHEPIT HOUSE · CONTACT</span><h2 id="catalog-application-title">Записатися на перегляд</h2><p>Залиште контакти — менеджер уточнить зручний час та підтвердить перегляд.</p>
+      <form data-catalog-application-form><label>Ваше ім’я<input name="name" type="text" autocomplete="name" required></label><label>Номер телефону<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required></label><button type="submit">Надіслати заявку <i>↗</i></button><p data-catalog-application-status aria-live="polite"></p></form>
+    </div>
+  </div>
   <script src="../analytics-v2.js?v=1"></script>
-  <script src="catalog.js?v=1" defer></script>
+  <script src="catalog.js?v=2" defer></script>
 </body>
 </html>

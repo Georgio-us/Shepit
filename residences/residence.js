@@ -41,13 +41,41 @@ const calendarIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y=
 const walletIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7.5h15a2 2 0 0 1 2 2v9H5a2 2 0 0 1-2-2v-11a2 2 0 0 1 2-2h12v4"/><circle cx="17" cy="13" r="1"/></svg>';
 
 const pinData = [
-  ['03','36.82%','16.62%','33.53%','t92'], ['04','46.78%','16.62%','45.98%','t92'], ['05','55.69%','16.62%','57.11%','t102'], ['06','65.97%','16.62%','69.96%','t102'],
-  ['02','32.14%','29.91%','27.68%','d101'], ['01','29.54%','49.76%','24.43%','d101'], ['07','71.11%','29.91%','76.39%','d101'], ['08','72.48%','49.76%','78.10%','d101']
+  ['03','36.82%','16.62%','33.53%','t92', 'available'], ['04','46.78%','16.62%','45.98%','t92', 'sold'], ['05','55.69%','16.62%','57.11%','t102', 'available'], ['06','65.97%','16.62%','69.96%','t102', 'sold'],
+  ['02','32.14%','29.91%','27.68%','d101', 'available'], ['01','29.54%','49.76%','24.43%','d101', 'available'], ['07','71.11%','29.91%','76.39%','d101', 'available'], ['08','72.48%','49.76%','78.10%','d101', 'available']
 ];
 
 document.querySelector('#app').innerHTML = `
   <main class="residence-page">
     <section class="residence-hero" aria-labelledby="residence-title">
+      <article class="residence-summary">
+        <div class="residence-summary__top">
+          <a class="residence-brand" href="/">SHEPIT <small>HOUSE</small></a>
+          <a class="residence-close" href="/#residences" aria-label="Повернутися до резиденцій"></a>
+        </div>
+        <div class="residence-summary__body">
+          <div class="residence-summary__identity">
+            <p class="residence-kicker">Приватна резиденція · Нові Петрівці</p>
+            <h1 class="residence-title" id="residence-title">${model.code}</h1>
+            <nav class="residence-tabs" aria-label="Типи резиденцій">
+              ${Object.entries(models).map(([id, item]) => `<a href="../${id}/" class="${id === key ? 'is-active' : ''}" ${id === key ? 'aria-current="page"' : ''}>${item.code}</a>`).join('')}
+            </nav>
+          </div>
+          <div class="residence-summary__details">
+            <div class="residence-metrics">
+              <div class="residence-metric"><strong>${model.area}</strong><span>площа будинку</span></div>
+              <div class="residence-metric"><strong>${model.parcel}</strong><span>власна ділянка</span></div>
+              <div class="residence-metric"><strong>${model.bedrooms}</strong><span>спальні</span></div>
+            </div>
+            <div class="residence-price"><strong>${model.price}</strong><span>готовий будинок</span></div>
+            <div class="residence-actions">
+              <a class="pill-action" href="#booking"><span>Записатися на перегляд</span><i class="button-arrow">${arrow}</i></a>
+              <a class="secondary-action" href="../../output/pdf/shepit-house-${model.code.toLowerCase()}.pdf" download aria-label="Завантажити PDF-презентацію ${model.code}"><svg viewBox="0 0 24 24"><path d="M6 2h8l4 4v16H6zM14 2v5h5M8.5 16.5h7M8.5 13h7"/></svg><span>Завантажити PDF</span></a>
+            </div>
+            <a class="residence-installment" href="../../calculator/?unit=${key}">${walletIcon}<span>Доступна розстрочка · відкрити калькулятор</span></a>
+          </div>
+        </div>
+      </article>
       <div class="residence-gallery" data-gallery>
         <img class="residence-gallery__image" src="${model.gallery[0]}" alt="${model.type} ${model.code} — фасад резиденції" data-gallery-image>
         <div class="residence-gallery__controls">
@@ -57,44 +85,20 @@ document.querySelector('#app').innerHTML = `
           <button class="circle-control" type="button" data-gallery-next aria-label="Наступний кадр"><svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></svg></button>
         </div>
       </div>
-      <article class="residence-summary">
-        <div class="residence-summary__top">
-          <a class="residence-brand" href="/">SHEPIT <small>HOUSE</small></a>
-          <a class="residence-close" href="/#residences" aria-label="Повернутися до резиденцій"></a>
-        </div>
-        <div class="residence-summary__body">
-          <p class="residence-kicker">Приватна резиденція · Нові Петрівці</p>
-          <h1 class="residence-title" id="residence-title">${model.code}</h1>
-          <nav class="residence-tabs" aria-label="Типи резиденцій">
-            ${Object.entries(models).map(([id, item]) => `<a href="../${id}/" class="${id === key ? 'is-active' : ''}" ${id === key ? 'aria-current="page"' : ''}>${item.code}</a>`).join('')}
-          </nav>
-          <div class="residence-metrics">
-            <div class="residence-metric"><strong>${model.area}</strong><span>площа будинку</span></div>
-            <div class="residence-metric"><strong>${model.parcel}</strong><span>власна ділянка</span></div>
-            <div class="residence-metric"><strong>${model.bedrooms}</strong><span>спальні</span></div>
-          </div>
-          <div class="residence-price"><strong>${model.price}</strong><span>готовий будинок</span></div>
-          <div class="residence-actions">
-            <a class="pill-action" href="#booking"><span>Записатися на перегляд</span><i class="button-arrow">${arrow}</i></a>
-            <button class="secondary-action" type="button" aria-label="PDF-презентація готується" title="PDF-презентація готується"><svg viewBox="0 0 24 24"><path d="M6 2h8l4 4v16H6zM14 2v5h5M8.5 16.5h7M8.5 13h7"/></svg><span>PDF</span></button>
-          </div>
-          <a class="residence-installment" href="../../calculator/?unit=${key}">${walletIcon}<span>Доступна розстрочка · відкрити калькулятор</span></a>
-        </div>
-      </article>
     </section>
 
     <section class="section plans-section" id="plans" aria-labelledby="plans-title">
       <p class="section-label">(01) · Планування</p>
       <div class="plans-head">
         <h2 class="section-heading" id="plans-title">Простір,<br>продуманий для життя.</h2>
-        <div class="plans-controls">
-          <button class="plan-tab is-active" type="button" data-floor="0" aria-pressed="true">1</button>
-          <button class="plan-tab" type="button" data-floor="1" aria-pressed="false">2</button>
+        <div class="plans-controls" role="group" aria-label="Оберіть поверх">
+          <button class="plan-tab is-active" type="button" data-floor="0" aria-pressed="true">Перший поверх</button>
+          <button class="plan-tab" type="button" data-floor="1" aria-pressed="false">Другий поверх</button>
         </div>
       </div>
       <div class="plans-layout">
         <div class="room-list" data-room-list></div>
-        <figure class="plan-stage"><img src="${model.plans[0]}" alt="План першого поверху ${model.code}" data-plan-image></figure>
+        <button class="plan-stage" type="button" data-plan-preview aria-label="Відкрити планування на весь екран"><img src="${model.plans[0]}" alt="План першого поверху ${model.code}" data-plan-image></button>
       </div>
     </section>
 
@@ -112,9 +116,10 @@ document.querySelector('#app').innerHTML = `
           ['Електрика','Окреме підключення та резерв потужності.'], ['Інженерія','Автономні підведені комунікації.']
         ].map((item, index) => `<article class="spec-card"><i>0${index + 1}</i><h3>${item[0]}</h3><p>${item[1]}</p></article>`).join('')}
       </div>
+      <button class="specs-more" type="button" data-specs-toggle aria-expanded="false">Детальніше <span aria-hidden="true">↓</span></button>
       <div class="material-pair">
-        <figure><img src="../../assets/photo_rop 1.webp" alt="Матеріали фасаду SHEPIT HOUSE" loading="lazy"></figure>
-        <figure><img src="../../assets/img_5.webp" alt="Архітектурні деталі SHEPIT HOUSE" loading="lazy"></figure>
+        <figure><img src="../../assets/view_behind_1.webp" alt="Приватна територія SHEPIT HOUSE" loading="lazy"></figure>
+        <figure><img src="../../assets/duplex-back-day.webp" alt="Задній двір дуплекса SHEPIT HOUSE" loading="lazy"></figure>
       </div>
     </section>
 
@@ -122,13 +127,14 @@ document.querySelector('#app').innerHTML = `
       <p class="section-label">(03) · Резиденція на генплані</p>
       <div class="masterplan-head">
         <h2 class="section-heading" id="masterplan-title">Оберіть свій<br>будинок.</h2>
-        <p>Номери вашого типу резиденції виділені. Інший номер одразу відкриє відповідне планування.</p>
+        <p>Натисніть номер, щоб побачити коротку інформацію про резиденцію та, за потреби, перейти до неї.</p>
       </div>
       <div class="masterplan-frame">
         <img src="../../assets/visual_2.webp" alt="Генеральний план SHEPIT HOUSE" loading="lazy">
-        ${pinData.map(([number,x,y,mobileX,target]) => `<a class="unit-pin ${model.related.includes(number) ? 'is-related' : ''} ${model.current === number ? 'is-current' : ''}" style="--x:${x};--y:${y};--mobile-x:${mobileX}" href="../${target}/" aria-label="Резиденція ${number}, відкрити ${models[target].code}">${number}</a>`).join('')}
+        ${pinData.map(([number,x,y,mobileX,target,status]) => `<button class="unit-pin ${model.current === number ? 'is-active' : ''}" style="--x:${x};--y:${y};--mobile-x:${mobileX}" type="button" data-unit-number="${number}" data-unit-model="${target}" data-unit-status="${status}" aria-label="Резиденція ${number}, показати інформацію про ${models[target].code}">${number}</button>`).join('')}
       </div>
-      <div class="masterplan-legend"><span><i></i>Обрана резиденція</span><span><i></i>Цей тип планування</span><span>Натисніть номер, щоб перейти</span></div>
+      <aside class="unit-preview" data-unit-preview aria-live="polite" hidden></aside>
+      <div class="masterplan-legend"><span><i></i>Обрана резиденція</span><span><i></i>Цей тип планування</span><span>Натисніть номер для перегляду</span></div>
     </section>
 
     <section class="section booking-section" id="booking" aria-labelledby="booking-title">
@@ -157,6 +163,13 @@ document.querySelector('#app').innerHTML = `
       <div class="picker__head"><h2 id="picker-title">Дата та час</h2><button class="picker__close" type="button" data-picker-close aria-label="Закрити">×</button></div>
       <div class="picker__wheels"><div class="picker__wheel" data-date-wheel></div><div class="picker__wheel" data-time-wheel></div></div>
       <button class="picker__confirm" type="button" data-picker-confirm>Підтвердити</button>
+    </div>
+  </div>
+  <div class="plan-lightbox" data-plan-lightbox hidden>
+    <button class="plan-lightbox__backdrop" type="button" data-plan-lightbox-close aria-label="Закрити перегляд"></button>
+    <div class="plan-lightbox__dialog" role="dialog" aria-modal="true" aria-label="Перегляд планування" data-plan-lightbox-dialog>
+      <button class="plan-lightbox__close" type="button" data-plan-lightbox-close aria-label="Закрити перегляд">×</button>
+      <img src="" alt="" data-plan-lightbox-image>
     </div>
   </div>`;
 
@@ -198,6 +211,51 @@ function renderFloor(nextFloor) {
 }
 document.querySelectorAll('[data-floor]').forEach(button => button.addEventListener('click', () => renderFloor(Number(button.dataset.floor))));
 renderFloor(0);
+
+const planLightbox = document.querySelector('[data-plan-lightbox]');
+const planLightboxImage = document.querySelector('[data-plan-lightbox-image]');
+const planLightboxDialog = document.querySelector('[data-plan-lightbox-dialog]');
+let planLightboxStartY = 0;
+function closePlanLightbox() {
+  planLightbox.hidden = true;
+  document.body.classList.remove('is-plan-lightbox-open');
+}
+document.querySelector('[data-plan-preview]').addEventListener('click', () => {
+  planLightboxImage.src = model.plans[floor];
+  planLightboxImage.alt = `План ${floor + 1} поверху ${model.code}`;
+  planLightbox.hidden = false;
+  document.body.classList.add('is-plan-lightbox-open');
+});
+planLightbox.querySelectorAll('[data-plan-lightbox-close]').forEach((button) => button.addEventListener('click', closePlanLightbox));
+planLightboxDialog.addEventListener('touchstart', (event) => { planLightboxStartY = event.touches[0]?.clientY || 0; }, { passive: true });
+planLightboxDialog.addEventListener('touchend', (event) => {
+  if ((event.changedTouches[0]?.clientY || 0) - planLightboxStartY > 80) closePlanLightbox();
+}, { passive: true });
+
+const specsSection = document.querySelector('.specs-section');
+const specsToggle = document.querySelector('[data-specs-toggle]');
+specsToggle.addEventListener('click', () => {
+  const isExpanded = specsSection.classList.toggle('is-expanded');
+  specsToggle.setAttribute('aria-expanded', String(isExpanded));
+  specsToggle.innerHTML = `${isExpanded ? 'Згорнути' : 'Детальніше'} <span aria-hidden="true">↓</span>`;
+});
+
+const unitPreview = document.querySelector('[data-unit-preview]');
+document.querySelectorAll('[data-unit-number]').forEach(pin => pin.addEventListener('click', () => {
+  const selectedModel = models[pin.dataset.unitModel];
+  const isAvailable = pin.dataset.unitStatus === 'available';
+  document.querySelectorAll('[data-unit-number]').forEach(item => item.classList.toggle('is-active', item === pin));
+  unitPreview.hidden = false;
+  unitPreview.innerHTML = `
+    <div>
+      <p class="unit-preview__eyebrow">Резиденція ${pin.dataset.unitNumber}</p>
+      <h3>${selectedModel.type} ${selectedModel.code}</h3>
+      <p class="unit-preview__meta"><span>${selectedModel.area}</span><span>${selectedModel.bedrooms} спальні</span><span>${selectedModel.parcel}</span></p>
+    </div>
+    <span class="unit-preview__status ${isAvailable ? 'is-available' : ''}">${isAvailable ? 'В продажу' : 'Продано'}</span>
+    ${isAvailable ? `<a class="unit-preview__action" href="../${pin.dataset.unitModel}/">Переглянути резиденцію</a>` : ''}
+  `;
+}));
 
 const picker = document.querySelector('[data-picker]');
 const dateWheel = document.querySelector('[data-date-wheel]');
@@ -280,7 +338,7 @@ function closePicker() {
 document.querySelector('[data-picker-open]').addEventListener('click', openPicker);
 document.querySelector('[data-picker-close]').addEventListener('click', closePicker);
 picker.addEventListener('click', event => { if (event.target === picker) closePicker(); });
-document.addEventListener('keydown', event => { if (event.key === 'Escape') closePicker(); });
+document.addEventListener('keydown', event => { if (event.key === 'Escape') { closePicker(); closePlanLightbox(); } });
 document.querySelector('[data-picker-confirm]').addEventListener('click', () => {
   dateInput.value = selectedDate.value;
   timeInput.value = selectedTime;
