@@ -234,8 +234,9 @@ img { display: block; max-width: 100%; }
   .material-pair { grid-template-columns: 1fr; }
   .material-pair figure { height: 300px; }
   .material-pair figure:last-child { display: none; }
-  .masterplan-frame { width: calc(100% + 40px); margin-left: -20px; }
-  .masterplan-frame > img { aspect-ratio: .88; object-position: center; }
+  .masterplan-frame { width: calc(100% + 40px); height: 83.33vw; margin-left: -20px; }
+  .masterplan-frame > img { width: 125%; max-width: none; height: 100%; aspect-ratio: auto; margin-left: -12.5%; object-fit: fill; }
+  .unit-pin { left: var(--mobile-x); }
   .masterplan-legend { gap: 16px; }
   .booking-grid { gap: 60px; }
   .picker { padding: 0; }

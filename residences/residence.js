@@ -2,35 +2,35 @@ const models = {
   t92: {
     code: 'T92', type: 'Таунхаус', area: '92 м²', parcel: 'до 2 соток', bedrooms: '3', price: 'від $85 000',
     description: 'Компактна приватна резиденція для сім\'ї: три спальні, власний двір, тераса та два паркомісця.',
-    gallery: ['../../assets/townhouse_front.webp', '../../assets/img1.webp', '../../assets/img3.webp', '../../assets/photo_rop 1.webp'],
+    gallery: ['../../assets/townhouse-front-day.webp', '../../assets/townhouse-front-night.webp'],
     plans: ['../../assets/1-pov-t100.webp', '../../assets/2-pov-t100.webp'],
     rooms: [
       [['Тамбур', '3,8 м²'], ['Кухня-вітальня', '28,7 м²'], ['Кабінет / спальня', '10,4 м²'], ['Санвузол', '4,2 м²'], ['Тераса', '16 м²']],
       [['Хол', '6,1 м²'], ['Спальня 01', '12,8 м²'], ['Спальня 02', '11,7 м²'], ['Спальня 03', '14,2 м²'], ['Ванна кімната', '5,4 м²']]
     ],
-    related: ['01', '02'], current: '01'
+    related: ['03', '04'], current: '03'
   },
   t102: {
     code: 'T102', type: 'Таунхаус', area: '102 м²', parcel: 'до 2 соток', bedrooms: '3', price: 'за запитом',
     description: 'Збільшений формат таунхауса з просторою денною зоною, трьома спальнями та приватною територією.',
-    gallery: ['../../assets/img3.webp', '../../assets/townhouse_front.webp', '../../assets/img2.webp', '../../assets/img_5.webp'],
+    gallery: ['../../assets/townhouse-front-day.webp', '../../assets/townhouse-front-night.webp'],
     plans: ['../../assets/1-pov-t100.webp', '../../assets/2-pov-t100.webp'],
     rooms: [
       [['Тамбур', '4,1 м²'], ['Кухня-вітальня', '31,2 м²'], ['Кабінет', '10,8 м²'], ['Санвузол', '4,5 м²'], ['Тераса', '18 м²']],
       [['Хол', '6,8 м²'], ['Спальня 01', '13,5 м²'], ['Спальня 02', '12,1 м²'], ['Спальня 03', '14,8 м²'], ['Ванна кімната', '5,8 м²']]
     ],
-    related: ['03', '04'], current: '03'
+    related: ['05', '06'], current: '05'
   },
   d101: {
     code: 'D101', type: 'Дуплекс', area: '101 м²', parcel: 'до 2 соток', bedrooms: '4', price: 'за запитом',
     description: 'Просторий дуплекс для великої родини: чотири спальні, власний двір, тераса та окремий вхід.',
-    gallery: ['../../assets/duplex_front.webp', '../../assets/img2.webp', '../../assets/visual_1.webp', '../../assets/img4.webp'],
+    gallery: ['../../assets/duplex-front-day.webp', '../../assets/duplex-front-night.webp', '../../assets/duplex-back-day.webp', '../../assets/duplex-back-night.webp'],
     plans: ['../../assets/1-pov-d110.webp', '../../assets/2-pov-d110.webp'],
     rooms: [
       [['Тамбур', '3,9 м²'], ['Кухня-вітальня', '26,7 м²'], ['Гостьова спальня', '11,2 м²'], ['Санвузол', '4,4 м²'], ['Тераса', '17 м²']],
       [['Хол', '6,5 м²'], ['Спальня 01', '12,6 м²'], ['Спальня 02', '11,9 м²'], ['Спальня 03', '13,8 м²'], ['Ванна кімната', '5,6 м²']]
     ],
-    related: ['05', '06', '07', '08'], current: '05'
+    related: ['01', '02', '07', '08'], current: '01'
   }
 };
 
@@ -41,8 +41,8 @@ const calendarIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y=
 const walletIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7.5h15a2 2 0 0 1 2 2v9H5a2 2 0 0 1-2-2v-11a2 2 0 0 1 2-2h12v4"/><circle cx="17" cy="13" r="1"/></svg>';
 
 const pinData = [
-  ['01','36.82%','16.62%','t92'], ['02','46.78%','16.62%','t92'], ['03','55.69%','16.62%','t102'], ['04','65.97%','16.62%','t102'],
-  ['05','32.14%','29.91%','d101'], ['06','29.54%','49.76%','d101'], ['07','71.11%','29.91%','d101'], ['08','72.48%','49.76%','d101']
+  ['03','36.82%','16.62%','33.53%','t92'], ['04','46.78%','16.62%','45.98%','t92'], ['05','55.69%','16.62%','57.11%','t102'], ['06','65.97%','16.62%','69.96%','t102'],
+  ['02','32.14%','29.91%','27.68%','d101'], ['01','29.54%','49.76%','24.43%','d101'], ['07','71.11%','29.91%','76.39%','d101'], ['08','72.48%','49.76%','78.10%','d101']
 ];
 
 document.querySelector('#app').innerHTML = `
@@ -127,7 +127,7 @@ document.querySelector('#app').innerHTML = `
       </div>
       <div class="masterplan-frame">
         <img src="../../assets/visual_2.webp" alt="Генеральний план SHEPIT HOUSE" loading="lazy">
-        ${pinData.map(([number,x,y,target]) => `<a class="unit-pin ${model.related.includes(number) ? 'is-related' : ''} ${model.current === number ? 'is-current' : ''}" style="--x:${x};--y:${y}" href="../${target}/" aria-label="Резиденція ${number}, відкрити ${models[target].code}">${number}</a>`).join('')}
+        ${pinData.map(([number,x,y,mobileX,target]) => `<a class="unit-pin ${model.related.includes(number) ? 'is-related' : ''} ${model.current === number ? 'is-current' : ''}" style="--x:${x};--y:${y};--mobile-x:${mobileX}" href="../${target}/" aria-label="Резиденція ${number}, відкрити ${models[target].code}">${number}</a>`).join('')}
       </div>
       <div class="masterplan-legend"><span><i></i>Обрана резиденція</span><span><i></i>Цей тип планування</span><span>Натисніть номер, щоб перейти</span></div>
     </section>
