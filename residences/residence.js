@@ -3,7 +3,7 @@ const models = {
     code: 'T92', type: 'Таунхаус', area: '92 м²', parcel: 'до 2 соток', bedrooms: '3', price: 'від $85 000',
     description: 'Компактна приватна резиденція для сім\'ї: три спальні, власний двір, тераса та два паркомісця.',
     gallery: ['../../assets/townhouse-front-day.webp', '../../assets/townhouse-front-night.webp'],
-    plans: ['../../assets/1-pov-t100.webp', '../../assets/2-pov-t100.webp'],
+    plans: ['../../assets/plan-t92-floor-1.webp', '../../assets/plan-t92-floor-2.webp'],
     rooms: [
       [['Тамбур', '3,8 м²'], ['Кухня-вітальня', '28,7 м²'], ['Кабінет / спальня', '10,4 м²'], ['Санвузол', '4,2 м²'], ['Тераса', '16 м²']],
       [['Хол', '6,1 м²'], ['Спальня 01', '12,8 м²'], ['Спальня 02', '11,7 м²'], ['Спальня 03', '14,2 м²'], ['Ванна кімната', '5,4 м²']]
@@ -14,7 +14,7 @@ const models = {
     code: 'T102', type: 'Таунхаус', area: '102 м²', parcel: 'до 2 соток', bedrooms: '3', price: 'за запитом',
     description: 'Збільшений формат таунхауса з просторою денною зоною, трьома спальнями та приватною територією.',
     gallery: ['../../assets/townhouse-front-day.webp', '../../assets/townhouse-front-night.webp'],
-    plans: ['../../assets/1-pov-t100.webp', '../../assets/2-pov-t100.webp'],
+    plans: ['../../assets/plan-t102-floor-1.webp', '../../assets/plan-t102-floor-2.webp'],
     rooms: [
       [['Тамбур', '4,1 м²'], ['Кухня-вітальня', '31,2 м²'], ['Кабінет', '10,8 м²'], ['Санвузол', '4,5 м²'], ['Тераса', '18 м²']],
       [['Хол', '6,8 м²'], ['Спальня 01', '13,5 м²'], ['Спальня 02', '12,1 м²'], ['Спальня 03', '14,8 м²'], ['Ванна кімната', '5,8 м²']]
@@ -25,7 +25,7 @@ const models = {
     code: 'D101', type: 'Дуплекс', area: '101 м²', parcel: 'до 2 соток', bedrooms: '4', price: 'за запитом',
     description: 'Просторий дуплекс для великої родини: чотири спальні, власний двір, тераса та окремий вхід.',
     gallery: ['../../assets/duplex-front-day.webp', '../../assets/duplex-front-night.webp', '../../assets/duplex-back-day.webp', '../../assets/duplex-back-night.webp'],
-    plans: ['../../assets/1-pov-d110.webp', '../../assets/2-pov-d110.webp'],
+    plans: ['../../assets/plan-d101-floor-1.webp', '../../assets/plan-d101-floor-2.webp'],
     rooms: [
       [['Тамбур', '3,9 м²'], ['Кухня-вітальня', '26,7 м²'], ['Гостьова спальня', '11,2 м²'], ['Санвузол', '4,4 м²'], ['Тераса', '17 м²']],
       [['Хол', '6,5 м²'], ['Спальня 01', '12,6 м²'], ['Спальня 02', '11,9 м²'], ['Спальня 03', '13,8 м²'], ['Ванна кімната', '5,6 м²']]
@@ -90,7 +90,6 @@ document.querySelector('#app').innerHTML = `
         <div class="plans-controls">
           <button class="plan-tab is-active" type="button" data-floor="0" aria-pressed="true">1</button>
           <button class="plan-tab" type="button" data-floor="1" aria-pressed="false">2</button>
-          <button class="furniture-toggle" type="button" data-furniture aria-pressed="false"><i></i><span>З меблями</span></button>
         </div>
       </div>
       <div class="plans-layout">
@@ -198,13 +197,6 @@ function renderFloor(nextFloor) {
   roomList.innerHTML = model.rooms[floor].map((item, index) => `<div class="room-item"><i>0${index + 1}</i><strong>${item[0]}</strong><span>${item[1]}</span></div>`).join('');
 }
 document.querySelectorAll('[data-floor]').forEach(button => button.addEventListener('click', () => renderFloor(Number(button.dataset.floor))));
-document.querySelector('[data-furniture]').addEventListener('click', event => {
-  const button = event.currentTarget;
-  const active = button.getAttribute('aria-pressed') !== 'true';
-  button.setAttribute('aria-pressed', String(active));
-  button.classList.toggle('is-active', active);
-  button.querySelector('span').textContent = active ? 'З меблями' : 'Без меблів';
-});
 renderFloor(0);
 
 const picker = document.querySelector('[data-picker]');
