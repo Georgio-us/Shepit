@@ -366,7 +366,8 @@ document.querySelector('[data-booking-form]').addEventListener('submit', async e
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         name: data.get('name'), phone: data.get('phone'),
-        source: `residence-${model.code.toLowerCase()}-${data.get('date')}-${data.get('time')}`
+        source: `residence-${model.code.toLowerCase()}-booking`,
+        date: data.get('date'), time: data.get('time')
       })
     });
     if (!response.ok) throw new Error('Request failed');

@@ -35,8 +35,30 @@ function normalizePhoneForTelegram(phone) {
     return '+' + clean;
 }
 
+function getDeviceLabel(userAgent) {
+    return /Android|iPhone|iPad|iPod|Mobile/i.test(userAgent || '') ? '📱 Мобільний' : '💻 Десктоп';
+}
+
+function getKyivTimestamp() {
+    return new Intl.DateTimeFormat('uk-UA', {
+        timeZone: 'Europe/Kyiv',
+        day: '2-digit', month: '2-digit', year: 'numeric',
+        hour: '2-digit', minute: '2-digit'
+    }).format(new Date());
+}
+
+function formatViewingTime(date, time) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(String(date || '')) || !/^\d{2}:\d{2}$/.test(String(time || ''))) return '';
+    const [year, month, day] = date.split('-').map(Number);
+    const viewingDate = new Date(Date.UTC(year, month - 1, day, 12));
+    const formattedDate = new Intl.DateTimeFormat('uk-UA', {
+        timeZone: 'Europe/Kyiv', day: 'numeric', month: 'long', year: 'numeric'
+    }).format(viewingDate);
+    return `${formattedDate} · ${time}`;
+}
+
 app.post('/api/lead', (req, res) => {
-    const { name, phone, source, device, timestamp } = req.body;
+    const { name, phone, source, date, time } = req.body;
     const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
     const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
@@ -50,6 +72,10 @@ app.post('/api/lead', (req, res) => {
     }
 
     const formattedPhone = normalizePhoneForTelegram(phone);
+    const viewingTime = formatViewingTime(date, time);
+    const device = getDeviceLabel(req.get('user-agent'));
+    const timestamp = getKyivTimestamp();
+    const viewingLine = viewingTime ? `\n🗓 <b>Перегляд:</b> ${escapeHtml(viewingTime)}\n` : '';
 
     const text = `
 <b>✨ НОВА ЗАЯВКА: Shepit House ✨</b>
@@ -61,6 +87,7 @@ app.post('/api/lead', (req, res) => {
 📍 <b>Звідки:</b> ${escapeHtml(source) || 'Головна'}
 📱 <b>Пристрій:</b> ${escapeHtml(device) || '—'}
 ⏰ <b>Час:</b> ${escapeHtml(timestamp) || '—'}
+${viewingLine}
 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 #lead #shepit_house`.trim();
