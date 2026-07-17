@@ -51,7 +51,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
-    <link rel="stylesheet" href="v2.css?v=25">
+    <link rel="stylesheet" href="v2.css?v=26">
 </head>
 <body>
     <main>
@@ -273,7 +273,7 @@
                             <li>Власний двір</li>
                             <li>2 паркомісця</li>
                         </ul>
-                        <a href="tel:+380950734376" data-plan-link aria-label="Забронювати перегляд резиденції">Забронювати перегляд <span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19 19 5M9 5h10v10"/></svg></span></a>
+                        <a href="#book-viewing" data-plan-link data-plan-unit="01" data-plan-type="Дуплекс D101" aria-label="Забронювати перегляд резиденції">Забронювати перегляд <span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19 19 5"/><path d="M9 5h10v10"/></svg></span></a>
                     </div>
 
                     <div class="plan-v2__units" aria-label="Список резиденцій">
@@ -826,7 +826,7 @@
                 <a href="viber://chat/?number=%2B380950734376"><span>Viber</span><small>Написати в чат</small></a>
                 <button type="button" data-application-modal-open>
                     <span>Залишити заявку</span>
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M9 5h10v10"/></svg>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5"/><path d="M9 5h10v10"/></svg>
                 </button>
             </div>
             <button class="contact-widget-v2__toggle" type="button" data-contact-toggle aria-expanded="false" aria-controls="contact-widget-panel">
@@ -868,6 +868,11 @@
                 <form class="application-modal__form" data-application-form>
                     <label><span>Ваше ім’я</span><input name="name" type="text" autocomplete="name" placeholder="Ім’я" required></label>
                     <label><span>Номер телефону</span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+38 (___) ___ __ __" required></label>
+                    <div class="application-modal__viewing" data-application-viewing hidden>
+                        <span class="application-modal__viewing-unit" data-application-viewing-unit></span>
+                        <label><span>Дата перегляду</span><input name="date" type="date" data-application-viewing-date></label>
+                        <label><span>Час перегляду</span><select name="time" data-application-viewing-time></select></label>
+                    </div>
                     <button type="submit"><span>Надіслати заявку</span><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19 19 5M9 5h10v10"/></svg></i></button>
                     <p class="application-modal__status" data-application-status aria-live="polite"></p>
                 </form>
@@ -888,6 +893,6 @@
     </aside>
 
     <script src="analytics-v2.js?v=1"></script>
-    <script src="v2.js?v=12"></script>
+    <script src="v2.js?v=13"></script>
 </body>
 </html>

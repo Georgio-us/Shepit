@@ -88,8 +88,27 @@ const applicationModal = document.querySelector('[data-application-modal]');
 const applicationForm = document.querySelector('[data-application-form]');
 const applicationFormView = document.querySelector('[data-application-form-view]');
 const applicationSuccess = document.querySelector('[data-application-success]');
+const applicationModalTitle = document.getElementById('application-modal-title');
+const applicationModalDescription = applicationFormView?.querySelector('p');
+const applicationViewing = document.querySelector('[data-application-viewing]');
+const applicationViewingUnit = document.querySelector('[data-application-viewing-unit]');
+const applicationViewingDate = document.querySelector('[data-application-viewing-date]');
+const applicationViewingTime = document.querySelector('[data-application-viewing-time]');
 const cookieNotice = document.querySelector('[data-cookie-notice]');
 const cookieAccept = document.querySelector('[data-cookie-accept]');
+let applicationBookingUnit = null;
+
+const defaultApplicationTitle = applicationModalTitle?.textContent || 'Залишити заявку';
+const defaultApplicationDescription = applicationModalDescription?.textContent || '';
+
+if (applicationViewingTime) {
+    const times = [];
+    for (let hour = 10; hour <= 19; hour += 1) {
+        times.push(`${String(hour).padStart(2, '0')}:00`);
+        if (hour < 19) times.push(`${String(hour).padStart(2, '0')}:30`);
+    }
+    applicationViewingTime.innerHTML = `<option value="">Оберіть час</option>${times.map((time) => `<option value="${time}">${time}</option>`).join('')}`;
+}
 
 if (cookieNotice && window.localStorage.getItem('shepit-cookie-notice-accepted') !== '1') {
     cookieNotice.hidden = false;
@@ -100,8 +119,25 @@ cookieAccept?.addEventListener('click', () => {
     cookieNotice.hidden = true;
 });
 
-function openApplicationModal() {
+function openApplicationModal(bookingUnit = null) {
     if (!applicationModal) return;
+    applicationBookingUnit = bookingUnit;
+    const isViewingBooking = Boolean(bookingUnit);
+    if (applicationViewing) applicationViewing.hidden = !isViewingBooking;
+    if (applicationViewingDate) {
+        applicationViewingDate.required = isViewingBooking;
+        const minDate = new Date();
+        minDate.setDate(minDate.getDate() + 1);
+        applicationViewingDate.min = minDate.toISOString().slice(0, 10);
+        if (!isViewingBooking) applicationViewingDate.value = '';
+    }
+    if (applicationViewingTime) {
+        applicationViewingTime.required = isViewingBooking;
+        if (!isViewingBooking) applicationViewingTime.value = '';
+    }
+    if (applicationViewingUnit) applicationViewingUnit.textContent = isViewingBooking ? `Перегляд · резиденція ${bookingUnit.number} · ${bookingUnit.type}` : '';
+    if (applicationModalTitle) applicationModalTitle.textContent = isViewingBooking ? 'Записатися на перегляд' : defaultApplicationTitle;
+    if (applicationModalDescription) applicationModalDescription.textContent = isViewingBooking ? 'Оберіть зручні дату та час — менеджер підтвердить перегляд телефоном.' : defaultApplicationDescription;
     applicationFormView.hidden = false;
     applicationSuccess.hidden = true;
     applicationModal.hidden = false;
@@ -123,6 +159,13 @@ document.querySelectorAll('[data-application-modal-open]').forEach((trigger) => 
     });
 });
 
+document.querySelectorAll('[data-plan-link]').forEach((trigger) => {
+    trigger.addEventListener('click', (event) => {
+        event.preventDefault();
+        openApplicationModal({ number: trigger.dataset.planUnit || '—', type: trigger.dataset.planType || 'резиденція' });
+    });
+});
+
 applicationModal?.querySelectorAll('[data-application-modal-close]').forEach((control) => {
     control.addEventListener('click', closeApplicationModal);
 });
@@ -133,6 +176,10 @@ applicationForm?.addEventListener('submit', async (event) => {
     const label = submit?.querySelector('span');
     const status = applicationForm.querySelector('[data-application-status]');
     const data = new FormData(applicationForm);
+    if (applicationBookingUnit && (!data.get('date') || !data.get('time'))) {
+        if (status) status.textContent = 'Оберіть, будь ласка, дату та час перегляду.';
+        return;
+    }
     if (submit) submit.disabled = true;
     if (label) label.textContent = 'Надсилаємо…';
     if (status) status.textContent = '';
@@ -144,7 +191,9 @@ applicationForm?.addEventListener('submit', async (event) => {
             body: JSON.stringify({
                 name: data.get('name'),
                 phone: data.get('phone'),
-                source: 'Модальне вікно заявки SHEPIT HOUSE',
+                source: applicationBookingUnit ? `masterplan-unit-${applicationBookingUnit.number}-booking` : 'Модальне вікно заявки SHEPIT HOUSE',
+                date: applicationBookingUnit ? data.get('date') : undefined,
+                time: applicationBookingUnit ? data.get('time') : undefined,
                 device: /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ? '📱 Мобільний' : '💻 Десктоп',
                 timestamp: new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kyiv' })
             })
@@ -276,7 +325,11 @@ if (v2Masterplan) {
         if (areaOutput) areaOutput.textContent = pin.dataset.planArea;
         if (statusOutput) statusOutput.textContent = pin.dataset.planStatus;
         if (bedroomsOutput) bedroomsOutput.textContent = pin.dataset.planType.startsWith('Таунхаус') ? '3 спальні' : '4 спальні';
-        if (detailsLink) detailsLink.setAttribute('aria-label', `Забронювати перегляд резиденції ${pin.dataset.planUnit}`);
+        if (detailsLink) {
+            detailsLink.setAttribute('aria-label', `Забронювати перегляд резиденції ${pin.dataset.planUnit}`);
+            detailsLink.dataset.planUnit = pin.dataset.planUnit;
+            detailsLink.dataset.planType = pin.dataset.planType;
+        }
 
         if (selectedPanel) {
             const isLight = Number(pin.dataset.planUnit) % 2 === 0;

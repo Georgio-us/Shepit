@@ -120,7 +120,7 @@ img { display: block; width: 100%; }
   .article-nav__section { display: none; }
   .article-hero { min-height: 100svh; }
   .article-hero__content { min-height: 100svh; padding-top: 140px; }
-  .article-hero h1 { font-size: clamp(48px,14vw,70px); }
+  .article-hero h1 { font-size: clamp(40px,12vw,62px); hyphens: auto; overflow-wrap: break-word; }
   .article-hero__meta { grid-template-columns: 1fr; }
   .article-hero__meta div { display: flex; }
   .article-hero__meta strong { margin-top: 0; text-align: right; }

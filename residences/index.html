@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="catalog.css?v=4">
+  <link rel="stylesheet" href="catalog.css?v=5">
 </head>
 <body>
   <header class="catalog-header shell">
@@ -195,9 +195,9 @@
   <div class="catalog-application" data-catalog-application hidden>
     <button class="catalog-application__backdrop" type="button" data-catalog-application-close aria-label="Закрити форму"></button>
     <div class="catalog-application__dialog" role="dialog" aria-modal="true" aria-labelledby="catalog-application-title">
-      <button class="catalog-application__close" type="button" data-catalog-application-close aria-label="Закрити форму">×</button>
+      <button class="catalog-application__close" type="button" data-catalog-application-close aria-label="Закрити форму"><span></span><span></span></button>
       <span>SHEPIT HOUSE · CONTACT</span><h2 id="catalog-application-title">Записатися на перегляд</h2><p>Залиште контакти — менеджер уточнить зручний час та підтвердить перегляд.</p>
-      <form data-catalog-application-form><label>Ваше ім’я<input name="name" type="text" autocomplete="name" required></label><label>Номер телефону<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required></label><button type="submit">Надіслати заявку <i>↗</i></button><p data-catalog-application-status aria-live="polite"></p></form>
+      <form data-catalog-application-form><label>Ваше ім’я<input name="name" type="text" autocomplete="name" required></label><label>Номер телефону<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required></label><button type="submit"><span>Надіслати заявку</span><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19 19 5"/><path d="M9 5h10v10"/></svg></i></button><p data-catalog-application-status aria-live="polite"></p></form>
     </div>
   </div>
   <script src="../analytics-v2.js?v=1"></script>

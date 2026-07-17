@@ -125,7 +125,11 @@ img { display: block; max-width: 100%; }
 .catalog-application label { display: grid; gap: 8px; padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,.35); color: rgba(255,255,255,.55); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
 .catalog-application input { width: 100%; border: 0; outline: 0; color: var(--white); background: transparent; font: inherit; font-size: 20px; }
 .catalog-application form button { display: flex; align-items: center; justify-content: space-between; min-height: 62px; margin-top: 10px; padding: 0 9px 0 24px; border: 0; border-radius: 999px; color: var(--ink); background: var(--white); font-size: 15px; font-weight: 500; }
-.catalog-application form button i { display: grid; width: 46px; height: 46px; place-items: center; border-radius: 50%; color: var(--white); background: var(--ink); font-size: 20px; font-style: normal; }
+.catalog-application form button i { display: grid; width: 46px; height: 46px; place-items: center; border-radius: 50%; color: var(--white); background: var(--ink); font-style: normal; }
+.catalog-application form button i svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.catalog-application__close { display: grid; place-items: center; border-color: rgba(255,255,255,.26); background: var(--ink); }
+.catalog-application__close span { grid-area: 1 / 1; display: block; width: 16px; height: 1.5px; background: var(--white); transform: rotate(45deg); }
+.catalog-application__close span + span { transform: rotate(-45deg); }
 .catalog-application form p { min-height: 18px; margin: 0; color: #eab0a8; font-size: 12px; }
 body.is-overlay-open { overflow: hidden; }
 
