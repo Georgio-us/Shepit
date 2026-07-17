@@ -51,7 +51,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
-    <link rel="stylesheet" href="v2.css?v=26">
+    <link rel="stylesheet" href="v2.css?v=27">
+    <link rel="stylesheet" href="booking-picker.css?v=1">
 </head>
 <body>
     <main>
@@ -866,14 +867,13 @@
                 <h2 id="application-modal-title">Залишити заявку</h2>
                 <p>Залиште контакти — ми уточнимо актуальну наявність і відповімо на питання про резиденції.</p>
                 <form class="application-modal__form" data-application-form>
-                    <label><span>Ваше ім’я</span><input name="name" type="text" autocomplete="name" placeholder="Ім’я" required></label>
-                    <label><span>Номер телефону</span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+38 (___) ___ __ __" required></label>
-                    <div class="application-modal__viewing" data-application-viewing hidden>
-                        <span class="application-modal__viewing-unit" data-application-viewing-unit></span>
-                        <label><span>Дата перегляду</span><input name="date" type="date" data-application-viewing-date></label>
-                        <label><span>Час перегляду</span><select name="time" data-application-viewing-time></select></label>
-                    </div>
-                    <button type="submit"><span>Надіслати заявку</span><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19 19 5M9 5h10v10"/></svg></i></button>
+                    <label><span class="visually-hidden">Ваше ім’я</span><input name="name" type="text" autocomplete="name" placeholder="Ваше ім’я" required></label>
+                    <label><span class="visually-hidden">Номер телефону</span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="Номер телефону" required></label>
+                    <input name="date" type="hidden" data-application-date>
+                    <input name="time" type="hidden" data-application-time>
+                    <button class="application-modal__datetime" type="button" data-application-picker-open><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M7 3v4M17 3v4M3 10h18"></path></svg><span data-application-datetime-label>Обрати дату та час</span><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19 19 5"></path><path d="M9 5h10v10"></path></svg></i></button>
+                    <button class="application-modal__submit" type="submit"><span>Надіслати заявку</span><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19 19 5"></path><path d="M9 5h10v10"></path></svg></i></button>
+                    <p class="application-modal__note">Менеджер підтвердить обраний час телефоном.</p>
                     <p class="application-modal__status" data-application-status aria-live="polite"></p>
                 </form>
             </div>
@@ -882,7 +882,7 @@
                 <span class="application-modal__eyebrow">Дякуємо</span>
                 <h2>Заявку надіслано</h2>
                 <p>Менеджер зв’яжеться з вами найближчим часом.</p>
-                <a href="https://t.me/shepit_house" target="_blank" rel="noopener noreferrer"><span>Підписатися на Telegram-канал</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M9 5h10v10"/></svg></a>
+                <a href="https://t.me/shepit_house" target="_blank" rel="noopener noreferrer"><span>Підписатися на Telegram-канал</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5"></path><path d="M9 5h10v10"></path></svg></a>
             </div>
         </div>
     </div>
@@ -893,6 +893,7 @@
     </aside>
 
     <script src="analytics-v2.js?v=1"></script>
-    <script src="v2.js?v=13"></script>
+    <script src="booking-picker.js?v=1"></script>
+    <script src="v2.js?v=14"></script>
 </body>
 </html>

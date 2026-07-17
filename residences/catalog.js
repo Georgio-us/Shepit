@@ -55,6 +55,12 @@ lightboxDialog?.addEventListener('touchend', (event) => {
 const application = document.querySelector('[data-catalog-application]');
 const applicationForm = document.querySelector('[data-catalog-application-form]');
 const applicationStatus = document.querySelector('[data-catalog-application-status]');
+const applicationPicker = window.createShepitAppointmentPicker?.({
+  trigger: document.querySelector('[data-catalog-application-picker-open]'),
+  dateInput: document.querySelector('[data-catalog-application-date]'),
+  timeInput: document.querySelector('[data-catalog-application-time]'),
+  label: document.querySelector('[data-catalog-application-datetime-label]')
+});
 function closeCatalogApplication() {
   if (!application) return;
   application.hidden = true;
@@ -64,6 +70,7 @@ document.querySelectorAll('[data-catalog-application-open]').forEach((button) =>
   if (!application) return;
   application.hidden = false;
   document.body.classList.add('is-overlay-open');
+  applicationPicker?.reset();
   applicationForm?.querySelector('input')?.focus();
 }));
 application?.querySelectorAll('[data-catalog-application-close]').forEach((button) => button.addEventListener('click', closeCatalogApplication));
@@ -71,12 +78,18 @@ applicationForm?.addEventListener('submit', async (event) => {
   event.preventDefault();
   const submit = applicationForm.querySelector('[type="submit"]');
   const data = new FormData(applicationForm);
+  if (!data.get('date') || !data.get('time')) {
+    applicationStatus.textContent = 'Оберіть, будь ласка, дату та час перегляду.';
+    applicationPicker?.open();
+    return;
+  }
   submit.disabled = true;
   applicationStatus.textContent = 'Надсилаємо заявку…';
   try {
-    const response = await fetch('/api/lead', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name: data.get('name'), phone: data.get('phone'), source: 'residences-catalog-viewing' }) });
+    const response = await fetch('/api/lead', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name: data.get('name'), phone: data.get('phone'), date: data.get('date'), time: data.get('time'), source: 'residences-catalog-viewing' }) });
     if (!response.ok) throw new Error('Request failed');
     applicationForm.reset();
+    applicationPicker?.reset();
     applicationStatus.textContent = 'Дякуємо. Менеджер зв’яжеться з вами найближчим часом.';
     if (typeof window.shepitTrack === 'function') window.shepitTrack('generate_lead', { form_name: 'residences_catalog_viewing' });
   } catch (error) {

@@ -1,0 +1,18 @@
+.booking-picker { position: fixed; inset: 0; z-index: 1200; display: grid; place-items: end center; padding: 24px; visibility: hidden; background: rgba(8,15,13,.62); opacity: 0; transition: opacity 180ms ease, visibility 180ms ease; }
+.booking-picker.is-open { visibility: visible; opacity: 1; }
+.booking-picker__panel { width: min(620px, 100%); padding: 26px; border-radius: 28px; color: #252c19; background: #fff; transform: translateY(30px); transition: transform 220ms ease; }
+.booking-picker.is-open .booking-picker__panel { transform: translateY(0); }
+.booking-picker__head { display: flex; align-items: center; justify-content: space-between; }
+.booking-picker__head h2 { margin: 0; font-size: 22px; font-weight: 500; }
+.booking-picker__close { position: relative; display: grid; width: 40px; height: 40px; place-items: center; border: 1px solid rgba(37,44,25,.2); border-radius: 50%; background: transparent; }
+.booking-picker__close span { position: absolute; width: 16px; height: 1.5px; background: currentColor; transform: rotate(45deg); }
+.booking-picker__close span + span { transform: rotate(-45deg); }
+.booking-picker__wheels { position: relative; display: grid; grid-template-columns: 1.35fr .65fr; gap: 10px; margin-top: 22px; overflow: hidden; }
+.booking-picker__wheels::after { position: absolute; top: 50%; right: 0; left: 0; height: 52px; transform: translateY(-50%); border-top: 1px solid rgba(37,44,25,.2); border-bottom: 1px solid rgba(37,44,25,.2); pointer-events: none; content: ''; }
+.booking-picker__wheel { height: 260px; overflow-y: auto; padding-block: 104px; scrollbar-width: none; scroll-snap-type: y mandatory; }
+.booking-picker__wheel::-webkit-scrollbar { display: none; }
+.booking-picker__option { display: grid; width: 100%; height: 52px; place-items: center; border: 0; background: transparent; color: rgba(37,44,25,.48); scroll-snap-align: center; }
+.booking-picker__option.is-selected { color: #252c19; font-size: 18px; font-weight: 500; }
+.booking-picker__confirm { width: 100%; min-height: 58px; margin-top: 20px; border: 0; border-radius: 999px; color: #fff; background: #252c19; }
+body.is-booking-picker-open { overflow: hidden; }
+@media (max-width: 520px) { .booking-picker { padding: 12px; } .booking-picker__panel { padding: 22px 16px; border-radius: 24px; } .booking-picker__wheels { grid-template-columns: 1.2fr .8fr; } }

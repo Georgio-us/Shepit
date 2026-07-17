@@ -90,25 +90,20 @@ const applicationFormView = document.querySelector('[data-application-form-view]
 const applicationSuccess = document.querySelector('[data-application-success]');
 const applicationModalTitle = document.getElementById('application-modal-title');
 const applicationModalDescription = applicationFormView?.querySelector('p');
-const applicationViewing = document.querySelector('[data-application-viewing]');
-const applicationViewingUnit = document.querySelector('[data-application-viewing-unit]');
-const applicationViewingDate = document.querySelector('[data-application-viewing-date]');
-const applicationViewingTime = document.querySelector('[data-application-viewing-time]');
+const applicationDate = document.querySelector('[data-application-date]');
+const applicationTime = document.querySelector('[data-application-time]');
+const applicationPicker = window.createShepitAppointmentPicker?.({
+    trigger: document.querySelector('[data-application-picker-open]'),
+    dateInput: applicationDate,
+    timeInput: applicationTime,
+    label: document.querySelector('[data-application-datetime-label]')
+});
 const cookieNotice = document.querySelector('[data-cookie-notice]');
 const cookieAccept = document.querySelector('[data-cookie-accept]');
 let applicationBookingUnit = null;
 
 const defaultApplicationTitle = applicationModalTitle?.textContent || 'Залишити заявку';
 const defaultApplicationDescription = applicationModalDescription?.textContent || '';
-
-if (applicationViewingTime) {
-    const times = [];
-    for (let hour = 10; hour <= 19; hour += 1) {
-        times.push(`${String(hour).padStart(2, '0')}:00`);
-        if (hour < 19) times.push(`${String(hour).padStart(2, '0')}:30`);
-    }
-    applicationViewingTime.innerHTML = `<option value="">Оберіть час</option>${times.map((time) => `<option value="${time}">${time}</option>`).join('')}`;
-}
 
 if (cookieNotice && window.localStorage.getItem('shepit-cookie-notice-accepted') !== '1') {
     cookieNotice.hidden = false;
@@ -123,19 +118,7 @@ function openApplicationModal(bookingUnit = null) {
     if (!applicationModal) return;
     applicationBookingUnit = bookingUnit;
     const isViewingBooking = Boolean(bookingUnit);
-    if (applicationViewing) applicationViewing.hidden = !isViewingBooking;
-    if (applicationViewingDate) {
-        applicationViewingDate.required = isViewingBooking;
-        const minDate = new Date();
-        minDate.setDate(minDate.getDate() + 1);
-        applicationViewingDate.min = minDate.toISOString().slice(0, 10);
-        if (!isViewingBooking) applicationViewingDate.value = '';
-    }
-    if (applicationViewingTime) {
-        applicationViewingTime.required = isViewingBooking;
-        if (!isViewingBooking) applicationViewingTime.value = '';
-    }
-    if (applicationViewingUnit) applicationViewingUnit.textContent = isViewingBooking ? `Перегляд · резиденція ${bookingUnit.number} · ${bookingUnit.type}` : '';
+    applicationPicker?.reset();
     if (applicationModalTitle) applicationModalTitle.textContent = isViewingBooking ? 'Записатися на перегляд' : defaultApplicationTitle;
     if (applicationModalDescription) applicationModalDescription.textContent = isViewingBooking ? 'Оберіть зручні дату та час — менеджер підтвердить перегляд телефоном.' : defaultApplicationDescription;
     applicationFormView.hidden = false;
@@ -176,8 +159,9 @@ applicationForm?.addEventListener('submit', async (event) => {
     const label = submit?.querySelector('span');
     const status = applicationForm.querySelector('[data-application-status]');
     const data = new FormData(applicationForm);
-    if (applicationBookingUnit && (!data.get('date') || !data.get('time'))) {
+    if (!data.get('date') || !data.get('time')) {
         if (status) status.textContent = 'Оберіть, будь ласка, дату та час перегляду.';
+        applicationPicker?.open();
         return;
     }
     if (submit) submit.disabled = true;
@@ -191,9 +175,9 @@ applicationForm?.addEventListener('submit', async (event) => {
             body: JSON.stringify({
                 name: data.get('name'),
                 phone: data.get('phone'),
-                source: applicationBookingUnit ? `masterplan-unit-${applicationBookingUnit.number}-booking` : 'Модальне вікно заявки SHEPIT HOUSE',
-                date: applicationBookingUnit ? data.get('date') : undefined,
-                time: applicationBookingUnit ? data.get('time') : undefined,
+                source: applicationBookingUnit ? `masterplan-unit-${applicationBookingUnit.number}-booking` : 'main-site-viewing-booking',
+                date: data.get('date'),
+                time: data.get('time'),
                 device: /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ? '📱 Мобільний' : '💻 Десктоп',
                 timestamp: new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kyiv' })
             })
@@ -201,6 +185,7 @@ applicationForm?.addEventListener('submit', async (event) => {
         const result = await response.json();
         if (!response.ok || !result.success) throw new Error('Lead submission failed');
         applicationForm.reset();
+        applicationPicker?.reset();
         applicationFormView.hidden = true;
         applicationSuccess.hidden = false;
         if (typeof window.shepitTrack === 'function') window.shepitTrack('generate_lead', { form_name: 'application_modal_v2' });
