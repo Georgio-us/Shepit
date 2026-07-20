@@ -411,6 +411,7 @@ document.addEventListener('keydown', (event) => {
 });
 
 const contactForm = document.getElementById('v2-contact-form');
+const contactSuccess = document.querySelector('[data-contact-success]');
 const questionButton = document.querySelector('[data-question-button]');
 const colorTestToggle = document.querySelector('[data-color-test-toggle]');
 const colorTestLabel = document.querySelector('[data-color-test-label]');
@@ -466,7 +467,8 @@ contactForm?.addEventListener('submit', async (event) => {
         if (!response.ok || !result.success) throw new Error('Lead submission failed');
 
         contactForm.reset();
-        if (status) status.textContent = 'Дякуємо. Ми зв’яжемося з вами найближчим часом.';
+        contactForm.hidden = true;
+        if (contactSuccess) contactSuccess.hidden = false;
         if (typeof window.shepitTrack === 'function') window.shepitTrack('generate_lead', { form_name: 'contact_form_v2' });
     } catch (error) {
         console.error(error);

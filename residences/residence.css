@@ -178,6 +178,14 @@ img { display: block; max-width: 100%; }
 .booking-form .pill-action { width: 100%; margin-top: 30px; background: var(--white); color: var(--ink); }
 .booking-form .button-arrow { background: var(--ink); color: var(--white); }
 .booking-note, .form-status { margin: 14px 0 0; color: var(--gray); font-size: 12px; }
+.booking-success { align-self: end; padding: 4px 0; }
+.booking-success[hidden] { display: none; }
+.booking-success__eyebrow { display: block; color: var(--gray); font-size: 12px; letter-spacing: .11em; text-transform: uppercase; }
+.booking-success h3 { margin: 18px 0 0; font-size: clamp(38px, 4vw, 66px); font-weight: 400; line-height: .98; letter-spacing: -.06em; }
+.booking-success p { max-width: 390px; margin: 24px 0 0; color: var(--gray); font-size: 17px; line-height: 1.5; }
+.booking-success a { display: inline-flex; align-items: center; gap: 14px; margin-top: 34px; color: var(--white); font-size: 14px; font-weight: 500; }
+.booking-success .button-arrow { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 50%; background: var(--white); color: var(--ink); }
+.booking-success .button-arrow svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.5; }
 
 .picker {
   position: fixed;
@@ -263,6 +271,7 @@ img { display: block; max-width: 100%; }
   .unit-preview { max-width: none; margin-top: 18px; padding: 18px; }
   .masterplan-legend { gap: 16px; }
   .booking-grid { gap: 60px; }
+  .booking-success h3 { font-size: clamp(44px, 14vw, 64px); }
   .picker { padding: 0; }
   .picker__panel { border-radius: 28px 28px 0 0; }
 }

@@ -55,6 +55,7 @@ lightboxDialog?.addEventListener('touchend', (event) => {
 const application = document.querySelector('[data-catalog-application]');
 const applicationForm = document.querySelector('[data-catalog-application-form]');
 const applicationStatus = document.querySelector('[data-catalog-application-status]');
+const applicationSuccess = document.querySelector('[data-catalog-application-success]');
 const applicationPicker = window.createShepitAppointmentPicker?.({
   trigger: document.querySelector('[data-catalog-application-picker-open]'),
   dateInput: document.querySelector('[data-catalog-application-date]'),
@@ -70,6 +71,8 @@ document.querySelectorAll('[data-catalog-application-open]').forEach((button) =>
   if (!application) return;
   application.hidden = false;
   document.body.classList.add('is-overlay-open');
+  applicationForm.hidden = false;
+  applicationSuccess.hidden = true;
   applicationPicker?.reset();
   applicationForm?.querySelector('input')?.focus();
 }));
@@ -87,10 +90,12 @@ applicationForm?.addEventListener('submit', async (event) => {
   applicationStatus.textContent = 'Надсилаємо заявку…';
   try {
     const response = await fetch('/api/lead', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name: data.get('name'), phone: data.get('phone'), date: data.get('date'), time: data.get('time'), source: 'residences-catalog-viewing' }) });
-    if (!response.ok) throw new Error('Request failed');
+    const result = await response.json();
+    if (!response.ok || !result.success) throw new Error('Request failed');
     applicationForm.reset();
     applicationPicker?.reset();
-    applicationStatus.textContent = 'Дякуємо. Менеджер зв’яжеться з вами найближчим часом.';
+    applicationForm.hidden = true;
+    applicationSuccess.hidden = false;
     if (typeof window.shepitTrack === 'function') window.shepitTrack('generate_lead', { form_name: 'residences_catalog_viewing' });
   } catch (error) {
     applicationStatus.textContent = 'Не вдалося надіслати. Спробуйте ще раз або зателефонуйте нам.';

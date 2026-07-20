@@ -137,6 +137,13 @@ img { display: block; max-width: 100%; }
 .catalog-application__close span + span { transform: rotate(-45deg); }
 .catalog-application form p { min-height: 18px; margin: 0; color: #eab0a8; font-size: 12px; }
 .catalog-application__note { min-height: 0 !important; margin: 26px 0 0 !important; color: rgba(255,255,255,.7) !important; font-size: 14px !important; }
+.catalog-application__success[hidden] { display: none; }
+.catalog-application__success > span { color: #c5a883; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; }
+.catalog-application__success h2 { margin: 22px 0 16px; font-size: clamp(34px,5vw,58px); font-weight: 400; line-height: .95; letter-spacing: -.05em; }
+.catalog-application__success > p { max-width: 38ch; margin: 0; color: rgba(255,255,255,.68); line-height: 1.55; }
+.catalog-application__success a { display: flex; align-items: center; justify-content: space-between; min-height: 68px; margin-top: 34px; padding: 0 10px 0 24px; color: var(--ink); border-radius: 999px; background: var(--white); font-size: 15px; }
+.catalog-application__success a i { display: grid; width: 52px; height: 52px; place-items: center; border-radius: 50%; color: var(--white); background: var(--ink); }
+.catalog-application__success a svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.6; }
 body.is-overlay-open { overflow: hidden; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
 

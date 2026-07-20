@@ -154,6 +154,12 @@ document.querySelector('#app').innerHTML = `
           <p class="booking-note">Менеджер підтвердить обраний час телефоном.</p>
           <p class="form-status" data-form-status aria-live="polite"></p>
         </form>
+        <div class="booking-success" data-booking-success hidden aria-live="polite">
+          <span class="booking-success__eyebrow">Дякуємо</span>
+          <h3>Заявку надіслано</h3>
+          <p>Менеджер зателефонує вам та підтвердить обраний час.</p>
+          <a href="https://t.me/shepit_house" target="_blank" rel="noopener noreferrer"><span>Підписатися на Telegram-канал</span><i class="button-arrow">${arrow}</i></a>
+        </div>
       </div>
     </section>
   </main>
@@ -351,6 +357,7 @@ document.querySelector('[data-booking-form]').addEventListener('submit', async e
   event.preventDefault();
   const form = event.currentTarget;
   const status = form.querySelector('[data-form-status]');
+  const success = document.querySelector('[data-booking-success]');
   const submit = form.querySelector('[type="submit"]');
   const data = new FormData(form);
   if (!data.get('date') || !data.get('time')) {
@@ -376,7 +383,8 @@ document.querySelector('[data-booking-form]').addEventListener('submit', async e
     timeInput.value = '';
     dateTimeLabel.textContent = 'Обрати дату та час';
     document.querySelector('[data-picker-open]').classList.remove('has-value');
-    status.textContent = 'Дякуємо. Менеджер зв’яжеться з вами для підтвердження.';
+    form.hidden = true;
+    success.hidden = false;
     if (typeof window.shepitTrack === 'function') window.shepitTrack('generate_lead', { form_name: 'residence_booking', residence: model.code });
   } catch (error) {
     status.textContent = 'Не вдалося надіслати. Спробуйте ще раз або зателефонуйте нам.';
