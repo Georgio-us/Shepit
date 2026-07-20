@@ -245,6 +245,7 @@ if (galleryViewport && galleryTrack && gallerySlides.length) {
         });
 
         if (galleryProgress) {
+            galleryProgress.style.width = `${100 / gallerySlides.length}%`;
             galleryProgress.style.transform = `translateX(${activeSlide * 100}%)`;
         }
 

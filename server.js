@@ -57,7 +57,108 @@ function formatViewingTime(date, time) {
     return `${formattedDate} · ${time}`;
 }
 
-app.post('/api/lead', (req, res) => {
+function postJson({ hostname, path, headers = {}, body }) {
+    const data = JSON.stringify(body);
+    return new Promise((resolve, reject) => {
+        const request = https.request({
+            hostname,
+            port: 443,
+            path,
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Content-Length': Buffer.byteLength(data),
+                ...headers
+            }
+        }, (response) => {
+            let responseBody = '';
+            response.setEncoding('utf8');
+            response.on('data', (chunk) => { responseBody += chunk; });
+            response.on('end', () => {
+                let parsedBody = null;
+                try { parsedBody = responseBody ? JSON.parse(responseBody) : null; } catch (_) {}
+                if (response.statusCode >= 200 && response.statusCode < 300) {
+                    resolve(parsedBody);
+                    return;
+                }
+                reject(new Error(`Request failed with status ${response.statusCode}`));
+            });
+        });
+        request.on('error', reject);
+        request.write(data);
+        request.end();
+    });
+}
+
+function getKommoConfig() {
+    const subdomain = String(process.env.KOMMO_SUBDOMAIN || '').trim();
+    const token = String(process.env.KOMMO_LONG_LIVED_TOKEN || '').trim();
+    const pipelineId = Number(process.env.KOMMO_PIPELINE_ID);
+    const statusId = Number(process.env.KOMMO_STATUS_ID);
+
+    if (!/^[a-z0-9-]+$/i.test(subdomain) || !token || !Number.isInteger(pipelineId) || !Number.isInteger(statusId)) {
+        return null;
+    }
+
+    return { subdomain, token, pipelineId, statusId };
+}
+
+async function createKommoLead({ name, phone, source, viewingTime, device, timestamp }) {
+    const config = getKommoConfig();
+    if (!config) throw new Error('Kommo credentials missing or invalid');
+
+    const safeName = String(name || '').trim().slice(0, 255);
+    const safePhone = String(phone || '').trim().slice(0, 100);
+    const leadName = `Заявка з сайту — ${safeName || safePhone}`.slice(0, 255);
+    const hostname = `${config.subdomain}.kommo.com`;
+    const authorization = { Authorization: `Bearer ${config.token}` };
+
+    const created = await postJson({
+        hostname,
+        path: '/api/v4/leads/complex',
+        headers: authorization,
+        body: [{
+            name: leadName,
+            pipeline_id: config.pipelineId,
+            status_id: config.statusId,
+            _embedded: {
+                contacts: [{
+                    name: safeName || safePhone,
+                    custom_fields_values: [{
+                        field_code: 'PHONE',
+                        values: [{ value: safePhone }]
+                    }]
+                }]
+            }
+        }]
+    });
+
+    const leadId = Array.isArray(created) ? created[0]?.id : null;
+    if (!leadId) throw new Error('Kommo did not return a lead ID');
+
+    const details = [
+        'Заявка з сайту Shepit House',
+        `Джерело: ${String(source || 'Головна').slice(0, 500)}`,
+        `Пристрій: ${String(device || '—').slice(0, 100)}`,
+        `Час: ${String(timestamp || '—').slice(0, 100)}`,
+        viewingTime ? `Перегляд: ${viewingTime}` : null
+    ].filter(Boolean).join('\n');
+
+    try {
+        await postJson({
+            hostname,
+            path: '/api/v4/leads/notes',
+            headers: authorization,
+            body: [{ entity_id: leadId, note_type: 'common', params: { text: details } }]
+        });
+    } catch (error) {
+        console.error(`[Kommo] Lead ${leadId} created, but note was not added: ${error.message}`);
+    }
+
+    return leadId;
+}
+
+app.post('/api/lead', async (req, res) => {
     const { name, phone, source, date, time } = req.body;
     const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
     const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
@@ -68,6 +169,11 @@ app.post('/api/lead', (req, res) => {
 
     if (!BOT_TOKEN || !CHAT_ID) {
         console.error('[Error] Telegram credentials missing');
+        return res.status(500).json({ success: false });
+    }
+
+    if (!getKommoConfig()) {
+        console.error('[Error] Kommo credentials missing or invalid');
         return res.status(500).json({ success: false });
     }
 
@@ -92,29 +198,21 @@ ${viewingLine}
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 #lead #shepit_house`.trim();
 
-    const data = JSON.stringify({ chat_id: CHAT_ID, text: text, parse_mode: 'HTML' });
-
-    const options = {
-        hostname: 'api.telegram.org',
-        port: 443,
-        path: `/bot${BOT_TOKEN}/sendMessage`,
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Content-Length': Buffer.byteLength(data)
-        }
-    };
-
-    const telegramReq = https.request(options, (telegramRes) => {
-        telegramRes.on('data', () => {});
-        telegramRes.on('end', () => res.json({ success: telegramRes.statusCode === 200 }));
-    });
-
-    telegramReq.on('error', () => res.status(500).json({ success: false }));
-    telegramReq.write(data);
-    telegramReq.end();
-    
-    console.log(`[Lead] Received from ${escapeHtml(name)} (${escapeHtml(phone)})`);
+    try {
+        const [, kommoLeadId] = await Promise.all([
+            postJson({
+                hostname: 'api.telegram.org',
+                path: `/bot${BOT_TOKEN}/sendMessage`,
+                body: { chat_id: CHAT_ID, text, parse_mode: 'HTML' }
+            }),
+            createKommoLead({ name, phone: formattedPhone, source, viewingTime, device, timestamp })
+        ]);
+        console.log(`[Lead] Received from ${escapeHtml(name)} (${escapeHtml(phone)}), Kommo lead ${kommoLeadId}`);
+        res.json({ success: true });
+    } catch (error) {
+        console.error(`[Lead] Delivery failed: ${error.message}`);
+        res.status(502).json({ success: false });
+    }
 });
 
 app.post('/api/newsletter', (req, res) => {

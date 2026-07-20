@@ -4139,24 +4139,7 @@ body.is-media-open {
   }
 
   .payment-v2__zero {
-    min-height: 360px;
-    align-items: flex-end;
-    padding: 3rem 0 2.5rem;
-    border-bottom: 1px solid #cfceca;
-  }
-
-  .payment-v2__zero strong {
-    font-size: clamp(148px, 47vw, 220px);
-  }
-
-  .payment-v2__zero > p {
-    margin-bottom: 0.15rem;
-  }
-
-  .payment-v2__orbit {
-    left: 50%;
-    width: min(92vw, 430px);
-    transform: translate(-50%, -50%);
+    display: none;
   }
 
   .payment-v2__schedule {
