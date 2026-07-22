@@ -1,34 +1,34 @@
 const models = {
   t92: {
-    code: 'T92', type: 'Таунхаус', area: '92 м²', parcel: 'до 2 соток', bedrooms: '3', price: 'від $85 000',
+    code: 'T92', type: 'Таунхаус', area: '100 м²', parcel: '1,5 сотки', bedrooms: '3', price: 'від $85 000',
     description: 'Компактна приватна резиденція для сім\'ї: три спальні, власний двір, тераса та два паркомісця.',
     gallery: ['../../assets/townhouse-front-day.webp', '../../assets/townhouse-front-night.webp', '../../assets/townhouse-back-day.webp', '../../assets/townhouse-back-night.webp'],
     plans: ['../../assets/plan-t92-floor-1.webp', '../../assets/plan-t92-floor-2.webp'],
     rooms: [
-      [['Тамбур', '3,8 м²'], ['Кухня-вітальня', '28,7 м²'], ['Кабінет / спальня', '10,4 м²'], ['Санвузол', '4,2 м²'], ['Тераса', '16 м²']],
-      [['Хол', '6,1 м²'], ['Спальня 01', '12,8 м²'], ['Спальня 02', '11,7 м²'], ['Спальня 03', '14,2 м²'], ['Ванна кімната', '5,4 м²']]
+      [['Тамбур', '2,24 м²'], ['Кабінет', '8,21 м²'], ['Хол', '3,00 м²'], ['Санвузол', '5,99 м²'], ['Сходи', '2,16 м²'], ['Кухня-студія', '23,73 м²']],
+      [['Хол', '3,17 м²'], ['Спальня 01', '9,89 м²'], ['Спальня 02', '10,85 м²'], ['Спальня 03', '12,12 м²'], ['Сходи', '4,32 м²'], ['Санвузол', '6,63 м²']]
     ],
-    related: ['03', '04'], current: '03'
+    related: ['04', '05'], current: '05'
   },
   t102: {
-    code: 'T102', type: 'Таунхаус', area: '102 м²', parcel: 'до 2 соток', bedrooms: '3', price: 'за запитом',
-    description: 'Збільшений формат таунхауса з просторою денною зоною, трьома спальнями та приватною територією.',
+    code: 'T102', type: 'Таунхаус', area: '120 м²', parcel: '2,8 сотки', bedrooms: '4', price: 'за запитом',
+    description: 'Збільшений формат таунхауса з просторою денною зоною, чотирма спальнями та приватною територією.',
     gallery: ['../../assets/townhouse-front-day.webp', '../../assets/townhouse-front-night.webp', '../../assets/townhouse-back-day.webp', '../../assets/townhouse-back-night.webp'],
     plans: ['../../assets/plan-t102-floor-1.webp', '../../assets/plan-t102-floor-2.webp'],
     rooms: [
-      [['Тамбур', '4,1 м²'], ['Кухня-вітальня', '31,2 м²'], ['Кабінет', '10,8 м²'], ['Санвузол', '4,5 м²'], ['Тераса', '18 м²']],
-      [['Хол', '6,8 м²'], ['Спальня 01', '13,5 м²'], ['Спальня 02', '12,1 м²'], ['Спальня 03', '14,8 м²'], ['Ванна кімната', '5,8 м²']]
+      [['Спальня', '12,04 м²'], ['Тамбур', '2,36 м²'], ['Санвузол', '5,99 м²'], ['Сходи', '2,16 м²'], ['Хол', '3,21 м²'], ['Кухня-студія', '28,7 м²']],
+      [['Сходи', '4,32 м²'], ['Хол', '3,17 м²'], ['Спальня 01', '14,63 м²'], ['Спальня 02', '15,33 м²'], ['Спальня 03', '12,12 м²'], ['Санвузол', '6,63 м²']]
     ],
-    related: ['05', '06'], current: '05'
+    related: ['03', '06'], current: '03'
   },
   d101: {
-    code: 'D101', type: 'Дуплекс', area: '101 м²', parcel: 'до 2 соток', bedrooms: '4', price: 'за запитом',
+    code: 'D101', type: 'Дуплекс', area: '101 м²', parcel: '1,6 сотки', bedrooms: '4', price: 'за запитом',
     description: 'Просторий дуплекс для великої родини: чотири спальні, власний двір, тераса та окремий вхід.',
     gallery: ['../../assets/duplex-front-day.webp', '../../assets/duplex-front-night.webp', '../../assets/duplex-back-day.webp', '../../assets/duplex-back-night.webp'],
     plans: ['../../assets/plan-d101-floor-1.webp', '../../assets/plan-d101-floor-2.webp'],
     rooms: [
-      [['Тамбур', '3,9 м²'], ['Кухня-вітальня', '26,7 м²'], ['Гостьова спальня', '11,2 м²'], ['Санвузол', '4,4 м²'], ['Тераса', '17 м²']],
-      [['Хол', '6,5 м²'], ['Спальня 01', '12,6 м²'], ['Спальня 02', '11,9 м²'], ['Спальня 03', '13,8 м²'], ['Ванна кімната', '5,6 м²']]
+      [['Тамбур', '2,36 м²'], ['Кухня-вітальня', '26,67 м²'], ['Гостьова спальня', '9,26 м²'], ['Санвузол', '4,4 м²'], ['Хол', '3,21 м²'], ['Сходи', '2,16 м²']],
+      [['Хол', '3,17 м²'], ['Спальня 01', '11,47 м²'], ['Спальня 02', '13,01 м²'], ['Спальня 03', '12,77 м²'], ['Сходи', '4,32 м²'], ['Санвузол', '6,63 м²']]
     ],
     related: ['01', '02', '07', '08'], current: '01'
   }
@@ -39,9 +39,10 @@ const model = models[key] || models.t92;
 const arrow = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5"></path><path d="M9 5h10v10"></path></svg>';
 const calendarIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18"/></svg>';
 const walletIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7.5h15a2 2 0 0 1 2 2v9H5a2 2 0 0 1-2-2v-11a2 2 0 0 1 2-2h12v4"/><circle cx="17" cy="13" r="1"/></svg>';
+const mapUrl = 'https://www.google.com/maps/search/?api=1&query=%D0%9A%D0%BE%D1%82%D0%B5%D0%B4%D0%B6%D0%BD%D0%B5+%D0%BC%D1%96%D1%81%D1%82%D0%B5%D1%87%D0%BA%D0%BE+Shepit+House%2C+%D0%B2%D1%83%D0%BB.+%D0%9B%D1%96%D1%81%D0%BE%D0%B2%D0%B0%2C+%D0%9D%D0%BE%D0%B2%D1%96+%D0%9F%D0%B5%D1%82%D1%80%D1%96%D0%B2%D1%86%D1%96%2C+%D0%9A%D0%B8%D1%97%D0%B2%D1%81%D1%8C%D0%BA%D0%B0+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C%2C+07354';
 
 const pinData = [
-  ['03','36.82%','16.62%','33.53%','t92', 'available'], ['04','46.78%','16.62%','45.98%','t92', 'sold'], ['05','55.69%','16.62%','57.11%','t102', 'available'], ['06','65.97%','16.62%','69.96%','t102', 'sold'],
+  ['03','36.82%','16.62%','33.53%','t102', 'available'], ['04','46.78%','16.62%','45.98%','t92', 'sold'], ['05','55.69%','16.62%','57.11%','t92', 'available'], ['06','65.97%','16.62%','69.96%','t102', 'sold'],
   ['02','32.14%','29.91%','27.68%','d101', 'available'], ['01','29.54%','49.76%','24.43%','d101', 'available'], ['07','71.11%','29.91%','76.39%','d101', 'available'], ['08','72.48%','49.76%','78.10%','d101', 'available']
 ];
 
@@ -55,7 +56,7 @@ document.querySelector('#app').innerHTML = `
         </div>
         <div class="residence-summary__body">
           <div class="residence-summary__identity">
-            <p class="residence-kicker">Приватна резиденція · Нові Петрівці</p>
+            <p class="residence-kicker">Київська область · Вишгородський район · с. Нові Петрівці · вул. Лісова</p>
             <h1 class="residence-title" id="residence-title">${model.code}</h1>
             <nav class="residence-tabs" aria-label="Типи резиденцій">
               ${Object.entries(models).map(([id, item]) => `<a href="../${id}/" class="${id === key ? 'is-active' : ''}" ${id === key ? 'aria-current="page"' : ''}>${item.code}</a>`).join('')}
@@ -70,6 +71,7 @@ document.querySelector('#app').innerHTML = `
             <div class="residence-price"><strong>${model.price}</strong><span>готовий будинок</span></div>
             <div class="residence-actions">
               <a class="pill-action" href="#booking"><span>Записатися на перегляд</span><i class="button-arrow">${arrow}</i></a>
+              <a class="secondary-action" href="${mapUrl}" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.12 7-12A7 7 0 0 0 5 9c0 5.88 7 12 7 12Z"/><circle cx="12" cy="9" r="2.35"/></svg><span>Прокласти маршрут</span></a>
               <a class="secondary-action" href="../../output/pdf/shepit-house-${model.code.toLowerCase()}.pdf" download aria-label="Завантажити PDF-презентацію ${model.code}"><svg viewBox="0 0 24 24"><path d="M6 2h8l4 4v16H6zM14 2v5h5M8.5 16.5h7M8.5 13h7"/></svg><span>Завантажити PDF</span></a>
             </div>
             <a class="residence-installment" href="../../calculator/?unit=${key}">${walletIcon}<span>Доступна розстрочка · відкрити калькулятор</span></a>

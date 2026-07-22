@@ -1,6 +1,6 @@
 const modelData = {
-  t92: { code: 'T92', type: 'Таунхаус', area: '92 м²', url: 't92/' },
-  t102: { code: 'T102', type: 'Таунхаус', area: '102 м²', url: 't102/' },
+  t92: { code: 'T92', type: 'Таунхаус', area: '100 м²', url: 't92/' },
+  t102: { code: 'T102', type: 'Таунхаус', area: '120 м²', url: 't102/' },
   d101: { code: 'D101', type: 'Дуплекс', area: '101 м²', url: 'd101/' }
 };
 

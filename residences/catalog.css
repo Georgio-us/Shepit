@@ -106,7 +106,8 @@ img { display: block; max-width: 100%; }
 .catalog-plan__legend .is-sold { background: #343337; }
 .catalog-cta { display: grid; grid-template-columns: .65fr 1.35fr; gap: 60px; padding-top: clamp(100px,10vw,190px); padding-bottom: clamp(100px,10vw,190px); }
 .catalog-cta > div > p { margin-top: 34px; }
-.catalog-footer { display: grid; grid-template-columns: 1fr 1.2fr 1fr auto; gap: 40px; align-items: end; min-height: 210px; padding-block: 54px; color: var(--silver); background: var(--ink); }
+.catalog-footer { display: grid; grid-template-columns: 1.3fr 1.2fr 1fr auto; gap: 40px; align-items: end; min-height: 250px; padding-block: 54px; color: var(--silver); background: var(--ink); }
+.catalog-footer__identity { display: grid; gap: 12px; }.catalog-footer__identity strong { color: var(--white); font-size: 13px; font-weight: 500; line-height: 1.45; }.catalog-footer__identity a:last-child { color: var(--white); font-size: 13px; font-weight: 500; }
 .catalog-footer nav { display: flex; gap: 26px; font-size: 14px; }
 .catalog-footer > div { display: flex; flex-direction: column; gap: 8px; font-size: 14px; }
 .catalog-footer p { margin: 0; font-size: 13px; white-space: nowrap; }

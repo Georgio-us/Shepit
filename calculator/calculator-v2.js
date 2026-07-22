@@ -1,8 +1,8 @@
 const form = document.querySelector('[data-calculator-form]');
 
 const units = {
-  t92: { code: 'T92', type: 'Таунхаус', area: 92 },
-  t102: { code: 'T102', type: 'Таунхаус', area: 102 },
+  t92: { code: 'T92', type: 'Таунхаус', area: 100 },
+  t102: { code: 'T102', type: 'Таунхаус', area: 120 },
   d101: { code: 'D101', type: 'Дуплекс', area: 101 }
 };
 

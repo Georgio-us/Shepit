@@ -45,6 +45,14 @@ Each indexable page must have:
 
 Blog articles additionally carry `Article` structured data. The homepage carries `Organization` and `WebSite` JSON-LD with the project contact details. Structured data must reflect visible, current information only.
 
+## Location consistency
+
+The approved full visible address is:
+
+`Київська область, Вишгородський район, с. Нові Петрівці, вул. Лісова`
+
+Use the exact full version in contact blocks and footers. For titles and metadata, use the concise natural phrase `с. Нові Петрівці, Вишгородський район`; do not add a house number, postal code, or a competing version of the address. Location mentions must remain useful to visitors and must not be repeated mechanically. All route links must use the same approved Google Maps destination.
+
 ## Crawling and sitemap
 
 `robots.txt` permits crawling of the public site and points only to `https://www.shepit-house.com.ua/sitemap.xml`.

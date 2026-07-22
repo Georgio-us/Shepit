@@ -102,7 +102,7 @@ img { display: block; max-width: 100%; }
 .residence-price { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; padding-top: 28px; }
 .residence-price strong { font-size: clamp(35px, 2.7vw, 52px); font-weight: 400; letter-spacing: -.055em; }
 .residence-price span { padding-bottom: 7px; color: var(--gray); font-size: 13px; }
-.residence-actions { display: grid; grid-template-columns: 1fr auto; gap: 12px; margin-top: 28px; }
+.residence-actions { display: grid; grid-template-columns: 1fr auto auto; gap: 12px; margin-top: 28px; }
 .pill-action { display: inline-flex; min-height: 64px; align-items: center; justify-content: space-between; gap: 16px; padding-left: 26px; border: 0; border-radius: 999px; background: var(--ink); color: var(--white); font-size: 15px; font-weight: 500; }
 .button-arrow { display: grid; width: 54px; height: 54px; flex: 0 0 auto; place-items: center; margin-right: 5px; border-radius: 50%; background: var(--white); color: var(--ink); }
 .secondary-action { display: inline-flex; min-height: 64px; align-items: center; gap: 13px; padding: 0 22px; border: 1px solid var(--line); border-radius: 999px; background: transparent; font-size: 14px; }
