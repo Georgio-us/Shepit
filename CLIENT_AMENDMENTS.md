@@ -233,7 +233,7 @@
 
 - телефон и Viber: `+38 (095) 073 43 76`;
 - e-mail: `shepit.house@gmail.com`;
-- Telegram для переписки: `https://t.me/shepithouse`;
+- Telegram для переписки: `https://t.me/Liliia_Horodnia`;
 - Telegram-канал: `https://t.me/shepit_house`;
 - график отдела продаж: ежедневно `09:00–19:00`;
 - Instagram: `https://www.instagram.com/shepit_house/`;
