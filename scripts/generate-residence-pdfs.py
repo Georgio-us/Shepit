@@ -24,49 +24,64 @@ MUTED = HexColor("#73766C")
 LINE = HexColor("#D8D9D1")
 GRAPHITE = HexColor("#202123")
 GRAPHITE_SOFT = HexColor("#303234")
+CONTACTS = {
+    "address": "Київська область, Вишгородський район, с. Нові Петрівці, вул. Лісова",
+    "hours": "Щодня 09:00–19:00",
+    "phone": "+38 (095) 073 43 76",
+    "email": "shepit.house@gmail.com",
+}
+TITLE_IMAGE = "duplex_visual_1.webp"
 
 FONT_REGULAR = "/System/Library/Fonts/Supplemental/Arial Unicode.ttf"
 FONT_BOLD = "/System/Library/Fonts/Supplemental/Arial Bold.ttf"
 
 MODELS = {
     "T92": {
-        "type": "Таунхаус", "area": "100 м²", "parcel": "1,5 сотки", "bedrooms": "3", "price": "від $85 000",
+        "type": "Таунхаус", "area": "100 м²", "parcel": "1,5 сотки", "bedrooms": "3", "price": "Ціна за запитом",
         "description": "Компактна приватна резиденція для сім'ї: три спальні, власний двір, тераса та два паркомісця.",
-        "hero": "townhouse-front-day.webp",
         "gallery": ["townhouse-front-night.webp", "townhouse-back-day.webp", "townhouse-back-night.webp"],
         "plans": ["92_Tаунхаус_3_1 этаж.png", "92_Tаунхаус_3_2 этаж.png"],
-        "current": "05", "pin": (0.5569, 0.1662),
+        "current": "05", "pin_v2": (0.54, 0.258),
         "rooms": [[("Тамбур", "2,24 м²"), ("Кабінет", "8,21 м²"), ("Хол", "3,00 м²"), ("Санвузол", "5,99 м²"), ("Сходи", "2,16 м²"), ("Кухня-студія", "23,73 м²")], [("Хол", "3,17 м²"), ("Спальня 01", "9,89 м²"), ("Спальня 02", "10,85 м²"), ("Спальня 03", "12,12 м²"), ("Сходи", "4,32 м²"), ("Санвузол", "6,63 м²")]],
     },
     "T102": {
-        "type": "Таунхаус", "area": "120 м²", "parcel": "2,8 сотки", "bedrooms": "4", "price": "за запитом",
+        "type": "Таунхаус", "area": "120 м²", "parcel": "2,8 сотки", "bedrooms": "4", "price": "Ціна за запитом",
         "description": "Збільшений формат таунхауса з просторою денною зоною, чотирма спальнями та приватною територією.",
-        "hero": "townhouse-front-night.webp",
         "gallery": ["townhouse-front-day.webp", "townhouse-back-day.webp", "townhouse-back-night.webp"],
         "plans": ["102_Tаунхаус_4_1 этаж.png", "102_Tаунхаус_4_2 этаж.png"],
-        "current": "03", "pin": (0.3682, 0.1662),
+        "current": "03", "pin_v2": (0.39, 0.258),
         "rooms": [[("Спальня", "12,04 м²"), ("Тамбур", "2,36 м²"), ("Санвузол", "5,99 м²"), ("Сходи", "2,16 м²"), ("Хол", "3,21 м²"), ("Кухня-студія", "28,7 м²")], [("Сходи", "4,32 м²"), ("Хол", "3,17 м²"), ("Спальня 01", "14,63 м²"), ("Спальня 02", "15,33 м²"), ("Спальня 03", "12,12 м²"), ("Санвузол", "6,63 м²")]],
     },
     "D101": {
-        "type": "Дуплекс", "area": "101 м²", "parcel": "1,6 сотки", "bedrooms": "4", "price": "за запитом",
+        "type": "Дуплекс", "area": "101 м²", "parcel": "1,6 сотки", "bedrooms": "4", "price": "Ціна за запитом",
         "description": "Просторий дуплекс для великої родини: чотири спальні, власний двір, тераса та окремий вхід.",
-        "hero": "duplex-front-day.webp",
         "gallery": ["duplex-front-night.webp", "duplex-back-day.webp", "duplex-back-night.webp"],
         "plans": ["101_Дуплекс_2_1этаж.png", "101_Дуплекс_2_2этаж.png"],
-        "current": "01", "pin": (0.2954, 0.4976),
+        "current": "01", "pin_v2": (0.385, 0.52),
         "rooms": [[("Тамбур", "2,36 м²"), ("Кухня-вітальня", "26,67 м²"), ("Гостьова спальня", "9,26 м²"), ("Санвузол", "4,4 м²"), ("Хол", "3,21 м²"), ("Сходи", "2,16 м²")], [("Хол", "3,17 м²"), ("Спальня 01", "11,47 м²"), ("Спальня 02", "13,01 м²"), ("Спальня 03", "12,77 м²"), ("Сходи", "4,32 м²"), ("Санвузол", "6,63 м²")]],
     },
 }
 
-SPECIFICATIONS = [
-    ("Каркас", "Монолітний залізобетонний каркас будинку."),
-    ("Стіни", "Керамоблок із теплоізоляційним контуром."),
-    ("Фасад", "Клінкерна цегла та сучасні панелі."),
-    ("Утеплення", "Мінеральна вата по всьому фасаду."),
-    ("Вікна", "Панорамні енергоефективні алюмінієві системи."),
-    ("Опалення", "Індивідуальна система кожної резиденції."),
-    ("Електрика", "Окреме підключення та резерв потужності."),
-    ("Інженерія", "Автономні підведені комунікації."),
+SPECIFICATION_GROUPS = [
+    ("Конструктивні елементи", [
+        ("Фундамент", "залізобетонний, монолітний, стрічковий"),
+        ("Стіни", "піноблок"),
+        ("Сходи", "внутрішні монолітні"),
+        ("Фасад", "утеплення мінеральною ватою"),
+        ("Вікна", "енергозберігаючі, двокамерний склопакет"),
+        ("Дах", "металочерепиця, утеплення мінеральною ватою"),
+    ]),
+    ("Інженерні мережі", [
+        ("Водопостачання", "ввід холодної води від власних свердловин комплексу"),
+        ("Водовідведення", "підведене до резиденції"),
+        ("Електрика", "ввід електричної мережі до 10 кВт"),
+        ("Газ", "ввід газу з лічильником"),
+        ("Інтернет", "оптоволоконний кабель швидкісного інтернету"),
+    ]),
+    ("Енергоефективність", [
+        ("Сонячні панелі", "плаский дах із можливістю монтажу сонячних панелей"),
+        ("Резервне живлення", "технічне приміщення для гібридного інвертора та акумуляторних батарей"),
+    ]),
 ]
 
 
@@ -160,22 +175,33 @@ def header(c, code, page, dark=False):
 
 
 def cover(c, code, model):
-    image(c, model["hero"], 0, 0, PAGE_W, PAGE_H)
-    c.setFillColor(Color(.05, .06, .06, alpha=.2)); c.rect(0, 0, PAGE_W, PAGE_H, fill=1, stroke=0)
-    gradient(c, 0, 0, PAGE_W, 330, GRAPHITE, OLIVE)
-    c.setStrokeColor(Color(1, 1, 1, alpha=.45)); c.setLineWidth(.6); c.rect(18, 18, PAGE_W - 36, PAGE_H - 36, stroke=1, fill=0)
-    text(c, "SHEPIT", 42, PAGE_H - 54, 12, white, True); text(c, "HOUSE", 89, PAGE_H - 54, 12, white)
-    text(c, "ПРИВАТНА РЕЗИДЕНЦІЯ  ·  НОВІ ПЕТРІВЦІ", 42, PAGE_H - 80, 8.5, white)
-    small_rule(c, 42, 307, PAGE_W - 84, Color(1, 1, 1, alpha=.32))
-    text(c, code, 42, 208, 60, white)
-    text(c, model["type"], 44, 181, 15, white)
-    text(c, f"{model['area']}   /   {model['bedrooms']} СПАЛЬНІ   /   {model['parcel'].upper()}", 44, 146, 10, white)
-    text(c, model["price"].upper(), 44, 84, 16, white)
-    text(c, "ГОТОВИЙ БУДИНОК", 44, 65, 8.5, white)
+    # The source is a 16:9 render. Keeping it in a matching frame prevents the
+    # close-up crop that the previous full-page cover produced.
+    c.setFillColor(OLIVE); c.rect(0, 0, PAGE_W, PAGE_H, fill=1, stroke=0)
+    text(c, "SHEPIT", 42, PAGE_H - 51, 12, white, True); text(c, "HOUSE", 89, PAGE_H - 51, 12, white)
+    text(c, "ПРИВАТНА РЕЗИДЕНЦІЯ  ·  НОВІ ПЕТРІВЦІ", 42, PAGE_H - 76, 8.5, white)
+    image(c, TITLE_IMAGE, 0, 390, PAGE_W, 332)
+    small_rule(c, 42, 359, PAGE_W - 84, Color(1, 1, 1, alpha=.32))
+    text(c, code, 42, 264, 53, white)
+    text(c, model["type"], 44, 238, 15, white)
+    text(c, f"{model['area']}   /   {model['bedrooms']} СПАЛЬНІ   /   {model['parcel'].upper()}", 44, 205, 10, white)
+    text(c, model["price"].upper(), 44, 122, 15, white)
+    # A distinct contact card makes the lower part of the cover intentional,
+    # rather than leaving the sales details as a small block of loose text.
+    card_x, card_y, card_w, card_h = 342, 113, 211, 134
+    c.setFillColor(Color(1, 1, 1, alpha=.075))
+    c.roundRect(card_x, card_y, card_w, card_h, 10, fill=1, stroke=0)
+    c.setStrokeColor(Color(1, 1, 1, alpha=.3)); c.setLineWidth(.6)
+    c.roundRect(card_x, card_y, card_w, card_h, 10, fill=0, stroke=1)
+    text(c, "ВІДДІЛ ПРОДАЖУ", card_x + 16, card_y + 105, 8.5, OLIVE_LIGHT, True)
+    small_rule(c, card_x + 16, card_y + 91, card_w - 32, Color(1, 1, 1, alpha=.28))
+    text(c, CONTACTS["hours"], card_x + 16, card_y + 70, 10.5, white, True)
+    text(c, CONTACTS["phone"], card_x + 16, card_y + 43, 10.5, white, True)
+    text(c, CONTACTS["email"], card_x + 16, card_y + 21, 9, white)
 
 
 def lifestyle(c, code, model):
-    gradient(c, 0, 0, PAGE_W, PAGE_H, GRAPHITE, OLIVE)
+    c.setFillColor(OLIVE); c.rect(0, 0, PAGE_W, PAGE_H, fill=1, stroke=0)
     header(c, code, 2, True)
     text(c, "Простір,", 42, PAGE_H - 118, 34, white)
     text(c, "продуманий для життя.", 42, PAGE_H - 155, 34, white)
@@ -183,6 +209,10 @@ def lifestyle(c, code, model):
     image(c, model["gallery"][0], 42, 294, 250, 174)
     image(c, model["gallery"][1], 307, 294, 246, 174)
     image(c, model["gallery"][2], 42, 61, 511, 202)
+    small_rule(c, 42, 279, 511, Color(1, 1, 1, alpha=.24))
+    text(c, "01", 42, 271, 6.5, OLIVE_LIGHT)
+    text(c, "02", 307, 271, 6.5, OLIVE_LIGHT)
+    text(c, "03", 42, 47, 6.5, OLIVE_LIGHT)
     metrics = [("Площа", model["area"]), ("Ділянка", model["parcel"]), ("Спальні", model["bedrooms"])]
     for index, (label, value) in enumerate(metrics):
         x = 42 + index * 171
@@ -197,44 +227,61 @@ def plan_page(c, code, model, floor):
     text(c, f"0{floor + 1}", 42, PAGE_H - 140, 13, OLIVE_LIGHT)
     text(c, "Перший поверх" if floor == 0 else "Другий поверх", 42, PAGE_H - 182, 32, white)
     text(c, "Планування резиденції", 42, PAGE_H - 205, 10, OLIVE_LIGHT)
-    c.setFillColor(HexColor("#F5F4EE")); c.roundRect(42, 150, PAGE_W - 84, 395, 20, fill=1, stroke=0)
-    image_contain(c, model["plans"][floor], 60, 167, PAGE_W - 120, 360, source=True)
+    c.setFillColor(HexColor("#F5F4EE")); c.roundRect(42, 178, PAGE_W - 84, 365, 20, fill=1, stroke=0)
+    image_contain(c, model["plans"][floor], 70, 195, PAGE_W - 140, 330, source=True)
+    small_rule(c, 42, 157, PAGE_W - 84, Color(1, 1, 1, alpha=.3))
     for index, (name, area) in enumerate(model["rooms"][floor]):
         x = 42 + (index % 2) * 255
-        y = 110 - (index // 2) * 25
-        text(c, name, x, y, 8.5, white)
-        c.setFont("Shepit", 8.5); c.setFillColor(OLIVE_LIGHT); c.drawRightString(x + 230, y, area)
+        y = 128 - (index // 2) * 29
+        text(c, name, x, y, 10, white, True)
+        c.setFont("ShepitBold", 10); c.setFillColor(OLIVE_LIGHT); c.drawRightString(x + 230, y, area)
 
 
 def details(c, code, model):
     c.setFillColor(HexColor("#F4F3EE")); c.rect(0, 0, PAGE_W, PAGE_H, fill=1, stroke=0)
     header(c, code, 5)
-    text(c, "Архітектура", 42, PAGE_H - 106, 31, OLIVE)
-    text(c, "і розташування.", 42, PAGE_H - 142, 31, OLIVE)
-    for index, (title, body) in enumerate(SPECIFICATIONS):
-        col, row = index % 2, index // 2
-        x, y = 42 + col * 260, 590 - row * 48
-        text(c, title.upper(), x, y, 8.5, OLIVE)
-        wrapped(c, body, x, y - 15, 220, 10, 8.3, MUTED)
-    text(c, "Резиденція на генплані", 42, 328, 16, OLIVE)
-    map_x, map_y, map_w, map_h = 42, 92, 340, 205
-    image(c, "visual_2.webp", map_x, map_y, map_w, map_h)
-    pin_x = map_x + map_w * model["pin"][0]
-    pin_y = map_y + map_h * (1 - model["pin"][1])
+    text(c, "Технічні характеристики", 42, PAGE_H - 106, 25, OLIVE)
+    text(c, "та розташування.", 42, PAGE_H - 138, 25, OLIVE)
+    # Three short columns retain the complete specification without turning
+    # this final page into a long technical appendix.
+    column_w = 156
+    for column, (group_title, items) in enumerate(SPECIFICATION_GROUPS):
+        x, y = 42 + column * 171, 615
+        text(c, group_title.upper(), x, y, 8.1, OLIVE, True)
+        small_rule(c, x, y - 10, column_w, LINE)
+        cursor = y - 25
+        for number, (title, body) in enumerate(items, start=1):
+            text(c, f"{number:02d}", x, cursor, 6.8, MUTED, True)
+            text(c, title, x + 18, cursor, 7.5, OLIVE, True)
+            cursor = wrapped(c, body, x + 18, cursor - 10, column_w - 18, 8.3, 7.1, MUTED) - 8
+
+    text(c, "Резиденція на генплані", 42, 365, 16, OLIVE)
+    map_x, map_y, map_w, map_h = 42, 96, 390, 247
+    image(c, "genplan-ajusted.webp", map_x, map_y, map_w, map_h)
+    pin_x = map_x + map_w * model["pin_v2"][0]
+    pin_y = map_y + map_h * (1 - model["pin_v2"][1])
     c.setFillColor(white)
     c.circle(pin_x, pin_y, 11, fill=1, stroke=0)
     c.setStrokeColor(OLIVE); c.setLineWidth(1.4); c.circle(pin_x, pin_y, 17, stroke=1, fill=0)
     c.setFillColor(OLIVE)
     c.setFont("Shepit", 7); c.drawCentredString(pin_x, pin_y - 2.5, model["current"])
+
+    # Horizontal contact footer: a compact, readable closing element that
+    # keeps the address, hours and sales contacts together.
     c.setFillColor(OLIVE)
-    c.rect(410, 92, 143, 205, fill=1, stroke=0)
-    text(c, "SHEPIT HOUSE", 426, 261, 9, white, True)
-    small_rule(c, 426, 244, 110, Color(1, 1, 1, alpha=.35))
-    text(c, "вул. Лісова", 426, 218, 11, white)
-    text(c, "Нові Петрівці", 426, 200, 11, white)
-    text(c, "+38 (095) 073 43 76", 426, 151, 10, white)
-    text(c, "Відділ продажу", 426, 133, 8, OLIVE_LIGHT)
-    text(c, "shepit-house.com.ua", 426, 109, 8, white)
+    c.roundRect(42, 25, PAGE_W - 84, 53, 8, fill=1, stroke=0)
+    footer_x = [58, 205, 330, 448]
+    for divider_x in [190, 315, 433]:
+        c.setStrokeColor(Color(1, 1, 1, alpha=.25)); c.setLineWidth(.5)
+        c.line(divider_x, 39, divider_x, 64)
+    text(c, "SHEPIT HOUSE", footer_x[0], 59, 7.2, OLIVE_LIGHT, True)
+    wrapped(c, "Київська обл., Вишгородський р-н, Нові Петрівці, вул. Лісова", footer_x[0], 47, 120, 7.8, 6.8, white)
+    text(c, "ВІДДІЛ ПРОДАЖУ", footer_x[1], 59, 7.2, OLIVE_LIGHT, True)
+    text(c, CONTACTS["hours"], footer_x[1], 43, 8, white, True)
+    text(c, CONTACTS["phone"], footer_x[2], 59, 8.1, white, True)
+    text(c, CONTACTS["email"], footer_x[2], 43, 7.2, white)
+    text(c, "Уточніть деталі", footer_x[3], 59, 7.2, OLIVE_LIGHT, True)
+    wrapped(c, "у менеджера відділу продажу.", footer_x[3], 47, 88, 8.3, 7.1, white)
 
 
 def build(code, model):

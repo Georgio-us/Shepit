@@ -289,7 +289,10 @@ if (galleryViewport && galleryTrack && gallerySlides.length) {
 const v2Masterplan = document.querySelector('[data-v2-masterplan]');
 
 if (v2Masterplan) {
-    const pins = Array.from(v2Masterplan.querySelectorAll('.plan-pin'));
+    const masterplanSection = v2Masterplan.closest('.plan-v2');
+    const canvases = Array.from(v2Masterplan.querySelectorAll('[data-plan-version-canvas]'));
+    const versionButtons = Array.from(masterplanSection?.querySelectorAll('[data-plan-version]') || []);
+    const allPins = Array.from(v2Masterplan.querySelectorAll('.plan-pin'));
     const unitButtons = Array.from(v2Masterplan.querySelectorAll('[data-plan-target]'));
     const numberOutput = v2Masterplan.querySelector('[data-plan-number]');
     const typeOutput = v2Masterplan.querySelector('[data-plan-type-output]');
@@ -298,10 +301,17 @@ if (v2Masterplan) {
     const bedroomsOutput = v2Masterplan.querySelector('[data-plan-bedrooms-output]');
     const detailsLink = v2Masterplan.querySelector('[data-plan-link]');
     const selectedPanel = v2Masterplan.querySelector('.plan-v2__selected');
+    let activeCanvas = canvases.find((canvas) => canvas.classList.contains('is-active')) || canvases[0];
+    let selectedUnit = '01';
+
+    const activePins = () => Array.from(activeCanvas?.querySelectorAll('.plan-pin') || []);
 
     const selectUnit = (unitId) => {
+        const pins = activePins();
         const pin = pins.find((item) => item.dataset.planUnit === unitId);
         if (!pin) return;
+
+        selectedUnit = unitId;
 
         pins.forEach((item) => item.classList.toggle('is-active', item === pin));
         unitButtons.forEach((item) => item.classList.toggle('is-active', item.dataset.planTarget === unitId));
@@ -324,14 +334,42 @@ if (v2Masterplan) {
         }
     };
 
-    pins.forEach((pin) => {
-        pin.addEventListener('click', () => selectUnit(pin.dataset.planUnit));
-        pin.addEventListener('mouseenter', () => selectUnit(pin.dataset.planUnit));
-        pin.addEventListener('focus', () => selectUnit(pin.dataset.planUnit));
+    allPins.forEach((pin) => {
+        const isInActiveCanvas = () => pin.closest('[data-plan-version-canvas]') === activeCanvas;
+        pin.addEventListener('click', () => {
+            if (!isInActiveCanvas()) return;
+            if (activeCanvas.dataset.planVersionCanvas === '1' && pin.dataset.planUrl) {
+                window.location.assign(pin.dataset.planUrl);
+                return;
+            }
+            selectUnit(pin.dataset.planUnit);
+        });
+        pin.addEventListener('mouseenter', () => isInActiveCanvas() && selectUnit(pin.dataset.planUnit));
+        pin.addEventListener('focus', () => isInActiveCanvas() && selectUnit(pin.dataset.planUnit));
     });
 
     unitButtons.forEach((button) => {
         button.addEventListener('click', () => selectUnit(button.dataset.planTarget));
+    });
+
+    versionButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const nextCanvas = canvases.find((canvas) => canvas.dataset.planVersionCanvas === button.dataset.planVersion);
+            if (!nextCanvas || nextCanvas === activeCanvas) return;
+
+            activeCanvas = nextCanvas;
+            canvases.forEach((canvas) => {
+                const isActive = canvas === activeCanvas;
+                canvas.classList.toggle('is-active', isActive);
+                canvas.setAttribute('aria-hidden', String(!isActive));
+            });
+            versionButtons.forEach((item) => {
+                const isActive = item === button;
+                item.classList.toggle('is-active', isActive);
+                item.setAttribute('aria-pressed', String(isActive));
+            });
+            selectUnit(selectedUnit);
+        });
     });
 }
 

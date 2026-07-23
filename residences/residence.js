@@ -4,6 +4,7 @@ const models = {
     description: 'Компактна приватна резиденція для сім\'ї: три спальні, власний двір, тераса та два паркомісця.',
     gallery: ['../../assets/townhouse-front-day.webp', '../../assets/townhouse-front-night.webp', '../../assets/townhouse-back-day.webp', '../../assets/townhouse-back-night.webp'],
     plans: ['../../assets/plan-t92-floor-1.webp', '../../assets/plan-t92-floor-2.webp'],
+    furnishedPlans: ['../../assets/plan-t92-floor-1-furnished.webp', '../../assets/plan-t92-floor-2-furnished.webp'],
     rooms: [
       [['Тамбур', '2,24 м²'], ['Кабінет', '8,21 м²'], ['Хол', '3,00 м²'], ['Санвузол', '5,99 м²'], ['Сходи', '2,16 м²'], ['Кухня-студія', '23,73 м²']],
       [['Хол', '3,17 м²'], ['Спальня 01', '9,89 м²'], ['Спальня 02', '10,85 м²'], ['Спальня 03', '12,12 м²'], ['Сходи', '4,32 м²'], ['Санвузол', '6,63 м²']]
@@ -15,6 +16,7 @@ const models = {
     description: 'Збільшений формат таунхауса з просторою денною зоною, чотирма спальнями та приватною територією.',
     gallery: ['../../assets/townhouse-front-day.webp', '../../assets/townhouse-front-night.webp', '../../assets/townhouse-back-day.webp', '../../assets/townhouse-back-night.webp'],
     plans: ['../../assets/plan-t102-floor-1.webp', '../../assets/plan-t102-floor-2.webp'],
+    furnishedPlans: ['../../assets/plan-t102-floor-1-furnished.webp', '../../assets/plan-t102-floor-2-furnished.webp'],
     rooms: [
       [['Спальня', '12,04 м²'], ['Тамбур', '2,36 м²'], ['Санвузол', '5,99 м²'], ['Сходи', '2,16 м²'], ['Хол', '3,21 м²'], ['Кухня-студія', '28,7 м²']],
       [['Сходи', '4,32 м²'], ['Хол', '3,17 м²'], ['Спальня 01', '14,63 м²'], ['Спальня 02', '15,33 м²'], ['Спальня 03', '12,12 м²'], ['Санвузол', '6,63 м²']]
@@ -24,8 +26,9 @@ const models = {
   d101: {
     code: 'D101', type: 'Дуплекс', area: '101 м²', parcel: '1,6 сотки', bedrooms: '4', price: 'за запитом',
     description: 'Просторий дуплекс для великої родини: чотири спальні, власний двір, тераса та окремий вхід.',
-    gallery: ['../../assets/duplex-front-day.webp', '../../assets/duplex-front-night.webp', '../../assets/duplex-back-day.webp', '../../assets/duplex-back-night.webp'],
+    gallery: ['../../assets/duplex-front-day.webp', '../../assets/duplex-front-night.webp', '../../assets/duplex-back-day.webp', '../../assets/duplex-back-night.webp', '../../assets/duplex-visual-more.webp'],
     plans: ['../../assets/plan-d101-floor-1.webp', '../../assets/plan-d101-floor-2.webp'],
+    furnishedPlans: ['../../assets/plan-d101-floor-1-furnished.webp', '../../assets/plan-d101-floor-2-furnished.webp'],
     rooms: [
       [['Тамбур', '2,36 м²'], ['Кухня-вітальня', '26,67 м²'], ['Гостьова спальня', '9,26 м²'], ['Санвузол', '4,4 м²'], ['Хол', '3,21 м²'], ['Сходи', '2,16 м²']],
       [['Хол', '3,17 м²'], ['Спальня 01', '11,47 м²'], ['Спальня 02', '13,01 м²'], ['Спальня 03', '12,77 м²'], ['Сходи', '4,32 м²'], ['Санвузол', '6,63 м²']]
@@ -33,6 +36,43 @@ const models = {
     related: ['01', '02', '07', '08'], current: '01'
   }
 };
+
+const specificationGroups = [
+  {
+    id: 'structure',
+    shortTitle: 'Конструкція',
+    title: 'Конструктивні елементи будинку',
+    items: [
+      ['Фундамент', 'Залізобетонний, монолітний, стрічковий.'],
+      ['Стіни', 'Піноблок.'],
+      ['Сходи', 'Внутрішні монолітні.'],
+      ['Фасад', 'Утеплення мінеральною ватою.'],
+      ['Вікна', 'Енергозберігаючі, двокамерний склопакет.'],
+      ['Дах', 'Металочерепиця, утеплення мінеральною ватою.']
+    ]
+  },
+  {
+    id: 'engineering',
+    shortTitle: 'Інженерія',
+    title: 'Інженерні мережі',
+    items: [
+      ['Водопостачання', 'Ввід холодної води від власних свердловин комплексу.'],
+      ['Водовідведення', 'Підведене до резиденції.'],
+      ['Електрика', 'Ввід електричної мережі до 10 кВт.'],
+      ['Газ', 'Ввід газу з лічильником.'],
+      ['Інтернет', 'Оптоволоконний кабель швидкісного інтернету.']
+    ]
+  },
+  {
+    id: 'energy',
+    shortTitle: 'Енергія',
+    title: 'Енергоефективність та енергонезалежність',
+    items: [
+      ['Сонячні панелі', 'Плаский дах із можливістю монтажу сонячних панелей.'],
+      ['Резервне живлення', 'Технічне приміщення для гібридного інвертора та акумуляторних батарей.']
+    ]
+  }
+];
 
 const key = document.body.dataset.residence || 't92';
 const model = models[key] || models.t92;
@@ -100,25 +140,29 @@ document.querySelector('#app').innerHTML = `
       </div>
       <div class="plans-layout">
         <div class="room-list" data-room-list></div>
-        <button class="plan-stage" type="button" data-plan-preview aria-label="Відкрити планування на весь екран"><img src="${model.plans[0]}" alt="План першого поверху ${model.code}" data-plan-image></button>
+        <div class="plan-visual">
+          <div class="plan-stage">
+            <button class="plan-furnished-toggle" type="button" data-plan-furnished-toggle aria-pressed="false" aria-label="Показати планування з меблями"><span>З меблями</span><i aria-hidden="true"><em></em></i></button>
+            <button class="plan-preview" type="button" data-plan-preview aria-label="Відкрити планування на весь екран"><img src="${model.plans[0]}" alt="План першого поверху ${model.code}" data-plan-image></button>
+          </div>
+          <p class="plan-furnished-note" data-plan-furnished-note hidden><strong>Зверніть увагу:</strong> меблі на плані показані як орієнтовний варіант розстановки. Фінальне рішення формується індивідуально в межах дизайн-проєкту.</p>
+        </div>
       </div>
     </section>
 
     <section class="section specs-section" aria-labelledby="specs-title">
-      <p class="section-label">(02) · Архітектура і комплектація</p>
+      <p class="section-label">(02) · Технічні характеристики</p>
       <div class="specs-intro">
-        <h2 class="section-heading" id="specs-title">Деталі,<br>що залишаються.</h2>
-        <p>${model.description} Будинок передається із підключеними комунікаціями та готовою приватною територією.</p>
+        <h2 class="section-heading" id="specs-title">Технічні<br>характеристики.</h2>
+        <div>
+          <p>Конструкція, інженерні мережі та рішення для енергонезалежності — в одному компактному огляді.</p>
+          <div class="specs-controls" role="tablist" aria-label="Розділи технічних характеристик">
+            ${specificationGroups.map((group, index) => `<button class="specs-tab ${index === 0 ? 'is-active' : ''}" type="button" data-spec-group="${group.id}" role="tab" aria-selected="${index === 0}">${group.shortTitle}</button>`).join('')}
+          </div>
+        </div>
       </div>
-      <div class="specs-grid">
-        ${[
-          ['Каркас','Монолітний залізобетонний каркас будинку.'], ['Стіни','Керамоблок із продуманим теплоізоляційним контуром.'],
-          ['Фасад','Комбінація клінкерної цегли та сучасних панелей.'], ['Утеплення','Мінеральна вата по всьому фасаду.'],
-          ['Вікна','Панорамні енергоефективні алюмінієві системи.'], ['Опалення','Індивідуальна система опалення кожної резиденції.'],
-          ['Електрика','Окреме підключення та резерв потужності.'], ['Інженерія','Автономні підведені комунікації.']
-        ].map((item, index) => `<article class="spec-card"><i>0${index + 1}</i><h3>${item[0]}</h3><p>${item[1]}</p></article>`).join('')}
-      </div>
-      <button class="specs-more" type="button" data-specs-toggle aria-expanded="false">Детальніше <span aria-hidden="true">↓</span></button>
+      <p class="specs-group-title" data-specs-group-title></p>
+      <div class="specs-grid" data-specs-grid></div>
       <div class="material-pair">
         <figure><img src="../../assets/view_behind_1.webp" alt="Приватна територія SHEPIT HOUSE" loading="lazy"></figure>
         <figure><img src="../../assets/duplex-back-day.webp" alt="Задній двір дуплекса SHEPIT HOUSE" loading="lazy"></figure>
@@ -201,8 +245,13 @@ document.querySelector('[data-gallery-prev]').addEventListener('click', () => sh
 document.querySelector('[data-gallery-next]').addEventListener('click', () => showGallery(galleryIndex + 1));
 
 let floor = 0;
+let isFurnishedPlan = false;
 const planImage = document.querySelector('[data-plan-image]');
 const roomList = document.querySelector('[data-room-list]');
+const furnishedToggle = document.querySelector('[data-plan-furnished-toggle]');
+const furnishedNote = document.querySelector('[data-plan-furnished-note]');
+const currentPlanSource = () => (isFurnishedPlan ? model.furnishedPlans[floor] : model.plans[floor]);
+const currentPlanAlt = () => `${isFurnishedPlan ? 'План з меблями' : 'План'} ${floor + 1} поверху ${model.code}`;
 function renderFloor(nextFloor) {
   floor = nextFloor;
   document.querySelectorAll('[data-floor]').forEach((button, index) => {
@@ -211,13 +260,21 @@ function renderFloor(nextFloor) {
   });
   planImage.style.opacity = '.35';
   window.setTimeout(() => {
-    planImage.src = model.plans[floor];
-    planImage.alt = `План ${floor + 1} поверху ${model.code}`;
+    planImage.src = currentPlanSource();
+    planImage.alt = currentPlanAlt();
     planImage.style.opacity = '1';
   }, 120);
   roomList.innerHTML = model.rooms[floor].map((item, index) => `<div class="room-item"><i>0${index + 1}</i><strong>${item[0]}</strong><span>${item[1]}</span></div>`).join('');
 }
 document.querySelectorAll('[data-floor]').forEach(button => button.addEventListener('click', () => renderFloor(Number(button.dataset.floor))));
+furnishedToggle.addEventListener('click', () => {
+  isFurnishedPlan = !isFurnishedPlan;
+  furnishedToggle.classList.toggle('is-active', isFurnishedPlan);
+  furnishedToggle.setAttribute('aria-pressed', String(isFurnishedPlan));
+  furnishedToggle.setAttribute('aria-label', isFurnishedPlan ? 'Показати звичайне планування' : 'Показати планування з меблями');
+  furnishedNote.hidden = !isFurnishedPlan;
+  renderFloor(floor);
+});
 renderFloor(0);
 
 const planLightbox = document.querySelector('[data-plan-lightbox]');
@@ -229,8 +286,8 @@ function closePlanLightbox() {
   document.body.classList.remove('is-plan-lightbox-open');
 }
 document.querySelector('[data-plan-preview]').addEventListener('click', () => {
-  planLightboxImage.src = model.plans[floor];
-  planLightboxImage.alt = `План ${floor + 1} поверху ${model.code}`;
+  planLightboxImage.src = currentPlanSource();
+  planLightboxImage.alt = currentPlanAlt();
   planLightbox.hidden = false;
   document.body.classList.add('is-plan-lightbox-open');
 });
@@ -240,13 +297,21 @@ planLightboxDialog.addEventListener('touchend', (event) => {
   if ((event.changedTouches[0]?.clientY || 0) - planLightboxStartY > 80) closePlanLightbox();
 }, { passive: true });
 
-const specsSection = document.querySelector('.specs-section');
-const specsToggle = document.querySelector('[data-specs-toggle]');
-specsToggle.addEventListener('click', () => {
-  const isExpanded = specsSection.classList.toggle('is-expanded');
-  specsToggle.setAttribute('aria-expanded', String(isExpanded));
-  specsToggle.innerHTML = `${isExpanded ? 'Згорнути' : 'Детальніше'} <span aria-hidden="true">↓</span>`;
-});
+const specsGrid = document.querySelector('[data-specs-grid]');
+const specsGroupTitle = document.querySelector('[data-specs-group-title]');
+const specTabs = Array.from(document.querySelectorAll('[data-spec-group]'));
+function renderSpecificationGroup(groupId) {
+  const group = specificationGroups.find((item) => item.id === groupId) || specificationGroups[0];
+  specTabs.forEach((tab) => {
+    const isActive = tab.dataset.specGroup === group.id;
+    tab.classList.toggle('is-active', isActive);
+    tab.setAttribute('aria-selected', String(isActive));
+  });
+  specsGroupTitle.textContent = group.title;
+  specsGrid.innerHTML = group.items.map((item, index) => `<article class="spec-card"><i>${String(index + 1).padStart(2, '0')}</i><h3>${item[0]}</h3><p>${item[1]}</p></article>`).join('');
+}
+specTabs.forEach((tab) => tab.addEventListener('click', () => renderSpecificationGroup(tab.dataset.specGroup)));
+renderSpecificationGroup('structure');
 
 const unitPreview = document.querySelector('[data-unit-preview]');
 document.querySelectorAll('[data-unit-number]').forEach(pin => pin.addEventListener('click', () => {
