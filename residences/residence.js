@@ -82,8 +82,8 @@ const walletIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7.5h
 const mapUrl = 'https://www.google.com/maps/search/?api=1&query=%D0%9A%D0%BE%D1%82%D0%B5%D0%B4%D0%B6%D0%BD%D0%B5+%D0%BC%D1%96%D1%81%D1%82%D0%B5%D1%87%D0%BA%D0%BE+Shepit+House%2C+%D0%B2%D1%83%D0%BB.+%D0%9B%D1%96%D1%81%D0%BE%D0%B2%D0%B0%2C+%D0%9D%D0%BE%D0%B2%D1%96+%D0%9F%D0%B5%D1%82%D1%80%D1%96%D0%B2%D1%86%D1%96%2C+%D0%9A%D0%B8%D1%97%D0%B2%D1%81%D1%8C%D0%BA%D0%B0+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C%2C+07354';
 
 const pinData = [
-  ['03','36.82%','16.62%','33.53%','t102', 'available'], ['04','46.78%','16.62%','45.98%','t92', 'sold'], ['05','55.69%','16.62%','57.11%','t92', 'available'], ['06','65.97%','16.62%','69.96%','t102', 'sold'],
-  ['02','32.14%','29.91%','27.68%','d101', 'available'], ['01','29.54%','49.76%','24.43%','d101', 'available'], ['07','71.11%','29.91%','76.39%','d101', 'available'], ['08','72.48%','49.76%','78.10%','d101', 'available']
+  ['03','39.00%','25.80%','36.25%','t102', 'available'], ['04','46.50%','25.80%','45.63%','t92', 'sold'], ['05','54.00%','25.80%','55.00%','t92', 'available'], ['06','61.50%','25.80%','64.38%','t102', 'sold'],
+  ['02','38.50%','39.00%','35.63%','d101', 'available'], ['01','38.50%','52.00%','35.63%','d101', 'available'], ['07','62.00%','39.00%','65.00%','d101', 'available'], ['08','62.00%','52.00%','65.00%','d101', 'available']
 ];
 
 document.querySelector('#app').innerHTML = `
@@ -176,7 +176,7 @@ document.querySelector('#app').innerHTML = `
         <p>Натисніть номер, щоб побачити коротку інформацію про резиденцію та, за потреби, перейти до неї.</p>
       </div>
       <div class="masterplan-frame">
-        <img src="../../assets/visual_2.webp" alt="Генеральний план SHEPIT HOUSE" loading="lazy">
+        <img src="../../assets/genplan-ajusted.webp" alt="Генеральний план SHEPIT HOUSE" loading="lazy">
         ${pinData.map(([number,x,y,mobileX,target,status]) => `<button class="unit-pin ${model.current === number ? 'is-active' : ''}" style="--x:${x};--y:${y};--mobile-x:${mobileX}" type="button" data-unit-number="${number}" data-unit-model="${target}" data-unit-status="${status}" aria-label="Резиденція ${number}, показати інформацію про ${models[target].code}">${number}</button>`).join('')}
       </div>
       <aside class="unit-preview" data-unit-preview aria-live="polite" hidden></aside>

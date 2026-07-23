@@ -51,7 +51,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
-    <link rel="stylesheet" href="v2.css?v=31">
+    <link rel="stylesheet" href="v2.css?v=34">
     <link rel="stylesheet" href="booking-picker.css?v=1">
 </head>
 <body>
@@ -242,38 +242,19 @@
                     <h2 id="plan-v2-title">Генеральний план</h2>
                 </div>
 
-                <div class="plan-v2__versions" role="group" aria-label="Версія генерального плану">
-                    <button class="is-active" type="button" data-plan-version="1" aria-pressed="true">Версія 1</button>
-                    <button type="button" data-plan-version="2" aria-pressed="false">Версія 2</button>
-                </div>
-
                 <p class="plan-v2__lead">Вісім приватних резиденцій, об’єднаних закритою територією. Оберіть номер, щоб побачити формат, площу та актуальний статус будинку.</p>
             </div>
 
             <div class="plan-v2__layout v2-grid" data-v2-masterplan>
                 <div class="plan-v2__media">
-                    <div class="plan-v2__canvas is-active" data-plan-version-canvas="1">
-                        <img src="assets/visual_2.webp" width="1537" height="1023" loading="lazy" decoding="async" alt="Генеральний план восьми резиденцій SHEPIT HOUSE">
-                        <span class="plan-v2__shade" aria-hidden="true"></span>
-
-                        <button class="plan-pin is-sale" type="button" style="--pin-x:36.82%;--pin-y:16.62%" data-plan-unit="03" data-plan-type="Таунхаус T102" data-plan-area="120 м²" data-plan-status="У продажу" data-plan-url="residences/t102/" aria-label="Резиденція 03, таунхаус T102, у продажу">03</button>
-                        <button class="plan-pin is-sold" type="button" style="--pin-x:46.78%;--pin-y:16.62%" data-plan-unit="04" data-plan-type="Таунхаус T92" data-plan-area="100 м²" data-plan-status="Продано" data-plan-url="residences/t92/" aria-label="Відкрити таунхаус T92 для резиденції 04">04</button>
-                        <button class="plan-pin is-sale" type="button" style="--pin-x:55.69%;--pin-y:16.62%" data-plan-unit="05" data-plan-type="Таунхаус T92" data-plan-area="100 м²" data-plan-status="У продажу" data-plan-url="residences/t92/" aria-label="Резиденція 05, таунхаус T92, у продажу">05</button>
-                        <button class="plan-pin is-sold" type="button" style="--pin-x:65.97%;--pin-y:16.62%" data-plan-unit="06" data-plan-type="Таунхаус T102" data-plan-area="120 м²" data-plan-status="Продано" data-plan-url="residences/t102/" aria-label="Відкрити таунхаус T102 для резиденції 06">06</button>
-                        <button class="plan-pin is-sale" type="button" style="--pin-x:32.14%;--pin-y:29.91%" data-plan-unit="02" data-plan-type="Дуплекс D101" data-plan-area="101 м²" data-plan-status="У продажу" data-plan-url="residences/d101/" aria-label="Резиденція 02, дуплекс D101, у продажу">02</button>
-                        <button class="plan-pin is-active is-sale" type="button" style="--pin-x:29.54%;--pin-y:49.76%" data-plan-unit="01" data-plan-type="Дуплекс D101" data-plan-area="101 м²" data-plan-status="У продажу" data-plan-url="residences/d101/" aria-label="Резиденція 01, дуплекс D101, у продажу">01</button>
-                        <button class="plan-pin is-sale" type="button" style="--pin-x:71.11%;--pin-y:29.91%" data-plan-unit="07" data-plan-type="Дуплекс D101" data-plan-area="101 м²" data-plan-status="У продажу" data-plan-url="residences/d101/" aria-label="Резиденція 07, дуплекс D101, у продажу">07</button>
-                        <button class="plan-pin is-sale" type="button" style="--pin-x:72.48%;--pin-y:49.76%" data-plan-unit="08" data-plan-type="Дуплекс D101" data-plan-area="101 м²" data-plan-status="У продажу" data-plan-url="residences/d101/" aria-label="Резиденція 08, дуплекс D101, у продажу">08</button>
-                    </div>
-
-                    <div class="plan-v2__canvas" data-plan-version-canvas="2" aria-hidden="true">
-                        <img src="assets/genplan-ajusted.webp" width="1530" height="1028" loading="lazy" decoding="async" alt="Тестова версія генерального плану восьми резиденцій SHEPIT HOUSE">
+                    <div class="plan-v2__canvas">
+                        <img src="assets/genplan-ajusted.webp" width="1530" height="1028" loading="lazy" decoding="async" alt="Генеральний план восьми резиденцій SHEPIT HOUSE">
                         <span class="plan-v2__shade" aria-hidden="true"></span>
 
                         <button class="plan-pin is-sale" type="button" style="--pin-x:39.00%;--pin-y:25.80%" data-plan-unit="03" data-plan-type="Таунхаус T102" data-plan-area="120 м²" data-plan-status="У продажу" data-plan-url="residences/t102/" aria-label="Резиденція 03, таунхаус T102, у продажу">03</button>
-                        <button class="plan-pin is-sold" type="button" style="--pin-x:46.50%;--pin-y:25.80%" data-plan-unit="04" data-plan-type="Таунхаус T92" data-plan-area="100 м²" data-plan-status="Продано" data-plan-url="residences/t92/" aria-label="Резиденція 04, таунхаус T92, продано" disabled>04</button>
+                        <button class="plan-pin is-sold" type="button" style="--pin-x:46.50%;--pin-y:25.80%" data-plan-unit="04" data-plan-type="Таунхаус T92" data-plan-area="100 м²" data-plan-status="Продано" data-plan-url="residences/t92/" aria-label="Відкрити таунхаус T92 для резиденції 04">04</button>
                         <button class="plan-pin is-sale" type="button" style="--pin-x:54.00%;--pin-y:25.80%" data-plan-unit="05" data-plan-type="Таунхаус T92" data-plan-area="100 м²" data-plan-status="У продажу" data-plan-url="residences/t92/" aria-label="Резиденція 05, таунхаус T92, у продажу">05</button>
-                        <button class="plan-pin is-sold" type="button" style="--pin-x:61.50%;--pin-y:25.80%" data-plan-unit="06" data-plan-type="Таунхаус T102" data-plan-area="120 м²" data-plan-status="Продано" data-plan-url="residences/t102/" aria-label="Резиденція 06, таунхаус T102, продано" disabled>06</button>
+                        <button class="plan-pin is-sold" type="button" style="--pin-x:61.50%;--pin-y:25.80%" data-plan-unit="06" data-plan-type="Таунхаус T102" data-plan-area="120 м²" data-plan-status="Продано" data-plan-url="residences/t102/" aria-label="Відкрити таунхаус T102 для резиденції 06">06</button>
                         <button class="plan-pin is-sale" type="button" style="--pin-x:38.50%;--pin-y:39.00%" data-plan-unit="02" data-plan-type="Дуплекс D101" data-plan-area="101 м²" data-plan-status="У продажу" data-plan-url="residences/d101/" aria-label="Резиденція 02, дуплекс D101, у продажу">02</button>
                         <button class="plan-pin is-active is-sale" type="button" style="--pin-x:38.50%;--pin-y:52.00%" data-plan-unit="01" data-plan-type="Дуплекс D101" data-plan-area="101 м²" data-plan-status="У продажу" data-plan-url="residences/d101/" aria-label="Резиденція 01, дуплекс D101, у продажу">01</button>
                         <button class="plan-pin is-sale" type="button" style="--pin-x:62.00%;--pin-y:39.00%" data-plan-unit="07" data-plan-type="Дуплекс D101" data-plan-area="101 м²" data-plan-status="У продажу" data-plan-url="residences/d101/" aria-label="Резиденція 07, дуплекс D101, у продажу">07</button>
@@ -937,6 +918,6 @@
 
     <script src="analytics-v2.js?v=1"></script>
     <script src="booking-picker.js?v=1"></script>
-    <script src="v2.js?v=19"></script>
+    <script src="v2.js?v=20"></script>
 </body>
 </html>
