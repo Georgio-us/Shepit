@@ -116,13 +116,15 @@ form.addEventListener('submit', async event => {
     const result = await response.json();
     if (!response.ok || !result.success) throw new Error('submit_failed');
 
-    if (typeof window.shepitTrack === 'function') window.shepitTrack('generate_lead', { form_name: 'calculator_v2', unit: getEstimate().key });
+    if (typeof window.shepitTrack === 'function') window.shepitTrack('generate_lead', { form_name: 'calculator', unit: getEstimate().key });
     document.querySelector('[data-success-modal]').hidden = false;
     document.body.classList.add('is-modal-open');
     form.elements.name.value = '';
     form.elements.phone.value = '';
   } catch (error) {
-    status.textContent = 'Не вдалося надіслати заявку. Спробуйте ще раз або зателефонуйте нам.';
+    window.shepitTrackFormFailure?.(form);
+    status.textContent = 'Заявку не надіслано. Перевірте з’єднання або зателефонуйте нам.';
+    status.focus();
   } finally {
     submit.disabled = false;
     submit.querySelector('span').textContent = original;

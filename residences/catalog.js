@@ -56,12 +56,6 @@ const application = document.querySelector('[data-catalog-application]');
 const applicationForm = document.querySelector('[data-catalog-application-form]');
 const applicationStatus = document.querySelector('[data-catalog-application-status]');
 const applicationSuccess = document.querySelector('[data-catalog-application-success]');
-const applicationPicker = window.createShepitAppointmentPicker?.({
-  trigger: document.querySelector('[data-catalog-application-picker-open]'),
-  dateInput: document.querySelector('[data-catalog-application-date]'),
-  timeInput: document.querySelector('[data-catalog-application-time]'),
-  label: document.querySelector('[data-catalog-application-datetime-label]')
-});
 function closeCatalogApplication() {
   if (!application) return;
   application.hidden = true;
@@ -73,7 +67,6 @@ document.querySelectorAll('[data-catalog-application-open]').forEach((button) =>
   document.body.classList.add('is-overlay-open');
   applicationForm.hidden = false;
   applicationSuccess.hidden = true;
-  applicationPicker?.reset();
   applicationForm?.querySelector('input')?.focus();
 }));
 application?.querySelectorAll('[data-catalog-application-close]').forEach((button) => button.addEventListener('click', closeCatalogApplication));
@@ -81,24 +74,20 @@ applicationForm?.addEventListener('submit', async (event) => {
   event.preventDefault();
   const submit = applicationForm.querySelector('[type="submit"]');
   const data = new FormData(applicationForm);
-  if (!data.get('date') || !data.get('time')) {
-    applicationStatus.textContent = 'Оберіть, будь ласка, дату та час перегляду.';
-    applicationPicker?.open();
-    return;
-  }
   submit.disabled = true;
   applicationStatus.textContent = 'Надсилаємо заявку…';
   try {
-    const response = await fetch('/api/lead', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name: data.get('name'), phone: data.get('phone'), date: data.get('date'), time: data.get('time'), source: 'residences-catalog-viewing' }) });
+    const response = await fetch('/api/lead', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name: data.get('name'), phone: data.get('phone'), source: 'residences-catalog-inquiry' }) });
     const result = await response.json();
     if (!response.ok || !result.success) throw new Error('Request failed');
     applicationForm.reset();
-    applicationPicker?.reset();
     applicationForm.hidden = true;
     applicationSuccess.hidden = false;
-    if (typeof window.shepitTrack === 'function') window.shepitTrack('generate_lead', { form_name: 'residences_catalog_viewing' });
+    if (typeof window.shepitTrack === 'function') window.shepitTrack('generate_lead', { form_name: 'residences_catalog_inquiry' });
   } catch (error) {
-    applicationStatus.textContent = 'Не вдалося надіслати. Спробуйте ще раз або зателефонуйте нам.';
+    window.shepitTrackFormFailure?.(applicationForm);
+    applicationStatus.textContent = 'Заявку не надіслано. Перевірте з’єднання або зателефонуйте нам.';
+    applicationStatus.focus();
   } finally {
     submit.disabled = false;
   }

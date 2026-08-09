@@ -85,6 +85,7 @@ function postJson({ hostname, path, headers = {}, body }) {
             });
         });
         request.on('error', reject);
+        request.setTimeout(15000, () => request.destroy(new Error('Upstream request timed out')));
         request.write(data);
         request.end();
     });
@@ -167,16 +168,6 @@ app.post('/api/lead', async (req, res) => {
         return res.status(400).json({ success: false, error: 'Invalid phone' });
     }
 
-    if (!BOT_TOKEN || !CHAT_ID) {
-        console.error('[Error] Telegram credentials missing');
-        return res.status(500).json({ success: false });
-    }
-
-    if (!getKommoConfig()) {
-        console.error('[Error] Kommo credentials missing or invalid');
-        return res.status(500).json({ success: false });
-    }
-
     const formattedPhone = normalizePhoneForTelegram(phone);
     const viewingTime = formatViewingTime(date, time);
     const device = getDeviceLabel(req.get('user-agent'));
@@ -199,18 +190,33 @@ ${viewingLine}
 #lead #shepit_house`.trim();
 
     try {
-        const [, kommoLeadId] = await Promise.all([
-            postJson({
+        const telegramDelivery = BOT_TOKEN && CHAT_ID
+            ? postJson({
                 hostname: 'api.telegram.org',
                 path: `/bot${BOT_TOKEN}/sendMessage`,
                 body: { chat_id: CHAT_ID, text, parse_mode: 'HTML' }
-            }),
+            })
+            : Promise.reject(new Error('Telegram credentials missing'));
+        const [telegramResult, kommoResult] = await Promise.allSettled([
+            telegramDelivery,
             createKommoLead({ name, phone: formattedPhone, source, viewingTime, device, timestamp })
         ]);
-        console.log(`[Lead] Received from ${escapeHtml(name)} (${escapeHtml(phone)}), Kommo lead ${kommoLeadId}`);
+
+        const telegramDelivered = telegramResult.status === 'fulfilled';
+        const kommoDelivered = kommoResult.status === 'fulfilled';
+        if (!telegramDelivered && !kommoDelivered) {
+            const telegramError = telegramResult.reason?.message || 'unknown Telegram error';
+            const kommoError = kommoResult.reason?.message || 'unknown Kommo error';
+            console.error(`[Lead] Delivery failed: Telegram: ${telegramError}; Kommo: ${kommoError}`);
+            return res.status(502).json({ success: false });
+        }
+
+        if (!telegramDelivered) console.error(`[Lead] Telegram delivery failed: ${telegramResult.reason?.message || 'unknown error'}`);
+        if (!kommoDelivered) console.error(`[Lead] Kommo delivery failed: ${kommoResult.reason?.message || 'unknown error'}`);
+        console.log(`[Lead] Received from ${escapeHtml(name)} (${escapeHtml(phone)}), Telegram: ${telegramDelivered}, Kommo: ${kommoDelivered}`);
         res.json({ success: true });
     } catch (error) {
-        console.error(`[Lead] Delivery failed: ${error.message}`);
+        console.error(`[Lead] Unexpected delivery error: ${error.message}`);
         res.status(502).json({ success: false });
     }
 });

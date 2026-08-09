@@ -90,17 +90,8 @@ const applicationFormView = document.querySelector('[data-application-form-view]
 const applicationSuccess = document.querySelector('[data-application-success]');
 const applicationModalTitle = document.getElementById('application-modal-title');
 const applicationModalDescription = applicationFormView?.querySelector('p');
-const applicationDate = document.querySelector('[data-application-date]');
-const applicationTime = document.querySelector('[data-application-time]');
-const applicationPicker = window.createShepitAppointmentPicker?.({
-    trigger: document.querySelector('[data-application-picker-open]'),
-    dateInput: applicationDate,
-    timeInput: applicationTime,
-    label: document.querySelector('[data-application-datetime-label]')
-});
 const cookieNotice = document.querySelector('[data-cookie-notice]');
 const cookieAccept = document.querySelector('[data-cookie-accept]');
-let applicationBookingUnit = null;
 
 const defaultApplicationTitle = applicationModalTitle?.textContent || 'Залишити заявку';
 const defaultApplicationDescription = applicationModalDescription?.textContent || '';
@@ -114,13 +105,10 @@ cookieAccept?.addEventListener('click', () => {
     cookieNotice.hidden = true;
 });
 
-function openApplicationModal(bookingUnit = null) {
+function openApplicationModal() {
     if (!applicationModal) return;
-    applicationBookingUnit = bookingUnit;
-    const isViewingBooking = Boolean(bookingUnit);
-    applicationPicker?.reset();
-    if (applicationModalTitle) applicationModalTitle.textContent = isViewingBooking ? 'Записатися на перегляд' : defaultApplicationTitle;
-    if (applicationModalDescription) applicationModalDescription.textContent = isViewingBooking ? 'Оберіть зручні дату та час — менеджер підтвердить перегляд телефоном.' : defaultApplicationDescription;
+    if (applicationModalTitle) applicationModalTitle.textContent = defaultApplicationTitle;
+    if (applicationModalDescription) applicationModalDescription.textContent = defaultApplicationDescription;
     applicationFormView.hidden = false;
     applicationSuccess.hidden = true;
     applicationModal.hidden = false;
@@ -145,7 +133,7 @@ document.querySelectorAll('[data-application-modal-open]').forEach((trigger) => 
 document.querySelectorAll('[data-plan-link]').forEach((trigger) => {
     trigger.addEventListener('click', (event) => {
         event.preventDefault();
-        openApplicationModal({ number: trigger.dataset.planUnit || '—', type: trigger.dataset.planType || 'резиденція' });
+        openApplicationModal();
     });
 });
 
@@ -159,11 +147,6 @@ applicationForm?.addEventListener('submit', async (event) => {
     const label = submit?.querySelector('span');
     const status = applicationForm.querySelector('[data-application-status]');
     const data = new FormData(applicationForm);
-    if (!data.get('date') || !data.get('time')) {
-        if (status) status.textContent = 'Оберіть, будь ласка, дату та час перегляду.';
-        applicationPicker?.open();
-        return;
-    }
     if (submit) submit.disabled = true;
     if (label) label.textContent = 'Надсилаємо…';
     if (status) status.textContent = '';
@@ -175,9 +158,7 @@ applicationForm?.addEventListener('submit', async (event) => {
             body: JSON.stringify({
                 name: data.get('name'),
                 phone: data.get('phone'),
-                source: applicationBookingUnit ? `masterplan-unit-${applicationBookingUnit.number}-booking` : 'main-site-viewing-booking',
-                date: data.get('date'),
-                time: data.get('time'),
+                source: 'main-site-inquiry',
                 device: /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ? '📱 Мобільний' : '💻 Десктоп',
                 timestamp: new Date().toLocaleString('uk-UA', { timeZone: 'Europe/Kyiv' })
             })
@@ -185,13 +166,13 @@ applicationForm?.addEventListener('submit', async (event) => {
         const result = await response.json();
         if (!response.ok || !result.success) throw new Error('Lead submission failed');
         applicationForm.reset();
-        applicationPicker?.reset();
         applicationFormView.hidden = true;
         applicationSuccess.hidden = false;
-        if (typeof window.shepitTrack === 'function') window.shepitTrack('generate_lead', { form_name: 'application_modal_v2' });
+        if (typeof window.shepitTrack === 'function') window.shepitTrack('generate_lead', { form_name: 'application_modal' });
     } catch (error) {
         console.error(error);
-        if (status) status.textContent = 'Не вдалося надіслати. Зателефонуйте нам: +38 (095) 073 43 76.';
+        window.shepitTrackFormFailure?.(applicationForm);
+        if (status) { status.textContent = 'Заявку не надіслано. Перевірте з’єднання або зателефонуйте: +38 (095) 073 43 76.'; status.focus(); }
     } finally {
         if (submit) submit.disabled = false;
         if (label) label.textContent = 'Надіслати заявку';
@@ -315,7 +296,7 @@ if (v2Masterplan) {
         if (statusOutput) statusOutput.textContent = pin.dataset.planStatus;
         if (bedroomsOutput) bedroomsOutput.textContent = pin.dataset.planType.startsWith('Таунхаус') ? '3 спальні' : '4 спальні';
         if (detailsLink) {
-            detailsLink.setAttribute('aria-label', `Забронювати перегляд резиденції ${pin.dataset.planUnit}`);
+            detailsLink.setAttribute('aria-label', `Дізнатися деталі про резиденцію ${pin.dataset.planUnit}`);
             detailsLink.dataset.planUnit = pin.dataset.planUnit;
             detailsLink.dataset.planType = pin.dataset.planType;
         }
@@ -479,10 +460,11 @@ contactForm?.addEventListener('submit', async (event) => {
         contactForm.reset();
         contactForm.hidden = true;
         if (contactSuccess) contactSuccess.hidden = false;
-        if (typeof window.shepitTrack === 'function') window.shepitTrack('generate_lead', { form_name: 'contact_form_v2' });
+        if (typeof window.shepitTrack === 'function') window.shepitTrack('generate_lead', { form_name: 'contact_form' });
     } catch (error) {
         console.error(error);
-        if (status) status.textContent = 'Не вдалося надіслати. Зателефонуйте нам: +38 (095) 073 43 76.';
+        window.shepitTrackFormFailure?.(contactForm);
+        if (status) { status.textContent = 'Заявку не надіслано. Перевірте з’єднання або зателефонуйте: +38 (095) 073 43 76.'; status.focus(); }
     } finally {
         if (submitButton) submitButton.disabled = false;
         if (submitLabel) submitLabel.textContent = originalLabel;

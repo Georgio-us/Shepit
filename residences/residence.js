@@ -77,7 +77,6 @@ const specificationGroups = [
 const key = document.body.dataset.residence || 't92';
 const model = models[key] || models.t92;
 const arrow = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5"></path><path d="M9 5h10v10"></path></svg>';
-const calendarIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18"/></svg>';
 const walletIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7.5h15a2 2 0 0 1 2 2v9H5a2 2 0 0 1-2-2v-11a2 2 0 0 1 2-2h12v4"/><circle cx="17" cy="13" r="1"/></svg>';
 const mapUrl = 'https://www.google.com/maps/search/?api=1&query=%D0%9A%D0%BE%D1%82%D0%B5%D0%B4%D0%B6%D0%BD%D0%B5+%D0%BC%D1%96%D1%81%D1%82%D0%B5%D1%87%D0%BA%D0%BE+Shepit+House%2C+%D0%B2%D1%83%D0%BB.+%D0%9B%D1%96%D1%81%D0%BE%D0%B2%D0%B0%2C+%D0%9D%D0%BE%D0%B2%D1%96+%D0%9F%D0%B5%D1%82%D1%80%D1%96%D0%B2%D1%86%D1%96%2C+%D0%9A%D0%B8%D1%97%D0%B2%D1%81%D1%8C%D0%BA%D0%B0+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C%2C+07354';
 
@@ -110,7 +109,7 @@ document.querySelector('#app').innerHTML = `
             </div>
             <div class="residence-price"><strong>${model.price}</strong><span>готовий будинок</span></div>
             <div class="residence-actions">
-              <a class="pill-action" href="#booking"><span>Записатися на перегляд</span><i class="button-arrow">${arrow}</i></a>
+              <a class="pill-action" href="#booking" data-residence-inquiry-open><span>Дізнатися деталі</span><i class="button-arrow">${arrow}</i></a>
               <a class="secondary-action" href="${mapUrl}" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.12 7-12A7 7 0 0 0 5 9c0 5.88 7 12 7 12Z"/><circle cx="12" cy="9" r="2.35"/></svg><span>Прокласти маршрут</span></a>
               <a class="secondary-action" href="../../output/pdf/shepit-house-${model.code.toLowerCase()}.pdf" download aria-label="Завантажити PDF-презентацію ${model.code}"><svg viewBox="0 0 24 24"><path d="M6 2h8l4 4v16H6zM14 2v5h5M8.5 16.5h7M8.5 13h7"/></svg><span>Завантажити PDF</span></a>
             </div>
@@ -186,37 +185,27 @@ document.querySelector('#app').innerHTML = `
     <section class="section booking-section" id="booking" aria-labelledby="booking-title">
       <div class="booking-grid">
         <div class="booking-copy">
-          <p class="section-label">(04) · Запис на перегляд</p>
-          <h2 class="section-heading" id="booking-title">Побачити<br>${model.code} наживо.</h2>
-          <p>Оберіть зручну дату й орієнтовний час. Менеджер зв’яжеться з вами та підтвердить перегляд.</p>
+          <p class="section-label">(04) · Консультація</p>
+          <h2 class="section-heading" id="booking-title">Дізнайтеся більше<br>про ${model.code}.</h2>
+          <p>Залиште контакти — менеджер відповість на запитання та допоможе обрати резиденцію.</p>
         </div>
         <form class="booking-form" data-booking-form>
           <label class="field"><input name="name" type="text" autocomplete="name" placeholder="Ваше ім’я" required></label>
           <label class="field"><input name="phone" type="tel" autocomplete="tel" placeholder="Номер телефону" required></label>
-          <input name="date" type="hidden" data-date-input>
-          <input name="time" type="hidden" data-time-input>
-          <button class="datetime-trigger" type="button" data-picker-open>${calendarIcon}<span data-datetime-label>Обрати дату та час</span>${arrow}</button>
           <button class="pill-action" type="submit"><span>Надіслати заявку</span><i class="button-arrow">${arrow}</i></button>
-          <p class="booking-note">Менеджер підтвердить обраний час телефоном.</p>
-          <p class="form-status" data-form-status aria-live="polite"></p>
+          <p class="booking-note">Менеджер зв’яжеться з вами найближчим часом.</p>
+          <p class="form-status" data-form-status role="alert" aria-live="assertive" tabindex="-1"></p>
         </form>
         <div class="booking-success" data-booking-success hidden aria-live="polite">
           <span class="booking-success__eyebrow">Дякуємо</span>
           <h3>Заявку надіслано</h3>
-          <p>Менеджер зателефонує вам та підтвердить обраний час.</p>
+          <p>Менеджер зателефонує вам найближчим часом.</p>
           <a href="https://t.me/shepit_house" target="_blank" rel="noopener noreferrer"><span>Підписатися на Telegram-канал</span><i class="button-arrow">${arrow}</i></a>
         </div>
       </div>
     </section>
   </main>
 
-  <div class="picker" data-picker aria-hidden="true">
-    <div class="picker__panel" role="dialog" aria-modal="true" aria-labelledby="picker-title">
-      <div class="picker__head"><h2 id="picker-title">Дата та час</h2><button class="picker__close" type="button" data-picker-close aria-label="Закрити">×</button></div>
-      <div class="picker__wheels"><div class="picker__wheel" data-date-wheel></div><div class="picker__wheel" data-time-wheel></div></div>
-      <button class="picker__confirm" type="button" data-picker-confirm>Підтвердити</button>
-    </div>
-  </div>
   <div class="plan-lightbox" data-plan-lightbox hidden>
     <button class="plan-lightbox__backdrop" type="button" data-plan-lightbox-close aria-label="Закрити перегляд"></button>
     <div class="plan-lightbox__dialog" role="dialog" aria-modal="true" aria-label="Перегляд планування" data-plan-lightbox-dialog>
@@ -330,96 +319,6 @@ document.querySelectorAll('[data-unit-number]').forEach(pin => pin.addEventListe
   `;
 }));
 
-const picker = document.querySelector('[data-picker]');
-const dateWheel = document.querySelector('[data-date-wheel]');
-const timeWheel = document.querySelector('[data-time-wheel]');
-const dateInput = document.querySelector('[data-date-input]');
-const timeInput = document.querySelector('[data-time-input]');
-const dateTimeLabel = document.querySelector('[data-datetime-label]');
-const dayNames = ['нд', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
-const monthNames = ['січня','лютого','березня','квітня','травня','червня','липня','серпня','вересня','жовтня','листопада','грудня'];
-const dates = Array.from({ length: 21 }, (_, offset) => {
-  const value = new Date();
-  value.setHours(12, 0, 0, 0);
-  value.setDate(value.getDate() + offset + 1);
-  return { value: value.toISOString().slice(0, 10), label: `${dayNames[value.getDay()]}, ${value.getDate()} ${monthNames[value.getMonth()]}` };
-});
-const times = [];
-for (let hour = 10; hour <= 19; hour += 1) {
-  times.push(`${String(hour).padStart(2, '0')}:00`);
-  if (hour < 19) times.push(`${String(hour).padStart(2, '0')}:30`);
-}
-let selectedDate = dates[0];
-let selectedTime = times[0];
-function renderWheel(container, items, selectedValue, kind) {
-  container.innerHTML = items.map(item => {
-    const value = typeof item === 'string' ? item : item.value;
-    const label = typeof item === 'string' ? item : item.label;
-    return `<button class="picker__option ${value === selectedValue ? 'is-selected' : ''}" type="button" data-picker-kind="${kind}" data-picker-value="${value}">${label}</button>`;
-  }).join('');
-}
-function selectOption(kind, value) {
-  if (kind === 'date') selectedDate = dates.find(item => item.value === value) || dates[0];
-  else selectedTime = value;
-  renderWheel(dateWheel, dates, selectedDate.value, 'date');
-  renderWheel(timeWheel, times, selectedTime, 'time');
-  requestAnimationFrame(() => {
-    [dateWheel, timeWheel].forEach(wheel => {
-      const selected = wheel.querySelector('.is-selected');
-      if (selected) wheel.scrollTop = selected.offsetTop - wheel.clientHeight / 2 + selected.offsetHeight / 2;
-    });
-  });
-}
-renderWheel(dateWheel, dates, selectedDate.value, 'date');
-renderWheel(timeWheel, times, selectedTime, 'time');
-[dateWheel, timeWheel].forEach(wheel => wheel.addEventListener('click', event => {
-  const option = event.target.closest('[data-picker-value]');
-  if (option) selectOption(option.dataset.pickerKind, option.dataset.pickerValue);
-}));
-const wheelTimers = new WeakMap();
-[dateWheel, timeWheel].forEach(wheel => wheel.addEventListener('scroll', () => {
-  window.clearTimeout(wheelTimers.get(wheel));
-  wheelTimers.set(wheel, window.setTimeout(() => {
-    const wheelRect = wheel.getBoundingClientRect();
-    const center = wheelRect.top + wheelRect.height / 2;
-    const options = [...wheel.querySelectorAll('[data-picker-value]')];
-    const closest = options.reduce((best, option) => {
-      const rect = option.getBoundingClientRect();
-      const distance = Math.abs(rect.top + rect.height / 2 - center);
-      return !best || distance < best.distance ? { option, distance } : best;
-    }, null)?.option;
-    if (!closest) return;
-    options.forEach(option => option.classList.toggle('is-selected', option === closest));
-    if (closest.dataset.pickerKind === 'date') {
-      selectedDate = dates.find(item => item.value === closest.dataset.pickerValue) || dates[0];
-    } else {
-      selectedTime = closest.dataset.pickerValue;
-    }
-  }, 90));
-}));
-function openPicker() {
-  picker.classList.add('is-open');
-  picker.setAttribute('aria-hidden', 'false');
-  document.body.classList.add('is-picker-open');
-  window.setTimeout(() => selectOption('date', selectedDate.value), 40);
-}
-function closePicker() {
-  picker.classList.remove('is-open');
-  picker.setAttribute('aria-hidden', 'true');
-  document.body.classList.remove('is-picker-open');
-}
-document.querySelector('[data-picker-open]').addEventListener('click', openPicker);
-document.querySelector('[data-picker-close]').addEventListener('click', closePicker);
-picker.addEventListener('click', event => { if (event.target === picker) closePicker(); });
-document.addEventListener('keydown', event => { if (event.key === 'Escape') { closePicker(); closePlanLightbox(); } });
-document.querySelector('[data-picker-confirm]').addEventListener('click', () => {
-  dateInput.value = selectedDate.value;
-  timeInput.value = selectedTime;
-  dateTimeLabel.textContent = `${selectedDate.label} · ${selectedTime}`;
-  document.querySelector('[data-picker-open]').classList.add('has-value');
-  closePicker();
-});
-
 document.querySelector('[data-booking-form]').addEventListener('submit', async event => {
   event.preventDefault();
   const form = event.currentTarget;
@@ -427,11 +326,6 @@ document.querySelector('[data-booking-form]').addEventListener('submit', async e
   const success = document.querySelector('[data-booking-success]');
   const submit = form.querySelector('[type="submit"]');
   const data = new FormData(form);
-  if (!data.get('date') || !data.get('time')) {
-    status.textContent = 'Оберіть, будь ласка, дату та час.';
-    openPicker();
-    return;
-  }
   submit.disabled = true;
   status.textContent = 'Надсилаємо заявку…';
   try {
@@ -440,21 +334,18 @@ document.querySelector('[data-booking-form]').addEventListener('submit', async e
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         name: data.get('name'), phone: data.get('phone'),
-        source: `residence-${model.code.toLowerCase()}-booking`,
-        date: data.get('date'), time: data.get('time')
+        source: `residence-${model.code.toLowerCase()}-inquiry`
       })
     });
     if (!response.ok) throw new Error('Request failed');
     form.reset();
-    dateInput.value = '';
-    timeInput.value = '';
-    dateTimeLabel.textContent = 'Обрати дату та час';
-    document.querySelector('[data-picker-open]').classList.remove('has-value');
     form.hidden = true;
     success.hidden = false;
-    if (typeof window.shepitTrack === 'function') window.shepitTrack('generate_lead', { form_name: 'residence_booking', residence: model.code });
+    if (typeof window.shepitTrack === 'function') window.shepitTrack('generate_lead', { form_name: 'residence_inquiry', residence: model.code });
   } catch (error) {
-    status.textContent = 'Не вдалося надіслати. Спробуйте ще раз або зателефонуйте нам.';
+    window.shepitTrackFormFailure?.(form);
+    status.textContent = 'Заявку не надіслано. Перевірте з’єднання або зателефонуйте нам.';
+    status.focus();
   } finally {
     submit.disabled = false;
   }
