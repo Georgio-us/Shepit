@@ -51,6 +51,12 @@
 
   window.shepitTrack = track;
 
+  const residenceEvents = {
+    t92: { event_name: 't92_open', residence_name: 'Таунхаус T92' },
+    t102: { event_name: 't102_open', residence_name: 'Таунхаус T102' },
+    d101: { event_name: 'd101_open', residence_name: 'Дуплекс D101' }
+  };
+
   const formSelector = '[data-application-form], #v2-contact-form, [data-booking-form], [data-catalog-application-form], [data-calculator-form], #form-modal, #form-plans, #form-payment';
   const formName = (form) => {
     if (form.dataset.analyticsForm) return form.dataset.analyticsForm;
@@ -109,7 +115,11 @@
     const text = (target.innerText || target.getAttribute('aria-label') || '').trim().slice(0, 100);
     const href = target.getAttribute('href') || '';
 
-    if (target.matches('[data-hero-calculator]')) track('calculator_open', { cta_text: text, source: 'hero' });
+    if (target.matches('[data-residence-open]')) {
+      const residence = residenceEvents[target.dataset.residenceOpen];
+      if (residence) track(residence.event_name, { residence_name: residence.residence_name, source: target.dataset.residenceSource || 'Не указан' });
+    }
+    else if (target.matches('[data-hero-calculator]')) track('calculator_open', { cta_text: text, source: 'hero' });
     else if (target.matches('[data-plan-link]')) track('application_modal_open', { cta_text: text, source: 'masterplan' });
     else if (target.matches('[data-application-modal-open]')) track('application_modal_open', { cta_text: text });
     else if (target.matches('[data-catalog-application-open]')) track('catalog_inquiry_open', { cta_text: text });
@@ -120,7 +130,6 @@
     else if (/t\.me\//i.test(href)) track('telegram_click', { link_url: href });
     else if (/^viber:/i.test(href)) track('viber_click', { link_url: href });
     else if (target.matches('[data-plan-unit], [data-plan-target], [data-unit]')) track('masterplan_interaction', { residence: target.dataset.planUnit || target.dataset.planTarget || target.dataset.unit });
-    else if (/\/residences\//.test(href)) track('residence_open', { link_url: href });
     else if (/\/calculator\//.test(href)) track('calculator_open', { link_url: href });
     else if (target.matches('[data-media-video]')) track('video_open', { video_id: target.dataset.mediaVideo || '' });
     else if (target.matches('.faq-v2__item button')) track('faq_open', { cta_text: text });

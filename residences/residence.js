@@ -98,7 +98,7 @@ document.querySelector('#app').innerHTML = `
             <p class="residence-kicker">Київська область · Вишгородський район · с. Нові Петрівці · вул. Лісова</p>
             <h1 class="residence-title" id="residence-title">${model.code}</h1>
             <nav class="residence-tabs" aria-label="Типи резиденцій">
-              ${Object.entries(models).map(([id, item]) => `<a href="../${id}/" class="${id === key ? 'is-active' : ''}" ${id === key ? 'aria-current="page"' : ''}>${item.code}</a>`).join('')}
+              ${Object.entries(models).map(([id, item]) => `<a href="../${id}/" data-residence-open="${id}" data-residence-source="Карточка резиденции" class="${id === key ? 'is-active' : ''}" ${id === key ? 'aria-current="page"' : ''}>${item.code}</a>`).join('')}
             </nav>
           </div>
           <div class="residence-summary__details">
@@ -315,7 +315,7 @@ document.querySelectorAll('[data-unit-number]').forEach(pin => pin.addEventListe
       <p class="unit-preview__meta"><span>${selectedModel.area}</span><span>${selectedModel.bedrooms} спальні</span><span>${selectedModel.parcel}</span></p>
     </div>
     <span class="unit-preview__status ${isAvailable ? 'is-available' : ''}">${isAvailable ? 'В продажу' : 'Продано'}</span>
-    ${isAvailable ? `<a class="unit-preview__action" href="../${pin.dataset.unitModel}/">Переглянути резиденцію</a>` : ''}
+    ${isAvailable ? `<a class="unit-preview__action" href="../${pin.dataset.unitModel}/" data-residence-open="${pin.dataset.unitModel}" data-residence-source="Карточка резиденции — генплан">Переглянути резиденцію</a>` : ''}
   `;
 }));
 

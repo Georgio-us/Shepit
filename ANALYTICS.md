@@ -63,6 +63,54 @@ consultation section is `residence_inquiry_open`. A master-plan CTA is recorded 
 The calculator buttons on the first screen use `calculator_open` with
 `source: hero`, so their effectiveness can be compared with other calculator links.
 
+## Residence opens
+
+Each residence has its own event, so it is immediately visible in the GA4 event
+list without filtering a shared event:
+
+| GA4 event | Residence | `source` values |
+| --- | --- | --- |
+| `t92_open` | Таунхаус T92 | `Hero section`, `Секція «Наші будинки»`, `Все резиденции`, `Все резиденции — сравнение`, `Все резиденции — генплан`, `Карточка резиденции`, `Карточка резиденции — генплан` |
+| `t102_open` | Таунхаус T102 | Same sources, where that residence is available |
+| `d101_open` | Дуплекс D101 | Same sources, where that residence is available |
+
+GA4 event names cannot contain spaces, so `t92_open`, `t102_open`, and
+`d101_open` are the valid technical equivalents of “T92 Open”, “T102 Open”,
+and “D101 Open”. Each also sends the readable `residence_name` parameter.
+Register the event-scoped `source` parameter as a custom dimension in GA4
+(for example, **Источник открытия резиденции**) to use it in standard reports
+and Explorations.
+
+### GA4 setup: «Источник открытия резиденции»
+
+1. Open the SHEPIT HOUSE GA4 property and go to **Admin → Custom definitions**.
+2. Choose **Create custom dimension** and enter:
+   - Dimension name: `Источник открытия резиденции`
+   - Scope: `Event`
+   - Description: `Место, откуда пользователь открыл T92, T102 или D101`
+   - Event parameter: `source`
+   - Reporting parameter: `Источник открытия резиденции`
+   - Type: `Text`
+3. Save the dimension. Do not mark `t92_open`, `t102_open`, or `d101_open` as
+   conversions: they are product-interest signals, not completed leads.
+
+### GA4 verification
+
+After deployment, open **Admin → DebugView** (or Realtime), visit the site, and
+open one residence from each available source. Check that one of the following
+events arrives immediately with the expected `source` parameter:
+
+| Test action | Expected event | Expected `source` |
+| --- | --- | --- |
+| Open T92 from the first screen | `t92_open` | `Hero section` |
+| Open D101 from “Наші будинки” | `d101_open` | `Секція «Наші будинки»` |
+| Open T102 from the catalog | `t102_open` | `Все резиденции` |
+| Switch to another model on a residence page | matching event | `Карточка резиденции` |
+
+The event is visible in DebugView immediately. The custom dimension can take up
+to 24 hours before it becomes available in standard reports and Explorations;
+it only applies to events collected after the dimension was created.
+
 The successful newsletter response sends GA4 `sign_up` with `method: newsletter`.
 
 ## Lead delivery resilience

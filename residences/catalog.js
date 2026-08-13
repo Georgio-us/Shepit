@@ -25,7 +25,10 @@ if (plan) {
       area.textContent = model.area;
       status.textContent = isSold ? 'Продано' : 'У продажу';
       link.hidden = isSold;
-      if (!isSold) link.href = model.url;
+      if (!isSold) {
+        link.href = model.url;
+        link.dataset.residenceOpen = pin.dataset.model;
+      }
     });
   });
 }
