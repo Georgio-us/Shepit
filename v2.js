@@ -2,6 +2,7 @@ const globalMenu = document.getElementById('global-menu');
 const globalMenuOpeners = Array.from(document.querySelectorAll('[data-global-menu-open]'));
 const globalMenuCloser = globalMenu?.querySelector('[data-global-menu-close]');
 const floatingMenuButton = document.querySelector('.floating-menu-button');
+const floatingPhoneButton = document.querySelector('.floating-phone-button');
 const floatingActions = document.querySelector('[data-floating-actions]');
 const contactWidget = document.querySelector('[data-contact-widget]');
 const contactToggle = document.querySelector('[data-contact-toggle]');
@@ -16,6 +17,8 @@ const syncFloatingControls = () => {
     const hasScrolled = window.scrollY > 100;
     const canReturnTop = window.scrollY > window.innerHeight * 0.85;
     floatingMenuButton?.classList.toggle('is-visible', hasScrolled);
+    floatingPhoneButton?.classList.toggle('is-visible', hasScrolled);
+    document.body.classList.toggle('is-mobile-controls-floating', hasScrolled);
     floatingActions?.classList.toggle('is-visible', hasScrolled);
     scrollTopButton?.classList.toggle('is-visible', canReturnTop);
     const footerTop = siteFooter?.getBoundingClientRect().top;
