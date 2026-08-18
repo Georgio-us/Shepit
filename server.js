@@ -202,10 +202,14 @@ async function sendFacebookLeadToTelegram(lead, contact) {
     });
 }
 
-async function syncFacebookLeads() {
+async function syncFacebookLeads({ includeExisting = false } = {}) {
     const config = getKommoApiConfig();
-    if (!config || !process.env.TELEGRAM_BOT_TOKEN || !process.env.TELEGRAM_CHAT_ID || facebookLeadSyncInProgress) return;
+    if (!config || !process.env.TELEGRAM_BOT_TOKEN || !process.env.TELEGRAM_CHAT_ID || facebookLeadSyncInProgress) {
+        return { skipped: true, delivered: 0, failed: 0 };
+    }
     facebookLeadSyncInProgress = true;
+    let delivered = 0;
+    let failed = 0;
 
     try {
         const response = await getJson({
@@ -216,7 +220,7 @@ async function syncFacebookLeads() {
         const leads = response?._embedded?.unsorted || [];
 
         for (const lead of leads) {
-            if (!lead?.uid || lead.created_at < facebookLeadSyncStartedAt || sentFacebookLeadUids.has(lead.uid) || !isFacebookLead(lead)) continue;
+            if (!lead?.uid || (!includeExisting && lead.created_at < facebookLeadSyncStartedAt) || sentFacebookLeadUids.has(lead.uid) || !isFacebookLead(lead)) continue;
             try {
                 const fullLead = await getJson({
                     hostname: `${config.subdomain}.kommo.com`,
@@ -226,16 +230,21 @@ async function syncFacebookLeads() {
                 const contact = await getIncomingLeadContact(config, fullLead);
                 await sendFacebookLeadToTelegram(fullLead, contact);
                 sentFacebookLeadUids.add(lead.uid);
+                delivered += 1;
                 console.log(`[Kommo] Facebook lead ${lead.uid} sent to Telegram`);
             } catch (error) {
+                failed += 1;
                 console.error(`[Kommo] Could not send Facebook lead ${lead.uid} to Telegram: ${error.message}`);
             }
         }
     } catch (error) {
+        failed += 1;
         console.error(`[Kommo] Facebook lead sync failed: ${error.message}`);
     } finally {
         facebookLeadSyncInProgress = false;
     }
+
+    return { skipped: false, delivered, failed };
 }
 
 async function createKommoLead({ name, phone, source, viewingTime, device, timestamp }) {
@@ -396,6 +405,15 @@ app.post('/api/newsletter', (req, res) => {
     telegramReq.on('error', () => res.status(500).json({ success: false }));
     telegramReq.write(data);
     telegramReq.end();
+});
+
+app.post('/api/kommo/sync-facebook', async (req, res) => {
+    const secret = String(process.env.KOMMO_FACEBOOK_SYNC_SECRET || '').trim();
+    if (!secret) return res.status(503).json({ success: false, error: 'Manual sync is not configured' });
+    if (req.get('x-kommo-sync-secret') !== secret) return res.status(401).json({ success: false });
+
+    const result = await syncFacebookLeads({ includeExisting: true });
+    res.status(result.skipped ? 409 : 200).json({ success: !result.skipped, ...result });
 });
 
 app.use((req, res) => {
