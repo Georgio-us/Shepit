@@ -70,7 +70,9 @@ document.querySelectorAll('[data-catalog-application-open]').forEach((button) =>
   document.body.classList.add('is-overlay-open');
   applicationForm.hidden = false;
   applicationSuccess.hidden = true;
-  applicationForm?.querySelector('input')?.focus();
+  const title = application.querySelector('h2');
+  title.setAttribute('tabindex', '-1');
+  title.focus();
 }));
 application?.querySelectorAll('[data-catalog-application-close]').forEach((button) => button.addEventListener('click', closeCatalogApplication));
 applicationForm?.addEventListener('submit', async (event) => {

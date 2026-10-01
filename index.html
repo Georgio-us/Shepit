@@ -52,6 +52,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
     <link rel="stylesheet" href="v2.css?v=36">
+    <link rel="stylesheet" href="/conversion.css?v=1">
 </head>
 <body>
     <main>
@@ -126,11 +127,10 @@
             </div>
         </section>
 
-        <section class="offer-strip" id="special-offer" aria-labelledby="offer-strip-title">
-            <div class="offer-strip__intro"><span class="offer-kicker">Особлива пропозиція</span><h2 id="offer-strip-title">Два будинки.<br>Більше часу на оплату.</h2></div>
-            <div class="offer-strip__terms"><div><strong>50<span>%</span></strong><span>перший внесок</span></div><div><strong><small>до</small> 24</strong><span>місяців на решту</span></div></div>
-            <button class="offer-button" type="button" data-offer-open><span>Дізнатися більше</span><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19 19 5M9 5h10v10"/></svg></i></button>
-        </section>
+<section class="lead-band lead-band--offer" id="special-offer" aria-labelledby="offer-strip-title"><div><span class="lead-eyebrow">Особлива пропозиція · 2 будинки</span><h2 id="offer-strip-title">Ваш дім. Більше часу на оплату.</h2><div class="lead-offer-terms"><div><strong>50%</strong><span>перший внесок</span></div><div><strong>до 24 міс.</strong><span>на решту вартості</span></div></div><p>Залиште номер — уточнимо наявність та умови пропозиції.</p><button class="lead-offer-more" type="button" data-offer-open>Усі умови пропозиції <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div><form class="lead-form" data-lead-form data-analytics-form="home_special_offer" data-lead-source="Акція на 2 будинки · 50% внесок · до 24 місяців" data-lead-context="">
+<label><span>Номер телефону</span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="Наприклад, 095 123 45 67" required></label>
+<label><span>Ім’я · необов’язково</span><input name="name" type="text" autocomplete="name" maxlength="100" placeholder="Як до вас звертатися?"></label>
+<button type="submit"><span>Дізнатися про наявність</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><p class="lead-note">Менеджер зателефонує та уточнить деталі.</p><p class="lead-status" data-form-status role="status" aria-live="polite" tabindex="-1"></p><p class="lead-privacy">Надсилаючи заявку, ви погоджуєтеся з <a href="/privacy-policy/">політикою конфіденційності</a>.</p></form></section>
 
         <section class="about-v2" id="about" aria-labelledby="about-v2-title">
             <div class="about-v2__intro v2-grid">
@@ -184,7 +184,7 @@
                 <div class="about-gallery__stats">
                     <div class="about-gallery__metric"><span>Резиденції</span><strong>8</strong></div>
                     <div class="about-gallery__metric"><span>Площа</span><strong>100–120 м²</strong></div>
-                    <div class="about-gallery__metric"><span>Вартість</span><strong>від $85 000</strong></div>
+                    <div class="about-gallery__metric"><span>Вартість</span><strong>від $85 000</strong><small>за повної оплати T92</small></div>
                 </div>
             </div>
         </section>
@@ -252,6 +252,10 @@
             </div>
         </section>
 
+<section class="lead-band" aria-labelledby="home_models-title"><div><span class="lead-eyebrow">SHEPIT HOUSE · Відділ продажу</span><h2 id="home_models-title">Допоможемо обрати ваш дім.</h2><p>Отримайте актуальні ціни, планування та умови оплати.</p></div><form class="lead-form" data-lead-form data-analytics-form="home_models" data-lead-source="Головна · після планувань" data-lead-context="">
+<label><span>Номер телефону</span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="Наприклад, 095 123 45 67" required></label>
+<label><span>Ім’я · необов’язково</span><input name="name" type="text" autocomplete="name" maxlength="100" placeholder="Як до вас звертатися?"></label>
+<button type="submit"><span>Отримати ціни та планування</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><p class="lead-note">Менеджер зателефонує та уточнить деталі.</p><p class="lead-status" data-form-status role="status" aria-live="polite" tabindex="-1"></p><p class="lead-privacy">Надсилаючи заявку, ви погоджуєтеся з <a href="/privacy-policy/">політикою конфіденційності</a>.</p></form></section>
         <section class="plan-v2" id="masterplan" aria-labelledby="plan-v2-title">
             <div class="plan-v2__heading v2-grid">
                 <div class="plan-v2__title">
@@ -294,7 +298,7 @@
                             <li>Власний двір</li>
                             <li>2 паркомісця</li>
                         </ul>
-                        <a href="#contact" data-plan-link data-plan-unit="01" data-plan-type="Дуплекс D101" aria-label="Дізнатися деталі про резиденцію">Дізнатися деталі <span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19 19 5"/><path d="M9 5h10v10"/></svg></span></a>
+                        <a href="#contact" data-plan-link data-lead-open data-lead-context="Резиденція 01 · Дуплекс D101" data-lead-source="Генплан" data-plan-unit="01" data-plan-type="Дуплекс D101" aria-label="Дізнатися деталі про резиденцію">Дізнатися деталі <span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19 19 5"/><path d="M9 5h10v10"/></svg></span></a>
                     </div>
 
                     <div class="plan-v2__units" aria-label="Список резиденцій">
@@ -411,7 +415,7 @@
 
                 <div class="payment-v2__copy">
                     <h2 id="payment-v2-title">Дім — зараз.<br><span>Оплата — у вашому ритмі.</span></h2>
-                    <p>Оберіть резиденцію та розподіліть оплату на зручний період. До 12 місяців розтермінування — без першого внеску.</p>
+                    <p>Оберіть резиденцію та розподіліть оплату на зручний період. До 12 місяців — без першого внеску. Для двох будинків діє окрема пропозиція: до 24 місяців із внеском 50%.</p>
                     <a class="payment-v2__cta" href="calculator/">
                         <span>Розрахувати платіж</span>
                         <i aria-hidden="true">
@@ -691,7 +695,7 @@
                             <i aria-hidden="true">+</i>
                         </button>
                         <div class="faq-v2__answer" id="faq-answer-02">
-                            <div><p>Доступне безвідсоткове розтермінування від забудовника терміном до 12 місяців із першим внеском 0%. За умови повної оплати діють спеціальні індивідуальні умови.</p></div>
+                            <div><p>Доступне безвідсоткове розтермінування до 12 місяців із першим внеском 0%. Для двох будинків діє окрема пропозиція: до 24 місяців із внеском 50% — наявність уточнить менеджер. T92 коштує від $85 000 за повної оплати та $99 000 у розтермінування.</p></div>
                         </div>
                     </article>
 
@@ -766,14 +770,14 @@
                 <form class="contact-v2__form" id="v2-contact-form">
                     <label>
                         <span>Ваше ім’я</span>
-                        <input type="text" name="name" autocomplete="name" placeholder="Ім’я" required>
+                        <input type="text" name="name" autocomplete="name" placeholder="Ім’я">
                     </label>
                     <label>
                         <span>Номер телефону</span>
                         <input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="+38 (___) ___ __ __" required>
                     </label>
                     <button type="submit">
-                        <span>Надіслати</span>
+                        <span>Отримати пропозицію</span>
                         <i aria-hidden="true">
                             <svg viewBox="0 0 24 24"><path d="M5 19 19 5M9 5h10v10"/></svg>
                         </i>
@@ -828,11 +832,7 @@
         <span></span><span></span><span></span>
     </button>
 
-    <a class="floating-phone-button" href="tel:+380950734376" aria-label="Зателефонувати: +38 (095) 073 43 76">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 3.8 8.4 3l2 4.6-1.8 1.6c1.2 2.5 3.1 4.4 5.6 5.6l1.6-1.8 4.6 2-.8 2.9c-.3 1-1.2 1.7-2.3 1.7C9.7 19.6 4.4 14.3 4.4 6.7c0-1.1.7-2 1.7-2.3Z"/></svg>
-    </a>
-
-    <button class="color-test-toggle" type="button" data-color-test-toggle aria-label="Змінити кольорову тему">
+<button class="color-test-toggle" type="button" data-color-test-toggle aria-label="Змінити кольорову тему">
         <span class="color-test-toggle__swatch" aria-hidden="true"></span>
         <span data-color-test-label>Олива</span>
     </button>
@@ -871,35 +871,6 @@
         </div>
     </div>
 
-    <div class="floating-actions" data-floating-actions>
-        <div class="contact-widget-v2" data-contact-widget>
-            <div class="contact-widget-v2__panel" id="contact-widget-panel" aria-hidden="true" inert>
-                <div class="contact-widget-v2__heading">
-                    <span>Зв’язок</span>
-                    <strong>Оберіть зручний спосіб</strong>
-                </div>
-                <a href="tel:+380950734376"><span>Зателефонувати</span><small>+38 (095) 073 43 76</small></a>
-                <a href="https://t.me/Liliia_Horodnia" target="_blank" rel="noopener"><span>Telegram</span><small>Написати в чат</small></a>
-                <a href="viber://chat/?number=%2B380950734376"><span>Viber</span><small>Написати в чат</small></a>
-                <button type="button" data-application-modal-open>
-                    <span>Залишити заявку</span>
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5"/><path d="M9 5h10v10"/></svg>
-                </button>
-            </div>
-            <button class="contact-widget-v2__toggle" type="button" data-contact-toggle aria-expanded="false" aria-controls="contact-widget-panel">
-                <svg viewBox="0 0 28 28" aria-hidden="true" focusable="false">
-                    <path d="M14 4.5c-5.8 0-10.5 4.3-10.5 9.6 0 2.2.8 4.3 2.3 5.9L4.6 24l4.7-2.3c1.4.7 3 1.1 4.7 1.1 5.8 0 10.5-4.3 10.5-9.6S19.8 4.5 14 4.5Z"/>
-                    <path d="M10.2 13.4h.01M14 13.4h.01M17.8 13.4h.01" stroke-width="2.2"/>
-                </svg>
-                <span>Зв’язатися</span>
-            </button>
-        </div>
-
-        <button class="scroll-top-v2" type="button" data-scroll-top aria-label="Повернутися нагору">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 10 7-7 7 7M12 3v18"/></svg>
-        </button>
-    </div>
-
     <div class="media-modal" data-media-modal hidden>
         <div class="media-modal__backdrop" data-media-close></div>
         <div class="media-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="media-modal-title">
@@ -923,7 +894,7 @@
                 <h2 id="application-modal-title">Залишити заявку</h2>
                 <p>Залиште контакти — ми уточнимо актуальну наявність і відповімо на питання про резиденції.</p>
                 <form class="application-modal__form" data-application-form>
-                    <label><span class="visually-hidden">Ваше ім’я</span><input name="name" type="text" autocomplete="name" placeholder="Ваше ім’я" required></label>
+                    <label><span class="visually-hidden">Ваше ім’я</span><input name="name" type="text" autocomplete="name" placeholder="Ваше ім’я"></label>
                     <label><span class="visually-hidden">Номер телефону</span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="Номер телефону" required></label>
                     <button class="application-modal__submit" type="submit"><span>Надіслати заявку</span><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19 19 5"></path><path d="M9 5h10v10"></path></svg></i></button>
                     <p class="application-modal__note">Менеджер зв’яжеться з вами та відповість на запитання.</p>
@@ -949,15 +920,15 @@
             <div class="offer-modal__terms"><div><strong>50%</strong><span>перший внесок</span></div><div><strong><small>до</small> 24 <small>міс.</small></strong><span>на решту вартості</span></div></div>
             <p class="offer-modal__invitation">Залиште контакти — менеджер уточнить наявність будинків за пропозицією та розповість про деталі.</p>
             <form class="offer-form" data-offer-form>
-                <label>Ваше ім’я<input name="name" type="text" autocomplete="name" placeholder="Як до вас звертатися?" maxlength="100" required></label>
+                <label>Ваше ім’я<input name="name" type="text" autocomplete="name" placeholder="Як до вас звертатися?" maxlength="100"></label>
                 <label>Номер телефону<input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+380" maxlength="30" required></label>
                 <button class="offer-button" type="submit"><span>Дізнатися про наявність</span><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 19 19 5M9 5h10v10"/></svg></i></button>
                 <p class="offer-form__status" data-offer-status role="alert" tabindex="-1"></p>
                 <p class="offer-form__privacy">Надсилаючи заявку, ви погоджуєтесь із <a href="privacy-policy/">політикою конфіденційності</a>.</p>
             </form>
-            <div class="offer-modal__alternative"><p>Також доступне стандартне розтермінування: <strong>0% першого внеску, до 12 місяців, фіксована ціна.</strong></p><a href="calculator/">Перейти до калькулятора <span aria-hidden="true">↗</span></a></div>
+            <div class="offer-modal__alternative"><p>Також доступне стандартне розтермінування: <strong>0% першого внеску, до 12 місяців, фіксована ціна.</strong></p><a href="calculator/">Перейти до калькулятора <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
         </div>
-        <div class="offer-modal__success" data-offer-success hidden><span class="offer-kicker">Дякуємо за інтерес</span><h2 tabindex="-1">Заявку надіслано</h2><p>Менеджер зв’яжеться з вами, уточнить наявність будинків та розповість про особливі умови оплати.</p><button class="offer-button" type="button" data-offer-close>Повернутися до сайту <span aria-hidden="true">↗</span></button></div>
+        <div class="offer-modal__success" data-offer-success hidden><span class="offer-kicker">Дякуємо за інтерес</span><h2 tabindex="-1">Заявку надіслано</h2><p>Менеджер зв’яжеться з вами, уточнить наявність будинків та розповість про особливі умови оплати.</p><button class="offer-button" type="button" data-offer-close>Повернутися до сайту <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
     </dialog>
 
     <aside class="cookie-notice" data-cookie-notice hidden aria-label="Повідомлення про cookie">
@@ -965,8 +936,9 @@
         <button type="button" data-cookie-accept>Окей</button>
     </aside>
 
-    <script src="analytics-v2.js?v=2"></script>
-    <script src="v2.js?v=21"></script>
+    <script src="analytics-v2.js?v=3"></script>
+    <script src="v2.js?v=22"></script>
     <script src="special-offer.js?v=1"></script>
+  <script src="/conversion.js?v=1" defer></script>
 </body>
 </html>

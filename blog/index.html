@@ -34,6 +34,7 @@
   }
   </script>
 
+    <link rel="stylesheet" href="/conversion.css?v=1">
 </head>
 <body>
   <header class="journal-header shell">
@@ -130,7 +131,7 @@
         <div><h2 id="channels-title">Залишайтеся<br>поруч із проєктом.</h2><p>Обирайте зручний формат: короткі новини у Telegram, відеощоденник на YouTube або візуальні оновлення в Instagram.</p></div>
       </div>
       <div class="channel-grid shell">
-        <a class="channel-card channel-card--telegram" href="https://t.me/Liliia_Horodnia" target="_blank" rel="noopener noreferrer">
+        <a class="channel-card channel-card--telegram" href="https://t.me/shepit_house" target="_blank" rel="noopener noreferrer">
           <img src="../assets/genplan-ajusted.webp" width="1530" height="1028" loading="lazy" alt="Генеральний план SHEPIT HOUSE">
           <span class="channel-card__veil"></span><span class="channel-card__top"><small>01 · Новини</small><i><svg viewBox="0 0 24 24"><path d="M5 19 19 5M9 5h10v10"/></svg></i></span>
           <span class="channel-card__bottom"><b>Telegram</b><small>Оперативні оновлення та хід будівництва</small></span>
@@ -148,7 +149,10 @@
       </div>
     </section>
 
-    <section class="newsletter shell" aria-labelledby="newsletter-title">
+<section class="lead-band" aria-labelledby="journal_inquiry-title"><div><span class="lead-eyebrow">SHEPIT HOUSE · Відділ продажу</span><h2 id="journal_inquiry-title">Підберемо вашу резиденцію.</h2><p>Отримайте актуальні ціни, планування та умови оплати.</p></div><form class="lead-form" data-lead-form data-analytics-form="journal_inquiry" data-lead-source="Журнал · консультація" data-lead-context="">
+<label><span>Номер телефону</span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="Наприклад, 095 123 45 67" required></label>
+<label><span>Ім’я · необов’язково</span><input name="name" type="text" autocomplete="name" maxlength="100" placeholder="Як до вас звертатися?"></label>
+<button type="submit"><span>Отримати пропозицію</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><p class="lead-note">Менеджер зателефонує та уточнить деталі.</p><p class="lead-status" data-form-status role="status" aria-live="polite" tabindex="-1"></p><p class="lead-privacy">Надсилаючи заявку, ви погоджуєтеся з <a href="/privacy-policy/">політикою конфіденційності</a>.</p></form></section>    <section class="newsletter shell" aria-labelledby="newsletter-title">
       <p class="section-index"><span>(05)</span> · Листи без шуму</p>
       <div class="newsletter__content">
         <div><h2 id="newsletter-title">Головне —<br>у вашій пошті.</h2><p>Нові матеріали, важливі етапи будівництва та зміни у доступності резиденцій. Без зайвих повідомлень.</p></div>
@@ -169,7 +173,8 @@
     <p>© 2026 SHEPIT HOUSE</p>
   </footer>
 
-  <script src="../analytics-v2.js?v=2"></script>
+  <script src="../analytics-v2.js?v=3"></script>
   <script src="journal-v2.js?v=1" defer></script>
+  <script src="/conversion.js?v=1" defer></script>
 </body>
 </html>

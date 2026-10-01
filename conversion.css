@@ -1,0 +1,127 @@
+/* Conversion surfaces share SHEPIT's olive, typography and pill controls. */
+[hidden] { display: none !important; }
+.lead-band { margin: 36px clamp(20px,5.55vw,80px); padding: 28px 32px; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.4fr); gap: 32px; align-items: center; border: 1px solid #d8dccf; border-radius: 16px; background: #f2f3eb; color: #252c19; }
+.lead-band h2 { margin: 8px 0 12px; font-size: clamp(25px,2.4vw,38px); font-weight: 400; line-height: 1.08; letter-spacing: -.045em; }
+.lead-band p { margin: 0; font-size: 14px; line-height: 1.5; color: #606650; }
+.lead-eyebrow { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #606650; }
+.lead-form { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 0; min-width: 0; }
+.lead-form label { min-width: 0; }
+.lead-form label > span { display: block; margin-bottom: 8px; font-size: 12px; font-weight: 500; }
+.lead-form input { width: 100%; min-height: 50px; padding: 12px 14px; border: 1px solid #c5cbb7; border-radius: 8px; background: #fff; color: #252c19; font: inherit; font-size: 16px; box-sizing: border-box; }
+.lead-form input::placeholder { color: #757b69; font-size: 14px; }
+.lead-form button, .lead-cta { display: inline-flex; min-height: 52px; align-items: center; justify-content: space-between; gap: 14px; padding: 12px 20px; border: 0; border-radius: 999px; color: #fff; background: #252c19; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer; text-decoration: none; }
+.lead-form button { grid-column: 1 / -1; width: 100%; }
+.lead-form button svg,.lead-cta svg { width: 22px; height: 22px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.lead-form button:disabled { opacity: .65; cursor: wait; }
+.lead-form .lead-note, .lead-form .lead-privacy, .lead-form .lead-status { grid-column: 1 / -1; margin: 0; font-size: 11px; line-height: 1.45; }
+.lead-form .lead-status:empty { display: none; }
+.lead-form .lead-status { color: #9d352e; }
+.lead-form .lead-status.is-success { padding: 20px; border: 1px solid #aab497; border-radius: 10px; background: #fff; color: #252c19; font-size: 16px; }
+.lead-privacy a,.lead-status a { text-decoration: underline; text-underline-offset: 3px; }
+.lead-band--offer { align-items: start; }
+.lead-offer-terms { display: flex; gap: 24px; margin: 18px 0; }
+.lead-offer-terms strong { display: block; font-size: 29px; font-weight: 400; letter-spacing: -.04em; }
+.lead-offer-terms span { font-size: 12px; }
+.lead-offer-more { display: inline-flex; align-items: center; gap: 12px; min-height: 36px; padding: 0; border: 0; border-bottom: 1px solid #909a7f; background: transparent; color: #252c19; font: inherit; font-size: 13px; cursor: pointer; }
+.lead-offer-more svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+.lead-dialog { width: min(520px,calc(100% - 32px)); max-height: calc(100dvh - 40px); padding: 32px; box-sizing: border-box; border: 0; border-radius: 18px; background: #f2f3eb; color: #252c19; font-family: Inter,Arial,sans-serif; overscroll-behavior: contain; }
+.lead-dialog::backdrop { background: #10170dc4; backdrop-filter: blur(6px); }
+.lead-dialog__close { position: absolute; top: 16px; right: 16px; display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid #c5cbb7; border-radius: 50%; background: transparent; color: inherit; cursor: pointer; }
+.lead-dialog__close svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+.lead-dialog .lead-eyebrow { display: block; padding-right: 38px; }
+.lead-dialog h2 { margin: 24px 0 12px; font-size: 36px; font-weight: 400; line-height: 1.05; letter-spacing: -.05em; }
+.lead-dialog > p { margin: 0 0 24px; color: #606650; font-size: 14px; line-height: 1.5; }
+.lead-dialog .lead-form { grid-template-columns: 1fr; }
+body.is-lead-open { overflow: hidden; }
+.lead-bar { position: fixed; z-index: 850; bottom: 24px; right: 24px; display: flex; gap: 8px; padding: 8px; border: 1px solid #c5cbb7; border-radius: 999px; background: #f8f9f3; color: #252c19; box-shadow: 0 8px 28px #10170d26; font-family: Inter,Arial,sans-serif; }
+.lead-bar > button,.lead-bar > a { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 10px 16px; border: 0; border-radius: 999px; background: transparent; color: inherit; font: inherit; font-size: 13px; font-weight: 500; text-decoration: none; cursor: pointer; }
+.lead-bar > .lead-bar__primary { background: #252c19; color: #fff; }
+.lead-bar svg,.lead-chat svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+.lead-bar__primary > svg { transform-origin: 50% 20%; animation: lead-bell 1s ease-in-out 2; }
+@keyframes lead-bell { 0%,100% { transform: rotate(0); } 25% { transform: rotate(-12deg); } 75% { transform: rotate(12deg); } }
+.lead-chat { position: absolute; right: 0; bottom: calc(100% + 12px); width: 250px; padding: 20px; border: 1px solid #c5cbb7; border-radius: 16px; background: #f8f9f3; box-shadow: 0 8px 28px #10170d26; }
+.lead-chat strong { display: block; margin-bottom: 10px; font-size: 14px; }
+.lead-chat a { display: flex; justify-content: space-between; align-items: center; min-height: 48px; border-top: 1px solid #d8dccf; font-size: 14px; text-decoration: none; }
+.lead-form input:focus-visible,.lead-dialog :focus-visible,.lead-band :focus-visible,.lead-bar :focus-visible,.lead-cta:focus-visible { outline: 2px solid #738251; outline-offset: 3px; }
+.lead-form button:hover,.lead-cta:hover,.lead-bar__primary:hover { background: #3f4a2c; }
+.lead-bar__phone:hover,.lead-bar__chat:hover { background: #e7ebde; }
+/* Existing lead forms receive a visible internal container and real fields. */
+#v2-contact-form,[data-application-form],[data-booking-form],[data-catalog-application-form],[data-offer-form],.lead-result-contact { padding: 24px !important; border: 1px solid #c5cbb7 !important; border-radius: 14px; background: #f2f3eb !important; color: #252c19 !important; }
+#v2-contact-form label,[data-application-form] label,[data-booking-form] label,[data-catalog-application-form] label,[data-offer-form] label,.lead-result-contact label { border: 0 !important; margin: 0 0 14px; }
+#v2-contact-form label > span,[data-application-form] label > span,[data-booking-form] label > span,[data-catalog-application-form] label > span,.lead-result-contact label > span { display: block; position: static; width: auto; height: auto; clip: auto; font-size: 12px; color: #252c19; margin-bottom: 8px; text-transform: none; }
+#v2-contact-form input,[data-application-form] input,[data-booking-form] input,[data-catalog-application-form] input,[data-offer-form] input,.lead-result-contact input { min-height: 50px; padding: 12px 14px !important; border: 1px solid #c5cbb7 !important; border-radius: 8px; background: #fff !important; color: #252c19 !important; font-size: 16px !important; width: 100%; box-sizing: border-box; }
+#v2-contact-form input::placeholder,[data-application-form] input::placeholder,[data-booking-form] input::placeholder,[data-catalog-application-form] input::placeholder,[data-offer-form] input::placeholder,.lead-result-contact input::placeholder { color: #757b69 !important; }
+#v2-contact-form button,[data-application-form] button,[data-booking-form] button,[data-catalog-application-form] button,[data-offer-form] button,.lead-result-contact button { width: 100%; min-height: 54px !important; margin-top: 10px; color: #fff !important; background: #252c19 !important; font-size: 15px !important; }
+#v2-contact-form p,[data-application-form] p,[data-booking-form] p,[data-catalog-application-form] p { color: #606650; font-size: 12px; }
+[data-catalog-application-form] .catalog-application__note,[data-application-form] .application-modal__note { color: #606650 !important; font-size: 12px !important; margin-top: 14px !important; }
+[data-catalog-application-form] button i,[data-application-form] button i { width: 40px; height: 40px; }
+[data-catalog-application-form] button i svg,[data-application-form] button i svg { width: 22px; height: 22px; }
+.catalog-application { padding: 20px; }
+.catalog-application__dialog { max-height: calc(100dvh - 40px); overflow-y: auto; }
+[data-offer-form] label > span { display: block; margin-bottom: 8px; font-size: 12px; color: #252c19; }
+[data-offer-form] .offer-form__privacy { color: #606650; }
+#v2-contact-form input:focus-visible,[data-application-form] input:focus-visible,[data-booking-form] input:focus-visible,[data-catalog-application-form] input:focus-visible,[data-offer-form] input:focus-visible,.lead-result-contact input:focus-visible { outline: 2px solid #738251 !important; outline-offset: 2px; }
+.lead-result-contact { margin: 24px 0; }
+.lead-result-contact > p { margin: 0 0 18px; font-size: 16px; font-weight: 500; }
+.lead-result-contact .result-submit { color: #fff; }
+.lead-result-contact .result-submit i { color: #252c19; background: #fff; }
+.lead-result-contact .result-contacts { margin-top: 0; }
+.lead-result-contact .form-status { color: #9d352e; }
+.calculator-page { padding-top: 40px; }
+.calculator-workspace { margin-top: 36px; }
+.calculator-help { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+.calculator-help p { margin: 0; color: #606650; font-size: 12px; }
+.calculator-help .lead-cta { font-size: 13px; min-height: 44px; }
+.residence-stage { margin: 18px 0 0; color: #606650; font-size: 11px; line-height: 1.4; }
+.model .lead-cta { margin-top: 12px; }
+.article-content .lead-band,.article-body .lead-band { margin-inline: 0; }
+.article-lead { margin: 40px 0; }
+@media (max-width: 1000px) {
+  .residence-summary__details { grid-row: 3; padding-top: 0; padding-bottom: 24px; }
+  .residence-gallery { grid-row: 4; min-height: 46svh; }
+  .residence-summary__identity { padding-bottom: 20px; }
+  .residence-summary__details .residence-metrics { grid-template-columns: repeat(3,1fr); margin-top: 0; }
+  .residence-metric:nth-child(3) { grid-column: auto; border-top: 0; padding-left: 12px; border-left: 1px solid var(--line); }
+  .residence-metric strong { font-size: 27px; }
+  .residence-metric span { font-size: 10px; }
+  .residence-metric + .residence-metric { padding-left: 12px; }
+  .residence-price { padding-top: 16px; }
+  .residence-price strong { font-size: 30px; white-space: nowrap; }
+  .residence-price span { max-width: 48%; font-size: 11px; }
+  .residence-actions { margin-top: 16px; grid-template-columns: 1fr 1fr; }
+  .residence-actions .secondary-action { min-height: 44px; padding: 8px 10px; gap: 8px; font-size: 11px; }
+  .residence-installment { font-size: 12px; }
+  .residence-summary__top { padding-bottom: 20px; }
+  .residence-tabs { margin-top: 20px; }
+}
+@media (max-width: 700px) {
+  body { padding-bottom: calc(86px + env(safe-area-inset-bottom)); }
+  .lead-band { grid-template-columns: 1fr; gap: 24px; margin: 24px 20px; padding: 24px 20px; border-radius: 14px; }
+  .lead-band h2 { font-size: 29px; }
+  .lead-form { grid-template-columns: 1fr; }
+  .lead-form input { min-height: 50px; }
+  .lead-bar { left: 10px; right: 10px; bottom: 0; padding: 8px 8px max(8px,env(safe-area-inset-bottom)); gap: 4px; border-radius: 18px 18px 0 0; }
+  .lead-bar > button,.lead-bar > a { gap: 5px; padding: 10px 8px; font-size: 11px; }
+  .lead-bar > .lead-bar__primary { flex: 1.7; }
+  .lead-bar > .lead-bar__phone { flex: 1.2; }
+  .lead-bar > .lead-bar__chat { flex: .7; }
+  .lead-bar svg { width: 18px; height: 18px; }
+  .lead-chat { right: 0; }
+  .lead-dialog { width: calc(100% - 20px); max-height: calc(100dvh - 20px); padding: 28px 22px; border-radius: 16px; }
+  .lead-dialog h2 { font-size: 30px; }
+  .calculator-copy h1 { font-size: 42px; }
+  .calculator-copy > p { margin-top: 18px; font-size: 14px; }
+  .calculator-location { margin-top: 16px; }
+  .calculator-page { padding-top: 32px; }
+  .calculator-workspace { margin-top: 28px; }
+  .calculator-controls .calculator-group { padding-block: 20px; }
+  .calculator-controls .unit-options { margin-top: 14px; }
+  .calculator-result { padding: 28px 20px; }
+  .lead-result-contact { padding: 20px !important; }
+  #v2-contact-form,[data-application-form],[data-booking-form],[data-catalog-application-form],[data-offer-form] { padding: 20px !important; }
+  .contact-v2__copy h2 { font-size: 38px; }
+  .booking-grid { gap: 28px; }
+  .article-lead .lead-band { margin-inline: 0; }
+}
+@media (max-width: 370px) { .lead-bar > button,.lead-bar > a { font-size: 10px; padding-inline: 6px; } .lead-bar__phone svg { display: none; } .residence-metric strong { font-size: 24px; } }
+@media (prefers-reduced-motion: reduce) { .lead-bar__primary > svg { animation: none; } }

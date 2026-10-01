@@ -307,7 +307,8 @@ app.post('/api/lead', async (req, res) => {
     const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
     const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
-    if (!phone || String(phone).trim().length < 7) {
+    const phoneDigits = String(phone || '').replace(/\D/g, '');
+    if (phoneDigits.length < 9 || phoneDigits.length > 15 || !/^[+0-9() .-]+$/.test(String(phone).trim())) {
         return res.status(400).json({ success: false, error: 'Invalid phone' });
     }
 

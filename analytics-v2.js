@@ -57,7 +57,7 @@
     d101: { event_name: 'd101_open', residence_name: 'Дуплекс D101' }
   };
 
-  const formSelector = '[data-application-form], #v2-contact-form, [data-booking-form], [data-catalog-application-form], [data-calculator-form], #form-modal, #form-plans, #form-payment';
+  const formSelector = '[data-lead-form], [data-offer-form], [data-application-form], #v2-contact-form, [data-booking-form], [data-catalog-application-form], [data-calculator-form], #form-modal, #form-plans, #form-payment';
   const formName = (form) => {
     if (form.dataset.analyticsForm) return form.dataset.analyticsForm;
     if (form.matches('[data-application-form]')) return 'application_modal';
@@ -65,6 +65,7 @@
     if (form.matches('[data-calculator-form]')) return 'calculator';
     if (form.matches('[data-catalog-application-form]')) return 'residences_catalog_inquiry';
     if (form.matches('[data-booking-form]')) return 'residence_inquiry';
+    if (form.matches('[data-offer-form]')) return 'special_offer_24_months';
     return form.id || 'lead_form';
   };
   const formParams = (form, extra = {}) => ({ form_name: formName(form), ...extra });
@@ -79,20 +80,22 @@
     if (!(form instanceof HTMLFormElement) || observedForms.has(form)) return;
     observedForms.add(form);
     form.dataset.analyticsForm = formName(form);
-    observer?.observe(form);
+    const contact = form.querySelector('input[name="phone"]');
+    if (contact) observer?.observe(contact);
   };
   const observer = 'IntersectionObserver' in window ? new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      if (!entry.isIntersecting || seenForms.has(entry.target)) return;
-      seenForms.add(entry.target);
-      track('form_view', formParams(entry.target));
+      const form = entry.target.form;
+      if (!form || !entry.isIntersecting || seenForms.has(form)) return;
+      seenForms.add(form);
+      track('form_view', formParams(form));
       observer.unobserve(entry.target);
     });
   }, { threshold: 0.35 }) : null;
   const registerForms = () => document.querySelectorAll(formSelector).forEach(registerForm);
 
-  document.addEventListener('focusin', (event) => {
-    const field = event.target.closest('input, select, textarea');
+  document.addEventListener('input', (event) => {
+    const field = event.target.closest('input[name="phone"], input[name="name"]');
     const form = field?.closest(formSelector);
     if (!form || startedForms.has(form)) return;
     startedForms.add(form);
@@ -126,6 +129,7 @@
     else if (target.matches('[data-residence-inquiry-open]')) track('residence_inquiry_open', { cta_text: text });
     else if (target.matches('[data-question-button]')) track('application_modal_open', { cta_text: text, source: 'faq' });
     else if (target.matches('[data-contact-toggle]')) track('contact_widget_open');
+    else if (target.matches('[data-offer-open]')) track('special_offer_open');
     else if (/^tel:/i.test(href)) track('phone_click', { link_url: href });
     else if (/t\.me\//i.test(href)) track('telegram_click', { link_url: href });
     else if (/^viber:/i.test(href)) track('viber_click', { link_url: href });

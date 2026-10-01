@@ -29,7 +29,7 @@ function getEstimate() {
   const depositPercent = Number(form.elements.deposit.value || 0);
   const months = Number(selectedValue('months') || 12);
   const cash = form.elements.cash.checked;
-  const total = unit.area * pricePerMeter;
+  const total = cash && key === 't92' ? 85000 : unit.area * pricePerMeter;
   const deposit = cash ? total : total * (depositPercent / 100);
   const balance = total - deposit;
 
@@ -56,14 +56,18 @@ function render() {
   const fill = (estimate.depositPercent / 70) * 100;
   form.elements.deposit.style.setProperty('--range-fill', `${fill}%`);
 
-  document.querySelector('[data-deposit-percent]').textContent = `${estimate.depositPercent}%`;
-  document.querySelector('[data-deposit-amount]').textContent = formatMoney(estimate.cash ? estimate.total : estimate.deposit);
+  document.querySelector('[data-deposit-percent]').textContent = `${estimate.cash ? 100 : estimate.depositPercent}%`;
+  document.querySelector('[data-deposit-amount]').textContent = estimate.cash && estimate.key !== 't92' ? 'За запитом' : formatMoney(estimate.cash ? estimate.total : estimate.deposit);
+  form.elements.deposit.disabled = estimate.cash;
   document.querySelector('[data-monthly]').textContent = formatMoney(estimate.monthly);
   document.querySelector('[data-months]').textContent = `${estimate.months} ${estimate.months === 3 ? 'місяці' : 'місяців'}`;
   document.querySelector('[data-unit-label]').textContent = `${estimate.unit.code} · ${estimate.unit.area} м²`;
-  document.querySelector('[data-total]').textContent = formatMoney(estimate.total);
+  document.querySelector('[data-total]').textContent = estimate.cash && estimate.key !== 't92' ? 'За запитом' : `${estimate.cash ? 'від ' : ''}${formatMoney(estimate.total)}`;
   document.querySelector('[data-deposit-detail]').textContent = estimate.cash ? '100%' : `${formatMoney(estimate.deposit)} · ${estimate.depositPercent}%`;
   document.querySelector('[data-balance]').textContent = formatMoney(estimate.balance);
+  document.querySelector('[data-price-note]').textContent = estimate.cash
+    ? (estimate.key === 't92' ? 'T92 — від $85 000 за повної оплати. Актуальну наявність і фінальну вартість підтвердить менеджер.' : 'Вартість та особливі умови повної оплати для цієї резиденції уточнить менеджер.')
+    : 'Розтермінування: T92 — $99 000. Для інших моделей розрахунок за орієнтиром $990/м². Актуальну наявність і фінальні умови підтвердить менеджер.';
   document.querySelector('[data-installment-result]').hidden = estimate.cash;
   document.querySelector('[data-cash-result]').hidden = !estimate.cash;
   document.querySelector('[data-installment-group]').classList.toggle('is-locked', estimate.cash);
@@ -82,7 +86,7 @@ function applyUrlSelection() {
 function getLeadSource() {
   const estimate = getEstimate();
   if (estimate.cash) {
-    return `Калькулятор SHEPIT HOUSE | ${estimate.unit.code}, ${estimate.unit.area} м² | 100% оплата | орієнтовна вартість ${formatMoney(estimate.total)}`;
+    return `Калькулятор SHEPIT HOUSE | ${estimate.unit.code}, ${estimate.unit.area} м² | 100% оплата | ${estimate.key === 't92' ? 'від ' + formatMoney(estimate.total) : 'вартість за запитом'}`;
   }
   return `Калькулятор SHEPIT HOUSE | ${estimate.unit.code}, ${estimate.unit.area} м² | внесок ${estimate.depositPercent}% (${formatMoney(estimate.deposit)}) | ${estimate.months} міс. | платіж ${formatMoney(estimate.monthly)}`;
 }

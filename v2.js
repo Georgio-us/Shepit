@@ -116,7 +116,8 @@ function openApplicationModal() {
     applicationSuccess.hidden = true;
     applicationModal.hidden = false;
     document.body.classList.add('is-application-modal-open');
-    applicationForm?.querySelector('input')?.focus();
+    applicationModalTitle?.setAttribute('tabindex', '-1');
+    applicationModalTitle?.focus();
 }
 
 function closeApplicationModal() {
@@ -129,13 +130,6 @@ document.querySelectorAll('[data-application-modal-open]').forEach((trigger) => 
     trigger.addEventListener('click', (event) => {
         event.preventDefault();
         closeContactWidget();
-        openApplicationModal();
-    });
-});
-
-document.querySelectorAll('[data-plan-link]').forEach((trigger) => {
-    trigger.addEventListener('click', (event) => {
-        event.preventDefault();
         openApplicationModal();
     });
 });
@@ -297,8 +291,11 @@ if (v2Masterplan) {
         if (typeOutput) typeOutput.textContent = pin.dataset.planType;
         if (areaOutput) areaOutput.textContent = pin.dataset.planArea;
         if (statusOutput) statusOutput.textContent = pin.dataset.planStatus;
-        if (bedroomsOutput) bedroomsOutput.textContent = pin.dataset.planType.startsWith('Таунхаус') ? '3 спальні' : '4 спальні';
+        if (bedroomsOutput) bedroomsOutput.textContent = pin.dataset.planType.includes('T92') ? '3 спальні' : '4 спальні';
         if (detailsLink) {
+            detailsLink.dataset.leadOpen = '';
+            detailsLink.dataset.leadContext = `Резиденція ${pin.dataset.planUnit} · ${pin.dataset.planType}`;
+            detailsLink.dataset.leadSource = 'Генплан';
             detailsLink.setAttribute('aria-label', `Дізнатися деталі про резиденцію ${pin.dataset.planUnit}`);
             detailsLink.dataset.planUnit = pin.dataset.planUnit;
             detailsLink.dataset.planType = pin.dataset.planType;

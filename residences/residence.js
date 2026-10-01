@@ -107,9 +107,9 @@ document.querySelector('#app').innerHTML = `
               <div class="residence-metric"><strong>${model.parcel}</strong><span>власна ділянка</span></div>
               <div class="residence-metric"><strong>${model.bedrooms}</strong><span>спальні</span></div>
             </div>
-            <div class="residence-price"><strong>${model.price}</strong><span>готовий будинок</span></div>
+            <p class="residence-stage">Будуємо · введення заплановане на червень 2027</p><div class="residence-price"><strong>${model.price}</strong><span>${key === 't92' ? 'за повної оплати' : 'вартість уточнить менеджер'}</span></div>
             <div class="residence-actions">
-              <a class="pill-action" href="#booking" data-residence-inquiry-open><span>Дізнатися деталі</span><i class="button-arrow">${arrow}</i></a>
+              <a class="pill-action" href="#booking" data-lead-open data-lead-context="${model.code}" data-lead-source="Картка будинку"><span>Отримати ціну та умови</span><i class="button-arrow">${arrow}</i></a>
               <a class="secondary-action" href="${mapUrl}" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.12 7-12A7 7 0 0 0 5 9c0 5.88 7 12 7 12Z"/><circle cx="12" cy="9" r="2.35"/></svg><span>Прокласти маршрут</span></a>
               <a class="secondary-action" href="../../output/pdf/shepit-house-${model.code.toLowerCase()}.pdf" download aria-label="Завантажити PDF-презентацію ${model.code}"><svg viewBox="0 0 24 24"><path d="M6 2h8l4 4v16H6zM14 2v5h5M8.5 16.5h7M8.5 13h7"/></svg><span>Завантажити PDF</span></a>
             </div>
@@ -128,6 +128,10 @@ document.querySelector('#app').innerHTML = `
       </div>
     </section>
 
+<section class="lead-band" aria-labelledby="residence_early-title"><div><span class="lead-eyebrow">SHEPIT HOUSE · Відділ продажу</span><h2 id="residence_early-title">Ціна та умови ${model.code}.</h2><p>Залиште номер — уточнимо наявність і підготуємо пропозицію.</p></div><form class="lead-form" data-lead-form data-analytics-form="residence_early" data-lead-source="Картка ${model.code} · відкрита форма" data-lead-context="${model.code}">
+<label><span>Номер телефону</span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="Наприклад, 095 123 45 67" required></label>
+<label><span>Ім’я · необов’язково</span><input name="name" type="text" autocomplete="name" maxlength="100" placeholder="Як до вас звертатися?"></label>
+<button type="submit"><span>Отримати пропозицію</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><p class="lead-note">Менеджер зателефонує та уточнить деталі.</p><p class="lead-status" data-form-status role="status" aria-live="polite" tabindex="-1"></p><p class="lead-privacy">Надсилаючи заявку, ви погоджуєтеся з <a href="/privacy-policy/">політикою конфіденційності</a>.</p></form></section>
     <section class="section plans-section" id="plans" aria-labelledby="plans-title">
       <p class="section-label">(01) · Планування</p>
       <div class="plans-head">
@@ -190,7 +194,7 @@ document.querySelector('#app').innerHTML = `
           <p>Залиште контакти — менеджер відповість на запитання та допоможе обрати резиденцію.</p>
         </div>
         <form class="booking-form" data-booking-form>
-          <label class="field"><input name="name" type="text" autocomplete="name" placeholder="Ваше ім’я" required></label>
+          <label class="field"><input name="name" type="text" autocomplete="name" placeholder="Ваше ім’я"></label>
           <label class="field"><input name="phone" type="tel" autocomplete="tel" placeholder="Номер телефону" required></label>
           <button class="pill-action" type="submit"><span>Надіслати заявку</span><i class="button-arrow">${arrow}</i></button>
           <p class="booking-note">Менеджер зв’яжеться з вами найближчим часом.</p>
