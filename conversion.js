@@ -136,6 +136,9 @@
     const initialHero = document.querySelector('.hero-v2') && scrollY < 100;
     const shouldHide = Boolean(activeDialog || contactInView || editing || initialHero);
     if (bar.hidden !== shouldHide) bar.hidden = shouldHide;
+    const floatingMenu = document.querySelector('.floating-menu-button');
+    const hideMenu = Boolean(activeDialog || contactInView || editing);
+    if (floatingMenu && floatingMenu.hidden !== hideMenu) floatingMenu.hidden = hideMenu;
     if (bar.hidden) {
       chatToggle.setAttribute('aria-expanded', 'false');
       const panel = bar.querySelector('.lead-chat');
