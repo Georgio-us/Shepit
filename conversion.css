@@ -8,11 +8,11 @@
 .lead-form label { min-width: 0; }
 .lead-form label > span { display: block; margin-bottom: 8px; font-size: 12px; font-weight: 500; }
 .lead-form input { width: 100%; min-height: 50px; padding: 12px 14px; border: 1px solid #c5cbb7; border-radius: 8px; background: #fff; color: #252c19; font: inherit; font-size: 16px; box-sizing: border-box; }
-.lead-form input::placeholder { color: #757b69; font-size: 14px; }
+.lead-form input::placeholder { color: #606650; opacity: 1; font-size: 14px; }
 .lead-form button, .lead-cta { display: inline-flex; min-height: 52px; align-items: center; justify-content: space-between; gap: 14px; padding: 12px 20px; border: 0; border-radius: 999px; color: #fff; background: #252c19; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer; text-decoration: none; }
 .lead-form button { grid-column: 1 / -1; width: 100%; }
 .lead-form button svg,.lead-cta svg { width: 22px; height: 22px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-.lead-form button:disabled { opacity: .65; cursor: wait; }
+.lead-form button:disabled { opacity: 1; cursor: wait; }
 .lead-form .lead-note, .lead-form .lead-privacy, .lead-form .lead-status { grid-column: 1 / -1; margin: 0; font-size: 11px; line-height: 1.45; }
 .lead-form .lead-status:empty { display: none; }
 .lead-form .lead-status { color: #9d352e; }
@@ -50,7 +50,7 @@ body.is-lead-open { overflow: hidden; }
 #v2-contact-form label,[data-application-form] label,[data-booking-form] label,[data-catalog-application-form] label,[data-offer-form] label,.lead-result-contact label { border: 0 !important; margin: 0 0 14px; }
 #v2-contact-form label > span,[data-application-form] label > span,[data-booking-form] label > span,[data-catalog-application-form] label > span,.lead-result-contact label > span { display: block; position: static; width: auto; height: auto; clip: auto; font-size: 12px; color: #252c19; margin-bottom: 8px; text-transform: none; }
 #v2-contact-form input,[data-application-form] input,[data-booking-form] input,[data-catalog-application-form] input,[data-offer-form] input,.lead-result-contact input { min-height: 50px; padding: 12px 14px !important; border: 1px solid #c5cbb7 !important; border-radius: 8px; background: #fff !important; color: #252c19 !important; font-size: 16px !important; width: 100%; box-sizing: border-box; }
-#v2-contact-form input::placeholder,[data-application-form] input::placeholder,[data-booking-form] input::placeholder,[data-catalog-application-form] input::placeholder,[data-offer-form] input::placeholder,.lead-result-contact input::placeholder { color: #757b69 !important; }
+#v2-contact-form input::placeholder,[data-application-form] input::placeholder,[data-booking-form] input::placeholder,[data-catalog-application-form] input::placeholder,[data-offer-form] input::placeholder,.lead-result-contact input::placeholder { color: #606650 !important; opacity: 1; }
 #v2-contact-form button,[data-application-form] button,[data-booking-form] button,[data-catalog-application-form] button,[data-offer-form] button,.lead-result-contact button { width: 100%; min-height: 54px !important; margin-top: 10px; color: #fff !important; background: #252c19 !important; font-size: 15px !important; }
 #v2-contact-form p,[data-application-form] p,[data-booking-form] p,[data-catalog-application-form] p { color: #606650; font-size: 12px; }
 [data-catalog-application-form] .catalog-application__note,[data-application-form] .application-modal__note { color: #606650 !important; font-size: 12px !important; margin-top: 14px !important; }
@@ -60,6 +60,11 @@ body.is-lead-open { overflow: hidden; }
 .catalog-application__dialog { max-height: calc(100dvh - 40px); overflow-y: auto; }
 [data-offer-form] label > span { display: block; margin-bottom: 8px; font-size: 12px; color: #252c19; }
 [data-offer-form] .offer-form__privacy { color: #606650; }
+#v2-contact-form [data-form-status],[data-application-form] [data-application-status],[data-booking-form] [data-form-status],.catalog-application [data-catalog-application-status],[data-offer-form] [data-offer-status] { color: #9d352e; }
+.residence-metric span,.residence-price span,.residence-installment { color: #606650; }
+.calculator-success__panel > span,.calculator-success__panel p { color: #606650; }
+.contact-v2__success > span,.contact-v2__copy > p { color: #c5c7b9; }
+#v2-contact-form button:disabled,[data-application-form] button:disabled,[data-booking-form] button:disabled,[data-catalog-application-form] button:disabled,[data-offer-form] button:disabled,.lead-result-contact button:disabled { opacity: 1; cursor: wait; }
 #v2-contact-form input:focus-visible,[data-application-form] input:focus-visible,[data-booking-form] input:focus-visible,[data-catalog-application-form] input:focus-visible,[data-offer-form] input:focus-visible,.lead-result-contact input:focus-visible { outline: 2px solid #738251 !important; outline-offset: 2px; }
 .lead-result-contact { margin: 24px 0; }
 .lead-result-contact > p { margin: 0 0 18px; font-size: 16px; font-weight: 500; }
@@ -67,7 +72,7 @@ body.is-lead-open { overflow: hidden; }
 .lead-result-contact .result-submit i { color: #252c19; background: #fff; }
 .lead-result-contact .result-contacts { margin-top: 0; }
 .lead-result-contact .form-status { color: #9d352e; }
-.calculator-page { padding-top: 40px; }
+.calculator-page { --gray: #606650; padding-top: 40px; }
 .calculator-workspace { margin-top: 36px; }
 .calculator-help { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
 .calculator-help p { margin: 0; color: #606650; font-size: 12px; }
