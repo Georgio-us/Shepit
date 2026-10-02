@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Калькулятор розтермінування — SHEPIT HOUSE</title>
-  <meta name="description" content="Розрахуйте платіж за резиденцію SHEPIT HOUSE у с. Нові Петрівці, Вишгородський район: будинок, перший внесок і строк до 12 місяців.">
+  <meta name="description" content="Розрахуйте платіж за резиденцію SHEPIT HOUSE у с. Нові Петрівці, Вишгородський район: будинок, перший внесок і строк до 24 місяців. До 12 місяців — внесок від 0%, понад 12 місяців — мінімум 50%.">
   <link rel="canonical" href="https://www.shepit-house.com.ua/calculator/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="SHEPIT HOUSE">
@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="calculator-v2.css?v=2">
+  <link rel="stylesheet" href="calculator-v2.css?v=3">
 
     <link rel="stylesheet" href="/conversion.css?v=2">
 </head>
@@ -45,7 +45,7 @@
         <h1 id="calculator-title">Ваш дім.<br><span>Ваш темп оплати.</span></h1>
         <p>Оберіть резиденцію, перший внесок і строк. Розрахунок одразу покаже орієнтовний щомісячний платіж.</p>
         <a class="calculator-location" href="https://www.google.com/maps/search/?api=1&amp;query=%D0%9A%D0%BE%D1%82%D0%B5%D0%B4%D0%B6%D0%BD%D0%B5+%D0%BC%D1%96%D1%81%D1%82%D0%B5%D1%87%D0%BA%D0%BE+Shepit+House%2C+%D0%B2%D1%83%D0%BB.+%D0%9B%D1%96%D1%81%D0%BE%D0%B2%D0%B0%2C+%D0%9D%D0%BE%D0%B2%D1%96+%D0%9F%D0%B5%D1%82%D1%80%D1%96%D0%B2%D1%86%D1%96%2C+%D0%9A%D0%B8%D1%97%D0%B2%D1%81%D1%8C%D0%BA%D0%B0+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C%2C+07354" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.12 7-12A7 7 0 0 0 5 9c0 5.88 7 12 7 12Z"/><circle cx="12" cy="9" r="2.35"/></svg><span>Київська область, Вишгородський район,<br>с. Нові Петрівці, вул. Лісова</span><small>Прокласти маршрут</small></a>
-<div class="calculator-help"><button class="lead-cta" type="button" data-lead-open data-lead-title="Підберемо умови оплати" data-lead-source="Калькулятор · допомога">Допоможіть підібрати умови <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><p>Для двох будинків — до 24 місяців із внеском 50%. <button class="lead-offer-more" type="button" data-lead-open data-lead-title="Особливі умови на 24 місяці" data-lead-source="Акція · 50% внесок · до 24 місяців">Дізнатися про наявність <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></p></div>      </div>
+<div class="calculator-help"><button class="lead-cta" type="button" data-lead-open data-lead-title="Підберемо умови оплати" data-lead-source="Калькулятор · допомога">Допоможіть підібрати умови <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><p>До 24 місяців розтермінування. Понад 12 місяців — мінімальний перший внесок 50%.</p></div>      </div>
     </section>
 
     <form class="calculator-workspace" data-calculator-form>
@@ -71,8 +71,9 @@
         <fieldset class="calculator-group">
           <legend><span>02</span>Перший внесок</legend>
           <div class="range-value"><strong data-deposit-percent>0%</strong><span data-deposit-amount>$0</span></div>
-          <input class="calculator-range" type="range" name="deposit" min="0" max="70" step="10" value="0" aria-label="Перший внесок у відсотках">
-          <div class="range-scale" aria-hidden="true"><span>0%</span><span>30%</span><span>70%</span></div>
+          <input class="calculator-range" type="range" name="deposit" min="0" max="70" step="10" value="0" aria-label="Перший внесок у відсотках" aria-describedby="deposit-note">
+          <div class="range-scale" aria-hidden="true"><span data-range-min>0%</span><span data-range-mid>30%</span><span>70%</span></div>
+          <p class="deposit-note" id="deposit-note" data-deposit-note aria-live="polite">Для розтермінування до 12 місяців можна обрати перший внесок від 0%.</p>
         </fieldset>
 
         <fieldset class="calculator-group" data-installment-group>
@@ -82,6 +83,10 @@
             <label><input type="radio" name="months" value="6"><span>6</span><small>міс.</small></label>
             <label><input type="radio" name="months" value="9"><span>9</span><small>міс.</small></label>
             <label><input type="radio" name="months" value="12" checked><span>12</span><small>міс.</small></label>
+            <label><input type="radio" name="months" value="15"><span>15</span><small>міс.</small></label>
+            <label><input type="radio" name="months" value="18"><span>18</span><small>міс.</small></label>
+            <label><input type="radio" name="months" value="21"><span>21</span><small>міс.</small></label>
+            <label><input type="radio" name="months" value="24"><span>24</span><small>міс.</small></label>
           </div>
         </fieldset>
 
@@ -146,7 +151,7 @@
   </div>
 
   <script src="../analytics-v2.js?v=3"></script>
-  <script src="calculator-v2.js?v=2" defer></script>
+  <script src="calculator-v2.js?v=3" defer></script>
   <script src="/conversion.js?v=1" defer></script>
 </body>
 </html>

@@ -26,19 +26,20 @@ function selectedValue(name) {
 function getEstimate() {
   const key = selectedValue('unit') || 't92';
   const unit = units[key] || units.t92;
-  const depositPercent = Number(form.elements.deposit.value || 0);
   const months = Number(selectedValue('months') || 12);
   const cash = form.elements.cash.checked;
+  const minimumDeposit = months > 12 ? 50 : 0;
+  const depositPercent = Math.max(minimumDeposit, Number(form.elements.deposit.value || 0));
   const total = cash && key === 't92' ? 85000 : unit.area * pricePerMeter;
   const deposit = cash ? total : total * (depositPercent / 100);
   const balance = total - deposit;
 
-  return { key, unit, depositPercent, months, cash, total, deposit, balance, monthly: cash ? 0 : balance / months };
+  return { key, unit, minimumDeposit, depositPercent, months, cash, total, deposit, balance, monthly: cash ? 0 : balance / months };
 }
 
 function renderTimeline(months, cash) {
   const timeline = document.querySelector('[data-timeline]');
-  timeline.innerHTML = Array.from({ length: 12 }, (_, index) => {
+  timeline.innerHTML = Array.from({ length: 24 }, (_, index) => {
     const active = !cash && index < months ? ' is-active' : '';
     const height = 5 + ((index % 4) * 4);
     return `<i class="${active}" style="height:${height}px" aria-hidden="true"></i>`;
@@ -53,8 +54,18 @@ function updateUrl(key) {
 
 function render() {
   const estimate = getEstimate();
-  const fill = (estimate.depositPercent / 70) * 100;
+  form.elements.deposit.min = String(estimate.minimumDeposit);
+  form.elements.deposit.value = String(estimate.depositPercent);
+  const fill = ((estimate.depositPercent - estimate.minimumDeposit) / (70 - estimate.minimumDeposit)) * 100;
   form.elements.deposit.style.setProperty('--range-fill', `${fill}%`);
+  document.querySelector('[data-range-min]').textContent = `${estimate.minimumDeposit}%`;
+  document.querySelector('[data-range-mid]').textContent = estimate.minimumDeposit ? '60%' : '30%';
+  const depositNote = document.querySelector('[data-deposit-note]');
+  depositNote.hidden = estimate.cash;
+  const depositMessage = estimate.minimumDeposit
+    ? 'При виборі розтермінування понад 12 місяців мінімальний перший внесок — 50%.'
+    : 'Для розтермінування до 12 місяців можна обрати перший внесок від 0%.';
+  if (depositNote.textContent !== depositMessage) depositNote.textContent = depositMessage;
 
   document.querySelector('[data-deposit-percent]').textContent = `${estimate.cash ? 100 : estimate.depositPercent}%`;
   document.querySelector('[data-deposit-amount]').textContent = estimate.cash && estimate.key !== 't92' ? 'За запитом' : formatMoney(estimate.cash ? estimate.total : estimate.deposit);

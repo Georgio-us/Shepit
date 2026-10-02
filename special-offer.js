@@ -52,7 +52,7 @@
             const response = await fetch('/api/lead', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name: form.elements.name.value.trim(), phone: phone.value.trim(), source: 'Акція на 2 будинки · 50% перший внесок · до 24 місяців' })
+                body: JSON.stringify({ name: form.elements.name.value.trim(), phone: phone.value.trim(), source: 'Розтермінування до 24 місяців · до 12 міс. внесок від 0% · понад 12 міс. мінімум 50%' })
             });
             const result = await response.json();
             if (!response.ok || !result.success) throw new Error('Lead submission failed');
