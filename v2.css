@@ -5114,3 +5114,33 @@ body.is-offer-open { overflow: hidden; }
   .offer-modal__alternative { margin-top: 20px; }
 }
 @media (prefers-reduced-motion: reduce) { html:has(.offer-strip) { scroll-behavior: auto; } }
+
+/* Latest construction report, between the gallery and residences. */
+.construction-preview { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: clamp(28px, 5vw, 80px); margin: 40px var(--v2-page-x) 40px; padding: 28px; border-radius: 28px; background: #eeefe3; }
+.construction-preview__video { position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 16px; background: var(--v2-olive); cursor: pointer; }
+.construction-preview__video::after { content: ''; position: absolute; inset: 0; background: linear-gradient(transparent 50%, #11190db3); pointer-events: none; }
+.construction-preview__video img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .3s; }
+.construction-preview__video:hover img { transform: scale(1.025); }
+.construction-preview__play { position: absolute; z-index: 1; top: 50%; left: 50%; display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; color: var(--v2-olive); background: #fff; transform: translate(-50%, -50%); }
+.construction-preview__play svg { width: 32px; height: 32px; fill: currentColor; }
+.construction-preview__date { position: absolute; z-index: 1; bottom: 18px; left: 20px; color: #fff; font-size: 12px; }
+.construction-preview__copy { padding-block: 12px; }
+.construction-preview__eyebrow { margin: 0 0 16px; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
+.construction-preview h2 { margin: 0; font-size: clamp(30px, 3vw, 48px); font-weight: 400; line-height: 1.05; letter-spacing: -.05em; }
+.construction-preview__description { max-width: 40ch; margin: 18px 0 24px; color: #545c45; font-size: 14px; line-height: 1.55; }
+.construction-preview__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; }
+.construction-preview__watch { display: flex; gap: 20px; align-items: center; justify-content: space-between; min-height: 52px; padding: 6px 6px 6px 20px; border-radius: 999px; color: white; background: var(--v2-olive); cursor: pointer; font-size: 14px; }
+.construction-preview__watch > span { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; color: var(--v2-olive); background: white; }
+.construction-preview__watch svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+.construction-preview__actions a { display: inline-flex; gap: 12px; align-items: center; min-height: 44px; font-size: 13px; text-decoration: underline; text-underline-offset: 4px; }
+.construction-preview :focus-visible { outline: 2px solid var(--v2-olive); outline-offset: 4px; }
+@media (max-width: 700px) {
+  .construction-preview { grid-template-columns: 1fr; gap: 0; padding: 14px; margin-bottom: 48px; border-radius: 22px; }
+  .construction-preview__copy { padding: 24px 8px 8px; }
+  .construction-preview h2 { font-size: 36px; }
+  .construction-preview__actions { align-items: stretch; flex-direction: column; gap: 8px; }
+  .construction-preview__actions a { justify-content: center; }
+  .construction-preview__play { width: 52px; height: 52px; }
+  .construction-preview__date { left: 12px; bottom: 12px; font-size: 11px; }
+}
+@media (prefers-reduced-motion: reduce) { .construction-preview__video img { transition: none; } }
