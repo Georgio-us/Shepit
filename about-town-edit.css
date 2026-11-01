@@ -1,0 +1,248 @@
+.about-town {
+  color: #252c19;
+  background: #fbfaf6;
+  padding-top: clamp(56px, 6vw, 96px);
+}
+
+.about-town__intro,
+.about-town__details {
+  width: min(100%, 1440px);
+  margin-inline: auto;
+  padding-inline: var(--v2-page-x);
+  box-sizing: border-box;
+}
+
+.about-town__eyebrow {
+  margin: 0 0 18px;
+  color: #55594d;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.17em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.about-town h2 {
+  max-width: 1120px;
+  margin: 0;
+  font-size: clamp(44px, 5.2vw, 78px);
+  font-weight: 600;
+  letter-spacing: -0.06em;
+  line-height: 1.02;
+}
+
+.about-town__intro > p:last-child {
+  max-width: 800px;
+  margin: 22px 0 0;
+  color: #4b5048;
+  font-size: clamp(17px, 1.5vw, 22px);
+  line-height: 1.5;
+}
+
+.about-town__visual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.8;
+  overflow: hidden;
+  margin: clamp(32px, 4vw, 56px) 0 0;
+  background: #d7ddcf;
+}
+
+.about-town__visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.about-town__visual figcaption {
+  position: absolute;
+  right: 20px;
+  bottom: 18px;
+  padding: 5px 8px;
+  color: #fff;
+  background: rgb(23 29 18 / 72%);
+  font-size: 11px;
+  line-height: 1;
+}
+
+.about-town__details {
+  padding-top: clamp(34px, 4vw, 58px);
+  padding-bottom: clamp(52px, 5vw, 84px);
+}
+
+.about-town__features {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.about-town__feature {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(14px, 1.5vw, 24px);
+  min-width: 0;
+  padding-inline: clamp(18px, 2vw, 34px);
+}
+
+.about-town__feature:first-child {
+  padding-left: 0;
+}
+
+.about-town__feature + .about-town__feature {
+  border-left: 1px solid #dedfd4;
+}
+
+.about-town__feature svg {
+  width: clamp(42px, 4vw, 56px);
+  height: clamp(42px, 4vw, 56px);
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+}
+
+.about-town__feature h3 {
+  margin: 2px 0 6px;
+  font-size: clamp(17px, 1.35vw, 22px);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.18;
+}
+
+.about-town__feature p {
+  margin: 0;
+  color: #55594d;
+  font-size: clamp(14px, 1.1vw, 17px);
+  line-height: 1.45;
+}
+
+.about-town__actions {
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  width: min(100%, 600px);
+  margin: clamp(42px, 5vw, 70px) auto 0;
+}
+
+.about-town__primary {
+  display: flex;
+  width: 100%;
+  min-height: 60px;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 14px 20px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  color: #fff;
+  background: #252c19;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+}
+
+.about-town__primary:hover {
+  background: #3f4a2c;
+}
+
+.about-town__secondary {
+  color: #252c19;
+  border-bottom: 1px solid currentColor;
+  font-size: 16px;
+  line-height: 1.45;
+  text-decoration: none;
+}
+
+.about-town__actions a:focus-visible {
+  outline: 2px solid #738251;
+  outline-offset: 4px;
+}
+
+@media (max-width: 800px) {
+  .about-town__features {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .about-town__feature {
+    align-items: center;
+    padding: 20px 0;
+  }
+
+  .about-town__feature + .about-town__feature {
+    border-top: 1px solid #dedfd4;
+    border-left: 0;
+  }
+}
+
+@media (max-width: 599px) {
+  .about-town {
+    padding-top: 52px;
+  }
+
+  .about-town__eyebrow {
+    margin-bottom: 16px;
+    font-size: 11px;
+  }
+
+  .about-town h2 {
+    font-size: clamp(32px, 8.6vw, 44px);
+    line-height: 1.05;
+  }
+
+  .about-town__intro > p:last-child {
+    margin-top: 16px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .about-town__visual {
+    aspect-ratio: 1.35;
+    margin-top: 24px;
+  }
+
+  .about-town__visual figcaption {
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .about-town__details {
+    padding-top: 8px;
+    padding-bottom: 56px;
+  }
+
+  .about-town__feature {
+    gap: 18px;
+    padding-block: 18px;
+  }
+
+  .about-town__feature svg {
+    width: 42px;
+    height: 42px;
+  }
+
+  .about-town__feature h3 {
+    font-size: 17px;
+  }
+
+  .about-town__feature p {
+    font-size: 14px;
+  }
+
+  .about-town__actions {
+    gap: 18px;
+    margin-top: 20px;
+  }
+
+  .about-town__primary {
+    min-height: 58px;
+    font-size: 16px;
+  }
+
+  .about-town__secondary {
+    font-size: 15px;
+  }
+}

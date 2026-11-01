@@ -56,6 +56,7 @@
     <link rel="stylesheet" href="/conversion.css?v=2">
     <link rel="stylesheet" href="/hero-edit.css?v=2">
     <link rel="stylesheet" href="/installment-edit.css?v=2">
+    <link rel="stylesheet" href="/about-town-edit.css?v=1">
 </head>
 <body>
     <main>
@@ -182,59 +183,37 @@
             </div>
         </section>
 
-        <section class="about-v2" id="about" aria-labelledby="about-v2-title">
-            <div class="about-v2__intro v2-grid">
-                <p class="about-v2__index"><span>(01)</span>Про SHEPIT HOUSE</p>
-
-                <h2 id="about-v2-title">
-                    <span class="about-v2__ink">SHEPIT HOUSE</span> створений для тих,
-                    хто цінує <span class="about-v2__ink">тишу, приватність і близькість до природи —</span>
-                    простір, де хочеться <span class="about-v2__ink">сповільнитись і бути собою</span>
-                </h2>
-
-                <p class="about-v2__text">Ми поєднали сучасну архітектуру, власний двір і спокійне природне оточення. Тут кожна деталь працює на комфорт родини та відчуття свого дому.</p>
-
-                <a class="about-v2__action" href="#residences">
-                    <span>Обрати дім</span>
-                    <i aria-hidden="true">
-                        <svg viewBox="0 0 24 24"><path d="M5 19 19 5M9 5h10v10"/></svg>
-                    </i>
-                </a>
+        <section class="about-town" id="about" aria-labelledby="about-v2-title">
+            <div class="about-town__intro">
+                <p class="about-town__eyebrow">Про містечко</p>
+                <h2 id="about-v2-title">Вісім резиденцій.<br>Місце для вашого життя.</h2>
+                <p>SHEPIT HOUSE — камерне містечко таунхаусів і дуплексів під Києвом. У кожного будинку — власне подвір’я.</p>
             </div>
 
-            <div class="about-gallery" aria-labelledby="about-gallery-title">
-                <div class="about-gallery__heading v2-grid">
-                    <p class="about-gallery__brand">SHEPIT <span>HOUSE</span></p>
-                    <div class="about-gallery__copy">
-                        <h3 id="about-gallery-title">Приватний простір, створений у гармонії з природою</h3>
-                        <p>Вісім резиденцій, у яких архітектура, світло та власний двір формують спокійний простір для щоденного життя.</p>
+            <figure class="about-town__visual">
+                <img src="assets/genplan-ajusted.webp" width="1530" height="1028" loading="lazy" decoding="async" alt="Генеральний план SHEPIT HOUSE: вісім резиденцій, власні подвір’я та спільна територія">
+                <figcaption>Візуалізація</figcaption>
+            </figure>
+
+            <div class="about-town__details">
+                <div class="about-town__features">
+                    <div class="about-town__feature">
+                        <svg viewBox="0 0 56 56" aria-hidden="true"><path d="M5 45V22l11-9 12 9v23M28 45V19l11-9 12 9v26M5 22h23M28 19h23M16 45V31M39 45V30"/></svg>
+                        <div><h3>Камерний формат</h3><p>Усього 8 резиденцій у містечку.</p></div>
+                    </div>
+                    <div class="about-town__feature">
+                        <svg viewBox="0 0 56 56" aria-hidden="true"><path d="M28 48V28M28 31C13 31 10 22 10 11c12 0 18 5 18 17M28 31c0-17 7-22 18-22 0 12-4 22-18 22"/></svg>
+                        <div><h3>Власне подвір’я</h3><p>Місце для ранкової кави, ігор і відпочинку.</p></div>
+                    </div>
+                    <div class="about-town__feature">
+                        <svg viewBox="0 0 56 56" aria-hidden="true"><path d="M4 44V23l11-10 13 10 13-10 11 10v21H4ZM28 23v21M17 44V31M39 44V31"/></svg>
+                        <div><h3>Два формати будинків</h3><p>Таунхауси та дуплекси — порівняйте планування й оберіть своє.</p></div>
                     </div>
                 </div>
 
-                <div class="about-gallery__stage v2-grid">
-                    <div class="about-gallery__controls" aria-label="Керування галереєю">
-                        <button class="about-gallery__arrow" type="button" data-gallery-prev aria-label="Попереднє зображення"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
-                        <span class="about-gallery__progress" aria-hidden="true"><i></i></span>
-                        <button class="about-gallery__arrow" type="button" data-gallery-next aria-label="Наступне зображення"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-                        <span class="about-gallery__counter" aria-live="polite">01 / 06</span>
-                    </div>
-
-                    <div class="about-gallery__viewport" tabindex="0" aria-label="Галерея SHEPIT HOUSE">
-                        <div class="about-gallery__track">
-                            <figure class="about-gallery__slide is-active"><img src="assets/duplex_visual_2.webp" width="3173" height="3096" loading="lazy" decoding="async" alt="Фасад дуплексу SHEPIT HOUSE"></figure>
-                            <figure class="about-gallery__slide"><img src="assets/genplan-refresh.webp" width="4096" height="2748" loading="lazy" decoding="async" alt="Генеральний план SHEPIT HOUSE"></figure>
-                            <figure class="about-gallery__slide"><img src="assets/view_behind_1.webp" width="1264" height="848" loading="lazy" decoding="async" alt="Приватна територія SHEPIT HOUSE"></figure>
-                            <figure class="about-gallery__slide"><img src="assets/view_behind_2.webp" width="6144" height="4096" loading="lazy" decoding="async" alt="Вид на територію SHEPIT HOUSE"></figure>
-                            <figure class="about-gallery__slide"><img src="assets/townhouse-back-night.webp" width="1920" height="1193" loading="lazy" decoding="async" alt="Задній двір таунхауса ввечері"></figure>
-                            <figure class="about-gallery__slide"><img src="assets/duplex_visual_1.webp" width="5504" height="3072" loading="lazy" decoding="async" alt="Дуплекс SHEPIT HOUSE у вечірньому світлі"></figure>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="about-gallery__stats">
-                    <div class="about-gallery__metric"><span>Резиденції</span><strong>8</strong></div>
-                    <div class="about-gallery__metric"><span>Площа</span><strong>100–120 м²</strong></div>
-                    <div class="about-gallery__metric"><span>Вартість</span><strong>від $85 000</strong><small>за повної оплати T92</small></div>
+                <div class="about-town__actions">
+                    <a class="about-town__primary" href="#residences">Переглянути будинки <span aria-hidden="true">→</span></a>
+                    <a class="about-town__secondary" href="#location">Подивитися розташування <span aria-hidden="true">↗</span></a>
                 </div>
             </div>
         </section>
