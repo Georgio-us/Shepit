@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 590" width="620" height="590">
+  <title>Що поруч із SHEPIT HOUSE</title>
+  <desc>Схема відстаней із каталогу: супермаркет та кав’ярня — 1,1 км, ліс — 1,5 км, школа та садок — 1,8 км, Київське море — 3,5 км, метро Героїв Дніпра — 17 км.</desc>
+  <rect width="620" height="590" fill="#fbfaf6"/>
+  <g fill="none" stroke="#dedfd6" stroke-width="1.2">
+    <circle cx="310" cy="294" r="225"/>
+    <circle cx="310" cy="294" r="183"/>
+    <circle cx="310" cy="294" r="147"/>
+    <circle cx="310" cy="294" r="134"/>
+    <circle cx="310" cy="294" r="121"/>
+    <circle cx="310" cy="294" r="108"/>
+    <circle cx="310" cy="294" r="95"/>
+  </g>
+  <g fill="none" stroke="#525a47" stroke-width="1.4" stroke-linecap="round">
+    <path d="M249 232 227 205"/>
+    <path d="M371 232 395 201"/>
+    <path d="M384 346 435 380"/>
+    <path d="M310 389v29"/>
+    <path d="M245 355 117 449"/>
+  </g>
+  <g fill="#252e1e">
+    <circle cx="249" cy="232" r="6"/>
+    <circle cx="371" cy="232" r="6"/>
+    <circle cx="435" cy="380" r="6"/>
+    <circle cx="310" cy="418" r="6"/>
+    <circle cx="117" cy="449" r="6"/>
+    <circle cx="310" cy="294" r="87"/>
+  </g>
+  <g font-family="Inter, Arial, sans-serif" text-anchor="middle" fill="#fff">
+    <text x="310" y="277" font-size="45" font-weight="400" letter-spacing="-5">SH</text>
+    <text x="310" y="319" font-size="22" font-weight="500" letter-spacing="7">SHEPIT</text>
+    <text x="310" y="341" font-size="15" font-weight="400" letter-spacing="6">HOUSE</text>
+  </g>
+
+  <g fill="#fbfaf6">
+    <rect x="89" y="134" width="146" height="86" rx="8"/>
+    <rect x="385" y="128" width="226" height="95" rx="8"/>
+    <rect x="445" y="338" width="170" height="88" rx="8"/>
+    <rect x="233" y="425" width="190" height="82" rx="8"/>
+    <rect x="20" y="465" width="253" height="82" rx="8"/>
+  </g>
+
+  <g fill="none" stroke="#252e1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M108 164v22m-8-11 8-19 8 19h-5l7 11H98l7-11z"/>
+    <path d="M401 152h5l4 24h21l5-17h-29m7 23h.1m14 0h.1"/>
+    <path d="M433 359c5 0 5 4 10 4s5-4 10-4 5 4 10 4 5-4 10-4m-40 10c5 0 5 4 10 4s5-4 10-4 5 4 10 4 5-4 10-4"/>
+    <path d="M252 450v-15h20v15m-23 0h26m-15-9h5m-7 9v-5"/>
+    <path d="M39 491v-14c0-5 4-8 11-8s11 3 11 8v14H39zm0-7h22m-17 7-3 6m15-6 3 6"/>
+  </g>
+
+  <g font-family="Inter, Arial, sans-serif" fill="#20251c" font-size="21" font-weight="400">
+    <text x="129" y="177">Ліс</text>
+    <text x="445" y="154">Супермаркет</text>
+    <text x="445" y="179">та кав’ярня</text>
+    <text x="474" y="370">Київське море</text>
+    <text x="285" y="455">Школа та садок</text>
+    <text x="72" y="493">Київ, м. Героїв Дніпра</text>
+  </g>
+
+  <g fill="#f1dfbb">
+    <rect x="127" y="184" width="77" height="30" rx="15"/>
+    <rect x="445" y="186" width="77" height="30" rx="15"/>
+    <rect x="474" y="378" width="77" height="30" rx="15"/>
+    <rect x="285" y="463" width="77" height="30" rx="15"/>
+    <rect x="72" y="501" width="77" height="30" rx="15"/>
+  </g>
+  <g font-family="Inter, Arial, sans-serif" fill="#20251c" font-size="18" font-weight="500" text-anchor="middle">
+    <text x="165.5" y="205">1,5 км</text>
+    <text x="483.5" y="207">1,1 км</text>
+    <text x="512.5" y="399">3,5 км</text>
+    <text x="323.5" y="484">1,8 км</text>
+    <text x="110.5" y="522">17 км</text>
+  </g>
+</svg>
