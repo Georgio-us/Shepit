@@ -108,10 +108,10 @@ cookieAccept?.addEventListener('click', () => {
     cookieNotice.hidden = true;
 });
 
-function openApplicationModal() {
+function openApplicationModal(trigger) {
     if (!applicationModal) return;
-    if (applicationModalTitle) applicationModalTitle.textContent = defaultApplicationTitle;
-    if (applicationModalDescription) applicationModalDescription.textContent = defaultApplicationDescription;
+    if (applicationModalTitle) applicationModalTitle.textContent = trigger?.dataset.applicationTitle || defaultApplicationTitle;
+    if (applicationModalDescription) applicationModalDescription.textContent = trigger?.dataset.applicationDescription || defaultApplicationDescription;
     applicationFormView.hidden = false;
     applicationSuccess.hidden = true;
     applicationModal.hidden = false;
@@ -130,7 +130,7 @@ document.querySelectorAll('[data-application-modal-open]').forEach((trigger) => 
     trigger.addEventListener('click', (event) => {
         event.preventDefault();
         closeContactWidget();
-        openApplicationModal();
+        openApplicationModal(trigger);
     });
 });
 
