@@ -55,6 +55,7 @@
     <link rel="stylesheet" href="v2.css?v=37">
     <link rel="stylesheet" href="/conversion.css?v=2">
     <link rel="stylesheet" href="/hero-edit.css?v=2">
+    <link rel="stylesheet" href="/installment-edit.css?v=2">
 </head>
 <body>
     <main>
@@ -133,10 +134,36 @@
             </div>
         </section>
 
-<section class="lead-band lead-band--offer" id="special-offer" aria-labelledby="offer-strip-title"><div><span class="lead-eyebrow">Розтермінування до 24 місяців</span><h2 id="offer-strip-title">Ваш дім. Більше часу на оплату.</h2><div class="lead-offer-terms"><div><strong>від 0%</strong><span>внесок на строк до 12 міс.</span></div><div><strong>до 24 міс.</strong><span>на решту вартості</span></div></div><p>Понад 12 місяців — мінімальний внесок 50%. Залиште номер — уточнимо наявність та умови.</p><button class="lead-offer-more" type="button" data-offer-open>Усі умови пропозиції <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div><form class="lead-form" data-lead-form data-analytics-form="home_special_offer" data-lead-source="Розтермінування до 24 місяців" data-lead-context="">
-<label><span>Номер телефону</span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="Наприклад, 095 123 45 67" required></label>
-<label><span>Ім’я · необов’язково</span><input name="name" type="text" autocomplete="name" maxlength="100" placeholder="Як до вас звертатися?"></label>
-<button type="submit"><span>Дізнатися про наявність</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><p class="lead-note">Менеджер зателефонує та уточнить деталі.</p><p class="lead-status" data-form-status role="status" aria-live="polite" tabindex="-1"></p><p class="lead-privacy">Надсилаючи заявку, ви погоджуєтеся з <a href="/privacy-policy/">політикою конфіденційності</a>.</p></form></section>
+        <section class="lead-band lead-band--offer" id="special-offer" aria-labelledby="offer-strip-title">
+            <div class="installment-offer__details">
+                <span class="lead-eyebrow">Розтермінування від забудовника</span>
+                <h2 id="offer-strip-title">Оплачуйте свій дім частинами</h2>
+                <p class="installment-offer__intro">Оберіть зручний варіант: із меншим першим внеском або довшим строком оплати.</p>
+                <div class="installment-offer__options" aria-label="Варіанти розтермінування">
+                    <div class="installment-offer__option">
+                        <h3>До 12 місяців</h3>
+                        <p>Перший внесок — від <strong>0%</strong></p>
+                    </div>
+                    <div class="installment-offer__option">
+                        <h3>Від 13 до 24 місяців</h3>
+                        <p>Перший внесок — від <strong>50%</strong></p>
+                    </div>
+                </div>
+                <a class="lead-offer-more" href="/blog/rozterminuvannya-vid-zabudovnyka/">
+                    Переглянути повні умови
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M9 5h10v10"/></svg>
+                </a>
+            </div>
+            <form class="lead-form installment-offer__form" data-lead-form data-analytics-form="home_special_offer" data-lead-source="Розрахунок платежів · розтермінування" data-lead-context="" aria-labelledby="installment-offer-form-title">
+                <h3 id="installment-offer-form-title">Яким буде ваш платіж?</h3>
+                <p class="installment-offer__form-intro">Залиште номер телефону — менеджер уточнить, який будинок вас цікавить, і розрахує перший внесок та графік платежів.</p>
+                <label><span>Номер телефону</span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+380 (95) 073 43 76" required></label>
+                <button type="submit"><span>Отримати розрахунок платежів</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+                <p class="lead-note">Менеджер зателефонує для уточнення деталей.</p>
+                <p class="lead-status" data-form-status role="status" aria-live="polite" tabindex="-1"></p>
+                <p class="lead-privacy">Надсилаючи заявку, ви погоджуєтеся з <a href="/privacy-policy/">політикою конфіденційності</a>.</p>
+            </form>
+        </section>
 
         <section class="construction-preview" aria-labelledby="construction-preview-title">
             <button class="construction-preview__video" type="button" data-media-video="Pv74XsaXFcE" data-media-title="Жовтень 2026 — хід будівництва, серія 5" aria-label="Дивитися п'яту серію про хід будівництва">
