@@ -68,11 +68,11 @@
 
 .hero-v2--edit h1 {
   max-width: none;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(50px, 5.25vw, 90px);
-  font-weight: 400;
-  letter-spacing: -0.055em;
-  line-height: 0.96;
+  font-family: var(--v2-font);
+  font-size: clamp(48px, 5vw, 86px);
+  font-weight: 500;
+  letter-spacing: -0.065em;
+  line-height: 0.99;
   text-wrap: initial;
 }
 
@@ -157,6 +157,12 @@
   object-position: center;
 }
 
+.hero-v2__visual picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .hero-v2__visual figcaption {
   position: absolute;
   right: 14px;
@@ -204,10 +210,10 @@
 .hero-v2__homes-heading {
   grid-column: 1 / -1;
   margin: clamp(30px, 3vw, 48px) 0 0;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(32px, 3vw, 48px);
-  font-weight: 400;
-  letter-spacing: -0.045em;
+  font-family: var(--v2-font);
+  font-size: clamp(30px, 2.7vw, 44px);
+  font-weight: 500;
+  letter-spacing: -0.055em;
   line-height: 1.1;
 }
 
@@ -245,9 +251,9 @@
 .hero-stat__title {
   display: block;
   margin: 16px 18px 4px;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--v2-font);
   font-size: clamp(20px, 1.8vw, 30px);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.1;
 }
 
@@ -285,7 +291,10 @@
   }
 
   .hero-v2--edit .hero-v2__content {
+    --hero-stage-height: clamp(760px, 100vw, 920px);
     grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: var(--hero-stage-height) auto auto auto;
+    align-items: start;
     gap: 0;
     padding-top: 14px;
   }
@@ -300,17 +309,42 @@
 
   .hero-v2--edit .hero-v2__copy {
     display: block;
+    position: relative;
+    z-index: 1;
+    grid-row: 1;
+    align-self: start;
   }
 
   .hero-v2--edit h1 {
-    font-size: clamp(48px, 8vw, 70px);
+    font-size: clamp(45px, 8vw, 68px);
   }
 
-  .hero-v2__visual {
-    width: calc(100% + 2 * var(--v2-page-x));
-    aspect-ratio: 1.6;
-    margin-top: 28px;
-    margin-left: calc(-1 * var(--v2-page-x));
+  .hero-v2--edit .hero-v2__visual {
+    position: absolute;
+    z-index: 0;
+    top: -80px;
+    left: calc(-1 * var(--v2-page-x));
+    width: 100vw;
+    height: calc(var(--hero-stage-height) + 80px);
+    aspect-ratio: auto;
+    margin: 0;
+  }
+
+  .hero-v2--edit .hero-v2__visual img {
+    object-position: center top;
+  }
+
+  .hero-v2__benefits {
+    grid-row: 2;
+    margin-top: 0;
+  }
+
+  .hero-v2__homes-heading {
+    grid-row: 3;
+  }
+
+  .hero-v2--edit .hero-v2__cards {
+    grid-row: 4;
   }
 }
 
@@ -347,8 +381,8 @@
   }
 
   .hero-v2--edit h1 {
-    font-size: clamp(37px, 10vw, 52px);
-    line-height: 0.94;
+    font-size: clamp(36px, 9.4vw, 52px);
+    line-height: 0.98;
   }
 
   .hero-v2--edit .hero-v2__lead {
@@ -373,15 +407,7 @@
     width: max-content;
   }
 
-  .hero-v2__visual {
-    width: calc(100% + 2 * var(--v2-page-x));
-    aspect-ratio: 1.25;
-    margin-top: 24px;
-    margin-left: calc(-1 * var(--v2-page-x));
-  }
-
   .hero-v2__benefits {
-    margin-top: 0;
     padding-block: 16px;
   }
 

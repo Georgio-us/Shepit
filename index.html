@@ -47,13 +47,14 @@
       ]
     }
     </script>
-    <link rel="preload" href="assets/duplex-back-day.webp" as="image" type="image/webp" fetchpriority="high">
+    <link rel="preload" href="assets/hero-light-study.webp" as="image" type="image/webp" media="(max-width: 899px)" fetchpriority="high">
+    <link rel="preload" href="assets/duplex_visual_1.webp" as="image" type="image/webp" media="(min-width: 900px)" fetchpriority="high">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
     <link rel="stylesheet" href="v2.css?v=37">
     <link rel="stylesheet" href="/conversion.css?v=2">
-    <link rel="stylesheet" href="/hero-edit.css?v=1">
+    <link rel="stylesheet" href="/hero-edit.css?v=2">
 </head>
 <body>
     <main>
@@ -101,7 +102,10 @@
                 </div>
 
                 <figure class="hero-v2__visual">
-                    <img src="assets/duplex-back-day.webp" width="1920" height="1352" fetchpriority="high" alt="Дуплекс SHEPIT HOUSE з власними подвір’ями та місцями для відпочинку">
+                    <picture>
+                        <source media="(max-width: 899px)" srcset="assets/hero-light-study.webp" type="image/webp">
+                        <img src="assets/duplex_visual_1.webp" width="5504" height="3072" fetchpriority="high" alt="Дуплекс SHEPIT HOUSE у природному оточенні">
+                    </picture>
                     <figcaption>Візуалізація</figcaption>
                 </figure>
 
