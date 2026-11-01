@@ -1,0 +1,129 @@
+/* Shared display type adjustments for the edit branch. Body copy and controls keep their readable sizes. */
+
+/* Main page */
+.homes-v2__title h2,
+.plan-v2__title h2 {
+  font-size: clamp(36px, 4.25vw, 64px);
+  line-height: 1.04;
+}
+
+.payment-v2__copy h2,
+.media-v2__copy h2,
+.journal-v2__copy h2 {
+  font-size: clamp(40px, 4.5vw, 76px);
+  line-height: 1.02;
+}
+
+.faq-v2__title h2 {
+  font-size: clamp(36px, 4vw, 64px);
+  line-height: 1.04;
+}
+
+.contact-v2__copy h2 {
+  font-size: clamp(34px, 3.8vw, 64px);
+  line-height: 1.04;
+}
+
+/* Residences catalog */
+.catalog-intro h1 {
+  font-size: clamp(46px, 6vw, 112px);
+  line-height: .96;
+}
+
+.model__head h2 {
+  font-size: clamp(44px, 4.3vw, 82px);
+  line-height: .98;
+}
+
+.compare h2,
+.catalog-plan h2,
+.catalog-cta h2 {
+  font-size: clamp(40px, 4.2vw, 76px);
+  line-height: 1;
+}
+
+.catalog-plan__panel h3 {
+  font-size: clamp(54px, 5vw, 96px);
+}
+
+/* Residence details */
+body[data-residence] .residence-title {
+  font-size: clamp(52px, 4.6vw, 84px);
+  line-height: .98;
+}
+
+body[data-residence] .section-heading {
+  font-size: clamp(38px, 4.2vw, 76px);
+  line-height: 1.02;
+}
+
+/* Calculator */
+.calculator-copy h1 {
+  font-size: clamp(38px, 4.5vw, 82px);
+  line-height: 1;
+}
+
+.result-primary strong {
+  font-size: clamp(45px, 4.5vw, 78px);
+}
+
+.result-primary--cash strong {
+  font-size: clamp(38px, 3.6vw, 64px);
+}
+
+/* Journal index */
+.journal-hero h1 {
+  font-size: clamp(48px, 6.7vw, 126px);
+  line-height: .9;
+}
+
+.section-heading h2,
+.channels__heading h2,
+.newsletter h2 {
+  font-size: clamp(40px, 4.3vw, 82px);
+  line-height: 1;
+}
+
+.media-feature__caption strong {
+  font-size: clamp(36px, 3.5vw, 66px);
+}
+
+/* Journal articles */
+.article-hero h1 {
+  font-size: clamp(38px, 5vw, 92px);
+  line-height: 1;
+}
+
+.article-intro__lead {
+  font-size: clamp(27px, 2.8vw, 52px);
+  line-height: 1.1;
+}
+
+.article-body h2 {
+  font-size: clamp(32px, 3.3vw, 62px);
+  line-height: 1.08;
+}
+
+.article-note blockquote {
+  font-size: clamp(25px, 2.4vw, 45px);
+}
+
+.article-action h2 {
+  font-size: clamp(38px, 4.2vw, 78px);
+  line-height: 1;
+}
+
+.next-article h2 {
+  font-size: clamp(34px, 3.3vw, 64px);
+}
+
+/* Utility pages */
+.legal-title h1 {
+  font-size: clamp(36px, 4.7vw, 76px);
+  line-height: 1;
+}
+
+.title h1 {
+  font-size: clamp(40px, 4.8vw, 80px);
+  line-height: .98;
+}

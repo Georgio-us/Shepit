@@ -63,7 +63,7 @@ function render() {
   const depositNote = document.querySelector('[data-deposit-note]');
   depositNote.hidden = estimate.cash;
   const depositMessage = estimate.minimumDeposit
-    ? 'При виборі розтермінування понад 12 місяців мінімальний перший внесок — 50%.'
+    ? 'При виборі розтермінування понад 12 місяців мінімальний перший внесок - 50%.'
     : 'Для розтермінування до 12 місяців можна обрати перший внесок від 0%.';
   if (depositNote.textContent !== depositMessage) depositNote.textContent = depositMessage;
 
@@ -77,8 +77,8 @@ function render() {
   document.querySelector('[data-deposit-detail]').textContent = estimate.cash ? '100%' : `${formatMoney(estimate.deposit)} · ${estimate.depositPercent}%`;
   document.querySelector('[data-balance]').textContent = formatMoney(estimate.balance);
   document.querySelector('[data-price-note]').textContent = estimate.cash
-    ? (estimate.key === 't92' ? 'T92 — від $85 000 за повної оплати. Актуальну наявність і фінальну вартість підтвердить менеджер.' : 'Вартість та особливі умови повної оплати для цієї резиденції уточнить менеджер.')
-    : 'Розтермінування: T92 — $99 000. Для інших моделей розрахунок за орієнтиром $990/м². Актуальну наявність і фінальні умови підтвердить менеджер.';
+    ? (estimate.key === 't92' ? 'T92 - від $85 000 за повної оплати. Актуальну наявність і фінальну вартість підтвердить менеджер.' : 'Вартість та особливі умови повної оплати для цієї резиденції уточнить менеджер.')
+    : 'Розтермінування: T92 - $99 000. Для інших моделей розрахунок за орієнтиром $990/м². Актуальну наявність і фінальні умови підтвердить менеджер.';
   document.querySelector('[data-installment-result]').hidden = estimate.cash;
   document.querySelector('[data-cash-result]').hidden = !estimate.cash;
   document.querySelector('[data-installment-group]').classList.toggle('is-locked', estimate.cash);

@@ -118,7 +118,7 @@ document.querySelector('#app').innerHTML = `
         </div>
       </article>
       <div class="residence-gallery" data-gallery>
-        <img class="residence-gallery__image" src="${model.gallery[0]}" alt="${model.type} ${model.code} — фасад резиденції" data-gallery-image>
+        <img class="residence-gallery__image" src="${model.gallery[0]}" alt="${model.type} ${model.code} - фасад резиденції" data-gallery-image>
         <div class="residence-gallery__controls">
           <span class="residence-gallery__count"><b data-gallery-current>01</b> / 0${model.gallery.length}</span>
           <span class="residence-gallery__progress"><i data-gallery-progress></i></span>
@@ -128,7 +128,7 @@ document.querySelector('#app').innerHTML = `
       </div>
     </section>
 
-<section class="lead-band" aria-labelledby="residence_early-title"><div><span class="lead-eyebrow">SHEPIT HOUSE · Відділ продажу</span><h2 id="residence_early-title">Ціна та умови ${model.code}.</h2><p>Залиште номер — уточнимо наявність і підготуємо пропозицію.</p></div><form class="lead-form" data-lead-form data-analytics-form="residence_early" data-lead-source="Картка ${model.code} · відкрита форма" data-lead-context="${model.code}">
+<section class="lead-band" aria-labelledby="residence_early-title"><div><span class="lead-eyebrow">SHEPIT HOUSE · Відділ продажу</span><h2 id="residence_early-title">Ціна та умови ${model.code}.</h2><p>Залиште номер - уточнимо наявність і підготуємо пропозицію.</p></div><form class="lead-form" data-lead-form data-analytics-form="residence_early" data-lead-source="Картка ${model.code} · відкрита форма" data-lead-context="${model.code}">
 <label><span>Номер телефону</span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="Наприклад, 095 123 45 67" required></label>
 <label><span>Ім’я · необов’язково</span><input name="name" type="text" autocomplete="name" maxlength="100" placeholder="Як до вас звертатися?"></label>
 <button type="submit"><span>Отримати пропозицію</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><p class="lead-note">Менеджер зателефонує та уточнить деталі.</p><p class="lead-status" data-form-status role="status" aria-live="polite" tabindex="-1"></p><p class="lead-privacy">Надсилаючи заявку, ви погоджуєтеся з <a href="/privacy-policy/">політикою конфіденційності</a>.</p></form></section>
@@ -158,7 +158,7 @@ document.querySelector('#app').innerHTML = `
       <div class="specs-intro">
         <h2 class="section-heading" id="specs-title">Технічні<br>характеристики.</h2>
         <div>
-          <p>Конструкція, інженерні мережі та рішення для енергонезалежності — в одному компактному огляді.</p>
+          <p>Конструкція, інженерні мережі та рішення для енергонезалежності - в одному компактному огляді.</p>
           <div class="specs-controls" role="tablist" aria-label="Розділи технічних характеристик">
             ${specificationGroups.map((group, index) => `<button class="specs-tab ${index === 0 ? 'is-active' : ''}" type="button" data-spec-group="${group.id}" role="tab" aria-selected="${index === 0}">${group.shortTitle}</button>`).join('')}
           </div>
@@ -191,7 +191,7 @@ document.querySelector('#app').innerHTML = `
         <div class="booking-copy">
           <p class="section-label">(04) · Консультація</p>
           <h2 class="section-heading" id="booking-title">Дізнайтеся більше<br>про ${model.code}.</h2>
-          <p>Залиште контакти — менеджер відповість на запитання та допоможе обрати резиденцію.</p>
+          <p>Залиште контакти - менеджер відповість на запитання та допоможе обрати резиденцію.</p>
         </div>
         <form class="booking-form" data-booking-form>
           <label class="field"><input name="name" type="text" autocomplete="name" placeholder="Ваше ім’я"></label>
@@ -228,7 +228,7 @@ function showGallery(index) {
   gallery.classList.add('is-changing');
   window.setTimeout(() => {
     galleryImage.src = model.gallery[galleryIndex];
-    galleryImage.alt = `${model.type} ${model.code} — ракурс ${galleryIndex + 1}`;
+    galleryImage.alt = `${model.type} ${model.code} - ракурс ${galleryIndex + 1}`;
     galleryCurrent.textContent = String(galleryIndex + 1).padStart(2, '0');
     galleryProgress.style.transform = `translateX(${galleryIndex * 100}%)`;
     gallery.classList.remove('is-changing');
@@ -319,7 +319,7 @@ document.querySelectorAll('[data-unit-number]').forEach(pin => pin.addEventListe
       <p class="unit-preview__meta"><span>${selectedModel.area}</span><span>${selectedModel.bedrooms} спальні</span><span>${selectedModel.parcel}</span></p>
     </div>
     <span class="unit-preview__status ${isAvailable ? 'is-available' : ''}">${isAvailable ? 'В продажу' : 'Продано'}</span>
-    ${isAvailable ? `<a class="unit-preview__action" href="../${pin.dataset.unitModel}/" data-residence-open="${pin.dataset.unitModel}" data-residence-source="Карточка резиденции — генплан">Переглянути резиденцію</a>` : ''}
+    ${isAvailable ? `<a class="unit-preview__action" href="../${pin.dataset.unitModel}/" data-residence-open="${pin.dataset.unitModel}" data-residence-source="Карточка резиденции - генплан">Переглянути резиденцію</a>` : ''}
   `;
 }));
 

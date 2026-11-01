@@ -174,7 +174,7 @@ async function sendFacebookLeadToTelegram(lead, contact) {
     if (!botToken || !chatId) throw new Error('Telegram credentials missing');
 
     const metadata = lead.metadata || {};
-    const name = contact?.name || metadata.name || lead.name || '—';
+    const name = contact?.name || metadata.name || lead.name || '-';
     const phone = normalizePhoneForTelegram(getCustomFieldValue(contact, 'PHONE') || metadata.phone);
     const comment = metadata.form_name || metadata.form_id || metadata.name || 'Facebook Lead Ads';
     const timestamp = lead.created_at
@@ -187,7 +187,7 @@ async function sendFacebookLeadToTelegram(lead, contact) {
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 
 👤 <b>Клієнт:</b> ${escapeHtml(name)}
-📞 <b>Телефон:</b> ${escapeHtml(phone || '—')}
+📞 <b>Телефон:</b> ${escapeHtml(phone || '-')}
 📝 <b>Форма:</b> ${escapeHtml(comment)}
 📍 <b>Джерело:</b> ${escapeHtml(lead.source_name || 'Facebook')}
 ⏰ <b>Час:</b> ${escapeHtml(timestamp)}
@@ -253,7 +253,7 @@ async function createKommoLead({ name, phone, source, viewingTime, device, times
 
     const safeName = String(name || '').trim().slice(0, 255);
     const safePhone = String(phone || '').trim().slice(0, 100);
-    const leadName = `Заявка з сайту — ${safeName || safePhone}`.slice(0, 255);
+    const leadName = `Заявка з сайту - ${safeName || safePhone}`.slice(0, 255);
     const hostname = `${config.subdomain}.kommo.com`;
     const authorization = { Authorization: `Bearer ${config.token}` };
 
@@ -283,8 +283,8 @@ async function createKommoLead({ name, phone, source, viewingTime, device, times
     const details = [
         'Заявка з сайту Shepit House',
         `Джерело: ${String(source || 'Головна').slice(0, 500)}`,
-        `Пристрій: ${String(device || '—').slice(0, 100)}`,
-        `Час: ${String(timestamp || '—').slice(0, 100)}`,
+        `Пристрій: ${String(device || '-').slice(0, 100)}`,
+        `Час: ${String(timestamp || '-').slice(0, 100)}`,
         viewingTime ? `Перегляд: ${viewingTime}` : null
     ].filter(Boolean).join('\n');
 
@@ -322,12 +322,12 @@ app.post('/api/lead', async (req, res) => {
 <b>✨ НОВА ЗАЯВКА: Shepit House ✨</b>
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 
-👤 <b>Клієнт:</b> ${escapeHtml(name) || '—'}
+👤 <b>Клієнт:</b> ${escapeHtml(name) || '-'}
 📞 <b>Телефон:</b> ${formattedPhone}
 
 📍 <b>Звідки:</b> ${escapeHtml(source) || 'Головна'}
-📱 <b>Пристрій:</b> ${escapeHtml(device) || '—'}
-⏰ <b>Час:</b> ${escapeHtml(timestamp) || '—'}
+📱 <b>Пристрій:</b> ${escapeHtml(device) || '-'}
+⏰ <b>Час:</b> ${escapeHtml(timestamp) || '-'}
 ${viewingLine}
 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
@@ -386,7 +386,7 @@ app.post('/api/newsletter', (req, res) => {
 
 📧 <b>Email:</b> ${escapeHtml(cleanEmail)}
 📍 <b>Звідки:</b> ${escapeHtml(source) || 'Журнал'}
-⏰ <b>Час:</b> ${escapeHtml(timestamp) || '—'}
+⏰ <b>Час:</b> ${escapeHtml(timestamp) || '-'}
 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 #newsletter #shepit_house`.trim();
