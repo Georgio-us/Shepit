@@ -266,6 +266,104 @@
   line-height: 1.4;
 }
 
+@media (min-width: 900px) {
+  .hero-v2--edit .hero-v2__content {
+    --hero-desktop-height: clamp(650px, 60vw, 850px);
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: var(--hero-desktop-height) auto auto auto;
+    gap: 0;
+    padding-top: 0;
+  }
+
+  .hero-v2--edit .hero-v2__copy {
+    position: relative;
+    z-index: 1;
+    grid-column: 1;
+    grid-row: 1;
+    width: min(100%, 670px);
+    align-self: center;
+    padding-block: 48px;
+    color: #fff;
+  }
+
+  .hero-v2--edit h1 {
+    font-size: clamp(49px, 5vw, 78px);
+  }
+
+  .hero-v2--edit .hero-v2__lead {
+    color: rgb(255 255 255 / 88%);
+  }
+
+  .hero-v2--edit .hero-v2__book {
+    color: #252c19;
+    background: #fff;
+  }
+
+  .hero-v2--edit .hero-v2__book:hover {
+    background: #f0f1e8;
+  }
+
+  .hero-v2--edit .hero-v2__view-homes {
+    display: flex;
+    width: min(100%, 480px);
+    min-height: 52px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 0 22px;
+    border: 1px solid rgb(255 255 255 / 70%);
+    border-radius: 16px;
+    background: rgb(24 29 18 / 24%);
+    line-height: 1.2;
+    backdrop-filter: blur(6px);
+  }
+
+  .hero-v2--edit .hero-v2__visual {
+    position: absolute;
+    z-index: 0;
+    grid-column: 1;
+    grid-row: 1;
+    top: 0;
+    left: calc(-1 * var(--v2-page-x));
+    width: 100vw;
+    height: var(--hero-desktop-height);
+    aspect-ratio: auto;
+  }
+
+  .hero-v2--edit .hero-v2__visual::after {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgb(19 25 15 / 86%) 0%, rgb(19 25 15 / 72%) 31%, rgb(19 25 15 / 20%) 67%, transparent 100%);
+    content: "";
+  }
+
+  .hero-v2--edit .hero-v2__visual img {
+    object-position: center 48%;
+  }
+
+  .hero-v2--edit .hero-v2__benefits {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .hero-v2--edit .hero-v2__homes-heading {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .hero-v2--edit .hero-v2__cards {
+    grid-column: 1;
+    grid-row: 4;
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1180px) {
+  .hero-v2--edit .hero-v2__menu,
+  .hero-v2--edit .hero-v2__cta {
+    grid-row: 1;
+  }
+}
+
 @media (max-width: 899px) {
   .hero-v2__view-homes {
     display: flex;

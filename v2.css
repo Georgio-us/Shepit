@@ -630,7 +630,7 @@ button {
   grid-column: 2 / 5;
 }
 
-.about-gallery__copy h3 {
+.about-gallery__copy :is(h2, h3) {
   max-width: 16ch;
   margin: 0;
   font-size: var(--v2-h2);
@@ -4250,7 +4250,7 @@ body.is-media-open {
     margin-top: 2.5rem;
   }
 
-  .about-gallery__copy h3 {
+  .about-gallery__copy :is(h2, h3) {
     font-size: clamp(38px, 11vw, 52px);
   }
 
