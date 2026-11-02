@@ -1,0 +1,109 @@
+.construction-preview__actions .construction-preview__photo-link {
+  min-height: 52px;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 16px;
+  border: 1px solid #b7c0aa;
+  border-radius: 999px;
+  background: #fff;
+  text-decoration: none;
+}
+
+.construction-preview__photo-link svg {
+  width: 18px;
+  height: 18px;
+}
+
+.construction-photos {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(36px, 7vw, 120px);
+  margin: clamp(80px, 9vw, 144px) var(--v2-page-x) 0;
+  padding-top: clamp(48px, 5vw, 80px);
+  border-top: 1px solid rgb(255 255 255 / 20%);
+}
+
+.construction-photos__copy {
+  max-width: 520px;
+}
+
+.construction-photos__eyebrow {
+  margin: 0 0 22px;
+  color: rgb(255 255 255 / 58%);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .14em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.construction-photos h3 {
+  margin: 0;
+  font-size: clamp(34px, 3.5vw, 58px);
+  font-weight: 500;
+  letter-spacing: -.055em;
+  line-height: 1.04;
+}
+
+.construction-photos__copy > p:last-child {
+  max-width: 38ch;
+  margin: 24px 0 0;
+  color: rgb(255 255 255 / 68%);
+  font-size: clamp(15px, 1.2vw, 18px);
+  line-height: 1.5;
+}
+
+.construction-photos__item {
+  width: min(100%, 520px);
+  justify-self: center;
+  margin: 0;
+}
+
+.construction-photos__item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 22px;
+  background: #30382b;
+}
+
+.construction-photos__item figcaption {
+  margin-top: 14px;
+  color: rgb(255 255 255 / 58%);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+@media (max-width: 899px) {
+  .construction-photos {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+    margin-top: 72px;
+    padding-top: 42px;
+  }
+
+  .construction-photos__copy > p:last-child {
+    margin-top: 16px;
+  }
+
+  .construction-photos__item {
+    width: 100%;
+  }
+}
+
+@media (max-width: 599px) {
+  .construction-photos {
+    margin-top: 64px;
+  }
+
+  .construction-photos h3 {
+    font-size: clamp(32px, 8.5vw, 42px);
+  }
+
+  .construction-photos__item img {
+    border-radius: 18px;
+  }
+}
