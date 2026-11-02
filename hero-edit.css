@@ -255,6 +255,30 @@
 }
 
 @media (max-width: 899px) {
+  .hero-v2__view-homes {
+    display: flex;
+    width: min(100%, 480px);
+    min-height: 52px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 0 18px;
+    border: 1px solid rgb(37 44 25 / 18%);
+    border-radius: 16px;
+    background: rgb(255 255 255 / 94%);
+    box-shadow: 0 8px 24px rgb(37 44 25 / 8%);
+    color: #252c19;
+    font-weight: 500;
+    line-height: 1.2;
+    text-decoration: none;
+    backdrop-filter: blur(8px);
+  }
+
+  .hero-v2__view-homes span {
+    margin-left: 0;
+    font-size: 21px;
+  }
+
   .hero-v2--edit .hero-v2__header {
     grid-template-columns: minmax(0, 1fr) auto auto;
     gap: 12px;
@@ -393,7 +417,7 @@
   }
 
   .hero-v2__view-homes {
-    width: max-content;
+    width: 100%;
   }
 
   .hero-v2__benefits {
