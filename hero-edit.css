@@ -163,17 +163,6 @@
   height: 100%;
 }
 
-.hero-v2__visual figcaption {
-  position: absolute;
-  right: 14px;
-  bottom: 12px;
-  padding: 4px 7px;
-  color: #fff;
-  background: rgba(25, 29, 23, 0.7);
-  font-size: 10px;
-  line-height: 1;
-}
-
 .hero-v2__benefits {
   grid-column: 1 / -1;
   display: grid;

@@ -56,17 +56,6 @@
   object-position: center;
 }
 
-.about-town__visual figcaption {
-  position: absolute;
-  right: 20px;
-  bottom: 18px;
-  padding: 5px 8px;
-  color: #fff;
-  background: rgb(23 29 18 / 72%);
-  font-size: 11px;
-  line-height: 1;
-}
-
 .about-town__details {
   padding-top: clamp(34px, 4vw, 58px);
   padding-bottom: clamp(52px, 5vw, 84px);
@@ -202,11 +191,6 @@
   .about-town__visual {
     aspect-ratio: 1.35;
     margin-top: 24px;
-  }
-
-  .about-town__visual figcaption {
-    right: 10px;
-    bottom: 10px;
   }
 
   .about-town__details {
