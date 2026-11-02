@@ -1,74 +1,74 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 590" width="620" height="590">
-  <title>Що поруч із SHEPIT HOUSE</title>
-  <desc>Схема відстаней із каталогу: супермаркет та кав’ярня - 1,1 км, ліс - 1,5 км, школа та садок - 1,8 км, Київське море - 3,5 км, метро Героїв Дніпра - 17 км.</desc>
-  <rect width="620" height="590" fill="#fbfaf6"/>
-  <g fill="none" stroke="#dedfd6" stroke-width="1.2">
-    <circle cx="310" cy="294" r="225"/>
-    <circle cx="310" cy="294" r="183"/>
-    <circle cx="310" cy="294" r="147"/>
-    <circle cx="310" cy="294" r="134"/>
-    <circle cx="310" cy="294" r="121"/>
-    <circle cx="310" cy="294" r="108"/>
-    <circle cx="310" cy="294" r="95"/>
-  </g>
-  <g fill="none" stroke="#525a47" stroke-width="1.4" stroke-linecap="round">
-    <path d="M249 232 227 205"/>
-    <path d="M371 232 395 201"/>
-    <path d="M384 346 435 380"/>
-    <path d="M310 389v29"/>
-    <path d="M245 355 117 449"/>
-  </g>
-  <g fill="#252e1e">
-    <circle cx="249" cy="232" r="6"/>
-    <circle cx="371" cy="232" r="6"/>
-    <circle cx="435" cy="380" r="6"/>
-    <circle cx="310" cy="418" r="6"/>
-    <circle cx="117" cy="449" r="6"/>
-    <circle cx="310" cy="294" r="87"/>
-  </g>
-  <g font-family="Inter, Arial, sans-serif" text-anchor="middle" fill="#fff">
-    <text x="310" y="277" font-size="45" font-weight="400" letter-spacing="-5">SH</text>
-    <text x="310" y="319" font-size="22" font-weight="500" letter-spacing="7">SHEPIT</text>
-    <text x="310" y="341" font-size="15" font-weight="400" letter-spacing="6">HOUSE</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 610" width="720" height="610" role="img" aria-labelledby="title description">
+  <title id="title">Що поруч із SHEPIT HOUSE</title>
+  <desc id="description">Схема відстаней: супермаркет та кав’ярня - 1,1 км; ліс - 1,5 км; школа та садок - 1,8 км; Київське море - 3,5 км; метро Героїв Дніпра - 17 км.</desc>
+  <rect width="720" height="610" fill="#fbfaf6"/>
+
+  <g fill="none" stroke="#c9cdc4" stroke-width="1.1">
+    <circle cx="370" cy="275" r="220"/>
+    <circle cx="370" cy="275" r="170"/>
+    <circle cx="370" cy="275" r="130"/>
+    <circle cx="370" cy="275" r="118"/>
+    <circle cx="370" cy="275" r="106"/>
+    <circle cx="370" cy="275" r="94"/>
+    <circle cx="370" cy="275" r="82"/>
   </g>
 
-  <g fill="#fbfaf6">
-    <rect x="89" y="134" width="146" height="86" rx="8"/>
-    <rect x="385" y="128" width="226" height="95" rx="8"/>
-    <rect x="445" y="338" width="170" height="88" rx="8"/>
-    <rect x="233" y="425" width="190" height="82" rx="8"/>
-    <rect x="20" y="465" width="253" height="82" rx="8"/>
+  <g fill="none" stroke="#666d5b" stroke-width="1.15" stroke-linecap="round">
+    <path d="M370 345 370 373"/>
+    <path d="M418 327 468 359"/>
+    <path d="M325 329 137 456"/>
+  </g>
+  <g fill="#505b3d">
+    <circle cx="320" cy="201" r="5"/>
+    <circle cx="412" cy="200" r="5"/>
+    <circle cx="468" cy="359" r="5"/>
+    <circle cx="370" cy="373" r="5"/>
+    <circle cx="137" cy="456" r="5"/>
+    <circle cx="370" cy="275" r="70"/>
   </g>
 
-  <g fill="none" stroke="#252e1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M108 164v22m-8-11 8-19 8 19h-5l7 11H98l7-11z"/>
-    <path d="M401 152h5l4 24h21l5-17h-29m7 23h.1m14 0h.1"/>
-    <path d="M433 359c5 0 5 4 10 4s5-4 10-4 5 4 10 4 5-4 10-4m-40 10c5 0 5 4 10 4s5-4 10-4 5 4 10 4 5-4 10-4"/>
-    <path d="M252 450v-15h20v15m-23 0h26m-15-9h5m-7 9v-5"/>
-    <path d="M39 491v-14c0-5 4-8 11-8s11 3 11 8v14H39zm0-7h22m-17 7-3 6m15-6 3 6"/>
+  <g id="shepit-brand" fill="#fff">
+    <g transform="translate(278.3 205) scale(.095)">
+      <path d="M976.46 691.87H1001.22V716.604H976.46V691.87Z" fill="#FFFFFF"/>
+<path d="M976.46 722.787H1001.22V747.52H976.46V722.787Z" fill="#FFFFFF"/>
+<path d="M1007.41 691.87H1032.18V716.604H1007.41V691.87Z" fill="#FFFFFF"/>
+<path d="M1007.41 722.787H1032.18V747.52H1007.41V722.787Z" fill="#FFFFFF"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M845.339 283.48C868.01 281.107 904.835 287.901 926.089 295.887C936.039 299.626 956.006 308.574 956.006 308.574L955.677 371.913C955.603 371.76 931.92 322.673 898.354 303.664C840.141 270.699 746.297 298.385 767.736 378.705C776.385 404.493 800.052 417.903 822.695 430.185C870.587 456.161 941.766 472.217 961.658 529.667C970.402 554.919 965.822 582.793 954.178 605.989L1002 574.639C1020.48 585.655 1043.62 601.359 1061.99 613.383L1138.24 662.666C1138.82 629.81 1138.34 595.375 1138.35 562.395L1138.34 525.085C1138.33 512.798 1139.02 499.355 1136.12 487.486C1133.22 475.649 1128.37 472.429 1118.71 466.614C1139.66 465.661 1171.96 465.817 1193 466.605C1176.54 475.48 1173.86 483.982 1173.2 502.653C1172.54 520.978 1172.91 539.467 1172.92 557.813L1172.92 727.924C1172.92 743.352 1172.33 756.842 1174.29 772.196C1176.36 788.49 1188.97 791.767 1190.08 795.092C1187.85 796.576 1126.67 795.846 1118.69 795.624C1123.12 792.778 1124.74 792.598 1129.12 788.569C1141.61 777.078 1138.39 748.448 1138.31 731.511L1138.38 687.546C1123.33 677.355 1106.77 667.284 1091.34 657.451L1002.07 600.492C970.346 618.71 939.126 641.223 907.572 660.114C894.733 667.801 879.734 677.033 867.72 685.665C867.119 706.024 867.853 726.737 867.509 747.129C867.329 757.768 867.478 767.893 870.518 778.18C873.602 788.616 878.984 790.892 887.931 795.427C880.807 796.075 870.775 795.862 863.555 795.873C849.692 795.913 835.828 795.852 821.966 795.692C825.081 793.719 829.447 791.097 832.078 788.492C840.674 779.978 839.976 764.939 840.115 753.79C840.21 746.189 840.131 738.801 840.13 731.341L839.996 654.702C794.408 650 766.702 639.592 728.083 614.089C727.905 600.858 728.069 574.09 728.069 574.002L728.653 543.276C728.688 543.365 733.324 555.08 735.382 560.019C739.356 569.384 744.251 578.332 749.993 586.732C772.723 619.712 800.354 639.379 840.096 646.782L840.146 613.834L867.636 613.885C867.53 624.686 867.627 635.486 867.924 646.283C887.016 643.078 903.223 638.123 916.454 623.068C928.189 609.478 934.05 591.793 932.75 573.892C929.585 530.442 889.291 510.714 854.145 495.281L816.298 478.658C797.826 470.33 780.67 461.436 765.091 448.377C726.474 416.006 722.844 359.783 756.144 322.127C779.406 295.823 811.382 285.864 845.339 283.48ZM884.828 651.058C879.154 652.26 873.452 653.331 867.728 654.268C867.699 656.395 867.423 662.104 868.044 663.755L868.898 664.069C871.321 662.373 885.231 652.958 886.243 651.26L884.828 651.058Z" fill="#FFFFFF"/>
+    </g>
+    <text x="370" y="305" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="500" letter-spacing="4.5">SHEPIT</text>
+    <path d="M339 321h10m42 0h10" stroke="#fff" stroke-width=".7"/>
+    <text x="370" y="324" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="7.5" letter-spacing="3.2">HOUSE</text>
+    <text x="370" y="336" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="4" letter-spacing="1.8">ПРОСТІР ДЛЯ ЖИТТЯ</text>
   </g>
 
-  <g font-family="Inter, Arial, sans-serif" fill="#20251c" font-size="21" font-weight="400">
-    <text x="129" y="177">Ліс</text>
-    <text x="445" y="154">Супермаркет</text>
-    <text x="445" y="179">та кав’ярня</text>
-    <text x="474" y="370">Київське море</text>
-    <text x="285" y="455">Школа та садок</text>
-    <text x="72" y="493">Київ, м. Героїв Дніпра</text>
+  <g fill="none" stroke="#566148" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M190 191v-13m0-9-10 17h6l-5 8h18l-5-8h6z"/>
+    <path d="M440 180h5l3 17h18l4-13h-24m4 18h.1m14 0h.1"/>
+    <path d="M486 360c4-3 8-3 12 0s8 3 12 0 8-3 12 0m-36 7c4-3 8-3 12 0s8 3 12 0 8-3 12 0"/>
+    <path d="M266 416v-15h16v15m-19 0h22m-14-8h6m-6 8v-4"/>
+    <path d="M24 502v-14c0-5 4-8 10-8s10 3 10 8v14H24zm0-7h20m-15 7-3 5m13-5 3 5"/>
   </g>
 
-  <g fill="#f1dfbb">
-    <rect x="127" y="184" width="77" height="30" rx="15"/>
-    <rect x="445" y="186" width="77" height="30" rx="15"/>
-    <rect x="474" y="378" width="77" height="30" rx="15"/>
-    <rect x="285" y="463" width="77" height="30" rx="15"/>
-    <rect x="72" y="501" width="77" height="30" rx="15"/>
+  <g fill="#252c19" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="400">
+    <text x="211" y="191">Ліс</text>
+    <text x="482" y="192" font-size="20">Супермаркет та кав’ярня</text>
+    <text x="530" y="365">Київське море</text>
+    <text x="293" y="417">Школа та садок</text>
+    <text x="55" y="503">Київ, м. Героїв Дніпра</text>
   </g>
-  <g font-family="Inter, Arial, sans-serif" fill="#20251c" font-size="18" font-weight="500" text-anchor="middle">
-    <text x="165.5" y="205">1,5 км</text>
-    <text x="483.5" y="207">1,1 км</text>
-    <text x="512.5" y="399">3,5 км</text>
-    <text x="323.5" y="484">1,8 км</text>
-    <text x="110.5" y="522">17 км</text>
+
+  <g fill="#ead09a">
+    <rect x="207" y="201" width="78" height="31" rx="15.5"/>
+    <rect x="527" y="201" width="78" height="31" rx="15.5"/>
+    <rect x="555" y="374" width="78" height="31" rx="15.5"/>
+    <rect x="329" y="427" width="78" height="31" rx="15.5"/>
+    <rect x="111" y="512" width="78" height="31" rx="15.5"/>
+  </g>
+  <g fill="#252c19" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="500" text-anchor="middle">
+    <text x="246" y="223">1,5 км</text>
+    <text x="566" y="223">1,1 км</text>
+    <text x="594" y="396">3,5 км</text>
+    <text x="368" y="449">1,8 км</text>
+    <text x="150" y="534">17 км</text>
   </g>
 </svg>
