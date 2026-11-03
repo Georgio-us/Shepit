@@ -124,19 +124,25 @@
       }
     });
   });
+  const dialogs = Array.from(document.querySelectorAll('dialog, .application-modal, .catalog-application, .global-menu, .plan-lightbox, .calculator-success'));
+  const visibleContactFields = Array.from(document.querySelectorAll(leadSelector))
+    .filter(form => !form.closest('dialog'))
+    .map(form => ({ form, phone: form.querySelector('input[name="phone"]') }))
+    .filter(({ phone }) => phone);
+  const floatingMenu = document.querySelector('.floating-menu-button');
+  let barUpdatePending = false;
   const updateBar = () => {
-    const activeDialog = document.querySelector('dialog[open], .application-modal:not([hidden]), .catalog-application:not([hidden]), .global-menu:not([hidden]), .plan-lightbox:not([hidden]), .calculator-success:not([hidden])');
-    const contactInView = Array.from(document.querySelectorAll(leadSelector)).some(form => {
-      if (form.closest('dialog') || form.closest('[hidden]')) return false;
-      const phone = form.querySelector('input[name="phone"]');
-      const r = phone?.getBoundingClientRect();
+    barUpdatePending = false;
+    const activeDialog = dialogs.some(dialog => dialog.matches('dialog') ? dialog.open : !dialog.hidden);
+    const contactInView = visibleContactFields.some(({ form, phone }) => {
+      if (form.closest('[hidden]')) return false;
+      const r = phone.getBoundingClientRect();
       return r && r.height > 0 && r.top >= 0 && r.bottom <= innerHeight;
     });
     const editing = document.activeElement?.matches('input,textarea,select');
     const initialHero = document.querySelector('.hero-v2') && scrollY < 100;
     const shouldHide = Boolean(activeDialog || contactInView || editing || initialHero);
     if (bar.hidden !== shouldHide) bar.hidden = shouldHide;
-    const floatingMenu = document.querySelector('.floating-menu-button');
     const hideMenu = Boolean(activeDialog || contactInView || editing);
     if (floatingMenu && floatingMenu.hidden !== hideMenu) floatingMenu.hidden = hideMenu;
     if (bar.hidden) {
@@ -145,10 +151,16 @@
       if (!panel.hidden) panel.hidden = true;
     }
   };
-  addEventListener('scroll', updateBar, { passive: true });
-  addEventListener('resize', updateBar);
-  document.addEventListener('focusin', updateBar);
-  document.addEventListener('focusout', () => requestAnimationFrame(updateBar));
-  new MutationObserver(updateBar).observe(document.body, { subtree: true, attributes: true, attributeFilter: ['hidden','open','class'] });
+  const scheduleBarUpdate = () => {
+    if (barUpdatePending) return;
+    barUpdatePending = true;
+    requestAnimationFrame(updateBar);
+  };
+  addEventListener('scroll', scheduleBarUpdate, { passive: true });
+  addEventListener('resize', scheduleBarUpdate);
+  document.addEventListener('focusin', scheduleBarUpdate);
+  document.addEventListener('focusout', scheduleBarUpdate);
+  const dialogObserver = new MutationObserver(scheduleBarUpdate);
+  dialogs.forEach(dialog => dialogObserver.observe(dialog, { attributes: true, attributeFilter: ['hidden', 'open', 'class'] }));
   updateBar();
 })();

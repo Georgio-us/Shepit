@@ -198,8 +198,17 @@ document.addEventListener('keydown', (event) => {
     closeContactWidget();
 });
 
-window.addEventListener('scroll', syncFloatingControls, { passive: true });
-window.addEventListener('resize', syncFloatingControls);
+let floatingControlsUpdatePending = false;
+const scheduleFloatingControls = () => {
+    if (floatingControlsUpdatePending) return;
+    floatingControlsUpdatePending = true;
+    window.requestAnimationFrame(() => {
+        floatingControlsUpdatePending = false;
+        syncFloatingControls();
+    });
+};
+window.addEventListener('scroll', scheduleFloatingControls, { passive: true });
+window.addEventListener('resize', scheduleFloatingControls);
 syncFloatingControls();
 
 const galleryViewport = document.querySelector('.about-gallery__viewport');
