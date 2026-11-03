@@ -97,6 +97,13 @@
   display: none;
 }
 
+.construction-photos__count {
+  margin: 0 0 22px;
+  color: rgb(255 255 255 / 65%);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
 .construction-photos__gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr));
@@ -108,14 +115,35 @@
   margin: 0;
 }
 
+.construction-photos__image-link {
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border-radius: 22px;
+  background: #30382b;
+}
+
+.construction-photos__image-link:focus-visible {
+  outline: 2px solid #e6d9a9;
+  outline-offset: 4px;
+}
+
 .construction-photos__item img {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 5;
+  height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center 65%;
   border-radius: 22px;
   background: #30382b;
+}
+
+.construction-photos__image-link:hover img {
+  transform: scale(1.025);
+}
+
+#construction-panel-october .construction-photos__item img {
+  object-position: center bottom;
 }
 
 .construction-photos__item figcaption {
@@ -132,6 +160,95 @@
   color: rgb(255 255 255 / 58%);
   font-size: clamp(18px, 2vw, 24px);
   line-height: 1.35;
+}
+
+.construction-photo-dialog {
+  box-sizing: border-box;
+  width: min(96vw, 1200px);
+  max-width: none;
+  max-height: 96vh;
+  padding: 18px;
+  border: 1px solid rgb(255 255 255 / 20%);
+  border-radius: 20px;
+  background: #1b2318;
+  color: #fff;
+}
+
+.construction-photo-dialog[open] {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+}
+
+.construction-photo-dialog::backdrop {
+  background: rgb(0 0 0 / 84%);
+}
+
+.construction-photo-dialog__image {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: calc(96vh - 96px);
+  object-fit: contain;
+}
+
+.construction-photo-dialog__caption {
+  margin: 0;
+  color: rgb(255 255 255 / 70%);
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.construction-photo-dialog button {
+  position: absolute;
+  z-index: 1;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgb(255 255 255 / 30%);
+  border-radius: 50%;
+  background: rgb(25 32 22 / 85%);
+  color: #fff;
+  cursor: pointer;
+}
+
+.construction-photo-dialog button[hidden] {
+  display: none;
+}
+
+.construction-photo-dialog button:focus-visible {
+  outline: 2px solid #e6d9a9;
+  outline-offset: 3px;
+}
+
+.construction-photo-dialog button svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+}
+
+.construction-photo-dialog__close {
+  top: 16px;
+  right: 16px;
+}
+
+.construction-photo-dialog__prev,
+.construction-photo-dialog__next {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.construction-photo-dialog__prev {
+  left: 16px;
+}
+
+.construction-photo-dialog__next {
+  right: 16px;
 }
 
 @media (max-width: 899px) {
@@ -161,5 +278,22 @@
 
   .construction-photos__item img {
     border-radius: 18px;
+  }
+
+  .construction-photos__image-link {
+    border-radius: 18px;
+  }
+
+  .construction-photo-dialog {
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  .construction-photo-dialog__prev {
+    left: 8px;
+  }
+
+  .construction-photo-dialog__next {
+    right: 8px;
   }
 }

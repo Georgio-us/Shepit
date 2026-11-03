@@ -36,4 +36,53 @@
   });
 
   selectTab(tabs.find((tab) => tab.getAttribute('aria-selected') === 'true') || tabs[0]);
+
+  const dialog = section.querySelector('.construction-photo-dialog');
+  const dialogImage = dialog.querySelector('.construction-photo-dialog__image');
+  const dialogCaption = dialog.querySelector('[data-photo-caption]');
+  const previousButton = dialog.querySelector('[data-photo-prev]');
+  const nextButton = dialog.querySelector('[data-photo-next]');
+  let photoLinks = [];
+  let photoIndex = 0;
+  let returnFocus = null;
+
+  function displayPhoto(index) {
+    photoIndex = (index + photoLinks.length) % photoLinks.length;
+    const link = photoLinks[photoIndex];
+    dialogImage.src = link.href;
+    dialogImage.alt = link.querySelector('img').alt;
+    dialogCaption.textContent = link.closest('figure').querySelector('figcaption').textContent;
+    previousButton.hidden = photoLinks.length < 2;
+    nextButton.hidden = photoLinks.length < 2;
+  }
+
+  section.addEventListener('click', (event) => {
+    const link = event.target.closest('[data-construction-photo]');
+    if (!link) return;
+    event.preventDefault();
+    photoLinks = Array.from(link.closest('.construction-photos__gallery').querySelectorAll('[data-construction-photo]'));
+    returnFocus = link;
+    displayPhoto(photoLinks.indexOf(link));
+    dialog.showModal();
+  });
+
+  dialog.querySelector('[data-photo-close]').addEventListener('click', () => dialog.close());
+  previousButton.addEventListener('click', () => displayPhoto(photoIndex - 1));
+  nextButton.addEventListener('click', () => displayPhoto(photoIndex + 1));
+  dialog.addEventListener('click', (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+  dialog.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      displayPhoto(photoIndex - 1);
+    } else if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      displayPhoto(photoIndex + 1);
+    }
+  });
+  dialog.addEventListener('close', () => {
+    dialogImage.removeAttribute('src');
+    returnFocus?.focus();
+  });
 })();
