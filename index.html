@@ -57,7 +57,7 @@
     <link rel="stylesheet" href="/hero-edit.css?v=5">
     <link rel="stylesheet" href="/installment-edit.css?v=3">
     <link rel="stylesheet" href="/about-town-edit.css?v=1">
-    <link rel="stylesheet" href="/construction-photos.css?v=2">
+    <link rel="stylesheet" href="/construction-photos.css?v=3">
     <link rel="stylesheet" href="/location-edit.css?v=2">
     <link rel="stylesheet" href="/typography-edit.css?v=1">
 </head>
@@ -582,15 +582,36 @@
             </div>
 
             <section class="construction-photos" id="construction-photos" aria-labelledby="construction-photos-title">
-                <div class="construction-photos__copy">
+                <div class="construction-photos__intro">
                     <p class="construction-photos__eyebrow">Хід будівництва · Фото</p>
                     <h3 id="construction-photos-title">Кадри з будівельного майданчика</h3>
-                    <p>Фотографії доповнюють відеозвіти та показують, як змінюється SHEPIT HOUSE під час будівництва.</p>
+                    <p>Оберіть місяць, щоб побачити, як змінюється SHEPIT HOUSE під час будівництва.</p>
                 </div>
-                <figure class="construction-photos__item">
-                    <img src="https://img.youtube.com/vi/is25KPUI62A/maxresdefault.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="Працівник на будівельному майданчику SHEPIT HOUSE під час монтажу конструкцій">
-                    <figcaption>Червень 2026 · Кадр із відеозвіту</figcaption>
-                </figure>
+                <div class="construction-photos__tabs" role="tablist" aria-label="Фото ходу будівництва за місяцями 2026 року">
+                    <button type="button" role="tab" id="construction-tab-march" aria-controls="construction-panel-march" aria-selected="false" tabindex="-1">Березень</button>
+                    <button type="button" role="tab" id="construction-tab-april" aria-controls="construction-panel-april" aria-selected="false" tabindex="-1">Квітень</button>
+                    <button type="button" role="tab" id="construction-tab-may" aria-controls="construction-panel-may" aria-selected="false" tabindex="-1">Травень</button>
+                    <button type="button" role="tab" id="construction-tab-june" aria-controls="construction-panel-june" aria-selected="true" tabindex="0">Червень</button>
+                    <button type="button" role="tab" id="construction-tab-july" aria-controls="construction-panel-july" aria-selected="false" tabindex="-1">Липень</button>
+                    <button type="button" role="tab" id="construction-tab-august" aria-controls="construction-panel-august" aria-selected="false" tabindex="-1">Серпень</button>
+                    <button type="button" role="tab" id="construction-tab-september" aria-controls="construction-panel-september" aria-selected="false" tabindex="-1">Вересень</button>
+                    <button type="button" role="tab" id="construction-tab-october" aria-controls="construction-panel-october" aria-selected="false" tabindex="-1">Жовтень</button>
+                </div>
+                <div class="construction-photos__panel" id="construction-panel-march" role="tabpanel" aria-labelledby="construction-tab-march" hidden><p class="construction-photos__empty">Фото за березень 2026 року з’являться тут.</p></div>
+                <div class="construction-photos__panel" id="construction-panel-april" role="tabpanel" aria-labelledby="construction-tab-april" hidden><p class="construction-photos__empty">Фото за квітень 2026 року з’являться тут.</p></div>
+                <div class="construction-photos__panel" id="construction-panel-may" role="tabpanel" aria-labelledby="construction-tab-may" hidden><p class="construction-photos__empty">Фото за травень 2026 року з’являться тут.</p></div>
+                <div class="construction-photos__panel" id="construction-panel-june" role="tabpanel" aria-labelledby="construction-tab-june">
+                    <div class="construction-photos__gallery">
+                        <figure class="construction-photos__item">
+                            <img src="https://img.youtube.com/vi/is25KPUI62A/maxresdefault.jpg" width="1280" height="720" loading="lazy" decoding="async" alt="Працівник на будівельному майданчику SHEPIT HOUSE під час монтажу конструкцій">
+                            <figcaption>Червень 2026 · Кадр із відеозвіту</figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <div class="construction-photos__panel" id="construction-panel-july" role="tabpanel" aria-labelledby="construction-tab-july" hidden><p class="construction-photos__empty">Фото за липень 2026 року з’являться тут.</p></div>
+                <div class="construction-photos__panel" id="construction-panel-august" role="tabpanel" aria-labelledby="construction-tab-august" hidden><p class="construction-photos__empty">Фото за серпень 2026 року з’являться тут.</p></div>
+                <div class="construction-photos__panel" id="construction-panel-september" role="tabpanel" aria-labelledby="construction-tab-september" hidden><p class="construction-photos__empty">Фото за вересень 2026 року з’являться тут.</p></div>
+                <div class="construction-photos__panel" id="construction-panel-october" role="tabpanel" aria-labelledby="construction-tab-october" hidden><p class="construction-photos__empty">Фото за жовтень 2026 року з’являться тут.</p></div>
             </section>
 
             <div class="media-v2__footer v2-grid">
@@ -959,6 +980,7 @@
     <script src="analytics-v2.js?v=3"></script>
     <script src="v2.js?v=22"></script>
     <script src="special-offer.js?v=2"></script>
+    <script src="/construction-photos.js?v=1" defer></script>
   <script src="/conversion.js?v=1" defer></script>
 </body>
 </html>
